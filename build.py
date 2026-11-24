@@ -17,3 +17,10 @@ html=re.sub(r'<script src=.*?</script>\s*','',html,flags=re.S).replace('</body>'
 os.makedirs(os.path.join(R,'dist'),exist_ok=True)
 open(os.path.join(R,'dist/physics-c-coach.html'),'w',encoding='utf-8').write(html)
 print('dist/physics-c-coach.html',round(len(html)/1e6,2),'MB')
+
+# Artifact variant: the host wraps the page in its own <html>/<head>/<body>, so emit only title, style and body content.
+m_style=re.search(r'<style>.*?</style>',html,flags=re.S).group(0)
+m_body=re.search(r'<body>(.*)</body>',html,flags=re.S).group(1)
+art='<title>Physics C Coach</title>\n'+m_style+'\n'+m_body
+open(os.path.join(R,'dist/physics-c-coach-artifact.html'),'w',encoding='utf-8').write(art)
+print('artifact variant',round(len(art)/1e6,2),'MB')

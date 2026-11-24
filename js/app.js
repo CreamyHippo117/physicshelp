@@ -43,14 +43,16 @@ function dueList(){var t=now(),r=[];allMcq().forEach(function(x){var s=S.q[qkey(
 function badge(){var n=dueList().length,b=document.getElementById("dueBadge");if(b)b.textContent=n?"("+n+")":""}
 
 /* ---------- router ---------- */
-function route(){
-  var h=location.hash.replace(/^#\/?/,"").split("/"), v=h[0]||"home";
+function route(hh){
+  var h=(hh||location.hash).replace(/^#\/?/,"").split("/"), v=h[0]||"home";
   window.scrollTo(0,0);
   try{ ({home:home,unit:unitView,review:review,mixed:mixed,exam:exam,resources:resources,settings:settings}[v]||home)(h); }
   catch(e){ $app.innerHTML="<p>Something broke: "+esc(e.message)+"</p>"; console.error(e) }
   math(); badge();
 }
-window.addEventListener("hashchange",route);
+var lastH="";
+window.addEventListener("hashchange",function(){if(location.hash!==lastH){lastH=location.hash;route()}});
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#/"],a[href="#/"]');if(!a)return;e.preventDefault();var h=a.getAttribute("href");lastH=h;try{location.hash=h}catch(_){}route(h)});
 
 /* ---------- home / plan ---------- */
 function home(){
@@ -83,7 +85,9 @@ function home(){
   });
   if(!units.length)h+='<p>No units loaded.</p>';
   $app.innerHTML=h;
-  document.getElementById("logh").onclick=function(e){e.preventDefault();var v=parseFloat(prompt("Hours studied?"));if(v>0){S.log.push({t:now(),h:v});save();home();math()}};
+  document.getElementById("logh").onclick=function(e){e.preventDefault();var h=e.target.parentNode;
+    h.innerHTML='<input id="lhv" type="number" min="0" step="0.25" placeholder="hours" style="width:90px"> <button id="lhb">Add</button>';
+    document.getElementById("lhb").onclick=function(){var v=parseFloat(document.getElementById("lhv").value);if(v>0){S.log.push({t:now(),h:v});save();home();math()}}};
 }
 
 /* ---------- unit ---------- */
@@ -168,7 +172,7 @@ function exam(){
   document.getElementById("go").onclick=function(){
     var c=document.getElementById("c").value;
     var pool=allMcq().filter(function(x){return c==="both"?(x.u.course==="mech"||x.u.course==="em"):x.u.course===c});
-    var set=shuffle(pool).slice(0,n); if(!set.length){alert("No questions yet.");return}
+    var set=shuffle(pool).slice(0,n); if(!set.length){document.getElementById("qs").innerHTML="<p>No questions yet.</p>";return}
     var secs=Math.round(set.length*mins*60/n), t0=now(), host=document.getElementById("qs");
     host.innerHTML='<div class="card"><b id="tm"></b></div><div id="inner"></div>';
     var iv=setInterval(function(){var r=secs-Math.round((now()-t0)/1000),t=document.getElementById("tm");if(!t){clearInterval(iv);return}t.textContent="Time left: "+Math.floor(Math.abs(r)/60)+":"+("0"+Math.abs(r)%60).slice(-2)+(r<0?" (over)":"")},500);
@@ -184,11 +188,11 @@ function resources(){
 }
 function settings(){
   $app.innerHTML='<h1>Settings</h1><div class="card"><p><label>Exam date <input type="date" id="d" value="'+esc(S.settings.examDate)+'"></label></p><p><label>Study hours per week <input type="number" id="h" min="1" max="40" value="'+S.settings.hpw+'"></label></p><button id="sv">Save</button></div>'
-   +'<div class="card"><b>Back up progress</b> (it only lives in this browser)<p><button id="ex" class="sec">Export</button> <button id="im" class="sec">Import</button> <button id="rs" class="sec">Reset all</button></p><textarea id="ta" placeholder="Export text appears here; paste here to import"></textarea></div>';
+   +'<div class="card"><b>Back up progress</b> (it only lives in this browser)<p><button id="ex" class="sec">Export</button> <button id="im" class="sec">Import</button> <button id="rs" class="sec">Reset all</button></p><textarea id="ta" placeholder="Export text appears here; paste here to import"></textarea><p id="msg" class="mut"></p></div>';
   document.getElementById("sv").onclick=function(){S.settings.examDate=document.getElementById("d").value||S.settings.examDate;S.settings.hpw=+document.getElementById("h").value||5;save();location.hash="#/"};
   document.getElementById("ex").onclick=function(){document.getElementById("ta").value=JSON.stringify(S)};
-  document.getElementById("im").onclick=function(){try{var o=JSON.parse(document.getElementById("ta").value);mem=o;S=load();save();alert("Imported.")}catch(e){alert("Not valid.")}};
-  document.getElementById("rs").onclick=function(){if(confirm("Erase all progress?")){mem=blank();S=mem;save();location.hash="#/"}};
+  document.getElementById("im").onclick=function(){try{var o=JSON.parse(document.getElementById("ta").value);mem=o;S=load();save();document.getElementById("msg").textContent="Imported."}catch(e){document.getElementById("msg").textContent="That text is not valid progress data."}};
+  var armed=false;document.getElementById("rs").onclick=function(){var b=this;if(!armed){armed=true;b.textContent="Click again to erase everything";return}mem=blank();S=mem;save();location.hash="#/"};
 }
 
 /* ---------- boot ---------- */
