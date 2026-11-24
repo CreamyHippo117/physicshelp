@@ -11,7 +11,7 @@ PH.unit({
     "Identify independent, dependent and controlled variables, write a procedure, and analyze data for an experimental-design question"
   ],
   lessons:[
-  {id:"l1", title:"Rates and accumulation, with units", html:String.raw`
+  {id:"l1", title:"Rates and accumulation, with units", videos:[{"title": "The Essence of Calculus, Chapter 1", "url": "https://www.youtube.com/watch?v=WUvTyaaNkzM", "src": "3Blue1Brown", "note": "Rates and accumulation intuition."}], html:String.raw`
 <p>You know derivatives and integrals as limits and areas. In physics, they are two <b>verbs</b>: "how fast is this changing?" and "how much has built up?" Almost every definition in the course is one of them.</p>
 <table><tr><th>Rate (derivative)</th><th>Accumulation (integral)</th></tr>
 <tr><td>velocity $v=dx/dt$ (m/s)</td><td>displacement $\Delta x=\int v\,dt$ (m)</td></tr>
@@ -25,7 +25,7 @@ PH.unit({
 <p><b>Numerical integration from data.</b> If you have data points rather than a formula, the area is a sum of trapezoids: $\int f\,dx\approx\sum\tfrac12(f_i+f_{i+1})\Delta x_i$. The AP usually just wants you to count squares or use simple shapes.</p>
 <p><b>Differential reasoning.</b> A small change $df=f'(x)\,dx$. In physics we write quantities like $dW=F\,dx$ ("a tiny bit of work in a tiny displacement") and then integrate. This is the habit of the next lesson, so be comfortable with it: a differential is a small, but finite, amount of a quantity that you treat as constant over the slice.</p>
 <div class="box trap"><b>Trap:</b> The slope of a graph at a point is not the value divided by the horizontal coordinate. On a $v$-$t$ curve, $a=dv/dt$ is the slope of the <i>tangent</i>, not $v/t$ (that would be the slope of a line from the origin, which equals acceleration only for constant $a$ starting from rest).</div>`},
-  {id:"l2", title:"Slice and integrate: dm, dq and friends", html:String.raw`
+  {id:"l2", title:"Slice and integrate: dm, dq and friends", videos:[{"title": "Search: slice-and-integrate dm = λ dx", "url": "https://www.youtube.com/results?search_query=slice+and+integrate+dm+%3D+lambda+dx+physics+center+of+mass+rod+integral", "src": "YouTube search", "note": "Pick a short, well-reviewed explainer; no specific video verified."}], html:String.raw`
 <p>Many problems involve a continuous object (a rod, a ring, a disk, a sphere) whose density varies. The method for any such problem is:</p>
 <ol>
 <li><b>Draw</b> the object and choose a coordinate ($x$ along a rod, $r$ out from the center, $\phi$ around a ring).</li>
@@ -55,7 +55,7 @@ PH.unit({
 <p><b>Components and symmetry.</b> When each slice contributes a <i>vector</i> (like a field or force), add components, not magnitudes. Use symmetry first: if two slices have contributions whose perpendicular components cancel, only the other component survives. This will reduce a 3D vector integral to one scalar integral in E&amp;M (the field of a ring on its axis is the standard example).</p>
 <p><b>Variable density example.</b> A rod of length $L$ with $\lambda(x)=kx$ has total mass $M=\int_0^L kx\,dx=\tfrac12kL^2$. Units: $k$ must be kg/m$^2$ so that $\lambda$ is kg/m. The center of mass is the mass-weighted average position, $x_\text{cm}=\tfrac1M\int x\,dm$ (see Example 1).</p>
 <div class="box trap"><b>Trap:</b> Wrong slice size. For a disk, $dA\ne dr$; it is $2\pi r\,dr$. And mixing the integration variable with a limit: if the integrand is a function of $r$, the limits are values of $r$ (0 to $R$), not $\phi$. Always write $dm$ in terms of the <b>same</b> variable you integrate over.</div>`},
-  {id:"l3", title:"Linearizing data: straight lines are the goal", html:String.raw`
+  {id:"l3", title:"Linearizing data: straight lines are the goal", videos:[{"title": "How to Linearize Data in Physics Lab", "url": "https://www.youtube.com/watch?v=fjiOGTZvpr8", "src": "YouTube", "note": "Choosing axes to get a straight line."}], html:String.raw`
 <p>The human eye cannot judge whether a curve follows $y=x^2$ versus $y=x^{2.3}$, but it is excellent at judging straightness. So we <b>choose axes so the model predicts a straight line</b> $y=mx+b$, then read constants from the slope $m$ and intercept $b$.</p>
 <p><b>Recipe.</b> (1) Write the theoretical relationship. (2) Rearrange so it looks like (something measured) $=$ (constant) $\times$ (something else measured) $+$ (constant). (3) Plot those two things. (4) Say what the slope and intercept equal in terms of the constants you want.</p>
 <table><tr><th>Model</th><th>Plot (vertical vs horizontal)</th><th>Slope</th><th>Intercept</th></tr>
@@ -75,7 +75,7 @@ PH.unit({
 <div class="box key"><b>Slope and intercept carry units.</b> In the table, the slope of $T^2$ vs $\ell$ is s$^2$/m, and that must equal $4\pi^2/g$ with $g$ in m/s$^2$: $(\text{m/s}^2)^{-1}=\text{s}^2/\text{m}$. &#10003; Write the units of your slope in your answer; graders look for them.</div>
 <p><b>Power-law detective.</b> If $y\propto x^n$, then doubling $x$ multiplies $y$ by $2^n$. Taking logs, $\ln y=n\ln x+\ln A$, so the slope of a log-log plot is the exponent. A measurement where $y$ goes up by 9 when $x$ goes up by 3 gives $n=2$ ($3^2=9$).</p>
 <div class="box trap"><b>Trap:</b> Calculating the slope with two <i>data</i> points instead of two points on the <i>best-fit line</i>. The slope must come from points on the drawn line, far apart, not from raw measurements (which scatter).</div>`},
-  {id:"l4", title:"Uncertainty, error bars and best-fit lines", html:String.raw`
+  {id:"l4", title:"Uncertainty, error bars and best-fit lines", videos:[{"title": "Search: uncertainty, error bars, max/min slopes", "url": "https://www.youtube.com/results?search_query=physics+lab+uncertainty+error+bars+best+fit+line+max+min+slope", "src": "YouTube search", "note": "Pick a short, well-reviewed explainer; no specific video verified."}], html:String.raw`
 <p>Every measurement has an <b>uncertainty</b>: the range in which you believe the true value lies. A result written $L=1.000\pm0.002$ m means a ruler reading good to about 2 mm. Sources are <b>random</b> (scatter you can reduce by repeating and averaging) and <b>systematic</b> (a consistent bias, such as a stopwatch that starts late, a ruler with a worn end, or friction you neglected). Averaging reduces the first but never the second.</p>
 <p><b>Estimating an uncertainty.</b> Common choices: half the smallest scale division for a single reading; for repeated measurements, the spread, $\sim(\text{max}-\text{min})/2$ for a handful of trials (a standard deviation if you know how).</p>
 <p><b>Percent (relative) uncertainty:</b> $\delta x/x$. For products and quotients, relative uncertainties combine: for $g=4\pi^2L/T^2$,</p>
@@ -93,7 +93,7 @@ $$\frac{\delta g}{g}\approx\sqrt{\left(\frac{\delta L}{L}\right)^2+\left(2\,\fra
 <p><b>Uncertainty in the slope.</b> Draw the steepest and shallowest lines that still pass through (roughly) all the error bars. The spread of their slopes, $\delta m\approx(m_\text{max}-m_\text{min})/2$, estimates the slope's uncertainty; a propagated uncertainty for $g=4\pi^2/m$ is $\delta g/g=\delta m/m$.</p>
 <div class="box key"><b>Are two results consistent?</b> If their intervals (value $\pm$ uncertainty) overlap, the results are consistent; a gap of many uncertainties is a real discrepancy needing a new explanation. A <b>single</b> measurement that disagrees by 2% when your uncertainty is 5% is not a discrepancy, and "human error" is never an acceptable explanation on the AP: say <i>what</i> error, <i>which direction</i> it pushes the result, and <i>why</i>.</div>
 <div class="box trap"><b>Trap:</b> More precise is not more accurate. Precision means small scatter; accuracy means close to the true value. A stopwatch that always starts 0.2 s late gives precise and inaccurate data.</div>`},
-  {id:"l5", title:"Analyzing and designing an experiment (the AP's experimental FRQ)", html:String.raw`
+  {id:"l5", title:"Analyzing and designing an experiment (the AP's experimental FRQ)", videos:[{"title": "Search: AP experimental design FRQ", "url": "https://www.youtube.com/results?search_query=AP+Physics+C+experimental+design+free+response+how+to+answer", "src": "YouTube search", "note": "Pick a short, well-reviewed explainer; no specific video verified."}], html:String.raw`
 <p>One FRQ on the Mechanics exam is an experimental design and analysis question; it also feeds MCQ questions about graphs and data. They are graded on a rubric that rewards <b>specific, reproducible, physics-based</b> statements. Master the vocabulary and the template.</p>
 <p><b>The variables.</b></p>
 <ul>

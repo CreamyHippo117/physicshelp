@@ -11,7 +11,7 @@ PH.unit({
     "Justify and use $\\sin\\theta\\approx\\theta$, $\\cos\\theta\\approx1-\\theta^2/2$, $\\tan\\theta\\approx\\theta$ for small angles"
   ],
   lessons:[
-  {id:"l1", title:"SI units and dimensional analysis", html:String.raw`
+  {id:"l1", title:"SI units and dimensional analysis", videos:[{"title": "Dimensional Analysis in Detail", "url": "https://www.youtube.com/watch?v=sk9BUMBK6hU", "src": "YouTube", "note": "Using dimensions to check and derive equations."}], html:String.raw`
 <p>A physical quantity is a number <b>times a unit</b>. The number alone means nothing: "5" could be 5 seconds or 5 light-years. Physics uses the SI system, built from seven base units. For the AP you need only four, and a few derived ones:</p>
 <table><tr><th>Quantity</th><th>Symbol for its dimension</th><th>SI unit</th></tr>
 <tr><td>length</td><td>L</td><td>meter (m)</td></tr>
@@ -24,7 +24,7 @@ PH.unit({
 <p><b>Example of the check.</b> Is the distance fallen $d=\tfrac12gt$ or $\tfrac12gt^2$? $g$ has units m/s$^2$. $gt$ has m/s (a speed), but $gt^2$ has m. Only the second can be a distance.</p>
 <p><b>Dimensional analysis as a way to guess formulas.</b> Suppose you suspect the period of a pendulum depends on its length $\ell$, the gravitational acceleration $g$, and the mass $m$ of the bob. Write $T\propto m^a\ell^b g^c$ and match units (this is Example 1). You find it must be $T\propto\sqrt{\ell/g}$ and the mass cannot appear. The method cannot give pure-number factors like $2\pi$; those need real physics.</p>
 <div class="box trap"><b>Trap:</b> Dimensional consistency is necessary, not sufficient. $\tfrac12gt^2$ and $gt^2$ both have units of length. The check cannot catch a missing factor of 2, or a wrong sign. It also cannot distinguish quantities that share units: torque and energy are both N$\cdot$m, but they are different things.</div>`},
-  {id:"l2", title:"Significant figures and order-of-magnitude estimation", html:String.raw`
+  {id:"l2", title:"Significant figures and order-of-magnitude estimation", videos:[{"title": "Master Fermi Questions & Estimate Like a Quant", "url": "https://www.youtube.com/watch?v=_61lnQ8BQRw", "src": "YouTube", "note": "Fermi (order-of-magnitude) estimation technique."}], html:String.raw`
 <p><b>Significant figures, sanely.</b> A number's significant figures tell the reader how well you know it. The AP does not penalize you for 2 versus 3 sig figs on a final answer, but it does expect you not to report $14.592$ m$^2$ from inputs known to two digits, and it expects your answer to be consistent with the data given. Working rules:</p>
 <ul>
 <li>Multiplying or dividing: keep as many sig figs as the <i>least</i> precise input. $3.2\times4.56=14.592\to15$.</li>
@@ -37,7 +37,7 @@ PH.unit({
 <p>Examples of numbers worth memorizing to one digit: a year is $\approx3\times10^7$ s; Earth's radius $6\times10^6$ m; the Earth-Sun distance $1.5\times10^{11}$ m; a person has mass $\sim70$ kg; air has density $1.2$ kg/m$^3$; water $1000$ kg/m$^3$; an atom is $\sim10^{-10}$ m across; the speed of light is $3\times10^8$ m/s.</p>
 <div class="box key"><b>Sanity-check habit.</b> After any numerical answer ask: is it plausible? A car moving at $2\times10^5$ m/s or a bowling ball with energy $10^{-9}$ J means a slip (usually a unit conversion or a misplaced exponent). Note that 3-4 minutes of estimating can save a point on an FRQ and many on the MCQ, where wrong choices are often off by obvious factors of 10.</div>
 <p><b>Powers of ten and scientific notation.</b> $(2\times10^3)(4\times10^{-5})=8\times10^{-2}$; $\sqrt{9\times10^{6}}=3\times10^{3}$. Always write $\sqrt{\ }$ of an odd power by shifting: $\sqrt{4\times10^{5}}=\sqrt{40\times10^{4}}\approx6.3\times10^2$.</p>`},
-  {id:"l3", title:"Vectors: components, magnitude, unit vectors", html:String.raw`
+  {id:"l3", title:"Vectors: components, magnitude, unit vectors", videos:[{"title": "Search: vector components in physics", "url": "https://www.youtube.com/results?search_query=vectors+components+magnitude+unit+vectors+physics", "src": "YouTube search", "note": "Pick a short, well-reviewed explainer; no specific video verified."}], html:String.raw`
 <p>A <b>scalar</b> has only a size (mass, time, energy, temperature). A <b>vector</b> has a size <i>and</i> a direction (displacement, velocity, force, electric field), written $\vec A$ or in bold. Vectors add tip-to-tail and the sum is independent of the order. Physics laws like Newton's second law hold <i>component by component</i>, which is why we need components.</p>
 <svg class="fig" viewBox="0 0 320 200" width="320" role="img" aria-label="A vector A in the xy plane at angle theta above the x axis with dashed components Ax along x and Ay along y">
 <defs><marker id="p1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="currentColor"/></marker></defs>
@@ -53,7 +53,7 @@ $$A_x=A\cos\theta,\qquad A_y=A\sin\theta,\qquad A=\sqrt{A_x^2+A_y^2},\qquad \tan
 <p><b>Adding</b> is component-wise: $\vec A+\vec B=(A_x+B_x,\ A_y+B_y,\ A_z+B_z)$. Multiplying by a scalar scales every component.</p>
 <div class="box trap"><b>Trap:</b> Which trig function goes with which component depends on <i>where the angle is measured from</i>. For a force on an incline of angle $\theta$, the component of gravity <i>along</i> the slope is $mg\sin\theta$ and <i>perpendicular</i> is $mg\cos\theta$, since $\theta$ is measured from the horizontal and the slope is tilted by $\theta$ from the horizontal. Always check limits: at $\theta=0$ (flat) the along-slope component must vanish. $\sin0=0$. Good.</div>
 <p>Calculus bridge: derivatives and integrals of vectors act on components. If $\vec r(t)=(x(t),y(t))$ then $\vec v=d\vec r/dt=(\dot x,\dot y)$. That single idea is the whole of 2D kinematics.</p>`},
-  {id:"l4", title:"Dot and cross products", html:String.raw`
+  {id:"l4", title:"Dot and cross products", videos:[{"title": "Cross products (Essence of linear algebra, ch. 10)", "url": "https://www.youtube.com/watch?v=eu6i7WJeinw", "src": "3Blue1Brown", "note": "Geometric meaning of the cross product."}, {"title": "Dot products and duality", "url": "https://www.youtube.com/watch?v=LyGKycYT2v0", "src": "3Blue1Brown", "note": "Geometric meaning of the dot product."}], html:String.raw`
 <p>There are two ways to multiply vectors, and physics needs both.</p>
 <p><b>Dot (scalar) product.</b> Result: a scalar.</p>
 $$\vec A\cdot\vec B=AB\cos\theta=A_xB_x+A_yB_y+A_zB_z$$
@@ -72,7 +72,7 @@ $$|\vec A\times\vec B|=AB\sin\theta,\qquad \vec A\times\vec B=(A_yB_z-A_zB_y,\ A
 <p><b>Physics previews</b> (you will meet them properly later; just see the pattern): <b>torque</b> $\vec\tau=\vec r\times\vec F$ (a twisting effect, where $\vec r$ points from the pivot to where the force acts); <b>magnetic force</b> on a moving charge $\vec F=q\vec v\times\vec B$; <b>angular momentum</b> $\vec L=\vec r\times\vec p$. In each case the result is perpendicular to the two inputs, and the size has a $\sin\theta$ because only the perpendicular part counts.</p>
 <div class="box trap"><b>Trap:</b> Mixing up which function goes with which product. Dot goes with $\cos$ (parallel parts count), cross goes with $\sin$ (perpendicular parts count). Quick test: for parallel vectors the dot product is largest and the cross product is zero.</div>
 <p><b>Mnemonic for components:</b> the cross product is the determinant of the $3\times3$ array with rows $\hat x\,\hat y\,\hat z$; $A_x\,A_y\,A_z$; $B_x\,B_y\,B_z$. If you have done linear algebra, you already know it.</p>`},
-  {id:"l5", title:"Trig in physics and the small-angle approximation", html:String.raw`
+  {id:"l5", title:"Trig in physics and the small-angle approximation", videos:[{"title": "Taylor series (Essence of calculus, ch. 11)", "url": "https://www.youtube.com/watch?v=3d6DsjIBzJ4", "src": "3Blue1Brown", "note": "Where sin x ≈ x comes from."}], html:String.raw`
 <p>You will use a short list of trig facts repeatedly: $\sin^2\theta+\cos^2\theta=1$; $\sin2\theta=2\sin\theta\cos\theta$; the sine and cosine of $0^\circ,30^\circ,45^\circ,60^\circ,90^\circ$ (memorize: $\tfrac12,\ \tfrac{\sqrt2}{2},\ \tfrac{\sqrt3}{2}$); and that <b>angles in calculus formulas are in radians</b>: $\theta_\text{rad}=\theta_\text{deg}\cdot\pi/180$. A derivative like $\tfrac{d}{d\theta}\sin\theta=\cos\theta$ is only true in radians.</p>
 <p><b>Small-angle approximation.</b> Taylor-expand about $\theta=0$:</p>
 $$\sin\theta=\theta-\frac{\theta^3}{6}+\cdots,\qquad \cos\theta=1-\frac{\theta^2}{2}+\cdots,\qquad \tan\theta=\theta+\frac{\theta^3}{3}+\cdots$$
