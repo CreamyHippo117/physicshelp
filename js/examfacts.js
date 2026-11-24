@@ -2,7 +2,8 @@
 window.PH_EXAM = {
   verified: false,
   note: "Exam format below came from unverified web-search snippets. Confirm on apcentral.collegeboard.org before relying on it.",
-  examDate: "2027-05-12",           // placeholder; set the real date in Settings
+  examDate: "2027-05-03",           // planning date = earliest exam (Mechanics). Dates supplied by the tutor.
+  dates: {mech:"2027-05-03", em:"2027-05-05"},
   mcqCount: 40, mcqMinutes: 80,     // 2026 format per search snippets; 2027 count reportedly updated
   frqCount: 4, frqMinutes: 100,
   frqTypes: ["Mathematical routines","Translation between representations","Experimental design & analysis","Qualitative/quantitative translation"],

@@ -59,7 +59,7 @@ function home(){
   var logged=S.log.reduce(function(a,b){return a+b.h},0);
   var remainH=0; units.forEach(function(u){remainH+=(u.hours||6)*(1-unitStats(u).p)});
   var avail=Math.max(0,(wks-reserve))*hpw, ok=avail>=remainH;
-  var h='<h1>Your plan</h1><div class="card"><div class="row"><div><b>'+left+' days</b> to the exam ('+esc(S.settings.examDate)+') &middot; '+wks.toFixed(1)+' weeks</div>'
+  var h='<h1>Your plan</h1><div class="card"><div class="row"><div><b>'+left+' days</b> to the first exam ('+esc(S.settings.examDate)+'; E&amp;M is '+PH_EXAM.dates.em+') &middot; '+wks.toFixed(1)+' weeks</div>'
    +'<div class="mut">Hours logged: '+logged.toFixed(1)+' &middot; <a href="#" id="logh">log hours</a></div></div>'
    +'<p class="'+(ok?'':'')+'">Content left: ~<b>'+remainH.toFixed(0)+' h</b>. At '+hpw+' h/week you have ~<b>'+avail.toFixed(0)+' h</b> before the final '+reserve+' weeks (kept for timed full-length practice). '
    +(ok?'<span class="pill ok">on pace</span>':'<span class="pill bad">behind: raise weekly hours to ~'+(wks>reserve?Math.ceil(remainH/(wks-reserve)):"?")+' h or skip optional parts</span>')+'</p>'
@@ -176,7 +176,7 @@ function exam(){
 
 /* ---------- resources / settings ---------- */
 function resources(){
-  $app.innerHTML='<h1>Official materials</h1><p>Do real past FRQs on paper, then grade against the College Board scoring guidelines. Start doing these once you have finished the matching unit, and do full sets in the last weeks.</p><ul>'
+  $app.innerHTML='<h1>Official materials</h1><p><b>Exam dates:</b> Mechanics '+PH_EXAM.dates.mech+', E&amp;M '+PH_EXAM.dates.em+'. The plan counts down to the earlier one.</p><p>Do real past FRQs on paper, then grade against the College Board scoring guidelines. Start doing these once you have finished the matching unit, and do full sets in the last weeks.</p><ul>'
    +PH_EXAM.links.map(function(l){return '<li><a href="'+l.url+'" target="_blank" rel="noopener">'+esc(l.label)+'</a></li>'}).join("")+'</ul>'
    +'<div class="card"><b>Exam facts used by this app</b> '+(PH_EXAM.verified?'':'<span class="pill warn">unverified</span>')+'<p class="mut">'+esc(PH_EXAM.note)+'</p><ul><li>MCQ: '+PH_EXAM.mcqCount+' in '+PH_EXAM.mcqMinutes+' min</li><li>FRQ: '+PH_EXAM.frqCount+' in '+PH_EXAM.frqMinutes+' min ('+PH_EXAM.frqTypes.join("; ")+')</li></ul><p class="mut">Older released FRQs may have a different structure. Check each year.</p></div>';
 }
