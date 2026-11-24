@@ -11,14 +11,14 @@ PH.unit({
     "Solve $a=f(v)$ and $a=f(x)$ problems with separation of variables"
   ],
   lessons:[
-  {id:"l1", title:"Position, velocity, acceleration", html:String.raw`
+  {id:"l1", title:"Position, velocity, acceleration", videos:[{title:"Search: AP Physics C position velocity acceleration derivatives integrals",url:"https://www.youtube.com/results?search_query=AP+Physics+C+position+velocity+acceleration+derivatives+integrals",src:"YouTube search",note:"search link, not a vetted video"}], html:String.raw`
 <p>Everything in kinematics is calculus on one function, the position $x(t)$ (or vector $\vec r(t)$):</p>
 $$v=\frac{dx}{dt},\qquad a=\frac{dv}{dt}=\frac{d^2x}{dt^2},\qquad x(t)=x_0+\int_0^t v\,dt',\qquad v(t)=v_0+\int_0^t a\,dt'$$
 <p>The integrals need <b>initial conditions</b> ($x_0$, $v_0$). On the AP, forgetting the constant of integration is the most common lost point in a "derive" question.</p>
 <div class="box key"><b>Signs matter.</b> Velocity is signed (direction). Speed is $|v|$. A particle can be speeding up with negative acceleration if its velocity is also negative.</div>
 <p><b>Displacement vs distance.</b> Displacement is $\Delta x=\int v\,dt$ (signed). Distance traveled is $\int |v|\,dt$: split the integral wherever $v$ changes sign.</p>
 <div class="box trap"><b>Trap:</b> "At rest" means $v=0$ <i>now</i>, not $a=0$. At the top of a throw, $v=0$ but $a=-g$.</div>`},
-  {id:"l2", title:"Constant acceleration: where the formulas come from", html:String.raw`
+  {id:"l2", title:"Constant acceleration: where the formulas come from", videos:[{title:"Search: AP Physics C constant acceleration derivation calculus kinematics",url:"https://www.youtube.com/results?search_query=AP+Physics+C+constant+acceleration+derivation+calculus+kinematics",src:"YouTube search",note:"search link, not a vetted video"}], html:String.raw`
 <p>If $a$ is a constant, integrate once and twice:</p>
 $$v=v_0+at,\qquad x=x_0+v_0t+\tfrac12at^2$$
 <p>Eliminating $t$ gives $v^2=v_0^2+2a(x-x_0)$. These hold <b>only</b> for constant $a$. If $a$ depends on $t$, $x$ or $v$, go back to integrals.</p>
@@ -31,14 +31,14 @@ $$a=\frac{dv}{dt}=\frac{dv}{dx}\frac{dx}{dt}=v\frac{dv}{dx}\quad\Rightarrow\quad
 <line x1="40" y1="100" x2="280" y2="40" stroke="currentColor" stroke-width="2.5"/>
 <text x="300" y="178">t</text><text x="18" y="22">v</text><text x="6" y="104">v₀</text><text x="285" y="35">v</text><text x="270" y="178">t</text>
 <text x="120" y="135">area = Δx</text><text x="150" y="62">slope = a</text></svg>`},
-  {id:"l3", title:"Reading motion graphs", html:String.raw`
+  {id:"l3", title:"Reading motion graphs", videos:[{title:"Search: AP Physics C motion graphs slope area x v a",url:"https://www.youtube.com/results?search_query=AP+Physics+C+motion+graphs+slope+area+x+v+a",src:"YouTube search",note:"search link, not a vetted video"}], html:String.raw`
 <table><tr><th>Graph</th><th>Slope gives</th><th>Area under gives</th></tr>
 <tr><td>$x$ vs $t$</td><td>$v$</td><td>(nothing useful)</td></tr>
 <tr><td>$v$ vs $t$</td><td>$a$</td><td>$\Delta x$</td></tr>
 <tr><td>$a$ vs $t$</td><td>"jerk"</td><td>$\Delta v$</td></tr></table>
 <p>Curvature of $x(t)$: concave up means $a>0$, concave down means $a<0$. An inflection point is where $a$ changes sign. Areas <b>below</b> the axis are negative displacement.</p>
 <p>The AP often asks you to sketch $v(t)$ or $a(t)$ from a description, or to go from one graph to another. Practice: label the sign and rough size of slope in each interval before drawing.</p>`},
-  {id:"l4", title:"Projectiles and variable acceleration", html:String.raw`
+  {id:"l4", title:"Projectiles and variable acceleration", videos:[{title:"Search: AP Physics C projectile motion and acceleration depends on velocity separation of variables",url:"https://www.youtube.com/results?search_query=AP+Physics+C+projectile+motion+and+acceleration+depends+on+velocity+separation+of+variables",src:"YouTube search",note:"search link, not a vetted video"}], html:String.raw`
 <p><b>Projectiles (no air resistance).</b> Horizontal and vertical motion are independent. With launch speed $v_0$ at angle $\theta$ above horizontal and $g$ pointing down:</p>
 $$v_x=v_0\cos\theta,\qquad v_y=v_0\sin\theta-gt,\qquad x=v_0\cos\theta\,t,\qquad y=v_0\sin\theta\,t-\tfrac12gt^2$$
 <p>The one thing the two directions share is the time $t$. For a launch and landing at the same height: time of flight $T=2v_0\sin\theta/g$, range $R=v_0^2\sin2\theta/g$, max range at $45^\circ$.</p>
