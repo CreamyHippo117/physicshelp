@@ -95,7 +95,7 @@ $$N\cos\theta=mg,\qquad N\sin\theta=\frac{mv^2}{r}\ \Rightarrow\ \tan\theta=\fra
 <line x1="162" y1="100" x2="146" y2="48" marker-end="url(#m2c)"/>
 <line x1="162" y1="100" x2="108" y2="100" stroke-dasharray="5 4" marker-end="url(#m2c)"/></g>
 <text x="168" y="145" font-size="13">mg</text><text x="130" y="48" font-size="13">N</text><text x="62" y="94" font-size="12">net F (toward center)</text>
-<text x="255" y="140" font-size="12">θ</text>
+<text x="75" y="145" font-size="12">θ</text>
 </svg>
 <p>With friction at the maximum speed (friction acting down the slope, $f=\mu_sN$): $v^2_{max}=rg\,\dfrac{\tan\theta+\mu_s}{1-\mu_s\tan\theta}$. For $\theta=0$ it reduces to the flat-curve result.</p>
 <p><b>Vertical circle (ball on a string, speed varies).</b> At the top, tension and gravity both point inward: $T+mg=mv^2/r$. At the bottom, tension points inward and gravity outward: $T-mg=mv^2/r$. The string can only pull, so $T\ge0$ at the top requires $v_{top}\ge\sqrt{gr}$. At the bottom $T$ is larger than at the top: the string holds the weight <i>and</i> turns the ball. (Speed changes along the path; the energy relation connecting $v_{top}$ and $v_{bottom}$ is Unit 3.)</p>
@@ -126,7 +126,7 @@ $$\int_0^v\frac{dv'}{v_t-v'}=\int_0^t\frac{dt'}{\tau}\ \Rightarrow\ -\ln\frac{v_
 <p>(Axes: time in units of $v_t/g$, which equals $\tau$ for linear drag. Both curves start with slope $g$ and share the same asymptote.)</p>
 <p><b>Quadratic drag.</b> Now $m\,dv/dt=mg-cv^2$, a nonlinear (but separable) ODE. Define $v_t=\sqrt{mg/c}$ (set $a=0$). Then $\dfrac{dv}{dt}=g\left(1-\dfrac{v^2}{v_t^2}\right)$. Separating, $\displaystyle\int_0^v\frac{dv'}{1-v'^2/v_t^2}=gt$, giving $v_t\,\text{artanh}(v/v_t)=gt$, i.e.
 $$v(t)=v_t\tanh\!\left(\frac{gt}{v_t}\right).$$
-For the AP, you must be able to find $v_t=\sqrt{mg/c}$, write the ODE, and sketch/describe the solution; the integral above is a good exercise but rarely demanded. Note the doubled mass dependence differs: linear $v_t\propto m$, quadratic $v_t\propto\sqrt m$.</p>
+For the AP, you must be able to find $v_t=\sqrt{mg/c}$, write the ODE, and sketch/describe the solution; the integral above is a good exercise but rarely demanded. Note the mass dependence differs: linear $v_t\propto m$, quadratic $v_t\propto\sqrt m$.</p>
 <div class="box trap"><b>Trap:</b> "Terminal velocity is reached when the drag force reaches $mg$" is right, but the object only approaches it asymptotically. Do not use $v=at$ or $v^2=2gh$ once drag matters. Also when the object is moving upward, drag points <i>downward</i>, adding to gravity, so $a$ is larger than $g$ in magnitude.</div>`}
   ],
   examples:[
