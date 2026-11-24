@@ -21,3 +21,4 @@ button.sec{background:transparent;color:var(--ac)}button:disabled{opacity:.5;cur
 details{margin:8px 0}summary{cursor:pointer;color:var(--ac)}table{border-collapse:collapse}td,th{border:1px solid var(--bd);padding:4px 10px;text-align:left}
 textarea,input{font:inherit;padding:6px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}textarea{width:100%;min-height:90px}
 .katex-display{overflow-x:auto;overflow-y:hidden}
+details.course>summary{font-size:1.15rem;margin:14px 0 6px;list-style:revert}

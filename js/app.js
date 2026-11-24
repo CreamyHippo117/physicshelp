@@ -70,7 +70,8 @@ function home(){
   var cum=0, cur=now();
   Object.keys(COURSES).forEach(function(c){
     var us=units.filter(function(u){return u.course===c}); if(!us.length)return;
-    h+='<h2>'+COURSES[c]+'</h2>';
+    var open_=us.some(function(u){return u===nxt}), nDone=us.filter(function(u){return unitStats(u).mastered}).length;
+    h+='<details class="course" '+((open_||(!nxt&&c==="prereq"))?'open':'')+'><summary><b>'+COURSES[c]+'</b> <span class="mut">'+nDone+'/'+us.length+' mastered</span></summary>';
     us.forEach(function(u){var st=unitStats(u), rem=(u.hours||6)*(1-st.p); cum+=rem;
       var proj=cur+cum/hpw*7*DAY;
       h+='<div class="card"><div class="row"><div><a href="#/unit/'+u.id+'"><b>'+esc(u.title)+'</b></a> '
@@ -78,6 +79,7 @@ function home(){
        +'<div class="mut">~'+(u.hours||6)+' h'+(st.mastered?'':' &middot; projected finish '+fmt(proj))+'</div></div>'
        +'<div class="bar" style="margin:8px 0"><i style="width:'+Math.round(st.p*100)+'%"></i></div>'
        +'<div class="mut">'+esc(u.blurb||"")+'</div></div>'});
+    h+='</details>';
   });
   if(!units.length)h+='<p>No units loaded.</p>';
   $app.innerHTML=h;

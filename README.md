@@ -14,3 +14,6 @@ Course order: Prerequisites (5 units) > Mechanics 1-7 > E&M 1-5 > Exam skills. E
 
 ## Add or edit content
 See `docs/AUTHORING.md`. One file per unit in `content/`, registered in `content/manifest.js`.
+
+## One-file build
+`python3 build.py` packs everything into `dist/physics-c-coach.html` (about 1.4 MB, fonts and math included, works offline). Send that single file, or host it anywhere. Rebuild after editing content.
