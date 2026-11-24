@@ -12,7 +12,9 @@ PH.unit({
     "Use $P=dW/dt=\\vec F\\cdot\\vec v$ for instantaneous and average power"
   ],
   lessons:[
-  {id:"l1", title:"Work as a line integral", html:String.raw`
+  {id:"l1", title:"Work as a line integral",
+   videos:[
+    {title:"AP Physics C - Work",url:"https://www.youtube.com/watch?v=DZxXiaeiSEE",src:"YouTube (channel not verified)",note:"Work by constant and non-constant forces."}], html:String.raw`
 <p><b>Energy</b> is a bookkeeping quantity: a number we can compute for a system that changes in a predictable way when forces act. The thing that changes it is <b>work</b>. Start with a force $\vec F$ pushing an object through a tiny displacement $d\vec r$. The work done by that force is the piece of the force that lies along the motion, times the distance:</p>
 $$dW=\vec F\cdot d\vec r=F\,|d\vec r|\cos\theta$$
 <p>Here $\vec A\cdot\vec B=AB\cos\theta=A_xB_x+A_yB_y+A_zB_z$ is the <b>dot product</b>: a scalar that measures how much of one vector points along the other. Adding up the tiny pieces along the whole path $C$ gives a line integral:</p>
@@ -36,7 +38,10 @@ $$W=\int_C\vec F\cdot d\vec r\qquad\text{which in one dimension is}\qquad W=\int
 $$W_{spring}=\int_{x_1}^{x_2}(-kx)\,dx=-\tfrac12k\left(x_2^2-x_1^2\right)$$
 <p>Stretching from $0$ to $x$ gives $-\tfrac12kx^2$ from the spring; a hand pulling slowly does the opposite, $+\tfrac12kx^2$.</p>
 <div class="box trap"><b>Trap:</b> always ask <i>which force</i> and <i>on which object</i>. "The work done" is meaningless without that. On a lifted box, you do $+mgh$ and gravity does $-mgh$.</div>`},
-  {id:"l2", title:"The work-energy theorem, kinetic energy and power", html:String.raw`
+  {id:"l2", title:"The work-energy theorem, kinetic energy and power",
+   videos:[
+    {title:"Deriving the Work-Energy Theorem using Calculus",url:"https://www.youtube.com/watch?v=2dqO4sy4Njg",src:"Flipping Physics",note:"Compare with the derivation in this lesson."},
+    {title:"MIT 8.01 Lecture 11 (Lewin, 1999): work-energy theorem and conservation of energy",url:"https://videolectures.net/mit801f99_lewin_lec11",src:"Walter Lewin lectures",note:"Derives the theorem, then conserved mechanical energy with a wrecking-ball demo."}], html:String.raw`
 <p>Here is where the definition of work earns its keep. Take a single particle of mass $m$ moving along $x$ under a net force $F_{net}$. Newton's second law says $F_{net}=m\,dv/dt$. The work done by the net force is</p>
 $$W_{net}=\int F_{net}\,dx=\int m\frac{dv}{dt}\,dx=\int m\frac{dv}{dt}\,\Big(v\,dt\Big)=\int_{v_1}^{v_2}mv\,dv=\tfrac12mv_2^2-\tfrac12mv_1^2$$
 <p>Step by step: along the path $dx=v\,dt$, so $F\,dx=m\,\frac{dv}{dt}\,v\,dt=mv\,dv$, and that is a perfect derivative. In three dimensions the same idea works with the dot product, because $d(\vec v\cdot\vec v)=2\vec v\cdot d\vec v$:</p>
@@ -52,7 +57,9 @@ $$\vec F_{net}\cdot d\vec r=m\frac{d\vec v}{dt}\cdot\vec v\,dt=m\,\vec v\cdot d\
 $$P=\frac{dW}{dt}=\frac{\vec F\cdot d\vec r}{dt}=\vec F\cdot\vec v$$
 <p>Unit: the watt, $1\ \text{W}=1\ \text{J/s}$. Average power is $\bar P=W/\Delta t$. Applying the work-energy theorem to the net force gives $dK/dt=\vec F_{net}\cdot\vec v$: the net power is the rate at which kinetic energy changes. For a vehicle with engine power $P$ at speed $v$, the driving force is $F=P/v$, which is why a car has less pulling force at high speed. At top speed the driving force equals the resistance, $P=f_{res}\,v_{max}$.</p>
 <div class="box trap"><b>Trap:</b> $W_{net}=\Delta K$ is about the <i>net</i> force. Gravity doing $-mgh$ and a hand doing $+mgh$ on a box lifted at constant speed sum to zero, which is why $\Delta K=0$.</div>`},
-  {id:"l3", title:"Conservative forces and potential energy", html:String.raw`
+  {id:"l3", title:"Conservative forces and potential energy",
+   videos:[
+    {title:"Conservative forces (Week 7, kinetic energy and work)",url:"https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/week-7-kinetic-energy-and-work/22-3-conservative-forces",src:"MIT OCW 8.01SC",note:"Path independence and splitting work into conservative and non-conservative parts."}], html:String.raw`
 <p>A force is <b>conservative</b> if the work it does between two points depends only on the endpoints and not on the path taken. Equivalent test: the work around any closed loop is zero. Gravity near Earth and the ideal spring are conservative. Kinetic friction and drag are not: the longer the path, the more negative their work.</p>
 <p>For a conservative force we can bank the work in a function of position, the <b>potential energy</b> $U$, defined by</p>
 $$\Delta U=U(x_2)-U(x_1)=-W_{cons}=-\int_{x_1}^{x_2}F\,dx\qquad\Longleftrightarrow\qquad F=-\frac{dU}{dx}$$
@@ -68,7 +75,9 @@ $$\Delta(K+U)=W_{nc}$$
 <li>List any forces that do work and are <i>not</i> represented by a $U$ (friction, a motor, your hand).</li>
 <li>Write $K_i+U_i+W_{nc}=K_f+U_f$ and solve.</li></ol>
 <div class="box trap"><b>Trap: double counting.</b> If you include $mgh$ as a potential energy, do <i>not</i> also count the work done by gravity. Use one bookkeeping method or the other. Also, normal forces and tensions that stay perpendicular to the motion contribute nothing to $W_{nc}$.</div>`},
-  {id:"l4", title:"Reading potential-energy graphs", html:String.raw`
+  {id:"l4", title:"Reading potential-energy graphs",
+   videos:[
+    {title:"Potential Energy Graphs and Stability",url:"https://www.youtube.com/watch?v=hMPJkdxuAMU",src:"YouTube (channel not verified)",note:"Stable, unstable and neutral equilibrium on U(x) graphs."}], html:String.raw`
 <p>A graph of $U(x)$ for one-dimensional motion contains the whole qualitative story. Learn to read it in four ways.</p>
 <p><b>1. Force from slope.</b> $F=-dU/dx$. Where the graph slopes up to the right the force points left ($-x$); where it slopes down the force points right. Steeper slope means larger force. A horizontal tangent means zero force.</p>
 <p><b>2. Equilibrium.</b> At $dU/dx=0$ the net force is zero. Classify it by the curvature:</p>

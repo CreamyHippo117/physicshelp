@@ -14,7 +14,7 @@ PH.unit({
     "Integrate $a=F(t)/m$ and $v\\,dv=(F(x)/m)\\,dx$ when the force is not constant"
   ],
   lessons:[
-  {id:"l1", title:"Newton's laws, inertial frames, mass and weight", html:String.raw`
+  {id:"l1", title:"Newton's laws, inertial frames, mass and weight", videos:[{title:"2.1a Newton's Second Law of Motion, Forces, Free Body Diagrams - AP Physics C (Mechanics)",url:"https://www.youtube.com/watch?v=vnPHeTqQ1KQ",src:"YouTube (AP Physics C series; channel not confirmed)",note:"AP Physics C framing of the second law and force diagrams."}], html:String.raw`
 <p>Kinematics (Unit 1) described motion. Dynamics explains <i>why</i> motion changes. The new quantity is <b>force</b>: a push or pull exerted by one object on another, measured in newtons ($1\ \text{N}=1\ \text{kg m/s}^2$). Forces are vectors, and they add.</p>
 <div class="box key"><b>First law (inertia).</b> There exist reference frames, called <b>inertial frames</b>, in which an object with no net force on it moves with constant velocity (possibly zero).</div>
 <p>The first law is not merely "the second law with $a=0$". It asserts that inertial frames exist, and it tells you which frames the second law may be used in. A frame that accelerates relative to an inertial frame (a braking car, a spinning carousel) is <b>non-inertial</b>: a coffee cup on the dashboard seems to accelerate forward with no force on it. Any frame moving at constant velocity relative to an inertial frame is also inertial. For this course the ground (and anything moving uniformly relative to it) counts as inertial. Analyze in an inertial frame and you never need "fictitious forces".</p>
@@ -27,7 +27,7 @@ where $\sum\vec F$ is the vector sum of every force acting <i>on</i> the object.
 <p><b>Mass vs weight.</b> <b>Mass</b> $m$ measures an object's resistance to acceleration (inertia); it is the same everywhere. <b>Weight</b> is the gravitational force on the object near a planet: $\vec F_g=m\vec g$, magnitude $mg$, toward the planet's center. Near Earth $g\approx10$ m/s² (we use 10 throughout; the more exact value is 9.8). A 5 kg object weighs 50 N on Earth and about 8 N on the Moon, but is 5 kg in both places.</p>
 <p>Gravity's "charge" is mass itself, the same quantity as inertia. That is why every object falls with the same acceleration when gravity is the only force: $mg=ma\Rightarrow a=g$.</p>`},
 
-  {id:"l2", title:"Free-body diagrams and contact forces", html:String.raw`
+  {id:"l2", title:"Free-body diagrams and contact forces", videos:[{title:"AP Physics C - Newton's Laws & Circular Motion (playlist)",url:"https://www.youtube.com/playlist?list=PLPN8ldQPmg2fXr-cHhbnjpdhZbKbCLpkv",src:"YouTube (AP Physics C playlist; channel not confirmed)",note:"Covers free-body diagrams, normal and tension force."}], html:String.raw`
 <p>A <b>free-body diagram (FBD)</b> shows one object (a dot or box) and every force acting <i>on it</i>, as arrows drawn from the object. Nothing else. It is the most valuable habit in this unit.</p>
 <ol>
 <li>Isolate one object. Ask what touches it (each contact can supply a force) and what fields act (gravity).</li>
@@ -54,7 +54,7 @@ Accelerating upward: you feel heavier. Accelerating <i>downward</i> (including m
 <p>Viewed from inside the elevator (a non-inertial frame) you could say "an extra downward pseudo-force $ma$ acts on everything". That is a bookkeeping device. In the ground frame, which we use, nothing new appears: the floor simply must push harder to accelerate you.</p>
 <div class="box trap"><b>Trap:</b> Do not draw "centripetal force", "force of motion" or "$ma$" on an FBD. They are not forces on the object. Draw only real interactions: gravity, contact (normal, friction, tension, drag).</div>`},
 
-  {id:"l3", title:"Friction, inclines, pulleys and connected bodies", html:String.raw`
+  {id:"l3", title:"Friction, inclines, pulleys and connected bodies", videos:[{title:"Search: friction inclines pulleys Atwood machine AP Physics C",url:"https://www.youtube.com/results?search_query=friction+inclines+pulleys+Atwood+machine+AP+Physics+C",src:"YouTube search",note:"Pick a worked-example video on connected bodies and friction."}], html:String.raw`
 <p><b>Friction</b> is the component of a contact force parallel to the surface, opposing relative sliding (or its tendency). Empirically:</p>
 $$f_s\le\mu_sN\ \ (\text{static, no slipping}),\qquad f_k=\mu_kN\ \ (\text{kinetic, sliding}),\qquad \mu_k<\mu_s\ \text{usually.}$$
 <p>Static friction is <i>adjustable</i>: it takes whatever value (up to $\mu_sN$) keeps the surfaces from slipping. If you push gently on a heavy crate and it does not move, $f_s$ equals your push. Only at the verge of slipping is $f_s=\mu_sN$. Kinetic friction has the fixed magnitude $\mu_kN$ once sliding, independent of speed and contact area (a model, but a good one).</p>
@@ -77,7 +77,7 @@ $$m_2g-T=m_2a,\qquad T-m_1g=m_1a\ \Rightarrow\ a=\frac{m_2-m_1}{m_1+m_2}\,g,\qqu
 <p>Sanity limits: $m_1=m_2\Rightarrow a=0,\ T=mg$; $m_1\to0\Rightarrow a\to g,\ T\to0$ (free fall). Always run such checks.</p>
 <p><b>Choosing a system.</b> You may draw one FBD around several objects. Internal forces (tension) cancel in pairs by the third law and you get the total directly: for the Atwood machine, $(m_2-m_1)g=(m_1+m_2)a$. Use the system for $a$, then a single object for the internal force. Example: blocks $m_1$ (trailing) and $m_2$ (front) on a frictionless table, $F$ pulling on $m_2$: $a=F/(m_1+m_2)$, and the rope force on the trailing block is $T=m_1a$.</p>`},
 
-  {id:"l4", title:"Circular motion", html:String.raw`
+  {id:"l4", title:"Circular motion", videos:[{title:"Lec 05: Uniform Circular Motion",url:"https://www.youtube.com/watch?v=Usg_IPT5gJQ",src:"MIT 8.01 (Walter Lewin)",note:"Centripetal acceleration and force; derivation-style lecture."}], html:String.raw`
 <p>An object moving in a circle of radius $r$ at speed $v$ has an acceleration of magnitude
 $$a_c=\frac{v^2}{r}=\omega^2r$$
 directed toward the center. (Even at constant speed the <i>direction</i> of $\vec v$ changes, so $\vec a\ne0$.) Newton's second law then demands a net inward force:</p>
@@ -103,7 +103,7 @@ $$N\cos\theta=mg,\qquad N\sin\theta=\frac{mv^2}{r}\ \Rightarrow\ \tan\theta=\fra
 $$\tan\theta=\frac{v^2}{rg},\qquad T=\frac{mg}{\cos\theta},\qquad \omega^2=\frac{g}{L\cos\theta}.$$</p>
 <div class="box trap"><b>Trap:</b> An object is not "thrown outward" at the top of a loop. If the string is cut it moves off along the <b>tangent</b> (first law). Also: the inward axis for a conical pendulum or banked road is horizontal, so the normal force and tension must be resolved, and $N\ne mg$.</div>`},
 
-  {id:"l5", title:"Forces that vary: F(t), F(x), and drag", html:String.raw`
+  {id:"l5", title:"Forces that vary: F(t), F(x), and drag", videos:[{title:"Terminal velocity differential equation",url:"https://www.youtube.com/watch?v=FwGA8zb_CWM",src:"YouTube (channel not confirmed)",note:"Derives and solves the falling-with-air-resistance ODE."},{title:"Solving Differential Equation for Falling Object with Air Resistance",url:"https://www.youtube.com/watch?v=cbubFX-qL2U",src:"YouTube (channel not confirmed)",note:"Drag proportional to velocity (linear case)."}], html:String.raw`
 <p>When the force is not constant, $a=F/m$ is not constant and the kinematic formulas fail. Go back to calculus (Unit 1):</p>
 <p><b>Force as a function of time.</b> $a(t)=F(t)/m$, so
 $$v(t)=v_0+\frac1m\int_0^tF(t')\,dt',\qquad x(t)=x_0+\int_0^tv(t')\,dt'.$$

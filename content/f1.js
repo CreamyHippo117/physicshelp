@@ -12,7 +12,7 @@ PH.unit({
     "Run a paper-practice and error-log routine that carries you through five months"
   ],
   lessons:[
-  {id:"l1", title:"How free-response answers are scored", html:String.raw`
+  {id:"l1", videos:[{title:"Search: AP Physics C free response strategy and scoring",url:"https://www.youtube.com/results?search_query=AP+Physics+C+free+response+strategy+how+FRQs+are+scored",src:"YouTube search",note:"Pick a recent video from a teacher channel; compare its advice with the rubric habits above."}], title:"How free-response answers are scored", html:String.raw`
 <p>Free-response questions (FRQs) are graded against a <b>rubric</b>: a list of specific, separately earned points. A grader is not asking "is this student smart?" but "is each rubric item visibly present on the page?" Your job is to make every item easy to find. For the exact number of questions, timing and point values, see the app's <b>Official</b> page; those facts are set by the College Board and can change.</p>
 <p>The free-response section tends to mix several <i>kinds</i> of task. Names and mix can vary a little from year to year, but the skills are stable:</p>
 <table><tr><th>Kind of task</th><th>What it rewards</th></tr>
@@ -85,7 +85,7 @@ PH.unit({
 </g></svg>
 <p>Combining tools is normal: a pendulum bob's speed at the bottom comes from <b>energy</b>; the string's tension there then comes from <b>Newton's second law</b> (centripetal). Name each tool as you switch.</p>`},
 
-  {id:"l3", title:"Experimental design, linearization and uncertainty", html:String.raw`
+  {id:"l3", videos:[{title:"Linearization of Data for Science Labs & Experimental Design",url:"https://www.youtube.com/watch?v=oB2I5PEYc64",src:"YouTube (channel not verified)",note:"Turning a theory into a straight-line plot and reading slope and intercept."},{title:"Linearization and Uncertainty in Slope",url:"https://www.youtube.com/watch?v=__Wr7LbvwKE",src:"YouTube (channel not verified)",note:"Worked linearization plus slope uncertainty; an IB-style treatment, matches the steepest/shallowest-line idea."}], title:"Experimental design, linearization and uncertainty", html:String.raw`
 <p>An experimental question usually gives you a physical relationship and asks you to design a way to <b>test it or find a constant</b>, then analyze (often fictional) data. A good answer is concrete enough that another student could repeat it.</p>
 <h3>What a complete procedure contains</h3>
 <ol>
@@ -119,7 +119,7 @@ PH.unit({
 </ul>
 <div class="box trap"><b>Trap:</b> Do not "improve" a result by naming a cause you did not measure. Say how an effect would shift the data (higher or lower, which axis) and whether it matches the observed intercept or scatter.</div>`},
 
-  {id:"l4", title:"Multiple choice, paper practice, and a five-month method", html:String.raw`
+  {id:"l4", videos:[{title:"Search: how to study for AP Physics C spaced repetition",url:"https://www.youtube.com/results?search_query=how+to+study+for+AP+Physics+C+spaced+repetition+error+log",src:"YouTube search",note:"Look for study-method advice; optional."}], title:"Multiple choice, paper practice, and a five-month method", html:String.raw`
 <h3>Multiple-choice strategy</h3>
 <p>Multiple choice rewards speed and judgment more than long derivations. See the Official page for the number of questions and the time; the strategy below works for any count.</p>
 <ol>

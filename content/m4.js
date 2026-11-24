@@ -12,7 +12,7 @@ PH.unit({
     "Use the center-of-mass frame to see why only part of the kinetic energy can be lost in a collision"
   ],
   lessons:[
-  {id:"l1", title:"Momentum and impulse", html:String.raw`
+  {id:"l1", title:"Momentum and impulse", videos:[{title:"Impulse Derivation and Demonstration",url:"https://www.flippingphysics.com/impulse-derivation-demo.html",src:"Flipping Physics",note:"AP Physics C: derives impulse with calculus and shows a slow-motion F-t graph (about 6.5 min)."}], html:String.raw`
 <p><b>Linear momentum</b> of a particle is the vector $\vec p=m\vec v$ (units kg m/s = N s). It measures how hard a moving object is to stop. Newton wrote his second law not as $F=ma$ but as</p>
 $$\vec F_{net}=\frac{d\vec p}{dt}$$
 <p>For constant mass this reduces to $m\,d\vec v/dt=m\vec a$. The momentum form is the more general one and is the natural starting point for systems.</p>
@@ -29,7 +29,7 @@ $$\vec J\equiv\int_{t_1}^{t_2}\vec F_{net}\,dt=\vec p_2-\vec p_1=\Delta\vec p$$
 <div class="box key"><b>Impulse vs work.</b> Both come from integrating $\vec F$, but over different variables. $\int\vec F\,dt=\Delta\vec p$ (a vector) and $\int\vec F\cdot d\vec r=\Delta K$ (a scalar). Momentum is changed by force acting over <i>time</i>, kinetic energy by force acting over <i>distance</i>. The two are linked by $K=p^2/2m$.</div>
 <p><b>Signs and direction.</b> Choose a positive axis first. A ball hitting a wall at $+10$ m/s and rebounding at $-6$ m/s has $\Delta v=-16$ m/s, not $-4$. Bouncing back gives more impulse than just stopping.</p>
 <div class="box trap"><b>Trap:</b> The impulse-momentum theorem uses the <i>net</i> force. During a bat-ball contact, gravity is also acting but is negligible next to the thousands of newtons from the bat, which is why we usually ignore it over the short contact time.</div>`},
-  {id:"l2", title:"Conservation of momentum and collisions", html:String.raw`
+  {id:"l2", title:"Conservation of momentum and collisions", videos:[{title:"26.1 Momentum in Collisions (8.01SC Week 9)",url:"https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/week-9-collision-theory/26-1-momentum-in-collisions/",src:"MIT OCW 8.01SC",note:"Elastic vs inelastic collisions and the relative-velocity-reversal result."},{title:"Search: elastic and inelastic collisions AP Physics C",url:"https://www.youtube.com/results?search_query=elastic+inelastic+collisions+AP+Physics+C+Flipping+Physics",src:"YouTube search",note:"Search link, not a verified video."}], html:String.raw`
 <p>Consider a system of particles. Internal forces come in Newton's third-law pairs: $\vec F_{12}=-\vec F_{21}$. Summing $d\vec p_i/dt=\vec F_i$ over all particles, the internal pairs cancel:</p>
 $$\frac{d\vec P}{dt}=\vec F_{ext,\,net},\qquad \vec P=\sum_i m_i\vec v_i$$
 <p>So if $\vec F_{ext,net}=0$, then $\vec P$ is constant: <b>conservation of momentum</b>. The system is whatever you decide to include; the art is choosing one where external forces are zero, or negligible over the time you care about.</p>
@@ -58,7 +58,7 @@ $$v_{1f}=\frac{m_1-m_2}{m_1+m_2}v_{1i}+\frac{2m_2}{m_1+m_2}v_{2i},\qquad v_{2f}=
 <rect x="220" y="125" width="70" height="22" fill="none" stroke="currentColor" stroke-width="2"/><text x="248" y="141">m₂</text><text x="300" y="141">v₂f</text></svg>
 <h4>Two dimensions</h4>
 <p>Momentum is a vector, so write one equation per component. Perfectly inelastic: $M\vec v_f=m_1\vec v_1+m_2\vec v_2$, which is two scalar equations. Elastic collisions in 2D additionally conserve $K$, but you need extra information (such as one final angle) since the unknowns outnumber the equations. A useful fact: for an elastic collision of two <i>equal</i> masses with one initially at rest, the final velocities are perpendicular (unless head-on). Why: $\vec v_0=\vec v_1+\vec v_2$ and $v_0^2=v_1^2+v_2^2$ together force $\vec v_1\cdot\vec v_2=0$.</p>`},
-  {id:"l3", title:"Center of mass", html:String.raw`
+  {id:"l3", title:"Center of mass", videos:[{title:"17.3 Center of Mass of a Continuous System",url:"https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/week-5-momentum-and-impulse/17-3-center-of-mass-of-a-continuous-system",src:"MIT OCW 8.01SC",note:"Continuous distributions: writing dm and integrating."}], html:String.raw`
 <p>The <b>center of mass</b> (cm) of a system is the mass-weighted average position:</p>
 $$\vec r_{cm}=\frac{1}{M}\sum_i m_i\vec r_i\qquad\longrightarrow\qquad \vec r_{cm}=\frac1M\int\vec r\,dm$$
 <p>Each coordinate is done separately: $x_{cm}=\frac1M\int x\,dm$. The integral is the continuous version of the sum, but <b>you must first write $dm$ in terms of a coordinate</b>:</p>
@@ -87,7 +87,7 @@ $$y_{cm}=\frac{\sigma}{M}\int_0^R r^2dr\int_0^\pi\sin\theta\,d\theta=\frac{\sigm
 <p><b>Triangle.</b> By the same method (slice into strips of width $dy$ whose length shrinks linearly), a uniform triangle's cm is at one third of the height measured from the base: $y_{cm}=h/3$.</p>
 <p><b>Shortcuts you should use.</b> (1) Symmetry: if the body has a mirror plane or axis, the cm is on it. (2) Composite bodies: treat each piece as a point mass at its own cm. (3) A hole is a negative mass: subtract its $m\,x$ contribution.</p>
 <div class="box trap"><b>Trap:</b> The cm need not lie inside the object (a ring, a boomerang). And "center of mass" is not "geometric center" unless the density is uniform.</div>`},
-  {id:"l4", title:"Motion of the center of mass; the cm frame", html:String.raw`
+  {id:"l4", title:"Motion of the center of mass; the cm frame", videos:[{title:"Search: center of mass motion F_ext = M a_cm and the cm frame",url:"https://www.youtube.com/results?search_query=center+of+mass+motion+external+force+M+a_cm+center+of+mass+frame",src:"YouTube search",note:"Search link, not a verified video."}], html:String.raw`
 <p>Differentiate $M\vec r_{cm}=\sum m_i\vec r_i$ (constant masses):</p>
 $$\vec P=\sum m_i\vec v_i=M\vec v_{cm},\qquad \vec F_{ext,net}=\frac{d\vec P}{dt}=M\vec a_{cm}$$
 <p>This is the most useful sentence in the unit: <b>the center of mass moves exactly like a single particle of mass $M$ acted on by the net external force.</b> The internal forces, however violent, cannot move it. The point of application of an external force also does not matter for $\vec a_{cm}$ (it matters for rotation, Unit 5).</p>
