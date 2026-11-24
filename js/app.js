@@ -99,10 +99,13 @@ function learnTab(u,B){
   var h="";
   if(u.goals&&u.goals.length)h+='<div class="card"><b>By the end you can:</b><ul>'+u.goals.map(function(g){return"<li>"+g+"</li>"}).join("")+'</ul></div>';
   (u.lessons||[]).forEach(function(l){var k=u.id+":"+l.id;
-    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
+    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+vids(l.videos)+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
   B.innerHTML=h||"<p>No lessons yet.</p>";
   B.querySelectorAll("input[data-k]").forEach(function(c){c.onchange=function(){if(c.checked)S.lessons[c.dataset.k]=now();else delete S.lessons[c.dataset.k];save()}});
 }
+function vids(v){ if(!v||!v.length)return "";
+  return '<div class="box key"><b>Watch (optional, builds intuition)</b><ul style="margin:6px 0">'+v.map(function(x){
+    return '<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a> <span class="mut">'+esc(x.src||"")+(x.note?" &middot; "+esc(x.note):"")+'</span></li>'}).join("")+'</ul></div>' }
 function exTab(u,B){
   B.innerHTML=(u.examples||[]).map(function(e){return '<div class="card"><h3 style="margin-top:0">'+esc(e.title)+'</h3><div>'+e.problem+'</div><details><summary>Try it first, then show solution</summary>'+e.solution+'</details></div>'}).join("")||"<p>No examples yet.</p>";
 }
@@ -185,6 +188,7 @@ function settings(){
 /* ---------- boot ---------- */
 window.PH_APP={units:units,validate:function(){var errs=[];units.forEach(function(u){
   (u.mcq||[]).forEach(function(q){if(typeof q.a!=="number"||!q.choices||q.a>=q.choices.length||!q.why)errs.push(u.id+":"+q.id+" bad mcq")});
+  (u.lessons||[]).forEach(function(l){(l.videos||[]).forEach(function(x){if(!/^https:\/\//.test(x.url||"")||!x.title)errs.push(u.id+":"+l.id+" bad video")})});
   (u.frq||[]).forEach(function(f){if(!f.pts||!f.solution||!f.prompt)errs.push(u.id+":"+f.id+" bad frq")})});return errs}};
 route();
 })();
