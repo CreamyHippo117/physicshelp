@@ -79,8 +79,8 @@ $$I=\int_0^R r^2\,\frac{M}{\pi R^2}\,2\pi r\,dr=\frac{2M}{R^2}\int_0^Rr^3\,dr=\f
 
 <p><b>Parallel-axis theorem.</b> If the axis passes a perpendicular distance $d$ from a <i>parallel</i> axis through the center of mass, then</p>
 $$I=I_{cm}+Md^2$$
-<p><b>Proof.</b> Work in the plane perpendicular to the axes and put the origin at the center of mass. Let a mass element $dm$ be at $\vec\rho\,'$ from the CM, and let the new axis be at displacement $\vec d$ from the CM. Then $dm$ is at $\vec\rho=\vec\rho\,'-\vec d$ from the new axis, and</p>
-$$I=\int|\vec\rho\,'-\vec d|^2dm=\int\rho'^2\,dm-2\vec d\cdot\int\vec\rho\,'\,dm+d^2\int dm$$
+<p><b>Proof.</b> Work in the plane perpendicular to the axes and put the origin at the center of mass. Let a mass element $dm$ be at $\vec{\rho}^{\prime}$ from the CM, and let the new axis be at displacement $\vec d$ from the CM. Then $dm$ is at $\vec\rho=\vec{\rho}^{\prime}-\vec d$ from the new axis, and</p>
+$$I=\int|\vec{\rho}^{\prime}-\vec d|^2dm=\int\rho^{\prime 2}\,dm-2\vec d\cdot\int\vec{\rho}^{\prime}\,dm+d^2\int dm$$
 <p>The first term is $I_{cm}$. The middle integral is $M$ times the CM position measured from the CM, which is $\vec 0$ by definition. The last is $Md^2$. Hence $I=I_{cm}+Md^2$. $\blacksquare$</p>
 <p>Check: rod about its end, $d=L/2$: $\frac1{12}ML^2+M\frac{L^2}4=\frac13ML^2$. ✓.</p>
 <div class="box trap"><b>Trap:</b> The theorem only moves between an axis through the CM and a parallel one. To go from end to some other point you must first go back to the CM (end $\to$ CM $\to$ new point). Also, adding $I$'s of parts is allowed (same axis), but you cannot add moments about different axes.</div>`},
