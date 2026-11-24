@@ -12,7 +12,7 @@ PH.unit({
     "Read circuit diagrams, and know what a capacitor, generator and motor do at a conceptual level"
   ],
   lessons:[
-  {id:"l1", title:"Static electricity, charge and Coulomb's law (first look)", html:String.raw`
+  {id:"l1", title:"Static electricity, charge and Coulomb's law (first look)", videos:[{"title": "Search: Charging by induction", "url": "https://www.youtube.com/results?search_query=charging+by+induction+conductors+insulators+physics", "src": "YouTube search", "note": "Watch the grounding step carefully."}, {"title": "Search: Coulomb's law and field lines", "url": "https://www.youtube.com/results?search_query=Coulomb%27s+law+electric+field+lines+intuition", "src": "YouTube search", "note": ""}], html:String.raw`
 <p>Matter contains positive charges (protons, fixed in nuclei) and negative charges (electrons, which can move). An object is <b>neutral</b> when the two balance. <b>Charging</b> an object means moving electrons on or off it: gaining electrons makes it negative, losing them makes it positive.</p>
 <ul>
 <li><b>Friction:</b> rubbing two different materials transfers electrons from one to the other (rubbed glass becomes positive, the cloth negative).</li>
@@ -23,7 +23,7 @@ PH.unit({
 <div class="box key"><b>Two laws to hold onto.</b> (1) <b>Conservation:</b> the net charge of an isolated system never changes; charge only moves. (2) <b>Quantization:</b> all observed charge is an integer multiple of $e=1.6\times10^{-19}$ C. The unit is the coulomb (C); a typical static spark involves nanocoulombs.</div>
 <p><b>Coulomb's law.</b> Two point charges exert equal and opposite forces on each other along the line joining them:</p>
 $$F=k\frac{|q_1q_2|}{r^2},\qquad k\approx9\times10^9\ \text{N·m}^2/\text{C}^2$$
-<p>Like charges repel, opposite charges attract. Same inverse-square shape as gravity, but vastly stronger and it comes in both signs. Doubling $r$ quarters $F$. (Electric & E&M 1 builds the whole theory, including the field and $\varepsilon_0$.)</p>
+<p>Like charges repel, opposite charges attract. Same inverse-square shape as gravity, but vastly stronger and it comes in both signs. Doubling $r$ quarters $F$. (E&M 1 builds the whole theory, including the field and $\varepsilon_0$.)</p>
 <h3>Field lines</h3>
 <p>A charge $Q$ is surrounded by an <b>electric field</b> $\vec E$: the force per unit positive test charge. Field lines are drawn pointing away from positive and into negative charges; the line direction gives the direction of $\vec E$ and the <i>spacing</i> shows its strength (closer means stronger). Lines never cross, and never start or stop in empty space.</p>
 <svg class="fig" viewBox="0 0 520 170" width="520" role="img" aria-label="Electric field lines: radial lines pointing out of a positive charge, and lines from a positive charge curving to a negative charge">
@@ -38,7 +38,7 @@ $$F=k\frac{|q_1q_2|}{r^2},\qquad k\approx9\times10^9\ \text{N·m}^2/\text{C}^2$$
 <circle cx="480" cy="85" r="10" fill="currentColor" fill-opacity=".2" stroke="currentColor"/><text x="476" y="90" font-size="14">−</text>
 <text x="40" y="165" font-size="12">lines point outward; spacing = strength</text><text x="300" y="165" font-size="12">lines run from + to −</text>
 </svg>`},
-  {id:"l2", title:"Voltage, current, resistance: the plain-language version", html:String.raw`
+  {id:"l2", title:"Voltage, current, resistance: the plain-language version", videos:[{"title": "Search: Voltage, current, resistance water analogy", "url": "https://www.youtube.com/results?search_query=voltage+current+resistance+water+analogy+explained", "src": "YouTube search", "note": "Note where the analogy breaks down."}], html:String.raw`
 <p><b>Current</b> $I$ is the rate of charge flow past a point: $I=dq/dt$ (units: amperes, 1 A = 1 C/s). By historical convention, the direction of current is the direction <i>positive</i> charge would move, from high to low potential, even though in wires it is electrons that move the other way.</p>
 <p><b>Voltage</b> (potential difference) $V$ is the energy given per unit charge when moving between two points: $V=\Delta U/q$ (units: volts, 1 V = 1 J/C). A 9 V battery gives each coulomb passing through it 9 J. Voltage is always measured <i>between two points</i>. "Voltage at a point" only means relative to a chosen zero (ground).</p>
 <p><b>Resistance</b> $R$ measures how hard it is to push current through something (ohms, $\Omega$). For ohmic materials:</p>
@@ -68,7 +68,7 @@ $$V=IR\quad\text{(Ohm's law)}$$
 </svg>
 <h3>Meters</h3>
 <p>An <b>ammeter</b> measures the current through a component, so it goes <b>in series</b> (the current must flow through it) and should have tiny resistance. A <b>voltmeter</b> measures the potential difference across a component, so it is connected <b>in parallel</b> with it (touch its leads to both ends) and should have huge resistance so that it draws almost no current. Mixed up, an ammeter across a battery is a short circuit.</p>`},
-  {id:"l3", title:"Series and parallel circuits (with derivation)", html:String.raw`
+  {id:"l3", title:"Series and parallel circuits (with derivation)", videos:[{"title": "Parallel resistors (derivation)", "url": "https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic/ee-resistor-circuits/v/ee-parallel-resistors-1", "src": "Khan Academy", "note": "Derives the parallel rule from Ohm's law."}, {"title": "Series resistors", "url": "https://www.khanacademy.org/science/hs-physics-tx/x52b5e54e482d5bbe:circuits-and-electromagnetics/x52b5e54e482d5bbe:series-and-parallel-circuits/v/ee-series-resistors", "src": "Khan Academy", "note": "Companion to the parallel derivation."}], html:String.raw`
 <p>Two conservation ideas explain every resistor network:</p>
 <ul>
 <li><b>Charge conservation at a junction</b> (Kirchhoff's junction rule): current into a junction equals current out.</li>
@@ -97,7 +97,7 @@ $$\frac1{R_{\text{parallel}}}=\frac1{R_1}+\frac1{R_2}+\cdots,\qquad R_{\text{par
 </svg>
 <p>For a mixed network: collapse innermost parallel/series groups into equivalent resistors until one remains; find the total current; then expand outward, using "current splits, voltage splits" at each step. Bulbs in the same circuit: a bulb's brightness follows its power $P=I^2R=V^2/R$.</p>
 <div class="box trap"><b>Trap:</b> A battery does not supply a fixed current; it supplies a fixed <i>voltage</i> (ideal). Adding a resistor in parallel across a battery increases total current drawn, and the other branches are unaffected. Adding one in series decreases the current in every element.</div>`},
-  {id:"l4", title:"Capacitors, magnets, magnetic fields from currents, generators and light", html:String.raw`
+  {id:"l4", title:"Capacitors, magnets, magnetic fields from currents, generators and light", videos:[{"title": "Search: Right-hand rule for wires", "url": "https://www.youtube.com/results?search_query=right+hand+rule+magnetic+field+current+wire", "src": "YouTube search", "note": "Practice with the figure's out-of-page current."}, {"title": "Search: How generators and motors work", "url": "https://www.youtube.com/results?search_query=how+electric+generators+and+motors+work+Faraday", "src": "YouTube search", "note": "Conceptual overview; Faraday's law comes in E&M 5."}], html:String.raw`
 <h3>Capacitors: charge buckets (preview)</h3>
 <p>A <b>capacitor</b> is two conductors separated by an insulator. Connect it to a battery and charge $+Q$ collects on one plate and $-Q$ on the other until the voltage across it matches the battery's: $Q=CV$, where $C$ is the <b>capacitance</b> (farads). A charged capacitor stores energy $\tfrac12CV^2$. Think of a bucket: current flows only while it fills; when full, <b>no current flows through it</b> and it acts like a gap in the circuit. In an RC circuit the filling is exponential, $q=Q_{\max}(1-e^{-t/RC})$ (E&amp;M 3). Capacitance appears in E&amp;M 2 and 3.</p>
 <h3>Magnets</h3>
