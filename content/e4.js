@@ -12,7 +12,7 @@ PH.unit({
     "Apply Ampère's law with symmetry: wire (uniform and nonuniform $J$), solenoid, toroid"
   ],
   lessons:[
-  {id:"l1", title:"The magnetic force and the right-hand rule", html:String.raw`
+  {id:"l1", title:"The magnetic force and the right-hand rule", videos:[{title:"Magnetic Force Direction (Right-Hand Rule)",url:"https://www.youtube.com/watch?v=XFOzwYbqNbE",src:"YouTube (AP Physics C-level)",note:"Practice finding the direction of F = qv x B"},{title:"Magnetic Force on a Moving Charge In a Magnetic Field",url:"https://www.youtube.com/watch?v=7MBawzone30",src:"YouTube",note:"Force on a proton with worked examples"}], html:String.raw`
 <p>A <b>magnetic field</b> $\vec B$ (SI unit: the tesla, T $=\text{N}/(\text{A}\cdot\text{m})$) is a vector field. It exerts a force only on <i>moving</i> charge:</p>
 $$\vec F=q\,\vec v\times\vec B,\qquad |\vec F|=|q|\,v\,B\sin\theta$$
 <p>where $\theta$ is the angle between $\vec v$ and $\vec B$. (Together with the electric force this is the full Lorentz force, $\vec F=q(\vec E+\vec v\times\vec B)$.) Typical sizes: Earth's field $\sim5\times10^{-5}$ T, a refrigerator magnet $\sim5\times10^{-3}$ T, an MRI machine $\sim1$ to $3$ T.</p>
@@ -32,7 +32,7 @@ $$\vec A\times\vec B=(A_yB_z-A_zB_y,\;A_zB_x-A_xB_z,\;A_xB_y-A_yB_x),\qquad \hat
 <div class="box key"><b>Magnetic force does no work.</b> $\vec F\perp\vec v$ always, so the power $\vec F\cdot\vec v=0$. A magnetic field changes the <i>direction</i> of a charge's velocity, never its speed or kinetic energy.</div>
 <div class="box trap"><b>Trap:</b> a magnetic force on a charge at rest is zero, and also zero if $\vec v\parallel\vec B$ ($\sin\theta=0$). The force is not along $\vec B$ or along $\vec v$: it is perpendicular to both.</div>`},
 
-  {id:"l2", title:"Circular and helical motion, selectors, spectrometers", html:String.raw`
+  {id:"l2", title:"Circular and helical motion, selectors, spectrometers", videos:[{title:"Search: velocity selector and mass spectrometer",url:"https://www.youtube.com/results?search_query=velocity+selector+mass+spectrometer+AP+Physics+C",src:"YouTube search",note:"Pick a worked example on r = mv/(qB)"}], html:String.raw`
 <p>Take a charge $q$ with velocity <b>perpendicular</b> to a uniform $\vec B$. The force has constant magnitude $qvB$ and is always perpendicular to $\vec v$, which is exactly the recipe for uniform circular motion. Newton's second law with centripetal acceleration $v^2/r$:</p>
 $$qvB=\frac{mv^2}{r}\;\Rightarrow\; r=\frac{mv}{qB}=\frac{p}{qB},\qquad \omega=\frac{v}{r}=\frac{qB}{m},\qquad T=\frac{2\pi m}{qB}$$
 <p>Notice that the period and angular frequency do <b>not</b> depend on $v$: faster particles travel a bigger circle in the same time. That is the principle of the cyclotron. To get the sense of rotation, use RHR-1 on the initial velocity (a positive charge in $\vec B$ into the page circles counterclockwise; negative circles clockwise).</p>
@@ -60,7 +60,7 @@ $$v=\frac{E}{B}$$
 <div class="box key">In both devices the logic is the same two lines: <b>(1)</b> choose the direction of $\vec F$ with the right-hand rule (and flip it for a negative charge); <b>(2)</b> set $|\vec F|$ equal to what the motion needs ($0$ for straight, $mv^2/r$ for a circle).</div>
 <div class="box trap"><b>Trap:</b> at equal kinetic energy $K$, $r=\sqrt{2mK}/(qB)$, so a heavier particle does <i>not</i> automatically have a bigger radius: charge matters too. At equal speed, the more massive particle has the larger radius; at equal momentum, the one with less charge.</div>`},
 
-  {id:"l3", title:"Forces on wires and loops", html:String.raw`
+  {id:"l3", title:"Forces on wires and loops", videos:[{title:"Search: force between parallel wires and torque on a current loop",url:"https://www.youtube.com/results?search_query=force+between+parallel+current-carrying+wires+torque+on+current+loop+AP+Physics+C",src:"YouTube search",note:"Look for both parallel-wire force and loop torque"}], html:String.raw`
 <p><b>Force on a current-carrying wire.</b> A current is moving charge. A straight segment of length $L$ carrying current $I$ (direction of $\vec L$ = direction of conventional current) in a uniform field feels</p>
 $$\vec F=I\,\vec L\times\vec B,\qquad |\vec F|=ILB\sin\theta$$
 <p>For a curved wire or nonuniform field, integrate: $\vec F=\int I\,d\vec l\times\vec B$. (Derivation sketch: $n$ carriers per volume, charge $q$, drift velocity $v_d$, cross-section $A$, length $L$: $\vec F=(nAL)\,q\vec v_d\times\vec B$ and $I=nqv_dA$.) For a closed loop in a <i>uniform</i> field, $\oint d\vec l=0$, so the net force is zero.</p>
@@ -79,7 +79,7 @@ $$\vec\tau=\vec\mu\times\vec B,\qquad \tau=NIAB\sin\phi$$
 <p>with $\phi$ the angle between $\hat n$ and $\vec B$. The torque is maximal ($NIAB$) when the plane of the loop is <i>parallel</i> to $\vec B$ and zero when the plane is perpendicular to $\vec B$ ($\hat n\parallel\vec B$, stable equilibrium). The torque tries to rotate $\vec\mu$ toward $\vec B$. This is the working principle of the DC motor and galvanometer. (Associated energy: $U=-\vec\mu\cdot\vec B$.)</p>
 <div class="box trap"><b>Trap:</b> $\phi$ in $\tau=NIAB\sin\phi$ is measured from the <i>normal</i> to the loop, not from its plane. A loop with its plane parallel to $\vec B$ has $\phi=90^\circ$, the maximum.</div>`},
 
-  {id:"l4", title:"The Biot-Savart law", html:String.raw`
+  {id:"l4", title:"The Biot-Savart law", videos:[{title:"Biot-Savart and Ampere's Laws - Review for AP Physics C: Electricity and Magnetism",url:"https://www.youtube.com/watch?v=gSsp6NQqvmk",src:"YouTube (AP Physics C review)",note:"Biot-Savart part first"},{title:"The Biot-Savart Law and Introduction to Ampere's Law",url:"https://www.youtube.com/watch?v=NJsJB7-PWPg",src:"YouTube (Dr Mike Young)",note:"Derivation-level treatment"}], html:String.raw`
 <p>Moving charges (currents) <i>create</i> magnetic fields. The field from a small piece $d\vec l$ of wire carrying current $I$, at a point displaced by $\vec r$ from the piece (distance $r$, unit vector $\hat r$ pointing <i>from the source to the field point</i>), is</p>
 $$d\vec B=\frac{\mu_0}{4\pi}\frac{I\,d\vec l\times\hat r}{r^2},\qquad \mu_0=4\pi\times10^{-7}\ \text{T·m/A}$$
 <p>This plays the role Coulomb's law played for electrostatics; the total field is the sum (integral) over the whole current: $\vec B=\int d\vec B$. The $1/r^2$ and the direction rule are new twists: $d\vec B$ is perpendicular to both the wire element and $\hat r$, so field lines circle the wire. <b>RHR-2:</b> thumb along the current, fingers curl the way $\vec B$ circulates.</p>
@@ -102,7 +102,7 @@ $$B_z=\frac{\mu_0I}{4\pi}\frac{2\pi R\cdot R}{(R^2+z^2)^{3/2}}=\frac{\mu_0IR^2}{
 <p><b>Circular arc.</b> At the center of an arc of radius $R$ subtending angle $\theta$ (radians), $d\vec l\perp\hat r$ everywhere and $r=R$, so $B=\frac{\mu_0I}{4\pi R^2}(R\theta)=\dfrac{\mu_0I\theta}{4\pi R}$ (a full circle gives $\mu_0I/2R$ as above, a semicircle $\mu_0I/4R$). Straight pieces whose line passes <i>through</i> the field point contribute nothing, because $d\vec l\parallel\hat r$ and the cross product vanishes.</p>
 <div class="box trap"><b>Trap:</b> direction needs care when you add pieces. Find the direction of each piece's contribution (RHR-2) before adding magnitudes, and use $\hat r$ from the <i>source</i> to the field point.</div>`},
 
-  {id:"l5", title:"Ampère's law", html:String.raw`
+  {id:"l5", title:"Ampère's law", videos:[{title:"How to derive Ampere's Law from the Biot-Savart Law",url:"https://www.youtube.com/watch?v=yuyEGV4-b8g",src:"YouTube",note:"Shows where the line-integral form comes from"},{title:"Biot-Savart and Ampere's Laws - Review for AP Physics C: Electricity and Magnetism",url:"https://www.youtube.com/watch?v=gSsp6NQqvmk",src:"YouTube (AP Physics C review)",note:"Ampere's-law examples (wire, solenoid)"}], html:String.raw`
 <p><b>Ampère's law</b> relates the circulation of $\vec B$ around any closed path (an "Amperian loop") to the current threading it:</p>
 $$\oint\vec B\cdot d\vec l=\mu_0I_{\text{enc}}$$
 <p>$I_{\text{enc}}=\int\vec J\cdot d\vec A$ is the current through any surface bounded by the loop, counted positive when it passes in the direction your right thumb points when your fingers curl along the direction you traverse the loop. Like Gauss's law, it is always true but only <i>useful</i> when symmetry lets you pull $B$ out of the integral. Choose a loop on which $\vec B$ is either tangent with constant magnitude, or perpendicular to the path, or zero.</p>

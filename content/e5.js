@@ -12,7 +12,7 @@ PH.unit({
     "State what each of Maxwell's equations says physically"
   ],
   lessons:[
-  {id:"l1", title:"Magnetic flux and Faraday's law", html:String.raw`
+  {id:"l1", title:"Magnetic flux and Faraday's law", videos:[{title:"8.02x - Lect 16 - Electromagnetic Induction, Faraday's Law, Lenz Law, SUPER DEMO",url:"https://www.youtube.com/watch?v=nGQbA2jwkWI",src:"Walter Lewin (MIT 8.02)",note:"Faraday's law and non-conservative fields, with demos"}], html:String.raw`
 <p>The <b>magnetic flux</b> through a surface is the field "threading" it:</p>
 $$\Phi_B=\int\vec B\cdot d\vec A,\qquad \Phi_B=BA\cos\theta\ \text{(uniform }\vec B\text{, flat surface)}$$
 <p>where $d\vec A$ points along the surface normal $\hat n$ and $\theta$ is the angle between $\vec B$ and $\hat n$. Unit: weber, 1 Wb = 1 T·m². Flux is positive if $\vec B$ passes through along $\hat n$, negative if against. The choice of $\hat n$ is yours, but it is tied to the positive sense around the loop by a right-hand rule: curl your fingers around the loop in the direction you call positive, and your thumb gives $\hat n$.</p>
@@ -28,7 +28,7 @@ $$\oint\vec E\cdot d\vec l=-\frac{d}{dt}\int\vec B\cdot d\vec A$$
 <p>This $\vec E$ is <b>not conservative</b>: its line integral around a closed path is not zero, so you cannot assign it a potential. Example: a uniform $\vec B(t)$ fills a circular region of radius $R$. At radius $r<R$, symmetry says $E$ is tangential and constant on the circle, so $E(2\pi r)=\pi r^2\,|dB/dt|$ and $E=\tfrac r2|dB/dt|$. Even a copper-free circle of empty space has this $E$ field.</p>
 <div class="box trap"><b>Trap:</b> the flux through a loop is the flux through the loop's <i>area</i>, so only the field within the loop's area matters and only the part of the area actually in the field (when a loop is half out of a magnetic region, use the overlapping area).</div>`},
 
-  {id:"l2", title:"Lenz's law: finding the direction", html:String.raw`
+  {id:"l2", title:"Lenz's law: finding the direction", videos:[{title:"Search: Lenz's law direction of induced current",url:"https://www.youtube.com/results?search_query=Lenz's+law+direction+of+induced+current+examples+AP+Physics+C",src:"YouTube search",note:"Work several cases yourself before watching the answer"}], html:String.raw`
 <p>The minus sign in Faraday's law is <b>Lenz's law</b>: <i>the induced current flows in whichever direction creates a magnetic field that opposes the <u>change</u> in flux</i>. Opposes the <i>change</i>, not the flux itself. Why must it be this way? If the induced current helped the change, a tiny nudge would grow without bound and create energy from nothing. The sign is energy conservation.</p>
 <p><b>Four-step method.</b></p>
 <ol><li>Which way does the original $\vec B$ point through the loop?</li>
@@ -58,7 +58,7 @@ $$\oint\vec E\cdot d\vec l=-\frac{d}{dt}\int\vec B\cdot d\vec A$$
 <p><b>Force on the loop.</b> Lenz's law is also a statement about forces: a loop being pushed into a field region feels a magnetic force that resists the motion, and the work you do to push it becomes heat in the loop. A conducting plate swinging through a magnet's field gets eddy currents that brake it.</p>
 <div class="box trap"><b>Trap:</b> the induced field does not necessarily point opposite to the original field. If the original flux is <i>decreasing</i>, the induced field points the <i>same</i> way, trying to keep it up. Always ask "increasing or decreasing?" first.</div>`},
 
-  {id:"l3", title:"Motional emf and the sliding rod", html:String.raw`
+  {id:"l3", title:"Motional emf and the sliding rod", videos:[{title:"Search: motional emf rod sliding on rails",url:"https://www.youtube.com/results?search_query=motional+emf+conducting+rod+sliding+on+rails+resistor+terminal+velocity+AP+Physics+C",src:"YouTube search",note:"Look for the differential-equation treatment of terminal velocity"}], html:String.raw`
 <p>Move a conductor of length $L$ with velocity $\vec v$ through a field. Charges inside feel $q\vec v\times\vec B$ and are pushed along the conductor until electric force balances it. For a straight rod with $\vec v$, $\vec B$ and the rod mutually perpendicular, the emf is the work per charge:</p>
 $$\varepsilon=\int(\vec v\times\vec B)\cdot d\vec l=BLv$$
 <p>The same result follows from Faraday: a rod sliding on rails (area $=Lx$) sweeps flux $\Phi=BLx$, so $|\varepsilon|=d\Phi/dt=BLv$.</p>
@@ -83,7 +83,7 @@ $$m\frac{dv}{dt}=F-\frac{B^2L^2}{R}v\;\Rightarrow\; v(t)=v_t\left(1-e^{-t/\tau}\
 <div class="box key"><b>Rotating rod.</b> A rod of length $L$ spinning at angular speed $\omega$ about one end in a perpendicular field $B$: each piece $dr$ at radius $r$ has speed $\omega r$, so $\varepsilon=\int_0^L B\omega r\,dr=\tfrac12B\omega L^2$.</div>
 <div class="box trap"><b>Trap:</b> a loop moving at constant velocity entirely inside a <i>uniform</i> field has no emf: the flux does not change. Each side has a motional emf but they cancel around the loop. You need part of the loop to enter or leave the field, or the field to be nonuniform.</div>`},
 
-  {id:"l4", title:"Inductance and magnetic energy", html:String.raw`
+  {id:"l4", title:"Inductance and magnetic energy", videos:[{title:"Inductors, Self-Inductance, LC & RL Circuits Lecture",url:"https://www.youtube.com/watch?v=8fkKfkF9dw4",src:"YouTube",note:"Self-inductance and energy in inductors"}], html:String.raw`
 <p>A coil's own current makes a field, and that field's flux goes through the coil itself. If the current changes, that flux changes and the coil induces an emf in itself: <b>self-induction</b>. Flux linkage is proportional to current, $N\Phi_B=LI$, which defines the <b>inductance</b> $L$ (unit: henry, 1 H = 1 V·s/A). Faraday gives</p>
 $$\varepsilon=-L\frac{dI}{dt}$$
 <p>The emf opposes the <i>change</i> of current (Lenz again). It does not oppose the current itself. An inductor with steady current has no voltage across it.</p>
@@ -100,7 +100,7 @@ $$u_B=\frac{B^2}{2\mu_0}\ (\text{J/m}^3)$$
 <p>Check for a solenoid: $u_BA\ell=\dfrac{(\mu_0nI)^2}{2\mu_0}A\ell=\tfrac12\mu_0n^2A\ell\,I^2=\tfrac12LI^2$ ✓. The parallel with a capacitor, $U_C=\tfrac12CV^2$ with $u_E=\tfrac12\varepsilon_0E^2$, is exact.</p>
 <div class="box trap"><b>Trap:</b> the inductor's voltage is $L\,dI/dt$, set by how fast the current <i>changes</i>. A current cannot jump instantly through an inductor (it would require infinite voltage); but voltage across an inductor <i>can</i> jump. A capacitor is the opposite: the voltage cannot jump, the current can.</div>`},
 
-  {id:"l5", title:"LR, LC and RLC circuits", html:String.raw`
+  {id:"l5", title:"LR, LC and RLC circuits", videos:[{title:"Inductors, Self-Inductance, LC & RL Circuits Lecture",url:"https://www.youtube.com/watch?v=8fkKfkF9dw4",src:"YouTube",note:"RL and LC sections"},{title:"26 - The RLC Circuit - Free Damped Oscillations",url:"https://www.youtube.com/watch?v=lrtmeQxZ5pE",src:"YouTube",note:"Derives the RLC differential equation"}], html:String.raw`
 <p><b>LR circuit: current rising.</b> A battery $\varepsilon$, resistor $R$ and inductor $L$ in series, switch closed at $t=0$. Kirchhoff's loop rule (voltage across the inductor is $L\,dI/dt$):</p>
 $$\varepsilon-IR-L\frac{dI}{dt}=0\;\Rightarrow\; I(t)=\frac{\varepsilon}{R}\left(1-e^{-t/\tau}\right),\qquad \tau=\frac LR$$
 <p>Then $V_L=L\,dI/dt=\varepsilon e^{-t/\tau}$. Immediately after closing, $I=0$ and the inductor takes the whole battery voltage (it acts like an <b>open circuit</b>); at long times $I=\varepsilon/R$ and $V_L=0$ (it acts like a <b>plain wire</b>). Initial slope: $dI/dt=\varepsilon/L$.</p>
@@ -131,7 +131,7 @@ $$U_C=\frac{q^2}{2C}=\frac{Q_0^2}{2C}\cos^2\omega t,\qquad U_L=\tfrac12LI^2=\fra
 <p><b>RLC (qualitative).</b> Add a resistor: $L\ddot q+R\dot q+q/C=0$, a damped oscillator with $R\leftrightarrow$ drag coefficient $b$. For small $R$ the charge oscillates inside an exponentially decaying envelope, $q=Q_0e^{-Rt/2L}\cos\omega't$ with $\omega'=\sqrt{1/LC-(R/2L)^2}$, slightly slower than the undamped $\omega$. The energy drains as heat ($dU/dt=-I^2R$). If $R\ge2\sqrt{L/C}$ the oscillation stops altogether: critical damping ($R=2\sqrt{L/C}$) and overdamping.</p>
 <div class="box trap"><b>Trap:</b> in an LC circuit $\omega=1/\sqrt{LC}$ is the <i>angular</i> frequency in rad/s. The frequency in Hz is $f=\omega/2\pi$ and the period is $T=2\pi\sqrt{LC}$. Also, the amplitude of $I$ is $\omega Q_0$, not $Q_0/\omega$.</div>`},
 
-  {id:"l6", title:"Maxwell's equations (summary and enrichment)", html:String.raw`
+  {id:"l6", title:"Maxwell's equations (summary and enrichment)", videos:[{title:"Search: Maxwell's equations explained",url:"https://www.youtube.com/results?search_query=Maxwell's+equations+explained+integral+form+displacement+current",src:"YouTube search",note:"Pick a conceptual overview"}], html:String.raw`
 <p>The whole of classical electricity and magnetism is four equations plus the Lorentz force $\vec F=q(\vec E+\vec v\times\vec B)$. In integral form (vacuum, with charges $Q$ and currents $I$ as the sources):</p>
 <table><tr><th>Name</th><th>Equation</th><th>What it says</th></tr>
 <tr><td>Gauss, electric</td><td>$\displaystyle\oint\vec E\cdot d\vec A=\frac{Q_{\text{enc}}}{\varepsilon_0}$</td><td>Electric charge produces $\vec E$ lines that start on positive charge and end on negative charge (Coulomb's law)</td></tr>
