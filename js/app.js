@@ -126,8 +126,8 @@ function vids(v){ if(!v||!v.length)return "";
   var deep=/ocw\.mit|oyc\.yale|videolectures|cosmolearning|opencw|Lewin|MIT 8\.0|8\.02x|Yale|Lec \d/i;
   function li(x){return '<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a> <span class="mut">'+esc(x.src||"")+(x.note?" &middot; "+esc(x.note):"")+'</span></li>'}
   var main=v.filter(function(x){return !deep.test(x.title+" "+x.src+" "+x.url)}), opt=v.filter(function(x){return deep.test(x.title+" "+x.src+" "+x.url)}), h="";
-  if(main.length)h+='<div class="box key"><b>Watch (AP-focused)</b><ul style="margin:6px 0">'+main.map(li).join("")+'</ul></div>';
-  if(opt.length)h+='<div class="box"><b>Optional: deeper intuition</b> <span class="mut">(university lectures; go beyond the AP, skip freely)</span><ul style="margin:6px 0">'+opt.map(li).join("")+'</ul></div>';
+  if(main.length)h+='<div class="box key"><b>Watch</b><ul style="margin:6px 0">'+main.map(li).join("")+'</ul></div>';
+  if(opt.length)h+='<div class="box key"><b>Deeper lecture</b> <span class="mut">(university lecture: the best explanation when the idea has not clicked yet)</span><ul style="margin:6px 0">'+opt.map(li).join("")+'</ul></div>';
   return h }
 function exTab(u,B){
   B.innerHTML=(u.examples||[]).map(function(e){return '<div class="card"><h3 style="margin-top:0">'+esc(e.title)+'</h3><div>'+e.problem+'</div><details><summary>Try it first, then show solution</summary>'+e.solution+'</details></div>'}).join("")||"<p>No examples yet.</p>";
