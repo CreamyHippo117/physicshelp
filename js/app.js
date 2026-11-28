@@ -3,6 +3,9 @@
 var KEY="physhelp.v1", DAY=864e5;
 var COURSES={prereq:"Prerequisites",mech:"AP Physics C: Mechanics",em:"AP Physics C: E&M",skills:"Exam skills"};
 var $app=document.getElementById("app");
+var curCtx={key:"general",title:"General",context:{}};
+function T(){return window.PH_TUTOR&&PH_TUTOR.enabled()}
+function tx(h){return PH_TUTOR.txt(h)}
 var units=PH.units.slice().sort(function(a,b){return (a.order||0)-(b.order||0)});
 var byId={};units.forEach(function(u){byId[u.id]=u});
 
@@ -45,10 +48,10 @@ function badge(){var n=dueList().length,b=document.getElementById("dueBadge");if
 /* ---------- router ---------- */
 function route(hh){
   var h=(hh||location.hash).replace(/^#\/?/,"").split("/"), v=h[0]||"home";
-  window.scrollTo(0,0);
+  window.scrollTo(0,0); curCtx={key:"general",title:"General",context:{}};
   try{ ({home:home,unit:unitView,review:review,mixed:mixed,exam:exam,resources:resources,settings:settings}[v]||home)(h); }
   catch(e){ $app.innerHTML="<p>Something broke: "+esc(e.message)+"</p>"; console.error(e) }
-  math(); badge();
+  math(); badge(); if(window.PH_TUTOR)PH_TUTOR.refresh();
 }
 var lastH="";
 window.addEventListener("hashchange",function(){if(location.hash!==lastH){lastH=location.hash;route()}});
@@ -93,7 +96,7 @@ function home(){
 /* ---------- unit ---------- */
 function unitView(h){
   var u=byId[h[1]]; if(!u){$app.innerHTML="<p>Unknown unit.</p>";return}
-  var tab=h[2]||"learn", st=unitStats(u);
+  var tab=h[2]||"learn", st=unitStats(u); curCtx={key:"unit:"+u.id,title:u.title,context:{unit:u.title}};
   var tabs=[["learn","Learn ("+st.lDone+"/"+st.lN+")"],["examples","Worked examples"],["practice","Practice ("+st.qOk+"/"+st.qN+")"],["frq","FRQ ("+st.fDone+"/"+st.fN+")"]];
   var out='<p class="mut"><a href="#/">&larr; plan</a></p><h1>'+esc(u.title)+'</h1><div class="mut">'+esc(u.blurb||"")+'</div>';
   if(u.needs&&u.needs.length)out+='<p class="mut">Before this: '+u.needs.map(function(n){return byId[n]?'<a href="#/unit/'+n+'">'+esc(byId[n].title)+'</a>':esc(n)}).join(", ")+'</p>';
@@ -105,8 +108,10 @@ function learnTab(u,B){
   var h="";
   if(u.goals&&u.goals.length)h+='<div class="card"><b>By the end you can:</b><ul>'+u.goals.map(function(g){return"<li>"+g+"</li>"}).join("")+'</ul></div>';
   (u.lessons||[]).forEach(function(l){var k=u.id+":"+l.id;
-    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+vids(l.videos)+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
+    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+vids(l.videos)+(T()?'<p class="tutor-ask"><button class="sec" data-ask="'+l.id+'">Ask the tutor about this section</button></p>':'')+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
   B.innerHTML=h||"<p>No lessons yet.</p>";
+  B.querySelectorAll("button[data-ask]").forEach(function(b){b.onclick=function(){var l=u.lessons.filter(function(x){return x.id===b.dataset.ask})[0];
+    PH_TUTOR.open({key:"unit:"+u.id+":"+l.id,title:u.title+" · "+l.title,freeMode:"chat",context:{unit:u.title,lesson:l.title,lessonText:tx(l.html)}})}});
   B.querySelectorAll("input[data-k]").forEach(function(c){c.onchange=function(){if(c.checked)S.lessons[c.dataset.k]=now();else delete S.lessons[c.dataset.k];save()}});
 }
 function vids(v){ if(!v||!v.length)return "";
@@ -130,12 +135,18 @@ function quizList(items,host,showAll){
   function one(){
     if(i>=items.length){host.innerHTML='<div class="card"><b>Done: '+score+'/'+items.length+' correct.</b></div>';return}
     var it=items[i], q=it.q, order=shuffle(q.choices.map(function(_,k){return k}));
-    host.innerHTML='<div class="card"><div class="mut">Question '+(i+1)+' of '+items.length+' &middot; '+esc(it.u.title)+'</div><div>'+q.q+'</div><div id="ch"></div><div id="fb"></div></div>';
-    var ch=host.querySelector("#ch");
+    host.innerHTML='<div class="card"><div class="mut">Question '+(i+1)+' of '+items.length+' &middot; '+esc(it.u.title)+'</div><div>'+q.q+'</div><div id="ch"></div><div class="tbar" id="tb"></div><div id="fb"></div></div>';
+    var ch=host.querySelector("#ch"), tb=host.querySelector("#tb"), shown=order.map(function(k){return tx(q.choices[k])});
+    function qctx(extra){var c={unit:it.u.title,question:tx(q.q),choices:shown,correctChoice:"ABCDE"[order.indexOf(q.a)]+") "+shown[order.indexOf(q.a)],reference:tx(q.why)};for(var k in extra)c[k]=extra[k];return c}
+    var hintFirst=PH_TUTOR.enabled()&&(S.settings.tutor||{}).hintFirst!==false;
+    if(T()){tb.innerHTML='<button class="sec" id="hb">Hint</button>';tb.querySelector("#hb").onclick=function(){
+      PH_TUTOR.ask({key:"q:"+qkey(it.u,q),title:"Question "+(i+1)+" · "+it.u.title,mode:"hint",freeMode:hintFirst?"hint":"chat",context:qctx(),text:"I'm stuck on this question. Can I get a hint?"})}}
     order.forEach(function(k,pos){var b=document.createElement("button");b.className="choice sec";b.innerHTML="<b>"+"ABCDE"[pos]+".</b> "+q.choices[k];
       b.onclick=function(){
         var ok=k===q.a; if(ok)score++; recordQ(qkey(it.u,q),ok);
         ch.querySelectorAll("button").forEach(function(x,p){x.disabled=true;if(order[p]===q.a)x.classList.add("right")}); if(!ok)b.classList.add("wrong");
+        if(T()){tb.innerHTML='<button class="sec" id="eb">Explain this</button>';tb.querySelector("#eb").onclick=function(){
+          PH_TUTOR.ask({key:"q:"+qkey(it.u,q),title:"Question "+(i+1)+" · "+it.u.title,mode:"explain",freeMode:"chat",context:qctx({studentChoice:"ABCDE"[pos]+") "+shown[pos]}),text:ok?"I got it right. Can you explain why, and what to remember?":"I got this wrong. Can you explain why?"})}}
         host.querySelector("#fb").innerHTML='<div class="why"><b>'+(ok?"Correct.":"Not quite.")+'</b> '+q.why+'</div><button id="nx">'+(i+1<items.length?"Next":"Finish")+'</button>';
         math(host); host.querySelector("#nx").onclick=function(){i++;one();math(host)}};
       ch.appendChild(b)});
@@ -146,9 +157,16 @@ function quizList(items,host,showAll){
 function frqTab(u,B){
   B.innerHTML=(u.frq||[]).map(function(f,fi){var k=u.id+":"+f.id, rec=S.frq[k], max=f.pts.reduce(function(a,p){return a+p.p},0);
     return '<div class="card"><h3 style="margin-top:0">'+esc(f.title)+' <span class="pill">'+esc(f.type||"FRQ")+'</span><span class="pill">'+max+' pts</span>'+(rec?'<span class="pill ok">last: '+rec.score+'/'+max+'</span>':'')+'</h3>'
-     +'<div>'+f.prompt+'</div><p class="mut">Do this on paper, like the real exam. Then reveal.</p><details><summary>Reveal solution and rubric</summary>'+f.solution
+     +'<div>'+f.prompt+'</div><p class="mut">Do this on paper, like the real exam. Then reveal.</p>'+(T()?'<div class="tutor-ask"><textarea data-w="'+fi+'" placeholder="Optional: type or paste your work here to have the tutor check it against the rubric"></textarea><div class="tbar"><button class="sec" data-fh="'+fi+'">Hint</button><button class="sec" data-fc="'+fi+'">Check my work</button><span class="mut" data-fm="'+fi+'"></span></div></div>':'')+'<details><summary>Reveal solution and rubric</summary>'+f.solution
      +'<h3>Score yourself</h3>'+f.pts.map(function(p,pi){return '<label style="display:block"><input type="checkbox" data-f="'+fi+'" data-p="'+p.p+'"> ['+p.p+'] '+p.d+'</label>'}).join("")
      +'<p><button data-save="'+fi+'">Save score</button> <span class="mut" data-msg="'+fi+'"></span></p></details></div>'}).join("")||"<p>No FRQs yet.</p>";
+  function fctx(f,w){return {unit:u.title,frqPrompt:tx(f.prompt),rubric:f.pts.map(function(p){return "["+p.p+"] "+tx(p.d)}).join("\n"),reference:tx(f.solution),studentWork:w||""}}
+  B.querySelectorAll("button[data-fh]").forEach(function(b){b.onclick=function(){var f=u.frq[+b.dataset.fh];
+    PH_TUTOR.ask({key:"f:"+u.id+":"+f.id,title:f.title,mode:"hint",freeMode:"chat",context:fctx(f,""),text:"I'm stuck on this free-response question. Can I get a hint?"})}});
+  B.querySelectorAll("button[data-fc]").forEach(function(b){b.onclick=function(){var fi=+b.dataset.fc,f=u.frq[fi],w=B.querySelector('textarea[data-w="'+fi+'"]').value.trim();
+    if(w.length<20){B.querySelector('[data-fm="'+fi+'"]').textContent="Write out your attempt first (a few lines at least).";return}
+    B.querySelector('[data-fm="'+fi+'"]').textContent="";
+    PH_TUTOR.ask({key:"f:"+u.id+":"+f.id,title:f.title,mode:"check",freeMode:"chat",context:fctx(f,w),text:"Please check my work against the rubric."})}});
   B.querySelectorAll("button[data-save]").forEach(function(b){b.onclick=function(){var fi=+b.dataset.save,f=u.frq[fi],sc=0,n=0;
     B.querySelectorAll('input[data-f="'+fi+'"]').forEach(function(c){if(c.checked)sc+=+c.dataset.p});
     var max=f.pts.reduce(function(a,p){return a+p.p},0); S.frq[u.id+":"+f.id]={score:sc,max:max,at:now()};save();
@@ -188,9 +206,10 @@ function resources(){
 }
 function settings(){
   $app.innerHTML='<h1>Settings</h1><div class="card"><p><label>Exam date <input type="date" id="d" value="'+esc(S.settings.examDate)+'"></label></p><p><label>Study hours per week <input type="number" id="h" min="1" max="40" value="'+S.settings.hpw+'"></label></p><button id="sv">Save</button></div>'
-   +'<div class="card"><b>Back up progress</b> (it only lives in this browser)<p><button id="ex" class="sec">Export</button> <button id="im" class="sec">Import</button> <button id="rs" class="sec">Reset all</button></p><textarea id="ta" placeholder="Export text appears here; paste here to import"></textarea><p id="msg" class="mut"></p></div>';
+   +(window.PH_TUTOR?PH_TUTOR.settingsHtml():'')+'<div class="card"><b>Back up progress</b> (it only lives in this browser)<p><button id="ex" class="sec">Export</button> <button id="im" class="sec">Import</button> <button id="rs" class="sec">Reset all</button></p><textarea id="ta" placeholder="Export text appears here; paste here to import"></textarea><p id="msg" class="mut"></p></div>';
+  if(window.PH_TUTOR)PH_TUTOR.bindSettings();
   document.getElementById("sv").onclick=function(){S.settings.examDate=document.getElementById("d").value||S.settings.examDate;S.settings.hpw=+document.getElementById("h").value||5;save();location.hash="#/"};
-  document.getElementById("ex").onclick=function(){document.getElementById("ta").value=JSON.stringify(S)};
+  document.getElementById("ex").onclick=function(){var c=JSON.parse(JSON.stringify(S));if(c.settings.tutor)delete c.settings.tutor.code;document.getElementById("ta").value=JSON.stringify(c)};
   document.getElementById("im").onclick=function(){try{var o=JSON.parse(document.getElementById("ta").value);mem=o;S=load();save();document.getElementById("msg").textContent="Imported."}catch(e){document.getElementById("msg").textContent="That text is not valid progress data."}};
   var armed=false;document.getElementById("rs").onclick=function(){var b=this;if(!armed){armed=true;b.textContent="Click again to erase everything";return}mem=blank();S=mem;save();location.hash="#/"};
 }
@@ -200,5 +219,6 @@ window.PH_APP={units:units,validate:function(){var errs=[];units.forEach(functio
   (u.mcq||[]).forEach(function(q){if(typeof q.a!=="number"||!q.choices||q.a>=q.choices.length||!q.why)errs.push(u.id+":"+q.id+" bad mcq")});
   (u.lessons||[]).forEach(function(l){(l.videos||[]).forEach(function(x){if(!/^https:\/\//.test(x.url||"")||!x.title)errs.push(u.id+":"+l.id+" bad video")})});
   (u.frq||[]).forEach(function(f){if(!f.pts||!f.solution||!f.prompt)errs.push(u.id+":"+f.id+" bad frq")})});return errs}};
+if(window.PH_TUTOR)PH_TUTOR.init({S:function(){return S},save:save,math:math,route:function(){return curCtx}});
 route();
 })();

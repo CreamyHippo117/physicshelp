@@ -9,7 +9,7 @@ def font(m):
 css=re.sub(r'url\(fonts/([^)]+\.woff2)\)',font,css)+'\n'+rd('css/style.css')
 man=re.search(r'files=\[(.*?)\]',rd('content/manifest.js')).group(1)
 files=re.findall(r'"([^"]+)"',man)
-js=['js/vendor/katex.min.js','js/vendor/auto-render.min.js','js/core.js','js/examfacts.js']+['content/%s.js'%f for f in files]+['js/app.js']
+js=['js/vendor/katex.min.js','js/vendor/auto-render.min.js','js/core.js','js/examfacts.js','js/config.js','js/tutor.js']+['content/%s.js'%f for f in files]+['js/app.js']
 body=''.join('<script>\n%s\n</script>\n'%rd(j).replace('</script','<\\/script') for j in js)
 html=rd('index.html')
 html=re.sub(r'<link rel="stylesheet" href="js/vendor/katex.min.css">\s*<link rel="stylesheet" href="css/style.css">','<style>\n'+css.replace('\\','\\\\')+'\n</style>',html)
@@ -21,6 +21,8 @@ print('dist/physics-c-coach.html',round(len(html)/1e6,2),'MB')
 # Artifact variant: the host wraps the page in its own <html>/<head>/<body>, so emit only title, style and body content.
 m_style=re.search(r'<style>.*?</style>',html,flags=re.S).group(0)
 m_body=re.search(r'<body>(.*)</body>',html,flags=re.S).group(1)
-art='<title>Physics C Coach</title>\n'+m_style+'\n'+m_body
+art_body=re.sub(r'noNetwork:\s*false','noNetwork: true',m_body)
+assert 'noNetwork: true' in art_body
+art='<title>Physics C Coach</title>\n'+m_style+'\n'+art_body
 open(os.path.join(R,'dist/physics-c-coach-artifact.html'),'w',encoding='utf-8').write(art)
 print('artifact variant',round(len(art)/1e6,2),'MB')

@@ -1,0 +1,14 @@
+name = "physics-coach-tutor"
+main = "src/index.mjs"
+compatibility_date = "2025-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Origins allowed to call the tutor. Use your site's origin(s). "null" allows a file:// copy of the app.
+ALLOWED_ORIGINS = "null"
+DAILY_TURN_CAP = "200"
+
+# Optional: enforce DAILY_TURN_CAP server-side. Create with `npx wrangler kv namespace create USAGE`, paste the id, uncomment.
+# [[kv_namespaces]]
+# binding = "USAGE"
+# id = "PASTE_ID_HERE"

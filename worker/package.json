@@ -1,0 +1,16 @@
+{
+  "name": "physics-coach-tutor-proxy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test/proxy.test.mjs",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
