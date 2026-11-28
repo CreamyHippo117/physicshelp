@@ -20,7 +20,15 @@ var S=load();
 /* ---------- helpers ---------- */
 function el(h){var d=document.createElement("div");d.innerHTML=h;return d}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function math(node){ try{ renderMathInElement(node||$app,{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\[",right:"\\]",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#b3261e"}) }catch(e){console.error(e)} }
+function fitFigs(root){ (root||document).querySelectorAll("svg.fig").forEach(function(sv){ try{
+  var vb=sv.viewBox.baseVal; if(!vb||!vb.width||!sv.getClientRects().length)return;
+  var x0=vb.x,y0=vb.y,x1=vb.x+vb.width,y1=vb.y+vb.height,ch=false;
+  sv.querySelectorAll("text").forEach(function(t){ if(t.closest("[transform]"))return; var b=t.getBBox(); if(!b.width)return;
+    if(b.x<x0){x0=b.x-4;ch=true} if(b.y<y0){y0=b.y-4;ch=true} if(b.x+b.width>x1){x1=b.x+b.width+4;ch=true} if(b.y+b.height>y1){y1=b.y+b.height+4;ch=true} });
+  if(ch){ var sc=(parseFloat(sv.getAttribute("width"))||vb.width)/vb.width; sv.setAttribute("viewBox",[x0,y0,x1-x0,y1-y0].join(" ")); sv.setAttribute("width",Math.round((x1-x0)*sc)) }
+ }catch(e){} }) }
+document.addEventListener("toggle",function(e){ if(e.target.open)fitFigs(e.target) },true);
+function math(node){ fitFigs(node||$app); try{ renderMathInElement(node||$app,{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\[",right:"\\]",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#b3261e"}) }catch(e){console.error(e)} }
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function now(){return Date.now()}
 function fmt(d){return new Date(d).toLocaleDateString(undefined,{month:"short",day:"numeric"})}
@@ -129,7 +137,7 @@ function practiceTab(u,B){
   B.innerHTML='<p class="mut">Answer on paper first when you can. Wrong answers return in your Review queue.</p><div id="qs"></div>';
   quizList(items,document.getElementById("qs"),true);
 }
-function quizList(items,host,showAll){
+function quizList(items,host,showAll,timed){
   if(!items.length){host.innerHTML="<p>Nothing here yet.</p>";return}
   var i=0,score=0;
   function one(){
@@ -139,15 +147,15 @@ function quizList(items,host,showAll){
     var ch=host.querySelector("#ch"), tb=host.querySelector("#tb"), shown=order.map(function(k){return tx(q.choices[k])});
     function qctx(extra){var c={unit:it.u.title,question:tx(q.q),choices:shown,correctChoice:"ABCDE"[order.indexOf(q.a)]+") "+shown[order.indexOf(q.a)],reference:tx(q.why)};for(var k in extra)c[k]=extra[k];return c}
     var hintFirst=PH_TUTOR.enabled()&&(S.settings.tutor||{}).hintFirst!==false;
-    if(T()){tb.innerHTML='<button class="sec" id="hb">Hint</button>';tb.querySelector("#hb").onclick=function(){
+    if(T()&&!timed){tb.innerHTML='<button class="sec" id="hb">Hint</button>';tb.querySelector("#hb").onclick=function(){
       PH_TUTOR.ask({key:"q:"+qkey(it.u,q),title:"Question "+(i+1)+" · "+it.u.title,mode:"hint",freeMode:hintFirst?"hint":"chat",context:qctx(),text:"I'm stuck on this question. Can I get a hint?"})}}
     order.forEach(function(k,pos){var b=document.createElement("button");b.className="choice sec";b.innerHTML="<b>"+"ABCDE"[pos]+".</b> "+q.choices[k];
       b.onclick=function(){
-        var ok=k===q.a; if(ok)score++; recordQ(qkey(it.u,q),ok);
+        var ok=k===q.a, hinted=window.PH_TUTOR&&PH_TUTOR.hinted("q:"+qkey(it.u,q)); if(ok)score++; recordQ(qkey(it.u,q),ok&&!hinted);
         ch.querySelectorAll("button").forEach(function(x,p){x.disabled=true;if(order[p]===q.a)x.classList.add("right")}); if(!ok)b.classList.add("wrong");
         if(T()){tb.innerHTML='<button class="sec" id="eb">Explain this</button>';tb.querySelector("#eb").onclick=function(){
           PH_TUTOR.ask({key:"q:"+qkey(it.u,q),title:"Question "+(i+1)+" · "+it.u.title,mode:"explain",freeMode:"chat",context:qctx({studentChoice:"ABCDE"[pos]+") "+shown[pos]}),text:ok?"I got it right. Can you explain why, and what to remember?":"I got this wrong. Can you explain why?"})}}
-        host.querySelector("#fb").innerHTML='<div class="why"><b>'+(ok?"Correct.":"Not quite.")+'</b> '+q.why+'</div><button id="nx">'+(i+1<items.length?"Next":"Finish")+'</button>';
+        host.querySelector("#fb").innerHTML='<div class="why"><b>'+(ok?"Correct.":"Not quite.")+'</b> '+(ok&&hinted?'<span class="mut">(You used a tutor hint, so this will come back in Review to confirm it sticks.)</span> ':'')+q.why+'</div><button id="nx">'+(i+1<items.length?"Next":"Finish")+'</button>';
         math(host); host.querySelector("#nx").onclick=function(){i++;one();math(host)}};
       ch.appendChild(b)});
     math(host);
@@ -194,7 +202,7 @@ function exam(){
     var secs=Math.round(set.length*mins*60/n), t0=now(), host=document.getElementById("qs");
     host.innerHTML='<div class="card"><b id="tm"></b></div><div id="inner"></div>';
     var iv=setInterval(function(){var r=secs-Math.round((now()-t0)/1000),t=document.getElementById("tm");if(!t){clearInterval(iv);return}t.textContent="Time left: "+Math.floor(Math.abs(r)/60)+":"+("0"+Math.abs(r)%60).slice(-2)+(r<0?" (over)":"")},500);
-    quizList(set,document.getElementById("inner"));
+    quizList(set,document.getElementById("inner"),false,true);
   };
 }
 

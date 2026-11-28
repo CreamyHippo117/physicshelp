@@ -63,7 +63,8 @@ function ask(o){ if(!enabled()||!H||busy)return; open(o);
   var over=false;
   function fin(){ over=true; busy=false; panel.querySelector("#tsend").disabled=false; refreshUse() }
   function fail(m){ el.className="tmsg e"; el.textContent=m; cur.msgs.pop(); fin() }
-  var ctl=new AbortController(), to=setTimeout(function(){ctl.abort()},120000);
+  var ctl=new AbortController(), to=null;
+  function arm(){ clearTimeout(to); to=setTimeout(function(){ctl.abort()},60000) } arm(); /* idle timer: resets on every chunk, including server heartbeats */
   fetch(url(),{method:"POST",signal:ctl.signal,headers:{"content-type":"application/json","x-access-code":code()},
     body:JSON.stringify({mode:mode,quick:!!ts().quick,hints:hintN[cur.key]||1,context:o.context||cur.context,messages:msgs})})
   .then(function(res){
@@ -71,7 +72,7 @@ function ask(o){ if(!enabled()||!H||busy)return; open(o);
     var rd=res.body.getReader(), dec=new TextDecoder(), buf="";
     function pump(){ return rd.read().then(function(r){
       if(r.done){ clearTimeout(to); if(!over&&!got&&!acc){fail("The tutor stopped without answering. Try again.")} return }
-      buf+=dec.decode(r.value,{stream:true}); var parts=buf.split("\n\n"); buf=parts.pop();
+      arm(); buf+=dec.decode(r.value,{stream:true}); var parts=buf.split("\n\n"); buf=parts.pop();
       parts.forEach(function(p){ var m=/^data: (.*)$/m.exec(p); if(!m)return; var e; try{e=JSON.parse(m[1])}catch(_){return}
         if(e.t==="text"){ got=true; acc+=e.v; el.className="tmsg a"; el.innerHTML=fmt(acc); list().scrollTop=list().scrollHeight }
         else if(e.t==="done"){ clearTimeout(to); el.className="tmsg a"; el.innerHTML=fmt(acc); H.math(el);
@@ -105,5 +106,6 @@ function bindSettings(){ if(cfg.noNetwork)return; var $=function(i){return docum
      .then(function(r){return r.json().then(function(j){ m.textContent=r.ok&&j.ok?("Connected. Daily limit "+j.dailyTurnCap+(j.capEnforced?" (enforced by the server).":" (not enforced: no KV set up).")):(j.error||"Server said no ("+r.status+").") })})
      .catch(function(){m.textContent="Could not reach that URL."}) };
 }
-window.PH_TUTOR={init:init,enabled:enabled,ask:ask,open:open,refresh:refresh,txt:txt,fmt:fmt,settingsHtml:settingsHtml,bindSettings:bindSettings};
+function hinted(key){ return (hintN[key]||0)>0 }
+window.PH_TUTOR={hinted:hinted,init:init,enabled:enabled,ask:ask,open:open,refresh:refresh,txt:txt,fmt:fmt,settingsHtml:settingsHtml,bindSettings:bindSettings};
 })();

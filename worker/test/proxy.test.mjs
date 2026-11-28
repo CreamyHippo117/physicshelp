@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import Anthropic from "@anthropic-ai/sdk";
-import { createHandler, buildSystem, validate } from "../src/index.mjs";
+import { createHandler, buildSystem, validate } from "../src/core.mjs";
 
 const sse = (events) => events.map((e) => `event: ${e.type}\ndata: ${JSON.stringify(e)}\n\n`).join("");
 function okStream(text = "Hello student.", extra = {}) {
@@ -67,7 +67,7 @@ await t("streams text, thinking marker and usage; upstream request is well-forme
   assert.equal(ev.filter((e) => e.t === "text").map((e) => e.v).join(""), "Hello student.");
   const done = ev.at(-1); assert.equal(done.t, "done"); assert.equal(done.in, 1200); assert.equal(done.out, 321); assert.equal(done.model, "claude-opus-5-5");
   const c = calls[0]; assert.match(c.url, /\/v1\/messages/);
-  assert.equal(c.body.model, "claude-opus-5-5"); assert.equal(c.body.stream, true); assert.equal(c.body.max_tokens, 8000);
+  assert.equal(c.body.model, "claude-opus-5-5"); assert.equal(c.body.stream, true); assert.equal(c.body.max_tokens, 10000);
   assert.deepEqual(c.body.thinking, { type: "adaptive" }); assert.equal(c.body.output_config.effort, "medium");
   assert.equal(c.body.fallbacks, "default"); assert.match(c.headers["anthropic-beta"], /server-side-fallback-2026-07-01/);
   for (const k of ["temperature", "top_p", "top_k"]) assert.ok(!(k in c.body), k + " must not be sent");
@@ -80,9 +80,15 @@ await t("the API key never appears in anything sent to the browser", async () =>
 });
 await t("quick mode uses Sonnet; check mode uses high effort; hint level is in the prompt", async () => {
   calls = []; await (await handler()(req({ ...good, quick: true }), env())).text(); assert.equal(calls[0].body.model, "claude-sonnet-5-5");
-  calls = []; await (await handler()(req({ ...good, mode: "check" }), env())).text(); assert.equal(calls[0].body.output_config.effort, "high"); assert.ok(calls[0].body.system.includes("Mode: CHECK"));
+  calls = []; await (await handler()(req({ ...good, mode: "check" }), env())).text(); assert.equal(calls[0].body.output_config.effort, "high"); assert.equal(calls[0].body.max_tokens, 16000); assert.ok(calls[0].body.system.includes("Mode: CHECK"));
   calls = []; await (await handler()(req({ ...good, mode: "hint", hints: 2 }), env())).text(); assert.ok(calls[0].body.system.includes("hint number 2"));
   assert.ok(buildSystem("explain", { choices: ["a", "b"] }, 1).includes("A) a\nB) b"));
+});
+await t("heartbeat comments keep a slow answer alive", async () => {
+  const slow = createHandler({ createClient: (e) => new Anthropic({ apiKey: e.ANTHROPIC_API_KEY, maxRetries: 0, fetch: async () => { await new Promise((r) => setTimeout(r, 300)); return new Response(okStream(), { headers: { "content-type": "text/event-stream" } }); } }) });
+  const raw = await (await slow(req(good), env({ HEARTBEAT_MS: "20" }))).text();
+  assert.ok((raw.match(/^: ping$/gm) || []).length >= 3, "expected several heartbeats while waiting");
+  assert.ok(raw.includes('"t":"done"'));
 });
 await t("model overrides come from env", async () => {
   calls = []; await (await handler()(req(good), env({ MODEL_DEEP: "claude-opus-4-8" }))).text(); assert.equal(calls[0].body.model, "claude-opus-4-8");

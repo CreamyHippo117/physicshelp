@@ -1,7 +1,7 @@
 // Local stand-in for the deployed tutor: the REAL worker code + the REAL SDK, with a simulated Anthropic API behind it.
 import http from "node:http";
 import Anthropic from "@anthropic-ai/sdk";
-import { createHandler } from "../src/index.mjs";
+import { createHandler } from "../src/core.mjs";
 export const calls = [];
 const sse = (events) => events.map((e) => `event: ${e.type}\ndata: ${JSON.stringify(e)}\n\n`).join("");
 function reply(text) {

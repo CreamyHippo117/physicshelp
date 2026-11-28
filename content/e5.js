@@ -35,7 +35,7 @@ $$\oint\vec E\cdot d\vec l=-\frac{d}{dt}\int\vec B\cdot d\vec A$$
 <li>Is the flux in that direction increasing or decreasing?</li>
 <li>Induced $\vec B$ points <b>against</b> the original if flux is increasing; <b>along</b> it if decreasing. (If the flux is not changing, no induced current.)</li>
 <li>Right-hand rule on the loop: thumb along the needed induced $\vec B$, fingers show current direction.</li></ol>
-<svg class="fig" viewBox="0 0 340 190" width="340" role="img" aria-label="Bar magnet with north pole down approaching a horizontal loop from above; the loop is shown with induced counterclockwise current as seen from above">
+<svg class="fig" viewBox="0 0 420 190" width="420" role="img" aria-label="Bar magnet with north pole down approaching a horizontal loop from above; the loop is shown with induced counterclockwise current as seen from above">
 <rect x="130" y="10" width="40" height="30" fill="none" stroke="currentColor" stroke-width="2"/><text x="144" y="30">S</text>
 <rect x="130" y="40" width="40" height="30" fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="2"/><text x="144" y="60">N</text>
 <line x1="150" y1="5" x2="150" y2="-5" stroke="currentColor"/>

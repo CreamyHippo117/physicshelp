@@ -1,6 +1,6 @@
 # Tutor server (Cloudflare Worker)
 
-Lets the app's AI tutor use your Anthropic API credits **without putting your API key in the browser**. The Worker holds the key, builds the tutor prompt on the server, calls Claude, and streams the answer back. It is free to run on Cloudflare's free plan.
+Lets the app's AI tutor use your Anthropic API credits **without putting your API key in the browser**. The Worker holds the key, builds the tutor prompt on the server, calls Claude, and streams the answer back. Cloudflare's free plan should be enough for this (I have not verified current plan limits; check Cloudflare's pricing page).
 
 You do this once, in your own terminal. Do not paste your API key into a chat or a file in this repo.
 
@@ -36,7 +36,7 @@ You do this once, in your own terminal. Do not paste your API key into a chat or
 - **Credits are the hard cap.** When the balance is gone, the tutor says so and stops.
 - **Per-device daily limit** (`dailyTurns` in `js/config.js`, default 80 questions a day).
 - **Server-side daily limit** (`DAILY_TURN_CAP`, default 200 a day) once you add a KV store: run `npx wrangler kv namespace create USAGE`, paste the id into the commented block in `wrangler.toml`, redeploy. Without it the limit is not enforced on the server.
-- Output length is capped (8,000 tokens per answer including thinking), and the number and size of messages are capped.
+- Output length is capped (10,000 tokens per answer including thinking; 16,000 when checking free-response work), and the number and size of messages are capped.
 - Rotate the `ACCESS_CODE` (`wrangler secret put` again) to cut off anyone who learns it. Revoke the API key in the Console to stop everything.
 
 ## Models and cost
