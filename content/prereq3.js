@@ -215,7 +215,7 @@ $$mgh=\mu mg\,d\ \Rightarrow\ d=\frac{h}{\mu}.$$
     {p:1,d:"$M\\to\\infty$: $a\\to g$ (and $T\\to mg$), with a physical explanation (the hanging block essentially in free fall)"},
     {p:1,d:"$m\\to\\infty$: $a\\to0$ and $T\\to Mg$, with a physical explanation (the heavy block barely accelerates, so the string just holds the hanging block's weight)"},
     {p:1,d:"$a=6.0$ m/s$^2$ and $T=12$ N, with units"},
-    {p:1,d:"Hanging block accelerates downward, so net force on it is downward: $Mg-T=Ma>0$, hence $T<Mg$"},
+    {p:1,d:"Hanging block accelerates downward, so net force on it is downward: $Mg-T=Ma>0$, hence $T&lt;Mg$"},
     {p:1,d:"Energy: $Mgd=\\tfrac12(M+m)v^2\\Rightarrow v=\\sqrt{2Mgd/(M+m)}=3.5$ m/s, consistent with $v^2=2ad$"}],
    solution:String.raw`<p>(a) Assume (1) a massless, inextensible string, so the tension is the same everywhere along it and both blocks move together with equal speeds and accelerations; (2) a massless, frictionless pulley, which only changes the direction of the tension; and the table is frictionless.</p>
 <p>(b) Block $m$ (dot): $mg$ downward, $N$ upward, $T$ horizontal toward the pulley; $N$ and $mg$ have equal length. Block $M$ (dot): $Mg$ downward (longer) and $T$ upward.</p>
@@ -223,7 +223,7 @@ $$mgh=\mu mg\,d\ \Rightarrow\ d=\frac{h}{\mu}.$$
 $$a=\frac{Mg}{M+m},\qquad T=ma=\frac{mMg}{M+m}.$$
 <p>(d) (i) $M\to\infty$: $a\to g$ and $T\to mg$. The hanging block is so heavy that the little block hardly matters and it falls as if free. (ii) $m\to\infty$: $a\to0$ and $T\to Mg$. The very heavy block hardly accelerates, so the hanging block stays nearly at rest, and the string tension just balances $Mg$.</p>
 <p>(e) $a=3.0(10)/5.0=6.0$ m/s$^2$; $T=2.0(6.0)=12$ N. Check with the other equation: $Mg-T=30-12=18$ N $=Ma=3.0(6.0)$. &#10003;</p>
-<p>(f) The hanging block speeds up downward, so the net force on it must point downward: $Mg-T>0$, so $T<Mg$. Here $12<30$ N. If $T$ were equal to $Mg$, the hanging block would not accelerate.</p>
+<p>(f) The hanging block speeds up downward, so the net force on it must point downward: $Mg-T>0$, so $T&lt;Mg$. Here $12<30$ N. If $T$ were equal to $Mg$, the hanging block would not accelerate.</p>
 <p>(g) Both blocks gain speed together; the only energy change is the hanging block's loss of potential energy: $Mgd=\tfrac12(M+m)v^2\Rightarrow v=\sqrt{\dfrac{2Mgd}{M+m}}=\sqrt{\dfrac{2(3.0)(10)(1.0)}{5.0}}=\sqrt{12}=3.5$ m/s. Kinematics: $v^2=2ad=2(6.0)(1.0)=12$, the same. &#10003;</p>`}
   ]
 });

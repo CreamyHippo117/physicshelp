@@ -41,7 +41,7 @@ var BOX=[0,1,3,7,16,35];
 function recordQ(key,ok){ var r=S.q[key]||(S.q[key]={att:0,cor:0,box:0,ok:false});
   r.att++; if(ok)r.cor++; r.ok=ok; r.box=ok?Math.min(5,r.box+1):0; r.due=now()+BOX[r.box]*DAY; r.last=now(); save() }
 function unitStats(u){
-  var L=(u.lessons||[]), lDone=L.filter(function(l){return S.lessons[u.id+":"+l.id]}).length;
+  var L=(u.lessons||[]).filter(function(l){return !l.extra}), lDone=L.filter(function(l){return S.lessons[u.id+":"+l.id]}).length;
   var Q=(u.mcq||[]), qOk=Q.filter(function(q){var r=S.q[qkey(u,q)];return r&&r.ok}).length, qTried=Q.filter(function(q){return S.q[qkey(u,q)]}).length;
   var F=(u.frq||[]), fDone=F.filter(function(f){return S.frq[u.id+":"+f.id]}).length;
   var parts=[],tot=0;
@@ -116,7 +116,7 @@ function learnTab(u,B){
   var h="";
   if(u.goals&&u.goals.length)h+='<div class="card"><b>By the end you can:</b><ul>'+u.goals.map(function(g){return"<li>"+g+"</li>"}).join("")+'</ul></div>';
   (u.lessons||[]).forEach(function(l){var k=u.id+":"+l.id;
-    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+vids(l.videos)+(T()?'<p class="tutor-ask"><button class="sec" data-ask="'+l.id+'">Ask the tutor about this section</button></p>':'')+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
+    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+(l.extra?' <span class="pill">Extension</span>':'')+'</h2>'+l.html+vids(l.videos)+(T()?'<p class="tutor-ask"><button class="sec" data-ask="'+l.id+'">Ask the tutor about this section</button></p>':'')+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
   B.innerHTML=h||"<p>No lessons yet.</p>";
   B.querySelectorAll("button[data-ask]").forEach(function(b){b.onclick=function(){var l=u.lessons.filter(function(x){return x.id===b.dataset.ask})[0];
     PH_TUTOR.open({key:"unit:"+u.id+":"+l.id,title:u.title+" · "+l.title,freeMode:"chat",context:{unit:u.title,lesson:l.title,lessonText:tx(l.html)}})}});

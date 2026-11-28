@@ -124,7 +124,7 @@ $$B_{\text{inside}}=\mu_0nI$$
 $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outside}$$
 <p>(For a loop outside the doughnut, or through the hole, the net enclosed current is zero.) Note that, unlike the solenoid, $B$ varies across the toroid's cross-section.</p>
 <div class="box key"><b>Biot-Savart vs Ampère.</b> Biot-Savart is the underlying law for steady currents of any shape (you integrate). Ampère's law is a consequence you can use as a shortcut when symmetry makes $\oint\vec B\cdot d\vec l$ trivial. If the geometry has no such symmetry (a finite wire, a single loop), Ampère's law is still true but does not by itself give you $B$.</div>
-<div class="box trap"><b>Trap:</b> for $r<R$ in a thick wire only the current <i>inside</i> your Amperian loop counts, and for nonuniform $J$ you must integrate: $I_{\text{enc}}\ne J(r)\pi r^2$.</div>`}
+<div class="box trap"><b>Trap:</b> for $r&lt;R$ in a thick wire only the current <i>inside</i> your Amperian loop counts, and for nonuniform $J$ you must integrate: $I_{\text{enc}}\ne J(r)\pi r^2$.</div>`}
   ],
   examples:[
   {id:"x1", title:"Proton in a magnetic field", problem:String.raw`<p>A proton ($m=1.67\times10^{-27}$ kg, $q=1.60\times10^{-19}$ C) moves at $2.0\times10^6$ m/s perpendicular to a uniform $0.50$ T field. Find the radius of its orbit, its orbital period, and its kinetic energy after one full revolution.</p>`,
@@ -203,7 +203,7 @@ $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outsid
 (c) Integrate to show $B_z=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$ and give the direction of $\vec B$ on the axis.<br>
 (d) Find $B$ at the center, and find the limit for $z\gg R$ in terms of the dipole moment $\mu=I\pi R^2$.<br>
 (e) At what two values of $z$ is the magnitude of $B_z$ equal to half its center value? Give the answer in units of $R$.<br>
-(f) A second identical loop is placed coaxially at $z=d$ carrying the same current in the same sense. The single-loop function $B_z(z)$ is concave down for $|z|<R/2$ and concave up for $|z|>R/2$. Use this to decide whether the total field at the midpoint $z=d/2$ is a local maximum or minimum along the axis for $d<R$, for $d=R$, and for $d>R$.</p>`,
+(f) A second identical loop is placed coaxially at $z=d$ carrying the same current in the same sense. The single-loop function $B_z(z)$ is concave down for $|z|&lt;R/2$ and concave up for $|z|>R/2$. Use this to decide whether the total field at the midpoint $z=d/2$ is a local maximum or minimum along the axis for $d&lt;R$, for $d=R$, and for $d>R$.</p>`,
    pts:[
     {p:1,d:"$d\\vec l\\perp\\hat r$ so $|d\\vec l\\times\\hat r|=dl$, $r^2=R^2+z^2$, giving the stated $dB$; direction perpendicular to both $d\\vec l$ and $\\vec r$ (tilted by angle with the axis)"},
     {p:1,d:"Symmetry argument: perpendicular components of opposite elements cancel"},
@@ -212,13 +212,13 @@ $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outsid
     {p:1,d:"Direction $+z$ (RHR-2: fingers along counterclockwise current, thumb up)"},
     {p:1,d:"Center $\\mu_0I/2R$; far field $\\mu_0\\mu/(2\\pi z^3)$"},
     {p:1,d:"Solves $(1+z^2/R^2)^{3/2}=2$: $z=\\pm R\\sqrt{2^{2/3}-1}=\\pm0.77R$"},
-    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d<R$, zero curvature for $d=R$ (Helmholtz pair, very uniform), local minimum for $d>R$"}],
+    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d&lt;R$, zero curvature for $d=R$ (Helmholtz pair, very uniform), local minimum for $d>R$"}],
    solution:String.raw`<p>(a) $d\vec B=\frac{\mu_0}{4\pi}\frac{I\,d\vec l\times\hat r}{r^2}$. The element lies on the circle, the field point is on the axis, so $\vec r$ has components $(-R\hat\rho,\ z\hat z)$ and $d\vec l$ is tangential, hence perpendicular to $\vec r$: $|d\vec l\times\hat r|=dl$, $r^2=R^2+z^2$ and $dB=\mu_0I\,dl/[4\pi(R^2+z^2)]$. $d\vec B$ is perpendicular to $\vec r$ and $d\vec l$, so it tilts out of the axial direction by the angle whose cosine is $R/\sqrt{R^2+z^2}$.</p>
 <p>(b) An element on the opposite side has the same $dB$ but its perpendicular component points the opposite way; summing over the ring cancels all perpendicular components.</p>
 <p>(c) $B_z=\oint dB\cos\alpha=\dfrac{\mu_0I}{4\pi(R^2+z^2)}\dfrac{R}{\sqrt{R^2+z^2}}(2\pi R)=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$, along $+z$ (RHR: counterclockwise current, thumb out of the page toward $+z$).</p>
 <p>(d) $z=0$: $B_0=\mu_0I/2R$. $z\gg R$: $B\approx\mu_0IR^2/2z^3=\mu_0\mu/(2\pi z^3)$ with $\mu=I\pi R^2$.</p>
 <p>(e) $\dfrac{B_z}{B_0}=\dfrac{1}{(1+z^2/R^2)^{3/2}}=\dfrac12\Rightarrow 1+z^2/R^2=2^{2/3}=1.587\Rightarrow z=\pm0.77R$.</p>
-<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|<R/2$, the midpoint is a local maximum when $d<R$; at $d=R$ the curvature vanishes (a Helmholtz pair gives an unusually uniform field); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
+<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|&lt;R/2$, the midpoint is a local maximum when $d&lt;R$; at $d=R$ the curvature vanishes (a Helmholtz pair gives an unusually uniform field); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
   {id:"f3", type:"Mathematical routines", title:"Ampère's law with a nonuniform current",
    prompt:String.raw`<p>A long straight cylindrical conductor of radius $R$ carries a current along its axis with current density $J(r)=J_0\left(1-\dfrac rR\right)$ for $r\le R$ and $0$ outside, where $J_0$ is a positive constant and $r$ is the distance from the axis.</p>
 <p>(a) Find the total current $I$ in terms of $J_0$ and $R$.<br>

@@ -43,10 +43,10 @@ $$C=\frac{Q}{V}\qquad[\text{farad}=\text{F}=\text{C/V}]$$
 $$C=\frac{\varepsilon_0A}{d}$$
 <p>We ignore fringing at the edges. Bigger area stores more charge; smaller gap means less $V$ per charge.</p>
 <h3>Spherical capacitor (inner radius $a$, outer shell radius $b$)</h3>
-<p>Gaussian sphere of radius $r$, $a<r<b$: $E\,4\pi r^2=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ radially outward. Then</p>
+<p>Gaussian sphere of radius $r$, $a&lt;r&lt;b$: $E\,4\pi r^2=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ radially outward. Then</p>
 $$V=\int_a^bE\,dr=\frac{Q}{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)\quad\Rightarrow\quad C=4\pi\varepsilon_0\frac{ab}{b-a}.$$
 <p>Letting $b\to\infty$ gives the capacitance of a single isolated sphere, $C=4\pi\varepsilon_0a$ (the "other conductor" is infinitely far away). For a thin gap $d=b-a\ll a$, $C\to4\pi\varepsilon_0a^2/d=\varepsilon_0A/d$ with $A=4\pi a^2$: it reduces to the parallel-plate result, a good sanity check.</p>
-<h3>Cylindrical capacitor (radii $a<b$, length $L\gg b$)</h3>
+<h3>Cylindrical capacitor (radii $a&lt;b$, length $L\gg b$)</h3>
 <p>Let the line charge density on the inner cylinder be $\lambda=Q/L$. A coaxial Gaussian cylinder of radius $r$ and length $\ell$ gives $E\,2\pi r\ell=\lambda\ell/\varepsilon_0$, so $E=\dfrac{\lambda}{2\pi\varepsilon_0r}$ and</p>
 $$V=\int_a^b\frac{\lambda}{2\pi\varepsilon_0r}dr=\frac{\lambda}{2\pi\varepsilon_0}\ln\frac ba\quad\Rightarrow\quad C=\frac{2\pi\varepsilon_0L}{\ln(b/a)}.$$
 <p>Coaxial cable behaves exactly like this. Notice the field is strongest at the inner surface ($r=a$), so that is where breakdown (sparking) happens first.</p>
@@ -101,7 +101,7 @@ $$C=\int\frac{\varepsilon(y)\,w\,dy}{d(y)}.$$ Example: plates of width $w$ and l
    solution:String.raw`<p>(a) A Gaussian sphere inside the metal must enclose zero charge, so the inner surface carries $-2.0$ nC. The shell is neutral, so the outer surface carries $+2.0$ nC.</p>
 <p>(b) By spherical symmetry only the enclosed charge matters. $r=0.05$ m: enclosed $+2.0$ nC, $E=kq/r^2=(8.99\times10^9)(2.0\times10^{-9})/(0.05)^2\approx7.2\times10^3$ N/C, outward. $r=0.15$ m is inside the metal: $E=0$. $r=0.30$ m: total enclosed is $2.0-2.0+2.0=+2.0$ nC, so $E=kq/r^2=17.98/0.09\approx2.0\times10^2$ N/C outward.</p>
 <p>(c) Integrate inward from infinity, region by region. $V(b)=kq/b=89.9$ V. The potential is constant (89.9 V) throughout the metal, so $V(a)=89.9$ V. Inside the cavity $V(r)=V(a)+kq(1/r-1/a)$, giving $V(0.05)=89.9+17.98(20-10)=269.7\approx2.7\times10^2$ V.</p>
-<p>Equivalent shortcut: $V(r)=kq\left(\frac1r-\frac1a+\frac1b\right)$ for $r<a$.</p>`},
+<p>Equivalent shortcut: $V(r)=kq\left(\frac1r-\frac1a+\frac1b\right)$ for $r&lt;a$.</p>`},
   {id:"x2", title:"A coaxial (cylindrical) capacitor", problem:String.raw`<p>A coaxial capacitor has inner conductor radius $a=1.0$ mm, outer conductor radius $b=4.0$ mm and length $L=0.50$ m (ignore end effects). (a) Find its capacitance. (b) If it is connected to a $100$ V source, find the charge and stored energy. (c) Find the electric field at the surface of the inner conductor.</p>`,
    solution:String.raw`<p>(a) $C=\dfrac{2\pi\varepsilon_0L}{\ln(b/a)}=\dfrac{2\pi(8.85\times10^{-12})(0.50)}{\ln4}=\dfrac{2.78\times10^{-11}}{1.386}\approx2.0\times10^{-11}$ F $=20$ pF.</p>
 <p>(b) $Q=CV=(2.0\times10^{-11})(100)=2.0$ nC. $U=\tfrac12CV^2=\tfrac12(2.0\times10^{-11})(10^4)=1.0\times10^{-7}$ J $=0.10\ \mu$J.</p>
@@ -145,7 +145,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
   {id:"f1", type:"Mathematical routines", title:"A spherical capacitor",
    prompt:String.raw`<p>A solid conducting sphere of radius $a$ carries charge $+Q$. It is surrounded by a concentric, thin conducting spherical shell of radius $b>a$ carrying charge $-Q$ (vacuum between them).</p>
 <svg class="fig" viewBox="0 0 300 215" width="300" role="img" aria-label="Concentric spheres: inner sphere of radius a with charge plus Q, outer thin shell of radius b with charge minus Q"><g stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="150" cy="105" r="78"/><circle cx="150" cy="105" r="32" fill="currentColor" fill-opacity=".15"/><circle cx="150" cy="105" r="55" stroke-dasharray="4 4" stroke-width="1.2"/><text x="150" y="120" text-anchor="middle" stroke="none" font-size="13">+Q</text><line x1="150" y1="105" x2="150" y2="73" stroke-width="1"/><text x="158" y="88" text-anchor="start" stroke="none" font-size="13">a</text><line x1="150" y1="105" x2="228" y2="105" stroke-width="1"/><text x="214" y="100" text-anchor="middle" stroke="none" font-size="13">b</text><line x1="150" y1="105" x2="188.9" y2="143.9" stroke-width="1" stroke-dasharray="2 2"/><text x="172" y="149" text-anchor="middle" stroke="none" font-size="13">r</text><text x="150" y="205" text-anchor="middle" stroke="none" font-size="13">&minus;Q on outer shell</text></g></svg>
-<p>(a) Use Gauss's law to find the electric field $E(r)$ for $a<r<b$ and state $E$ for $r>b$.<br>
+<p>(a) Use Gauss's law to find the electric field $E(r)$ for $a&lt;r&lt;b$ and state $E$ for $r>b$.<br>
 (b) Find the potential difference $V$ between the sphere and the shell.<br>
 (c) Derive the capacitance $C$.<br>
 (d) Show that for a very thin gap $d=b-a\ll a$, your result approaches $\varepsilon_0A/d$, and identify $A$.<br>
@@ -153,7 +153,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
 (f) The region between the conductors is now filled with a dielectric ($\kappa>1$) while the charge $Q$ stays fixed. State, with a one-sentence reason, whether the stored energy increases, decreases or stays the same.</p>`,
    pts:[
     {p:1,d:"Gaussian sphere of radius $r$ with $E\\,4\\pi r^2=Q/\\varepsilon_0$ (enclosed charge $Q$)"},
-    {p:1,d:"$E=Q/4\\pi\\varepsilon_0r^2$ radially outward for $a<r<b$; and $E=0$ for $r>b$ because net enclosed charge is zero"},
+    {p:1,d:"$E=Q/4\\pi\\varepsilon_0r^2$ radially outward for $a&lt;r&lt;b$; and $E=0$ for $r>b$ because net enclosed charge is zero"},
     {p:1,d:"Integrates $V=\\int_a^bE\\,dr$ with correct limits"},
     {p:1,d:"$V=\\frac{Q}{4\\pi\\varepsilon_0}\\left(\\frac1a-\\frac1b\\right)$"},
     {p:1,d:"$C=Q/V=4\\pi\\varepsilon_0ab/(b-a)$"},
@@ -162,7 +162,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
     {p:1,d:"Evaluates the integral to $\\frac{Q^2}{8\\pi\\varepsilon_0}\\left(\\frac1a-\\frac1b\\right)$"},
     {p:1,d:"Shows this equals $Q^2/2C$"},
     {p:1,d:"Energy decreases (by a factor $\\kappa$); with fixed $Q$ the field and $V$ are reduced by $\\kappa$ so $U=Q^2/2C$ falls as $C$ increases"}],
-   solution:String.raw`<p>(a) For $a<r<b$ the Gaussian sphere encloses $+Q$: $E\,(4\pi r^2)=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ pointing radially outward. For $r>b$ the enclosed charge is $Q-Q=0$, so $E=0$.</p>
+   solution:String.raw`<p>(a) For $a&lt;r&lt;b$ the Gaussian sphere encloses $+Q$: $E\,(4\pi r^2)=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ pointing radially outward. For $r>b$ the enclosed charge is $Q-Q=0$, so $E=0$.</p>
 <p>(b) $V=\displaystyle\int_a^bE\,dr=\frac{Q}{4\pi\varepsilon_0}\left[-\frac1r\right]_a^b=\frac{Q}{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)$ (the inner sphere is at the higher potential).</p>
 <p>(c) $C=\dfrac QV=\dfrac{4\pi\varepsilon_0}{\frac1a-\frac1b}=\dfrac{4\pi\varepsilon_0ab}{b-a}$.</p>
 <p>(d) With $b=a+d$ and $d\ll a$, $ab\approx a^2$ and $b-a=d$, so $C\approx\dfrac{4\pi a^2\varepsilon_0}{d}=\dfrac{\varepsilon_0A}{d}$ with $A=4\pi a^2$, the area of the sphere (the plates are nearly flat and parallel).</p>

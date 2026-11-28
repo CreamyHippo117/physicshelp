@@ -21,3 +21,10 @@ Each lesson gets `videos:[{title, url, src, note}]` (1-2 per lesson, only for MA
 **URL rule (strict):** use WebSearch (and WebFetch if allowed) to find real videos. Only include a URL you actually saw in search results or fetched, and that clearly matches the title. NEVER invent or reconstruct a video ID from memory. If you cannot find a verified video for a lesson, use a search link instead: `https://www.youtube.com/results?search_query=<url-encoded query>` with title like 'Search: ...' and src 'YouTube search'. Put a short `note` on what to watch for or what part is relevant (e.g. 'first 10 min'; only if you know it). List in your final report which videos were verified from search results vs. search-link fallbacks.
 
 Scope rule from the tutor (revised): teach Physics C properly. The official AP topic list is a FLOOR, not a ceiling. The student is exceptionally capable; include anything that makes the physics clear or that a strong calculus-based course (and past exam problems) assumes, even if College Board does not list it (derivations, standard textbook problem types, underlying Physics 1 ideas). Depth is welcome; wrong or confusing content is not. Walter Lewin / MIT lectures are good choices whenever they are the best explanation; present videos as recommended, not optional.
+
+## Gap-filling rules (adding to an existing unit)
+- NEVER rename, renumber or remove existing lesson/example/mcq/frq ids (student progress is keyed by them). Add new items with new ids after the existing ones (l6, x5, q15, f3 ...).
+- Core gaps (priority 1) become normal lessons/examples/MCQs/FRQs. Priority 2-3 material goes in lessons marked `extra:true` (shown with an "Extension" badge, not required for mastery), plus extra MCQs.
+- Update `hours` in the unit to match the new core content.
+- After editing run `NODE_PATH=$(npm root -g) node tools/check.js <yourUnitId>`; it must report 0 problems. In math written inside HTML, write `&lt;` for a less-than sign that is followed by a letter (`$r&lt;R$`), because a raw `<` before a letter is parsed as an HTML tag.
+- Every new numeric answer must be computed with python before it goes in the file.

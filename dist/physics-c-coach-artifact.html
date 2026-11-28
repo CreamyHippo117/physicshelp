@@ -774,7 +774,7 @@ $$mgh=\mu mg\,d\ \Rightarrow\ d=\frac{h}{\mu}.$$
     {p:1,d:"$M\\to\\infty$: $a\\to g$ (and $T\\to mg$), with a physical explanation (the hanging block essentially in free fall)"},
     {p:1,d:"$m\\to\\infty$: $a\\to0$ and $T\\to Mg$, with a physical explanation (the heavy block barely accelerates, so the string just holds the hanging block's weight)"},
     {p:1,d:"$a=6.0$ m/s$^2$ and $T=12$ N, with units"},
-    {p:1,d:"Hanging block accelerates downward, so net force on it is downward: $Mg-T=Ma>0$, hence $T<Mg$"},
+    {p:1,d:"Hanging block accelerates downward, so net force on it is downward: $Mg-T=Ma>0$, hence $T&lt;Mg$"},
     {p:1,d:"Energy: $Mgd=\\tfrac12(M+m)v^2\\Rightarrow v=\\sqrt{2Mgd/(M+m)}=3.5$ m/s, consistent with $v^2=2ad$"}],
    solution:String.raw`<p>(a) Assume (1) a massless, inextensible string, so the tension is the same everywhere along it and both blocks move together with equal speeds and accelerations; (2) a massless, frictionless pulley, which only changes the direction of the tension; and the table is frictionless.</p>
 <p>(b) Block $m$ (dot): $mg$ downward, $N$ upward, $T$ horizontal toward the pulley; $N$ and $mg$ have equal length. Block $M$ (dot): $Mg$ downward (longer) and $T$ upward.</p>
@@ -782,7 +782,7 @@ $$mgh=\mu mg\,d\ \Rightarrow\ d=\frac{h}{\mu}.$$
 $$a=\frac{Mg}{M+m},\qquad T=ma=\frac{mMg}{M+m}.$$
 <p>(d) (i) $M\to\infty$: $a\to g$ and $T\to mg$. The hanging block is so heavy that the little block hardly matters and it falls as if free. (ii) $m\to\infty$: $a\to0$ and $T\to Mg$. The very heavy block hardly accelerates, so the hanging block stays nearly at rest, and the string tension just balances $Mg$.</p>
 <p>(e) $a=3.0(10)/5.0=6.0$ m/s$^2$; $T=2.0(6.0)=12$ N. Check with the other equation: $Mg-T=30-12=18$ N $=Ma=3.0(6.0)$. &#10003;</p>
-<p>(f) The hanging block speeds up downward, so the net force on it must point downward: $Mg-T>0$, so $T<Mg$. Here $12<30$ N. If $T$ were equal to $Mg$, the hanging block would not accelerate.</p>
+<p>(f) The hanging block speeds up downward, so the net force on it must point downward: $Mg-T>0$, so $T&lt;Mg$. Here $12<30$ N. If $T$ were equal to $Mg$, the hanging block would not accelerate.</p>
 <p>(g) Both blocks gain speed together; the only energy change is the hanging block's loss of potential energy: $Mgd=\tfrac12(M+m)v^2\Rightarrow v=\sqrt{\dfrac{2Mgd}{M+m}}=\sqrt{\dfrac{2(3.0)(10)(1.0)}{5.0}}=\sqrt{12}=3.5$ m/s. Kinematics: $v^2=2ad=2(6.0)(1.0)=12$, the same. &#10003;</p>`}
   ]
 });
@@ -922,7 +922,7 @@ $$\vec v=\frac{d\vec r}{dt},\qquad \vec a=\frac{d\vec v}{dt}$$
   {id:"q4", q:String.raw`<p>A book rests on a horizontal table. Which force is the third-law partner of "the gravitational pull of Earth on the book"?</p>`, choices:["The normal force of the table on the book","The gravitational pull of the book on Earth","The normal force of the book on the table","The friction of the table on the book","There is none, because the book is at rest"], a:1,
    why:String.raw`<p>The third-law partner swaps the two bodies and keeps the type of force: Earth pulls book, so book pulls Earth. The table's normal force is equal and opposite to the weight only because the book is not accelerating, which is a statement about the second law, not the third.</p>`},
   {id:"q5", q:String.raw`<p>A person stands on a scale in an elevator that is moving upward and slowing down as it approaches the top floor. Compared with the person's true weight, the scale reading is</p>`, choices:["larger","the same","smaller","zero","impossible to compare without the speed"], a:2,
-   why:String.raw`<p>Moving up but slowing means the acceleration is downward. Then $mg-N=m|a|$, so $N<mg$. The tempting answer "same" uses "moving at constant velocity" reasoning, and "larger" confuses upward velocity with upward acceleration.</p>`},
+   why:String.raw`<p>Moving up but slowing means the acceleration is downward. Then $mg-N=m|a|$, so $N&lt;mg$. The tempting answer "same" uses "moving at constant velocity" reasoning, and "larger" confuses upward velocity with upward acceleration.</p>`},
   {id:"q6", q:String.raw`<p>A car travels at constant speed around a flat circular curve. The horizontal force on the car (supplied by friction between tires and road) is directed</p>`, choices:["forward, along the velocity","backward, opposite the velocity","toward the center of the circle","away from the center of the circle","nowhere: the net force is zero because the speed is constant"], a:2,
    why:String.raw`<p>The velocity direction keeps changing, so the car accelerates, and the acceleration (and net force) point toward the center. There is no outward force on the car; the "pushed outward" feeling is your body trying to continue straight.</p>`},
   {id:"q7", q:String.raw`<p>A heavy truck collides head-on with a small car. During the collision, the magnitude of the force of the truck on the car is</p>`, choices:["larger than the force of the car on the truck","smaller than the force of the car on the truck","equal to it","larger only if the truck was moving faster","zero if the car stops the truck"], a:2,
@@ -1573,7 +1573,7 @@ $$\Delta U=U(x_2)-U(x_1)=-W_{cons}=-\int_{x_1}^{x_2}F\,dx\qquad\Longleftrightarr
 <p>(The second form is the fundamental theorem of calculus applied to the first.) The minus sign says the force points in the direction $U$ decreases: <b>forces push downhill</b>. In three dimensions the same statement is written with the gradient, $\vec F=-\nabla U=-\left(\frac{\partial U}{\partial x},\frac{\partial U}{\partial y},\frac{\partial U}{\partial z}\right)$. For this course it is only notation: each component of the force is minus the corresponding partial derivative.</p>
 <p>Only <i>differences</i> in $U$ matter: adding a constant to $U$ changes no force. So you may choose the zero of $U$ wherever convenient. Two key cases:</p>
 $$\text{Gravity near the surface } (F_y=-mg):\ U=mgy\qquad\text{Ideal spring } (F_x=-kx):\ U=\tfrac12kx^2$$
-<p>(For a preview of Mechanics 5: Newton's law of gravitation $F=-GMm/r^2$ pointing inward is $-dU/dr$ with $U=-GMm/r$.)</p>
+<p>(For a preview of Mechanics 7: Newton's law of gravitation $F=-GMm/r^2$ pointing inward is $-dU/dr$ with $U=-GMm/r$.)</p>
 <p><b>Conservation of mechanical energy.</b> Split the net work into conservative and non-conservative parts, $W_{net}=W_{cons}+W_{nc}$. The work-energy theorem gives $\Delta K=-\Delta U+W_{nc}$, so</p>
 $$\Delta(K+U)=W_{nc}$$
 <div class="box key">The <b>mechanical energy</b> $E=K+U$ stays constant when only conservative forces do work ($W_{nc}=0$). Non-conservative forces change $E$ by exactly their work. Kinetic friction does $W=-fd$, which removes $fd$ of mechanical energy; that energy reappears as thermal energy of the surfaces.</div>
@@ -1774,7 +1774,7 @@ $$v_{1i}-v_{2i}=-(v_{1f}-v_{2f})$$
 $$v_{1f}=\frac{m_1-m_2}{m_1+m_2}v_{1i}+\frac{2m_2}{m_1+m_2}v_{2i},\qquad v_{2f}=\frac{2m_1}{m_1+m_2}v_{1i}+\frac{m_2-m_1}{m_1+m_2}v_{2i}$$
 <p>Limits worth knowing: equal masses exchange velocities; a light object hitting a very heavy stationary one bounces back with nearly the same speed; a heavy object hitting a light stationary one barely slows and sends it off at nearly $2v$.</p>
 <h4>Coefficient of restitution</h4>
-<p>Define $e=\dfrac{v_{2f}-v_{1f}}{v_{1i}-v_{2i}}$ (speed of separation over speed of approach). $e=1$ elastic, $e=0$ perfectly inelastic, $0<e<1$ inelastic. For a ball dropped from height $h_0$ onto a rigid floor that rebounds to $h$, $e=\sqrt{h/h_0}$ because speeds scale as $\sqrt{h}$. With $e$ known, momentum plus this relation gives two linear equations for the two unknown final velocities, no energy bookkeeping required.</p>
+<p>Define $e=\dfrac{v_{2f}-v_{1f}}{v_{1i}-v_{2i}}$ (speed of separation over speed of approach). $e=1$ elastic, $e=0$ perfectly inelastic, $0&lt;e<1$ inelastic. For a ball dropped from height $h_0$ onto a rigid floor that rebounds to $h$, $e=\sqrt{h/h_0}$ because speeds scale as $\sqrt{h}$. With $e$ known, momentum plus this relation gives two linear equations for the two unknown final velocities, no energy bookkeeping required.</p>
 <svg class="fig" viewBox="0 0 360 150" width="360" role="img" aria-label="Before and after sketch of a one dimensional collision: mass m1 moving right toward mass m2 at rest, then both moving after the collision">
 <text x="8" y="22">before</text><rect x="40" y="40" width="50" height="40" fill="none" stroke="currentColor" stroke-width="2"/><text x="58" y="65">m₁</text>
 <line x1="95" y1="60" x2="140" y2="60" stroke="currentColor" stroke-width="2"/><polygon points="140,55 150,60 140,65" fill="currentColor"/><text x="100" y="50">v₁ᵢ</text>
@@ -2511,8 +2511,8 @@ $$\vec g(\vec r)=-\frac{GM}{r^2}\hat r.$$
 <li><b>Inside a solid sphere</b> at radius $r$: only the mass <i>within</i> radius $r$ counts, as if it sat at the center; the outer shells contribute nothing: $g=GM_{\rm enc}(r)/r^2$.</li>
 </ul>
 <p><b>Why (a Gauss-law-flavored argument).</b> The inverse-square law implies that the flux of $\vec g$ through any closed surface equals $-4\pi G$ times the mass enclosed: $\oint\vec g\cdot d\vec A=-4\pi GM_{\rm enc}$. This is Gauss's law for gravity; its twin for electric fields is a centerpiece of E&amp;M and is proved there, so here we accept it. For a spherically symmetric mass, symmetry forces $\vec g$ to be radial and the same size everywhere on a sphere of radius $r$, so $g(4\pi r^2)=4\pi GM_{\rm enc}$, giving $g=GM_{\rm enc}/r^2$. Inside a hollow shell $M_{\rm enc}=0$, so $g=0$.</p>
-<p>For a <b>uniform</b> solid sphere of radius $R$, $M_{\rm enc}=M(r/R)^3$ for $r<R$, so</p>
-$$g(r)=\frac{GM}{R^3}\,r\quad(r<R),\qquad g(r)=\frac{GM}{r^2}\quad(r\ge R).$$
+<p>For a <b>uniform</b> solid sphere of radius $R$, $M_{\rm enc}=M(r/R)^3$ for $r&lt;R$, so</p>
+$$g(r)=\frac{GM}{R^3}\,r\quad(r&lt;R),\qquad g(r)=\frac{GM}{r^2}\quad(r\ge R).$$
 <svg class="fig" viewBox="0 0 340 200" width="340" role="img" aria-label="Gravitational field strength g versus distance r from the center of a uniform sphere: rising linearly inside to a maximum at the surface R, then falling as one over r squared outside">
 <line x1="50" y1="160" x2="330" y2="160" stroke="currentColor"/><line x1="50" y1="15" x2="50" y2="165" stroke="currentColor"/>
 <polyline points="50.0,160.0 50.7,159.2 51.4,158.4 52.1,157.6 52.9,156.9 53.6,156.1 54.3,155.3 55.0,154.5 55.7,153.7 56.4,152.9 57.1,152.1 57.9,151.4 58.6,150.6 59.3,149.8 60.0,149.0 60.7,148.2 61.4,147.4 62.1,146.6 62.9,145.9 63.6,145.1 64.3,144.3 65.0,143.5 65.7,142.7 66.4,141.9 67.1,141.1 67.9,140.4 68.6,139.6 69.3,138.8 70.0,138.0 70.7,137.2 71.4,136.4 72.1,135.6 72.9,134.9 73.6,134.1 74.3,133.3 75.0,132.5 75.7,131.7 76.4,130.9 77.1,130.1 77.9,129.4 78.6,128.6 79.3,127.8 80.0,127.0 80.7,126.2 81.4,125.4 82.1,124.6 82.9,123.9 83.6,123.1 84.3,122.3 85.0,121.5 85.7,120.7 86.4,119.9 87.1,119.1 87.9,118.4 88.6,117.6 89.3,116.8 90.0,116.0 90.7,115.2 91.4,114.4 92.1,113.6 92.9,112.9 93.6,112.1 94.3,111.3 95.0,110.5 95.7,109.7 96.4,108.9 97.1,108.1 97.9,107.4 98.6,106.6 99.3,105.8 100.0,105.0 100.7,104.2 101.4,103.4 102.1,102.6 102.9,101.9 103.6,101.1 104.3,100.3 105.0,99.5 105.7,98.7 106.4,97.9 107.1,97.1 107.9,96.4 108.6,95.6 109.3,94.8 110.0,94.0 110.7,93.2 111.4,92.4 112.1,91.6 112.9,90.9 113.6,90.1 114.3,89.3 115.0,88.5 115.7,87.7 116.4,86.9 117.1,86.1 117.9,85.4 118.6,84.6 119.3,83.8 120.0,83.0 120.7,82.2 121.4,81.4 122.1,80.6 122.9,79.9 123.6,79.1 124.3,78.3 125.0,77.5 125.7,76.7 126.4,75.9 127.1,75.1 127.9,74.4 128.6,73.6 129.3,72.8 130.0,72.0 130.7,71.2 131.4,70.4 132.1,69.6 132.9,68.9 133.6,68.1 134.3,67.3 135.0,66.5 135.7,65.7 136.4,64.9 137.1,64.1 137.9,63.4 138.6,62.6 139.3,61.8 140.0,61.0 140.7,60.2 141.4,59.4 142.1,58.6 142.9,57.9 143.6,57.1 144.3,56.3 145.0,55.5 145.7,54.7 146.4,53.9 147.1,53.1 147.9,52.4 148.6,51.6 149.3,50.8 150.0,50.0 150.0,50.0 151.8,53.8 153.6,57.5 155.4,60.9 157.1,64.2 158.9,67.3 160.7,70.3 162.5,73.1 164.3,75.8 166.1,78.4 167.9,80.8 169.6,83.2 171.4,85.4 173.2,87.5 175.0,89.6 176.8,91.6 178.6,93.5 180.4,95.3 182.1,97.0 183.9,98.7 185.7,100.3 187.5,101.8 189.3,103.3 191.1,104.7 192.9,106.1 194.6,107.4 196.4,108.7 198.2,109.9 200.0,111.1 201.8,112.3 203.6,113.4 205.4,114.4 207.1,115.5 208.9,116.4 210.7,117.4 212.5,118.3 214.3,119.2 216.1,120.1 217.9,121.0 219.6,121.8 221.4,122.6 223.2,123.3 225.0,124.1 226.8,124.8 228.6,125.5 230.4,126.2 232.1,126.8 233.9,127.5 235.7,128.1 237.5,128.7 239.3,129.3 241.1,129.9 242.9,130.4 244.6,131.0 246.4,131.5 248.2,132.0 250.0,132.5 251.8,133.0 253.6,133.5 255.4,133.9 257.1,134.4 258.9,134.8 260.7,135.2 262.5,135.6 264.3,136.0 266.1,136.4 267.9,136.8 269.6,137.2 271.4,137.6 273.2,137.9 275.0,138.3 276.8,138.6 278.6,138.9 280.4,139.3 282.1,139.6 283.9,139.9 285.7,140.2 287.5,140.5 289.3,140.8 291.1,141.1 292.9,141.3 294.6,141.6 296.4,141.9 298.2,142.1 300.0,142.4 301.8,142.6 303.6,142.9 305.4,143.1 307.1,143.4 308.9,143.6 310.7,143.8 312.5,144.0 314.3,144.3 316.1,144.5 317.9,144.7 319.6,144.9 321.4,145.1 323.2,145.3 325.0,145.5 326.8,145.6 328.6,145.8 330.4,146.0 332.1,146.2 333.9,146.4 335.7,146.5 337.5,146.7 339.3,146.9 341.1,147.0 342.9,147.2 344.6,147.3 346.4,147.5 348.2,147.6 350.0,147.8 351.8,147.9 353.6,148.1 355.4,148.2 357.1,148.3 358.9,148.5 360.7,148.6 362.5,148.7 364.3,148.9 366.1,149.0 367.9,149.1 369.6,149.2 371.4,149.4 373.2,149.5 375.0,149.6 376.8,149.7 378.6,149.8 380.4,149.9 382.1,150.0 383.9,150.1 385.7,150.2 387.5,150.3 389.3,150.4 391.1,150.5 392.9,150.6 394.6,150.7 396.4,150.8 398.2,150.9 400.0,151.0" fill="none" stroke="currentColor" stroke-width="2.5"/>
@@ -2654,7 +2654,7 @@ $$E=-\frac{GMm}{2a},\qquad 2a=r_p+r_a.$$
 <p>(e) In $\tfrac12mv^2-GMm/R=0$ the $m$ cancels, so $v_{\rm esc}$ is independent of $m$ (gravitational mass equals inertial mass). Kinetic and potential energy are scalars: $E$ depends only on speed and distance, so any launch direction that does not hit the ground gives the same threshold.</p>`},
   {id:"f2", type:"Qualitative/quantitative translation", title:"A tunnel through a uniform planet",
    prompt:String.raw`<p>Model Earth as a uniform solid sphere of mass $M$ and radius $R$ with surface field $g=GM/R^2$. A frictionless straight tunnel is bored along a diameter through the center. A small object of mass $m$ is released from rest at the surface end. Ignore air and Earth's rotation.</p>
-<p>(a) Using the shell theorem, show that the gravitational field at a distance $r<R$ from the center has magnitude $g\,r/R$, directed toward the center. Explain why only the mass inside radius $r$ matters.<br>
+<p>(a) Using the shell theorem, show that the gravitational field at a distance $r&lt;R$ from the center has magnitude $g\,r/R$, directed toward the center. Explain why only the mass inside radius $r$ matters.<br>
 (b) Write Newton's second law for the object along the tunnel (coordinate $x$ measured from the center) and show that its motion is SHM. Give $\omega$.<br>
 (c) Find the time for one complete round trip (surface to the far end and back) using $g=10$ m/s² and $R=6.4\times10^6$ m.<br>
 (d) Find the object's speed at the center.<br>
@@ -2808,7 +2808,7 @@ $$E_z=-\frac{d}{dz}\left[kQ(z^2+R^2)^{-1/2}\right]=\frac{kQ\,z}{(z^2+R^2)^{3/2}}
 $$U=\sum_{\text{pairs}}\frac{kq_iq_j}{r_{ij}}$$
 <p>$U>0$ means you did positive work to push like charges together; $U<0$ means the arrangement is bound (energy must be supplied to pull it apart).</p>
 <p><b>Graphs of $E(r)$ and $V(r)$ for spheres and shells.</b> The slope of $V$ gives $-E$, so (a) $V(r)$ is continuous (a jump would need an infinite field), (b) $V$ is flat wherever $E=0$, (c) $E$ jumps by $\sigma/\epsilon_0$ crossing a surface charge, producing a kink in $V$. For total charge $Q$ and radius $R$:</p>
-<table><tr><th>Object</th><th>$r<R$</th><th>$r>R$</th></tr>
+<table><tr><th>Object</th><th>$r&lt;R$</th><th>$r>R$</th></tr>
 <tr><td>Conducting sphere or thin shell</td><td>$E=0,\ V=kQ/R$ (constant)</td><td>$E=kQ/r^2,\ V=kQ/r$</td></tr>
 <tr><td>Uniform insulating solid sphere</td><td>$E=kQr/R^3,\ V=\dfrac{kQ}{2R^3}(3R^2-r^2)$</td><td>$E=kQ/r^2,\ V=kQ/r$</td></tr></table>
 <svg class="fig" viewBox="0 0 340 190" width="340" role="img" aria-label="Graph of potential versus r. For a uniform solid sphere, a downward curving parabola from V at center equal to 1.5 times V at the surface, down to V at R, then falling as 1 over r. For a conducting sphere, dashed: flat at the surface value inside R, then the same 1 over r.">
@@ -2831,9 +2831,9 @@ $$E=\int_0^L\frac{k\lambda\,dx}{(L+d-x)^2}=k\lambda\left[\frac{1}{L+d-x}\right]_
 $$E=3.3\times10^4\ \text{N/C}$$
 <p>The infinite plane would give $1.13\times10^5$ N/C (too large by a factor of 3.4) and the point-charge estimate with $Q=\sigma\pi R^2=6.3\times10^{-8}$ C gives $kQ/z^2=5.7\times10^4$ N/C (too large by 1.7). At $z=R$ neither approximation is good; the full integral is needed. The exact answer lies below both because the disk is neither infinite nor concentrated at the center.</p>`},
   {id:"x3", title:"Point charge inside a conducting shell", problem:String.raw`<p>A point charge $+Q$ sits at the center of a thick, spherical conducting shell with inner radius $a$ and outer radius $b$. The shell carries a net charge of $-2Q$. Find the charge on the inner and outer surfaces of the shell, and the field $E(r)$ in all three regions.</p>`,
-   solution:String.raw`<p>In the metal ($a<r<b$) $\vec E=0$. A Gaussian sphere in the metal then has zero flux, so it encloses zero net charge: the inner surface carries $-Q$ (to cancel the $+Q$ inside). The shell's total is $-2Q$, so the outer surface carries $-2Q-(-Q)=-Q$.</p>
+   solution:String.raw`<p>In the metal ($a&lt;r&lt;b$) $\vec E=0$. A Gaussian sphere in the metal then has zero flux, so it encloses zero net charge: the inner surface carries $-Q$ (to cancel the $+Q$ inside). The shell's total is $-2Q$, so the outer surface carries $-2Q-(-Q)=-Q$.</p>
 <p>Fields (radial, from Gauss with $Q_{enc}$):</p>
-<p>$r<a$: $Q_{enc}=Q$, $E=kQ/r^2$ outward.<br>$a<r<b$: $E=0$.<br>$r>b$: $Q_{enc}=Q-2Q=-Q$, $E=kQ/r^2$ <i>inward</i> (negative radial component).</p>
+<p>$r&lt;a$: $Q_{enc}=Q$, $E=kQ/r^2$ outward.<br>$a&lt;r&lt;b$: $E=0$.<br>$r>b$: $Q_{enc}=Q-2Q=-Q$, $E=kQ/r^2$ <i>inward</i> (negative radial component).</p>
 <p>Note that the field outside depends only on the total charge enclosed, not on how the shell redistributes it.</p>`},
   {id:"x4", title:"Potential at the center of a charged sphere", problem:String.raw`<p>A uniformly charged insulating sphere has radius $R=0.10$ m and total charge $Q=2.0$ nC. Taking $V(\infty)=0$, find $V$ at the surface and at the center by integrating $\vec E$.</p>`,
    solution:String.raw`<p>Outside: $E=kQ/r^2$. Inside: $E=kQr/R^3$. At the surface, $V(R)=-\int_\infty^R\dfrac{kQ}{r^2}dr=\dfrac{kQ}{R}=\dfrac{(9\times10^9)(2.0\times10^{-9})}{0.10}=180$ V.</p>
@@ -2871,7 +2871,7 @@ $$U=\frac{kq^2}{a}\left(4+\frac{2}{\sqrt2}\right)=\frac{kq^2}{a}(4+\sqrt2)$$
    why:String.raw`<p>$\tfrac12mv^2=eV\Rightarrow v=\sqrt{2eV/m}=\sqrt{2(1.6\times10^{-19})(500)/(9.1\times10^{-31})}=1.3\times10^7$ m/s. Dropping the factor of 2 gives $9.4\times10^6$ m/s.</p>`},
   {id:"q13", q:String.raw`<p>Charges $+q$, $+q$ and $-q$ are placed at the corners of an equilateral triangle of side $a$. The electric potential energy of the system (zero at infinite separation) is</p>`, choices:[String.raw`$-kq^2/a$`,String.raw`$kq^2/a$`,String.raw`$-3kq^2/a$`,String.raw`$3kq^2/a$`,"0"], a:0,
    why:String.raw`<p>Three pairs: $(+,+)$ gives $+kq^2/a$; the two $(+,-)$ pairs give $-kq^2/a$ each. Total $=-kq^2/a$. Taking all three as $+kq^2/a$ ignores signs.</p>`},
-  {id:"q14", q:String.raw`<p>A thin conducting spherical shell of radius $R$ carries total charge $Q>0$. Inside the shell ($r<R$), with $V(\infty)=0$,</p>`, choices:[String.raw`$E=0$ and $V=kQ/R$ (constant)`,String.raw`$E=0$ and $V=0$`,String.raw`$E=kQ/R^2$ and $V=kQ/R$`,String.raw`$E=0$ and $V=kQ/r$`,String.raw`$E=kQr/R^3$ and $V=kQ/R$`], a:0,
+  {id:"q14", q:String.raw`<p>A thin conducting spherical shell of radius $R$ carries total charge $Q>0$. Inside the shell ($r&lt;R$), with $V(\infty)=0$,</p>`, choices:[String.raw`$E=0$ and $V=kQ/R$ (constant)`,String.raw`$E=0$ and $V=0$`,String.raw`$E=kQ/R^2$ and $V=kQ/R$`,String.raw`$E=0$ and $V=kQ/r$`,String.raw`$E=kQr/R^3$ and $V=kQ/R$`], a:0,
    why:String.raw`<p>Gauss gives $E=0$ inside (no enclosed charge). Since $E=-dV/dr=0$, $V$ is constant inside and, because $V$ is continuous, equals its surface value $kQ/R$. $E=0$ does not mean $V=0$.</p>`}
   ],
   frq:[
@@ -2898,13 +2898,13 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
 <p class="mut">Check: for $\lambda_0=L=1$ and $d=0.3$ a numerical integral gives $0.6971$, matching the formula.</p>`},
   {id:"f2", type:"Translation between representations", title:"Sphere with a charge density that grows with radius",
    prompt:String.raw`<p>An insulating sphere of radius $R$ has a volume charge density $\rho(r)=\rho_0\,r/R$ for $r\le R$ and $\rho=0$ for $r>R$, where $\rho_0>0$ is a constant. Take $V=0$ at infinity.</p>
-<p>(a) Show that the total charge is $Q=\pi\rho_0R^3$.<br>(b) Use Gauss's law to find $E(r)$ for $r<R$.<br>(c) Find $E(r)$ for $r>R$.<br>(d) Find the potential at the surface $V(R)$ and at the center $V(0)$.<br>(e) Sketch graphs of $E(r)$ and $V(r)$ from $r=0$ to $r=3R$. Label the values at $r=R$ and the behavior at large $r$.<br>(f) In words, explain why the slope of your $V(r)$ graph has no sudden change at $r=R$.</p>`,
+<p>(a) Show that the total charge is $Q=\pi\rho_0R^3$.<br>(b) Use Gauss's law to find $E(r)$ for $r&lt;R$.<br>(c) Find $E(r)$ for $r>R$.<br>(d) Find the potential at the surface $V(R)$ and at the center $V(0)$.<br>(e) Sketch graphs of $E(r)$ and $V(r)$ from $r=0$ to $r=3R$. Label the values at $r=R$ and the behavior at large $r$.<br>(f) In words, explain why the slope of your $V(r)$ graph has no sudden change at $r=R$.</p>`,
    pts:[
     {p:1,d:String.raw`Uses shell element $dq=\rho\,4\pi r^2\,dr$ for the total charge`},
     {p:1,d:String.raw`Integrates $\int_0^R\rho_0(r/R)4\pi r^2dr=\pi\rho_0R^3$`},
     {p:1,d:String.raw`Spherical Gaussian surface with $E$ radial and constant on it: $E\,4\pi r^2=Q_{enc}/\epsilon_0$`},
     {p:1,d:String.raw`$Q_{enc}(r)=\int_0^r\rho_0(r'/R)4\pi r'^2dr'=\pi\rho_0r^4/R$`},
-    {p:1,d:String.raw`$E=\rho_0r^2/(4\epsilon_0R)$ for $r<R$`},
+    {p:1,d:String.raw`$E=\rho_0r^2/(4\epsilon_0R)$ for $r&lt;R$`},
     {p:1,d:String.raw`$E=\rho_0R^3/(4\epsilon_0r^2)$ for $r>R$ (all charge enclosed)`},
     {p:1,d:String.raw`$V(R)=-\int_\infty^RE\,dr=\rho_0R^2/(4\epsilon_0)$ (equivalently $kQ/R$)`},
     {p:1,d:String.raw`Integrates inside: $V(0)=V(R)+\int_0^RE\,dr$ with $\int_0^R\rho_0r^2/(4\epsilon_0R)dr=\rho_0R^2/(12\epsilon_0)$`},
@@ -2926,11 +2926,11 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
 <g stroke="currentColor" stroke-dasharray="3 3" stroke-width=".8"><line x1="110" y1="50" x2="110" y2="110"/><line x1="180" y1="50" x2="180" y2="110"/><line x1="250" y1="110" x2="250" y2="140"/><line x1="40" y1="50" x2="110" y2="50"/><line x1="40" y1="140" x2="250" y2="140"/></g>
 <text x="12" y="54">20</text><text x="10" y="144">-10</text><text x="22" y="114">0</text><text x="20" y="22">V (V)</text><text x="300" y="104">x (m)</text>
 <text x="108" y="124">2</text><text x="178" y="124">4</text><text x="248" y="106">6</text><text x="318" y="124">8</text></svg>
-<p>(a) Sketch $E_x$ versus $x$ for $0<x<8$ m, labeling values.<br>(b) An electron is at rest at $x=1$ m. Give the magnitude and direction of the force on it. (Use $e=1.6\times10^{-19}$ C.)<br>(c) How much work does the electric field do on a proton moving from $x=0$ to $x=6$ m? Give the answer in eV and in J.<br>(d) An electron is released from rest at $x=0$. Find its speed at $x=3$ m ($m_e=9.1\times10^{-31}$ kg).<br>(e) Does the electron of part (d) reach $x=6$ m? Justify using energy, and if not, locate the point where it turns around.<br>(f) What does the flat region $2<x<4$ m tell you about the field and force there? What sign of surface charge must sit at $x=4$ m to produce the change in the field there? Explain.</p>`,
+<p>(a) Sketch $E_x$ versus $x$ for $0&lt;x<8$ m, labeling values.<br>(b) An electron is at rest at $x=1$ m. Give the magnitude and direction of the force on it. (Use $e=1.6\times10^{-19}$ C.)<br>(c) How much work does the electric field do on a proton moving from $x=0$ to $x=6$ m? Give the answer in eV and in J.<br>(d) An electron is released from rest at $x=0$. Find its speed at $x=3$ m ($m_e=9.1\times10^{-31}$ kg).<br>(e) Does the electron of part (d) reach $x=6$ m? Justify using energy, and if not, locate the point where it turns around.<br>(f) What does the flat region $2&lt;x<4$ m tell you about the field and force there? What sign of surface charge must sit at $x=4$ m to produce the change in the field there? Explain.</p>`,
    pts:[
-    {p:1,d:String.raw`$E_x=-dV/dx$ used; $E_x=-10$ V/m for $0<x<2$`},
-    {p:1,d:String.raw`$E_x=0$ for $2<x<4$ and $6<x<8$`},
-    {p:1,d:String.raw`$E_x=+15$ V/m for $4<x<6$ with correct sign change`},
+    {p:1,d:String.raw`$E_x=-dV/dx$ used; $E_x=-10$ V/m for $0&lt;x<2$`},
+    {p:1,d:String.raw`$E_x=0$ for $2&lt;x<4$ and $6&lt;x<8$`},
+    {p:1,d:String.raw`$E_x=+15$ V/m for $4&lt;x<6$ with correct sign change`},
     {p:1,d:String.raw`$F=eE=1.6\times10^{-18}$ N, directed in $+x$ (opposite to $\vec E$ for a negative charge)`},
     {p:1,d:String.raw`Work by field $W=q(V_i-V_f)$ with correct sign: $+10$ eV`},
     {p:1,d:String.raw`Converts: $W=1.6\times10^{-18}$ J`},
@@ -2940,11 +2940,11 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
     {p:1,d:String.raw`Turning point where $V=0$ again: $x=4+20/15=5.33$ m`},
     {p:1,d:String.raw`$E=0$, no force, constant velocity (equipotential region)`},
     {p:1,d:String.raw`Positive sheet at $x=4$: $E$ jumps from $0$ to $+15$ V/m ($\Delta E=\sigma/\epsilon_0>0$), by Gauss's law pillbox`}],
-   solution:String.raw`<p>(a) $E_x=-dV/dx$: $-10$ V/m on $0<x<2$ (slope $+10$ V/m); $0$ on $2<x<4$; $+15$ V/m on $4<x<6$ (slope $-15$ V/m); $0$ on $6<x<8$. A piecewise-constant step graph.</p>
+   solution:String.raw`<p>(a) $E_x=-dV/dx$: $-10$ V/m on $0&lt;x<2$ (slope $+10$ V/m); $0$ on $2&lt;x<4$; $+15$ V/m on $4&lt;x<6$ (slope $-15$ V/m); $0$ on $6&lt;x<8$. A piecewise-constant step graph.</p>
 <p>(b) At $x=1$, $E_x=-10$ V/m (points in $-x$). The electron has charge $-e$, so $F_x=-eE_x=+(1.6\times10^{-19})(10)=1.6\times10^{-18}$ N in the $+x$ direction.</p>
 <p>(c) $W_{\text{field}}=q(V_i-V_f)=e(0-(-10\text{ V}))=+10$ eV $=1.6\times10^{-18}$ J. (The field pushes the proton toward lower $V$.)</p>
 <p>(d) The electron is pushed toward $+x$ (toward higher $V$), gaining kinetic energy $e\times20\text{ V}=20$ eV $=3.2\times10^{-18}$ J by $x=2$ m; between 2 and 3 m there is no field so $K$ is unchanged. $v=\sqrt{2(3.2\times10^{-18})/9.1\times10^{-31}}=2.65\times10^6$ m/s.</p>
-<p>(e) Conservation: $K+(-e)V$ is constant; starting from $K=0$ at $V=0$, the electron has $K=eV$ wherever it is. At $x=6$, $V=-10$ V would give $K=-10$ eV, impossible. For $4<x<6$ the force is $-eE$, i.e. in $-x$, slowing it. It stops where $V=0$ again: $V=20-15(x-4)=0\Rightarrow x=5.33$ m, then returns.</p>
+<p>(e) Conservation: $K+(-e)V$ is constant; starting from $K=0$ at $V=0$, the electron has $K=eV$ wherever it is. At $x=6$, $V=-10$ V would give $K=-10$ eV, impossible. For $4&lt;x<6$ the force is $-eE$, i.e. in $-x$, slowing it. It stops where $V=0$ again: $V=20-15(x-4)=0\Rightarrow x=5.33$ m, then returns.</p>
 <p>(f) $E=-dV/dx=0$ there, so no force: a charge moves at constant velocity. At $x=4$, $E$ jumps from 0 to $+15$ V/m (a step $\Delta E=+15$ V/m $=\sigma/\epsilon_0$ over a pillbox straddling $x=4$), so there is a positive sheet of charge. (Likewise a positive sheet at $x=2$ ($-10\to0$) and a negative sheet at $x=6$ ($+15\to0$).)</p>`}
   ]
 });
@@ -2996,10 +2996,10 @@ $$C=\frac{Q}{V}\qquad[\text{farad}=\text{F}=\text{C/V}]$$
 $$C=\frac{\varepsilon_0A}{d}$$
 <p>We ignore fringing at the edges. Bigger area stores more charge; smaller gap means less $V$ per charge.</p>
 <h3>Spherical capacitor (inner radius $a$, outer shell radius $b$)</h3>
-<p>Gaussian sphere of radius $r$, $a<r<b$: $E\,4\pi r^2=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ radially outward. Then</p>
+<p>Gaussian sphere of radius $r$, $a&lt;r&lt;b$: $E\,4\pi r^2=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ radially outward. Then</p>
 $$V=\int_a^bE\,dr=\frac{Q}{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)\quad\Rightarrow\quad C=4\pi\varepsilon_0\frac{ab}{b-a}.$$
 <p>Letting $b\to\infty$ gives the capacitance of a single isolated sphere, $C=4\pi\varepsilon_0a$ (the "other conductor" is infinitely far away). For a thin gap $d=b-a\ll a$, $C\to4\pi\varepsilon_0a^2/d=\varepsilon_0A/d$ with $A=4\pi a^2$: it reduces to the parallel-plate result, a good sanity check.</p>
-<h3>Cylindrical capacitor (radii $a<b$, length $L\gg b$)</h3>
+<h3>Cylindrical capacitor (radii $a&lt;b$, length $L\gg b$)</h3>
 <p>Let the line charge density on the inner cylinder be $\lambda=Q/L$. A coaxial Gaussian cylinder of radius $r$ and length $\ell$ gives $E\,2\pi r\ell=\lambda\ell/\varepsilon_0$, so $E=\dfrac{\lambda}{2\pi\varepsilon_0r}$ and</p>
 $$V=\int_a^b\frac{\lambda}{2\pi\varepsilon_0r}dr=\frac{\lambda}{2\pi\varepsilon_0}\ln\frac ba\quad\Rightarrow\quad C=\frac{2\pi\varepsilon_0L}{\ln(b/a)}.$$
 <p>Coaxial cable behaves exactly like this. Notice the field is strongest at the inner surface ($r=a$), so that is where breakdown (sparking) happens first.</p>
@@ -3054,7 +3054,7 @@ $$C=\int\frac{\varepsilon(y)\,w\,dy}{d(y)}.$$ Example: plates of width $w$ and l
    solution:String.raw`<p>(a) A Gaussian sphere inside the metal must enclose zero charge, so the inner surface carries $-2.0$ nC. The shell is neutral, so the outer surface carries $+2.0$ nC.</p>
 <p>(b) By spherical symmetry only the enclosed charge matters. $r=0.05$ m: enclosed $+2.0$ nC, $E=kq/r^2=(8.99\times10^9)(2.0\times10^{-9})/(0.05)^2\approx7.2\times10^3$ N/C, outward. $r=0.15$ m is inside the metal: $E=0$. $r=0.30$ m: total enclosed is $2.0-2.0+2.0=+2.0$ nC, so $E=kq/r^2=17.98/0.09\approx2.0\times10^2$ N/C outward.</p>
 <p>(c) Integrate inward from infinity, region by region. $V(b)=kq/b=89.9$ V. The potential is constant (89.9 V) throughout the metal, so $V(a)=89.9$ V. Inside the cavity $V(r)=V(a)+kq(1/r-1/a)$, giving $V(0.05)=89.9+17.98(20-10)=269.7\approx2.7\times10^2$ V.</p>
-<p>Equivalent shortcut: $V(r)=kq\left(\frac1r-\frac1a+\frac1b\right)$ for $r<a$.</p>`},
+<p>Equivalent shortcut: $V(r)=kq\left(\frac1r-\frac1a+\frac1b\right)$ for $r&lt;a$.</p>`},
   {id:"x2", title:"A coaxial (cylindrical) capacitor", problem:String.raw`<p>A coaxial capacitor has inner conductor radius $a=1.0$ mm, outer conductor radius $b=4.0$ mm and length $L=0.50$ m (ignore end effects). (a) Find its capacitance. (b) If it is connected to a $100$ V source, find the charge and stored energy. (c) Find the electric field at the surface of the inner conductor.</p>`,
    solution:String.raw`<p>(a) $C=\dfrac{2\pi\varepsilon_0L}{\ln(b/a)}=\dfrac{2\pi(8.85\times10^{-12})(0.50)}{\ln4}=\dfrac{2.78\times10^{-11}}{1.386}\approx2.0\times10^{-11}$ F $=20$ pF.</p>
 <p>(b) $Q=CV=(2.0\times10^{-11})(100)=2.0$ nC. $U=\tfrac12CV^2=\tfrac12(2.0\times10^{-11})(10^4)=1.0\times10^{-7}$ J $=0.10\ \mu$J.</p>
@@ -3098,7 +3098,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
   {id:"f1", type:"Mathematical routines", title:"A spherical capacitor",
    prompt:String.raw`<p>A solid conducting sphere of radius $a$ carries charge $+Q$. It is surrounded by a concentric, thin conducting spherical shell of radius $b>a$ carrying charge $-Q$ (vacuum between them).</p>
 <svg class="fig" viewBox="0 0 300 215" width="300" role="img" aria-label="Concentric spheres: inner sphere of radius a with charge plus Q, outer thin shell of radius b with charge minus Q"><g stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="150" cy="105" r="78"/><circle cx="150" cy="105" r="32" fill="currentColor" fill-opacity=".15"/><circle cx="150" cy="105" r="55" stroke-dasharray="4 4" stroke-width="1.2"/><text x="150" y="120" text-anchor="middle" stroke="none" font-size="13">+Q</text><line x1="150" y1="105" x2="150" y2="73" stroke-width="1"/><text x="158" y="88" text-anchor="start" stroke="none" font-size="13">a</text><line x1="150" y1="105" x2="228" y2="105" stroke-width="1"/><text x="214" y="100" text-anchor="middle" stroke="none" font-size="13">b</text><line x1="150" y1="105" x2="188.9" y2="143.9" stroke-width="1" stroke-dasharray="2 2"/><text x="172" y="149" text-anchor="middle" stroke="none" font-size="13">r</text><text x="150" y="205" text-anchor="middle" stroke="none" font-size="13">&minus;Q on outer shell</text></g></svg>
-<p>(a) Use Gauss's law to find the electric field $E(r)$ for $a<r<b$ and state $E$ for $r>b$.<br>
+<p>(a) Use Gauss's law to find the electric field $E(r)$ for $a&lt;r&lt;b$ and state $E$ for $r>b$.<br>
 (b) Find the potential difference $V$ between the sphere and the shell.<br>
 (c) Derive the capacitance $C$.<br>
 (d) Show that for a very thin gap $d=b-a\ll a$, your result approaches $\varepsilon_0A/d$, and identify $A$.<br>
@@ -3106,7 +3106,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
 (f) The region between the conductors is now filled with a dielectric ($\kappa>1$) while the charge $Q$ stays fixed. State, with a one-sentence reason, whether the stored energy increases, decreases or stays the same.</p>`,
    pts:[
     {p:1,d:"Gaussian sphere of radius $r$ with $E\\,4\\pi r^2=Q/\\varepsilon_0$ (enclosed charge $Q$)"},
-    {p:1,d:"$E=Q/4\\pi\\varepsilon_0r^2$ radially outward for $a<r<b$; and $E=0$ for $r>b$ because net enclosed charge is zero"},
+    {p:1,d:"$E=Q/4\\pi\\varepsilon_0r^2$ radially outward for $a&lt;r&lt;b$; and $E=0$ for $r>b$ because net enclosed charge is zero"},
     {p:1,d:"Integrates $V=\\int_a^bE\\,dr$ with correct limits"},
     {p:1,d:"$V=\\frac{Q}{4\\pi\\varepsilon_0}\\left(\\frac1a-\\frac1b\\right)$"},
     {p:1,d:"$C=Q/V=4\\pi\\varepsilon_0ab/(b-a)$"},
@@ -3115,7 +3115,7 @@ $$\frac1C=\int_0^d\frac{dx}{\varepsilon_0(1+x/d)A}=\frac{1}{\varepsilon_0A}\Big[
     {p:1,d:"Evaluates the integral to $\\frac{Q^2}{8\\pi\\varepsilon_0}\\left(\\frac1a-\\frac1b\\right)$"},
     {p:1,d:"Shows this equals $Q^2/2C$"},
     {p:1,d:"Energy decreases (by a factor $\\kappa$); with fixed $Q$ the field and $V$ are reduced by $\\kappa$ so $U=Q^2/2C$ falls as $C$ increases"}],
-   solution:String.raw`<p>(a) For $a<r<b$ the Gaussian sphere encloses $+Q$: $E\,(4\pi r^2)=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ pointing radially outward. For $r>b$ the enclosed charge is $Q-Q=0$, so $E=0$.</p>
+   solution:String.raw`<p>(a) For $a&lt;r&lt;b$ the Gaussian sphere encloses $+Q$: $E\,(4\pi r^2)=Q/\varepsilon_0$, so $E=\dfrac{Q}{4\pi\varepsilon_0r^2}$ pointing radially outward. For $r>b$ the enclosed charge is $Q-Q=0$, so $E=0$.</p>
 <p>(b) $V=\displaystyle\int_a^bE\,dr=\frac{Q}{4\pi\varepsilon_0}\left[-\frac1r\right]_a^b=\frac{Q}{4\pi\varepsilon_0}\left(\frac1a-\frac1b\right)$ (the inner sphere is at the higher potential).</p>
 <p>(c) $C=\dfrac QV=\dfrac{4\pi\varepsilon_0}{\frac1a-\frac1b}=\dfrac{4\pi\varepsilon_0ab}{b-a}$.</p>
 <p>(d) With $b=a+d$ and $d\ll a$, $ab\approx a^2$ and $b-a=d$, so $C\approx\dfrac{4\pi a^2\varepsilon_0}{d}=\dfrac{\varepsilon_0A}{d}$ with $A=4\pi a^2$, the area of the sphere (the plates are nearly flat and parallel).</p>
@@ -3383,7 +3383,7 @@ $$R=\int_0^L\frac{\rho\,dx}{\pi r(x)^2}.$$
 <p>(b) With $V=q/C$ across $C$ and $R_2$, the current through $R_1$ equals the current into $C$ plus the current through $R_2$: $\dfrac{\varepsilon-q/C}{R_1}=\dfrac{dq}{dt}+\dfrac q{CR_2}$, so $\dfrac{dq}{dt}=\dfrac{\varepsilon}{R_1}-\dfrac qC\left(\dfrac1{R_1}+\dfrac1{R_2}\right)=\dfrac{q_\infty-q}{\tau}$, with $\tau=\dfrac{R_1R_2}{R_1+R_2}C=(6.67\ \text{k}\Omega)(50\ \mu\text{F})=0.333$ s and $q_\infty=400\ \mu$C. Then $q(t)=q_\infty(1-e^{-t/\tau})$.</p>
 <p>(c) $V_C(t)=8.0\,(1-e^{-t/0.33\text{ s}})$ V: starts at 0 with initial slope $8.0/0.33$ V/s, rises concave down to 8.0 V, reaching 5.0 V at $t=\tau$. Battery current: $I=(\varepsilon-V_C)/R_1=0.40+0.80\,e^{-t/\tau}$ mA, from 1.2 mA down to the nonzero asymptote 0.40 mA.</p>
 <p>(d) With the battery branch open, the capacitor discharges through $R_2$ only: $\tau'=R_2C=(20\times10^3)(50\times10^{-6})=1.0$ s. $V_C=8.0\,e^{-t'/1.0}$ V; it is 4.0 V when $t'=\ln2=0.69$ s.</p>
-<p>(e) While the battery is connected, charge reaches $C$ through $R_1$ while $R_2$ also provides a path across the capacitor; the capacitor effectively sees $R_1$ and $R_2$ in parallel ($6.7\ \text{k}\Omega<R_2$), so it settles faster than $R_2C$. When the battery branch is open, the only path is $R_2$, so the effective resistance, and hence $\tau$, grows to $R_2C$.</p>`},
+<p>(e) While the battery is connected, charge reaches $C$ through $R_1$ while $R_2$ also provides a path across the capacitor; the capacitor effectively sees $R_1$ and $R_2$ in parallel ($6.7\ \text{k}\Omega&lt;R_2$), so it settles faster than $R_2C$. When the battery branch is open, the only path is $R_2$, so the effective resistance, and hence $\tau$, grows to $R_2C$.</p>`},
   {id:"f3", type:"Experimental design & analysis", title:"Measuring an unknown capacitance",
    prompt:String.raw`<p>A student wants to measure an unlabelled capacitor $C$. She charges it to about 9 V, then discharges it through a resistor $R=100\ \text{k}\Omega$ (labeled $\pm5\%$), using a digital voltmeter (resistance $10\ \text{M}\Omega$) across the capacitor.</p>
 <svg class="fig" viewBox="0 0 300 150" width="300" role="img" aria-label="Charged capacitor C with a voltmeter V across it, discharging through a switch S and resistor R"><g stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="30" y1="130" x2="30" y2="70" /><line x1="30" y1="70" x2="30" y2="53" /><line x1="19" y1="53" x2="41" y2="53" stroke-width="2.4"/><line x1="19" y1="47" x2="41" y2="47" stroke-width="2.4"/><line x1="30" y1="47" x2="30" y2="30" /><text x="10" y="54" text-anchor="middle" stroke="none" font-size="14">C</text><line x1="30" y1="30" x2="100" y2="30" /><circle cx="100" cy="30" r="3" fill="currentColor"/><circle cx="100" cy="130" r="3" fill="currentColor"/><line x1="100" y1="30" x2="100" y2="60" /><line x1="100" y1="60" x2="100" y2="70" /><line x1="100" y1="70" x2="100" y2="80" /><line x1="100" y1="100" x2="100" y2="110" /><circle cx="100" cy="90" r="10"/><text x="100" y="94.5" text-anchor="middle" stroke="none" font-size="13">V</text><line x1="100" y1="110" x2="100" y2="120" /><line x1="100" y1="120" x2="100" y2="130" /><line x1="100" y1="30" x2="125" y2="30" /><line x1="125" y1="30" x2="136" y2="30" /><line x1="136" y1="30" x2="157" y2="18" /><line x1="159" y1="30" x2="165" y2="30" /><circle cx="136" cy="30" r="2.5" fill="currentColor"/><circle cx="159" cy="30" r="2.5" fill="currentColor"/><text x="145" y="14" text-anchor="middle" stroke="none" font-size="14">S</text><line x1="165" y1="30" x2="205" y2="30" /><polyline points="205,30 211,30 215,23 220,37 225,23 230,37 235,23 239,30 245,30"/><text x="225" y="14" text-anchor="middle" stroke="none" font-size="14">R</text><line x1="245" y1="30" x2="270" y2="30" /><line x1="270" y1="30" x2="270" y2="130" /><line x1="270" y1="130" x2="30" y2="130" /></g></svg>
@@ -3542,7 +3542,7 @@ $$B_{\text{inside}}=\mu_0nI$$
 $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outside}$$
 <p>(For a loop outside the doughnut, or through the hole, the net enclosed current is zero.) Note that, unlike the solenoid, $B$ varies across the toroid's cross-section.</p>
 <div class="box key"><b>Biot-Savart vs Ampère.</b> Biot-Savart is the underlying law for steady currents of any shape (you integrate). Ampère's law is a consequence you can use as a shortcut when symmetry makes $\oint\vec B\cdot d\vec l$ trivial. If the geometry has no such symmetry (a finite wire, a single loop), Ampère's law is still true but does not by itself give you $B$.</div>
-<div class="box trap"><b>Trap:</b> for $r<R$ in a thick wire only the current <i>inside</i> your Amperian loop counts, and for nonuniform $J$ you must integrate: $I_{\text{enc}}\ne J(r)\pi r^2$.</div>`}
+<div class="box trap"><b>Trap:</b> for $r&lt;R$ in a thick wire only the current <i>inside</i> your Amperian loop counts, and for nonuniform $J$ you must integrate: $I_{\text{enc}}\ne J(r)\pi r^2$.</div>`}
   ],
   examples:[
   {id:"x1", title:"Proton in a magnetic field", problem:String.raw`<p>A proton ($m=1.67\times10^{-27}$ kg, $q=1.60\times10^{-19}$ C) moves at $2.0\times10^6$ m/s perpendicular to a uniform $0.50$ T field. Find the radius of its orbit, its orbital period, and its kinetic energy after one full revolution.</p>`,
@@ -3621,7 +3621,7 @@ $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outsid
 (c) Integrate to show $B_z=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$ and give the direction of $\vec B$ on the axis.<br>
 (d) Find $B$ at the center, and find the limit for $z\gg R$ in terms of the dipole moment $\mu=I\pi R^2$.<br>
 (e) At what two values of $z$ is the magnitude of $B_z$ equal to half its center value? Give the answer in units of $R$.<br>
-(f) A second identical loop is placed coaxially at $z=d$ carrying the same current in the same sense. The single-loop function $B_z(z)$ is concave down for $|z|<R/2$ and concave up for $|z|>R/2$. Use this to decide whether the total field at the midpoint $z=d/2$ is a local maximum or minimum along the axis for $d<R$, for $d=R$, and for $d>R$.</p>`,
+(f) A second identical loop is placed coaxially at $z=d$ carrying the same current in the same sense. The single-loop function $B_z(z)$ is concave down for $|z|&lt;R/2$ and concave up for $|z|>R/2$. Use this to decide whether the total field at the midpoint $z=d/2$ is a local maximum or minimum along the axis for $d&lt;R$, for $d=R$, and for $d>R$.</p>`,
    pts:[
     {p:1,d:"$d\\vec l\\perp\\hat r$ so $|d\\vec l\\times\\hat r|=dl$, $r^2=R^2+z^2$, giving the stated $dB$; direction perpendicular to both $d\\vec l$ and $\\vec r$ (tilted by angle with the axis)"},
     {p:1,d:"Symmetry argument: perpendicular components of opposite elements cancel"},
@@ -3630,13 +3630,13 @@ $$B=\frac{\mu_0NI}{2\pi r}\quad(\text{inside the core}),\qquad B=0\ \text{outsid
     {p:1,d:"Direction $+z$ (RHR-2: fingers along counterclockwise current, thumb up)"},
     {p:1,d:"Center $\\mu_0I/2R$; far field $\\mu_0\\mu/(2\\pi z^3)$"},
     {p:1,d:"Solves $(1+z^2/R^2)^{3/2}=2$: $z=\\pm R\\sqrt{2^{2/3}-1}=\\pm0.77R$"},
-    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d<R$, zero curvature for $d=R$ (Helmholtz pair, very uniform), local minimum for $d>R$"}],
+    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d&lt;R$, zero curvature for $d=R$ (Helmholtz pair, very uniform), local minimum for $d>R$"}],
    solution:String.raw`<p>(a) $d\vec B=\frac{\mu_0}{4\pi}\frac{I\,d\vec l\times\hat r}{r^2}$. The element lies on the circle, the field point is on the axis, so $\vec r$ has components $(-R\hat\rho,\ z\hat z)$ and $d\vec l$ is tangential, hence perpendicular to $\vec r$: $|d\vec l\times\hat r|=dl$, $r^2=R^2+z^2$ and $dB=\mu_0I\,dl/[4\pi(R^2+z^2)]$. $d\vec B$ is perpendicular to $\vec r$ and $d\vec l$, so it tilts out of the axial direction by the angle whose cosine is $R/\sqrt{R^2+z^2}$.</p>
 <p>(b) An element on the opposite side has the same $dB$ but its perpendicular component points the opposite way; summing over the ring cancels all perpendicular components.</p>
 <p>(c) $B_z=\oint dB\cos\alpha=\dfrac{\mu_0I}{4\pi(R^2+z^2)}\dfrac{R}{\sqrt{R^2+z^2}}(2\pi R)=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$, along $+z$ (RHR: counterclockwise current, thumb out of the page toward $+z$).</p>
 <p>(d) $z=0$: $B_0=\mu_0I/2R$. $z\gg R$: $B\approx\mu_0IR^2/2z^3=\mu_0\mu/(2\pi z^3)$ with $\mu=I\pi R^2$.</p>
 <p>(e) $\dfrac{B_z}{B_0}=\dfrac{1}{(1+z^2/R^2)^{3/2}}=\dfrac12\Rightarrow 1+z^2/R^2=2^{2/3}=1.587\Rightarrow z=\pm0.77R$.</p>
-<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|<R/2$, the midpoint is a local maximum when $d<R$; at $d=R$ the curvature vanishes (a Helmholtz pair gives an unusually uniform field); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
+<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|&lt;R/2$, the midpoint is a local maximum when $d&lt;R$; at $d=R$ the curvature vanishes (a Helmholtz pair gives an unusually uniform field); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
   {id:"f3", type:"Mathematical routines", title:"Ampère's law with a nonuniform current",
    prompt:String.raw`<p>A long straight cylindrical conductor of radius $R$ carries a current along its axis with current density $J(r)=J_0\left(1-\dfrac rR\right)$ for $r\le R$ and $0$ outside, where $J_0$ is a positive constant and $r$ is the distance from the axis.</p>
 <p>(a) Find the total current $I$ in terms of $J_0$ and $R$.<br>
@@ -3692,7 +3692,7 @@ $$\varepsilon=-\frac{d\Phi_B}{dt}\qquad(\text{for }N\text{ turns: }\varepsilon=-
 <div class="box key"><b>Only the rate of change matters.</b> A huge constant flux gives no emf; a tiny flux changing quickly can give a large one. The emf is zero when $d\Phi/dt=0$ even if $\Phi$ is at its maximum.</div>
 <p><b>What is doing the pushing?</b> A changing $B$ creates an <i>electric</i> field that circulates around, even where there is no wire. The loop-integral form of Faraday's law is</p>
 $$\oint\vec E\cdot d\vec l=-\frac{d}{dt}\int\vec B\cdot d\vec A$$
-<p>This $\vec E$ is <b>not conservative</b>: its line integral around a closed path is not zero, so you cannot assign it a potential. Example: a uniform $\vec B(t)$ fills a circular region of radius $R$. At radius $r<R$, symmetry says $E$ is tangential and constant on the circle, so $E(2\pi r)=\pi r^2\,|dB/dt|$ and $E=\tfrac r2|dB/dt|$. Even a copper-free circle of empty space has this $E$ field.</p>
+<p>This $\vec E$ is <b>not conservative</b>: its line integral around a closed path is not zero, so you cannot assign it a potential. Example: a uniform $\vec B(t)$ fills a circular region of radius $R$. At radius $r&lt;R$, symmetry says $E$ is tangential and constant on the circle, so $E(2\pi r)=\pi r^2\,|dB/dt|$ and $E=\tfrac r2|dB/dt|$. Even a copper-free circle of empty space has this $E$ field.</p>
 <div class="box trap"><b>Trap:</b> the flux through a loop is the flux through the loop's <i>area</i>, so only the field within the loop's area matters and only the part of the area actually in the field (when a loop is half out of a magnetic region, use the overlapping area).</div>`},
 
   {id:"l2", title:"Lenz's law: finding the direction", videos:[{title:"Search: Lenz's law direction of induced current",url:"https://www.youtube.com/results?search_query=Lenz's+law+direction+of+induced+current+examples+AP+Physics+C",src:"YouTube search",note:"Work several cases yourself before watching the answer"}], html:String.raw`
@@ -3808,7 +3808,7 @@ $$U_C=\frac{q^2}{2C}=\frac{Q_0^2}{2C}\cos^2\omega t,\qquad U_L=\tfrac12LI^2=\fra
 <p>Two of these (Gauss for $E$ and Ampère) you used as symmetry shortcuts in earlier units; Faraday's law is this unit; the other two are structural statements: the field lines of $\vec B$ close on themselves, and the last term (below) completes the symmetry.</p>
 <p><b>Displacement current (enrichment).</b> Ampère's law as you know it ($\oint\vec B\cdot d\vec l=\mu_0I_{\text{enc}}$) has a paradox. A circular-plate capacitor of radius $R$ is being charged by current $I$ in the wires. Take a circular Amperian loop in the wire: $I_{\text{enc}}=I$. Take a surface bulging <i>between</i> the plates instead; no current passes through it, but it has the same boundary. Contradiction. Maxwell's fix: the changing electric flux acts like a current. Between the plates $E=Q/(\varepsilon_0\pi R^2)$, so $\Phi_E=Q/\varepsilon_0$ and</p>
 $$\varepsilon_0\frac{d\Phi_E}{dt}=\frac{dQ}{dt}=I\quad(\equiv I_d,\text{ the displacement current})$$
-<p>With it, the field between the plates, at radius $r<R$: $B(2\pi r)=\mu_0\varepsilon_0\frac{d}{dt}(E\pi r^2)=\mu_0I\frac{r^2}{R^2}$, so $B=\dfrac{\mu_0Ir}{2\pi R^2}$, exactly the field of a uniformly distributed current.</p>
+<p>With it, the field between the plates, at radius $r&lt;R$: $B(2\pi r)=\mu_0\varepsilon_0\frac{d}{dt}(E\pi r^2)=\mu_0I\frac{r^2}{R^2}$, so $B=\dfrac{\mu_0Ir}{2\pi R^2}$, exactly the field of a uniformly distributed current.</p>
 <svg class="fig" viewBox="0 0 320 150" width="320" role="img" aria-label="Charging parallel-plate capacitor with current I in the wires, electric field between the plates increasing, and circular magnetic field loops around the axis between the plates">
 <line x1="20" y1="75" x2="100" y2="75" stroke="currentColor" stroke-width="2.5"/><line x1="220" y1="75" x2="300" y2="75" stroke="currentColor" stroke-width="2.5"/>
 <line x1="100" y1="30" x2="100" y2="120" stroke="currentColor" stroke-width="4"/><line x1="220" y1="30" x2="220" y2="120" stroke="currentColor" stroke-width="4"/>
@@ -4276,7 +4276,7 @@ var BOX=[0,1,3,7,16,35];
 function recordQ(key,ok){ var r=S.q[key]||(S.q[key]={att:0,cor:0,box:0,ok:false});
   r.att++; if(ok)r.cor++; r.ok=ok; r.box=ok?Math.min(5,r.box+1):0; r.due=now()+BOX[r.box]*DAY; r.last=now(); save() }
 function unitStats(u){
-  var L=(u.lessons||[]), lDone=L.filter(function(l){return S.lessons[u.id+":"+l.id]}).length;
+  var L=(u.lessons||[]).filter(function(l){return !l.extra}), lDone=L.filter(function(l){return S.lessons[u.id+":"+l.id]}).length;
   var Q=(u.mcq||[]), qOk=Q.filter(function(q){var r=S.q[qkey(u,q)];return r&&r.ok}).length, qTried=Q.filter(function(q){return S.q[qkey(u,q)]}).length;
   var F=(u.frq||[]), fDone=F.filter(function(f){return S.frq[u.id+":"+f.id]}).length;
   var parts=[],tot=0;
@@ -4351,7 +4351,7 @@ function learnTab(u,B){
   var h="";
   if(u.goals&&u.goals.length)h+='<div class="card"><b>By the end you can:</b><ul>'+u.goals.map(function(g){return"<li>"+g+"</li>"}).join("")+'</ul></div>';
   (u.lessons||[]).forEach(function(l){var k=u.id+":"+l.id;
-    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+'</h2>'+l.html+vids(l.videos)+(T()?'<p class="tutor-ask"><button class="sec" data-ask="'+l.id+'">Ask the tutor about this section</button></p>':'')+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
+    h+='<section class="card"><h2 style="margin-top:0">'+esc(l.title)+(l.extra?' <span class="pill">Extension</span>':'')+'</h2>'+l.html+vids(l.videos)+(T()?'<p class="tutor-ask"><button class="sec" data-ask="'+l.id+'">Ask the tutor about this section</button></p>':'')+'<label><input type="checkbox" data-k="'+k+'" '+(S.lessons[k]?"checked":"")+'> I understand this and could explain it</label></section>'});
   B.innerHTML=h||"<p>No lessons yet.</p>";
   B.querySelectorAll("button[data-ask]").forEach(function(b){b.onclick=function(){var l=u.lessons.filter(function(x){return x.id===b.dataset.ask})[0];
     PH_TUTOR.open({key:"unit:"+u.id+":"+l.id,title:u.title+" · "+l.title,freeMode:"chat",context:{unit:u.title,lesson:l.title,lessonText:tx(l.html)}})}});

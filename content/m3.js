@@ -66,7 +66,7 @@ $$\Delta U=U(x_2)-U(x_1)=-W_{cons}=-\int_{x_1}^{x_2}F\,dx\qquad\Longleftrightarr
 <p>(The second form is the fundamental theorem of calculus applied to the first.) The minus sign says the force points in the direction $U$ decreases: <b>forces push downhill</b>. In three dimensions the same statement is written with the gradient, $\vec F=-\nabla U=-\left(\frac{\partial U}{\partial x},\frac{\partial U}{\partial y},\frac{\partial U}{\partial z}\right)$. For this course it is only notation: each component of the force is minus the corresponding partial derivative.</p>
 <p>Only <i>differences</i> in $U$ matter: adding a constant to $U$ changes no force. So you may choose the zero of $U$ wherever convenient. Two key cases:</p>
 $$\text{Gravity near the surface } (F_y=-mg):\ U=mgy\qquad\text{Ideal spring } (F_x=-kx):\ U=\tfrac12kx^2$$
-<p>(For a preview of Mechanics 5: Newton's law of gravitation $F=-GMm/r^2$ pointing inward is $-dU/dr$ with $U=-GMm/r$.)</p>
+<p>(For a preview of Mechanics 7: Newton's law of gravitation $F=-GMm/r^2$ pointing inward is $-dU/dr$ with $U=-GMm/r$.)</p>
 <p><b>Conservation of mechanical energy.</b> Split the net work into conservative and non-conservative parts, $W_{net}=W_{cons}+W_{nc}$. The work-energy theorem gives $\Delta K=-\Delta U+W_{nc}$, so</p>
 $$\Delta(K+U)=W_{nc}$$
 <div class="box key">The <b>mechanical energy</b> $E=K+U$ stays constant when only conservative forces do work ($W_{nc}=0$). Non-conservative forces change $E$ by exactly their work. Kinetic friction does $W=-fd$, which removes $fd$ of mechanical energy; that energy reappears as thermal energy of the surfaces.</div>

@@ -126,7 +126,7 @@ $$E_z=-\frac{d}{dz}\left[kQ(z^2+R^2)^{-1/2}\right]=\frac{kQ\,z}{(z^2+R^2)^{3/2}}
 $$U=\sum_{\text{pairs}}\frac{kq_iq_j}{r_{ij}}$$
 <p>$U>0$ means you did positive work to push like charges together; $U<0$ means the arrangement is bound (energy must be supplied to pull it apart).</p>
 <p><b>Graphs of $E(r)$ and $V(r)$ for spheres and shells.</b> The slope of $V$ gives $-E$, so (a) $V(r)$ is continuous (a jump would need an infinite field), (b) $V$ is flat wherever $E=0$, (c) $E$ jumps by $\sigma/\epsilon_0$ crossing a surface charge, producing a kink in $V$. For total charge $Q$ and radius $R$:</p>
-<table><tr><th>Object</th><th>$r<R$</th><th>$r>R$</th></tr>
+<table><tr><th>Object</th><th>$r&lt;R$</th><th>$r>R$</th></tr>
 <tr><td>Conducting sphere or thin shell</td><td>$E=0,\ V=kQ/R$ (constant)</td><td>$E=kQ/r^2,\ V=kQ/r$</td></tr>
 <tr><td>Uniform insulating solid sphere</td><td>$E=kQr/R^3,\ V=\dfrac{kQ}{2R^3}(3R^2-r^2)$</td><td>$E=kQ/r^2,\ V=kQ/r$</td></tr></table>
 <svg class="fig" viewBox="0 0 340 190" width="340" role="img" aria-label="Graph of potential versus r. For a uniform solid sphere, a downward curving parabola from V at center equal to 1.5 times V at the surface, down to V at R, then falling as 1 over r. For a conducting sphere, dashed: flat at the surface value inside R, then the same 1 over r.">
@@ -149,9 +149,9 @@ $$E=\int_0^L\frac{k\lambda\,dx}{(L+d-x)^2}=k\lambda\left[\frac{1}{L+d-x}\right]_
 $$E=3.3\times10^4\ \text{N/C}$$
 <p>The infinite plane would give $1.13\times10^5$ N/C (too large by a factor of 3.4) and the point-charge estimate with $Q=\sigma\pi R^2=6.3\times10^{-8}$ C gives $kQ/z^2=5.7\times10^4$ N/C (too large by 1.7). At $z=R$ neither approximation is good; the full integral is needed. The exact answer lies below both because the disk is neither infinite nor concentrated at the center.</p>`},
   {id:"x3", title:"Point charge inside a conducting shell", problem:String.raw`<p>A point charge $+Q$ sits at the center of a thick, spherical conducting shell with inner radius $a$ and outer radius $b$. The shell carries a net charge of $-2Q$. Find the charge on the inner and outer surfaces of the shell, and the field $E(r)$ in all three regions.</p>`,
-   solution:String.raw`<p>In the metal ($a<r<b$) $\vec E=0$. A Gaussian sphere in the metal then has zero flux, so it encloses zero net charge: the inner surface carries $-Q$ (to cancel the $+Q$ inside). The shell's total is $-2Q$, so the outer surface carries $-2Q-(-Q)=-Q$.</p>
+   solution:String.raw`<p>In the metal ($a&lt;r&lt;b$) $\vec E=0$. A Gaussian sphere in the metal then has zero flux, so it encloses zero net charge: the inner surface carries $-Q$ (to cancel the $+Q$ inside). The shell's total is $-2Q$, so the outer surface carries $-2Q-(-Q)=-Q$.</p>
 <p>Fields (radial, from Gauss with $Q_{enc}$):</p>
-<p>$r<a$: $Q_{enc}=Q$, $E=kQ/r^2$ outward.<br>$a<r<b$: $E=0$.<br>$r>b$: $Q_{enc}=Q-2Q=-Q$, $E=kQ/r^2$ <i>inward</i> (negative radial component).</p>
+<p>$r&lt;a$: $Q_{enc}=Q$, $E=kQ/r^2$ outward.<br>$a&lt;r&lt;b$: $E=0$.<br>$r>b$: $Q_{enc}=Q-2Q=-Q$, $E=kQ/r^2$ <i>inward</i> (negative radial component).</p>
 <p>Note that the field outside depends only on the total charge enclosed, not on how the shell redistributes it.</p>`},
   {id:"x4", title:"Potential at the center of a charged sphere", problem:String.raw`<p>A uniformly charged insulating sphere has radius $R=0.10$ m and total charge $Q=2.0$ nC. Taking $V(\infty)=0$, find $V$ at the surface and at the center by integrating $\vec E$.</p>`,
    solution:String.raw`<p>Outside: $E=kQ/r^2$. Inside: $E=kQr/R^3$. At the surface, $V(R)=-\int_\infty^R\dfrac{kQ}{r^2}dr=\dfrac{kQ}{R}=\dfrac{(9\times10^9)(2.0\times10^{-9})}{0.10}=180$ V.</p>
@@ -189,7 +189,7 @@ $$U=\frac{kq^2}{a}\left(4+\frac{2}{\sqrt2}\right)=\frac{kq^2}{a}(4+\sqrt2)$$
    why:String.raw`<p>$\tfrac12mv^2=eV\Rightarrow v=\sqrt{2eV/m}=\sqrt{2(1.6\times10^{-19})(500)/(9.1\times10^{-31})}=1.3\times10^7$ m/s. Dropping the factor of 2 gives $9.4\times10^6$ m/s.</p>`},
   {id:"q13", q:String.raw`<p>Charges $+q$, $+q$ and $-q$ are placed at the corners of an equilateral triangle of side $a$. The electric potential energy of the system (zero at infinite separation) is</p>`, choices:[String.raw`$-kq^2/a$`,String.raw`$kq^2/a$`,String.raw`$-3kq^2/a$`,String.raw`$3kq^2/a$`,"0"], a:0,
    why:String.raw`<p>Three pairs: $(+,+)$ gives $+kq^2/a$; the two $(+,-)$ pairs give $-kq^2/a$ each. Total $=-kq^2/a$. Taking all three as $+kq^2/a$ ignores signs.</p>`},
-  {id:"q14", q:String.raw`<p>A thin conducting spherical shell of radius $R$ carries total charge $Q>0$. Inside the shell ($r<R$), with $V(\infty)=0$,</p>`, choices:[String.raw`$E=0$ and $V=kQ/R$ (constant)`,String.raw`$E=0$ and $V=0$`,String.raw`$E=kQ/R^2$ and $V=kQ/R$`,String.raw`$E=0$ and $V=kQ/r$`,String.raw`$E=kQr/R^3$ and $V=kQ/R$`], a:0,
+  {id:"q14", q:String.raw`<p>A thin conducting spherical shell of radius $R$ carries total charge $Q>0$. Inside the shell ($r&lt;R$), with $V(\infty)=0$,</p>`, choices:[String.raw`$E=0$ and $V=kQ/R$ (constant)`,String.raw`$E=0$ and $V=0$`,String.raw`$E=kQ/R^2$ and $V=kQ/R$`,String.raw`$E=0$ and $V=kQ/r$`,String.raw`$E=kQr/R^3$ and $V=kQ/R$`], a:0,
    why:String.raw`<p>Gauss gives $E=0$ inside (no enclosed charge). Since $E=-dV/dr=0$, $V$ is constant inside and, because $V$ is continuous, equals its surface value $kQ/R$. $E=0$ does not mean $V=0$.</p>`}
   ],
   frq:[
@@ -216,13 +216,13 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
 <p class="mut">Check: for $\lambda_0=L=1$ and $d=0.3$ a numerical integral gives $0.6971$, matching the formula.</p>`},
   {id:"f2", type:"Translation between representations", title:"Sphere with a charge density that grows with radius",
    prompt:String.raw`<p>An insulating sphere of radius $R$ has a volume charge density $\rho(r)=\rho_0\,r/R$ for $r\le R$ and $\rho=0$ for $r>R$, where $\rho_0>0$ is a constant. Take $V=0$ at infinity.</p>
-<p>(a) Show that the total charge is $Q=\pi\rho_0R^3$.<br>(b) Use Gauss's law to find $E(r)$ for $r<R$.<br>(c) Find $E(r)$ for $r>R$.<br>(d) Find the potential at the surface $V(R)$ and at the center $V(0)$.<br>(e) Sketch graphs of $E(r)$ and $V(r)$ from $r=0$ to $r=3R$. Label the values at $r=R$ and the behavior at large $r$.<br>(f) In words, explain why the slope of your $V(r)$ graph has no sudden change at $r=R$.</p>`,
+<p>(a) Show that the total charge is $Q=\pi\rho_0R^3$.<br>(b) Use Gauss's law to find $E(r)$ for $r&lt;R$.<br>(c) Find $E(r)$ for $r>R$.<br>(d) Find the potential at the surface $V(R)$ and at the center $V(0)$.<br>(e) Sketch graphs of $E(r)$ and $V(r)$ from $r=0$ to $r=3R$. Label the values at $r=R$ and the behavior at large $r$.<br>(f) In words, explain why the slope of your $V(r)$ graph has no sudden change at $r=R$.</p>`,
    pts:[
     {p:1,d:String.raw`Uses shell element $dq=\rho\,4\pi r^2\,dr$ for the total charge`},
     {p:1,d:String.raw`Integrates $\int_0^R\rho_0(r/R)4\pi r^2dr=\pi\rho_0R^3$`},
     {p:1,d:String.raw`Spherical Gaussian surface with $E$ radial and constant on it: $E\,4\pi r^2=Q_{enc}/\epsilon_0$`},
     {p:1,d:String.raw`$Q_{enc}(r)=\int_0^r\rho_0(r'/R)4\pi r'^2dr'=\pi\rho_0r^4/R$`},
-    {p:1,d:String.raw`$E=\rho_0r^2/(4\epsilon_0R)$ for $r<R$`},
+    {p:1,d:String.raw`$E=\rho_0r^2/(4\epsilon_0R)$ for $r&lt;R$`},
     {p:1,d:String.raw`$E=\rho_0R^3/(4\epsilon_0r^2)$ for $r>R$ (all charge enclosed)`},
     {p:1,d:String.raw`$V(R)=-\int_\infty^RE\,dr=\rho_0R^2/(4\epsilon_0)$ (equivalently $kQ/R$)`},
     {p:1,d:String.raw`Integrates inside: $V(0)=V(R)+\int_0^RE\,dr$ with $\int_0^R\rho_0r^2/(4\epsilon_0R)dr=\rho_0R^2/(12\epsilon_0)$`},
@@ -244,11 +244,11 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
 <g stroke="currentColor" stroke-dasharray="3 3" stroke-width=".8"><line x1="110" y1="50" x2="110" y2="110"/><line x1="180" y1="50" x2="180" y2="110"/><line x1="250" y1="110" x2="250" y2="140"/><line x1="40" y1="50" x2="110" y2="50"/><line x1="40" y1="140" x2="250" y2="140"/></g>
 <text x="12" y="54">20</text><text x="10" y="144">-10</text><text x="22" y="114">0</text><text x="20" y="22">V (V)</text><text x="300" y="104">x (m)</text>
 <text x="108" y="124">2</text><text x="178" y="124">4</text><text x="248" y="106">6</text><text x="318" y="124">8</text></svg>
-<p>(a) Sketch $E_x$ versus $x$ for $0<x<8$ m, labeling values.<br>(b) An electron is at rest at $x=1$ m. Give the magnitude and direction of the force on it. (Use $e=1.6\times10^{-19}$ C.)<br>(c) How much work does the electric field do on a proton moving from $x=0$ to $x=6$ m? Give the answer in eV and in J.<br>(d) An electron is released from rest at $x=0$. Find its speed at $x=3$ m ($m_e=9.1\times10^{-31}$ kg).<br>(e) Does the electron of part (d) reach $x=6$ m? Justify using energy, and if not, locate the point where it turns around.<br>(f) What does the flat region $2<x<4$ m tell you about the field and force there? What sign of surface charge must sit at $x=4$ m to produce the change in the field there? Explain.</p>`,
+<p>(a) Sketch $E_x$ versus $x$ for $0&lt;x<8$ m, labeling values.<br>(b) An electron is at rest at $x=1$ m. Give the magnitude and direction of the force on it. (Use $e=1.6\times10^{-19}$ C.)<br>(c) How much work does the electric field do on a proton moving from $x=0$ to $x=6$ m? Give the answer in eV and in J.<br>(d) An electron is released from rest at $x=0$. Find its speed at $x=3$ m ($m_e=9.1\times10^{-31}$ kg).<br>(e) Does the electron of part (d) reach $x=6$ m? Justify using energy, and if not, locate the point where it turns around.<br>(f) What does the flat region $2&lt;x<4$ m tell you about the field and force there? What sign of surface charge must sit at $x=4$ m to produce the change in the field there? Explain.</p>`,
    pts:[
-    {p:1,d:String.raw`$E_x=-dV/dx$ used; $E_x=-10$ V/m for $0<x<2$`},
-    {p:1,d:String.raw`$E_x=0$ for $2<x<4$ and $6<x<8$`},
-    {p:1,d:String.raw`$E_x=+15$ V/m for $4<x<6$ with correct sign change`},
+    {p:1,d:String.raw`$E_x=-dV/dx$ used; $E_x=-10$ V/m for $0&lt;x<2$`},
+    {p:1,d:String.raw`$E_x=0$ for $2&lt;x<4$ and $6&lt;x<8$`},
+    {p:1,d:String.raw`$E_x=+15$ V/m for $4&lt;x<6$ with correct sign change`},
     {p:1,d:String.raw`$F=eE=1.6\times10^{-18}$ N, directed in $+x$ (opposite to $\vec E$ for a negative charge)`},
     {p:1,d:String.raw`Work by field $W=q(V_i-V_f)$ with correct sign: $+10$ eV`},
     {p:1,d:String.raw`Converts: $W=1.6\times10^{-18}$ J`},
@@ -258,11 +258,11 @@ $$E=\frac{k\lambda_0}{L}\left[\ln\frac{L+d}{d}-\frac{L}{L+d}\right],\ \text{dire
     {p:1,d:String.raw`Turning point where $V=0$ again: $x=4+20/15=5.33$ m`},
     {p:1,d:String.raw`$E=0$, no force, constant velocity (equipotential region)`},
     {p:1,d:String.raw`Positive sheet at $x=4$: $E$ jumps from $0$ to $+15$ V/m ($\Delta E=\sigma/\epsilon_0>0$), by Gauss's law pillbox`}],
-   solution:String.raw`<p>(a) $E_x=-dV/dx$: $-10$ V/m on $0<x<2$ (slope $+10$ V/m); $0$ on $2<x<4$; $+15$ V/m on $4<x<6$ (slope $-15$ V/m); $0$ on $6<x<8$. A piecewise-constant step graph.</p>
+   solution:String.raw`<p>(a) $E_x=-dV/dx$: $-10$ V/m on $0&lt;x<2$ (slope $+10$ V/m); $0$ on $2&lt;x<4$; $+15$ V/m on $4&lt;x<6$ (slope $-15$ V/m); $0$ on $6&lt;x<8$. A piecewise-constant step graph.</p>
 <p>(b) At $x=1$, $E_x=-10$ V/m (points in $-x$). The electron has charge $-e$, so $F_x=-eE_x=+(1.6\times10^{-19})(10)=1.6\times10^{-18}$ N in the $+x$ direction.</p>
 <p>(c) $W_{\text{field}}=q(V_i-V_f)=e(0-(-10\text{ V}))=+10$ eV $=1.6\times10^{-18}$ J. (The field pushes the proton toward lower $V$.)</p>
 <p>(d) The electron is pushed toward $+x$ (toward higher $V$), gaining kinetic energy $e\times20\text{ V}=20$ eV $=3.2\times10^{-18}$ J by $x=2$ m; between 2 and 3 m there is no field so $K$ is unchanged. $v=\sqrt{2(3.2\times10^{-18})/9.1\times10^{-31}}=2.65\times10^6$ m/s.</p>
-<p>(e) Conservation: $K+(-e)V$ is constant; starting from $K=0$ at $V=0$, the electron has $K=eV$ wherever it is. At $x=6$, $V=-10$ V would give $K=-10$ eV, impossible. For $4<x<6$ the force is $-eE$, i.e. in $-x$, slowing it. It stops where $V=0$ again: $V=20-15(x-4)=0\Rightarrow x=5.33$ m, then returns.</p>
+<p>(e) Conservation: $K+(-e)V$ is constant; starting from $K=0$ at $V=0$, the electron has $K=eV$ wherever it is. At $x=6$, $V=-10$ V would give $K=-10$ eV, impossible. For $4&lt;x<6$ the force is $-eE$, i.e. in $-x$, slowing it. It stops where $V=0$ again: $V=20-15(x-4)=0\Rightarrow x=5.33$ m, then returns.</p>
 <p>(f) $E=-dV/dx=0$ there, so no force: a charge moves at constant velocity. At $x=4$, $E$ jumps from 0 to $+15$ V/m (a step $\Delta E=+15$ V/m $=\sigma/\epsilon_0$ over a pillbox straddling $x=4$), so there is a positive sheet of charge. (Likewise a positive sheet at $x=2$ ($-10\to0$) and a negative sheet at $x=6$ ($+15\to0$).)</p>`}
   ]
 });
