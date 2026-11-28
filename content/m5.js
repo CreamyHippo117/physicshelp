@@ -347,9 +347,9 @@ $$\Omega=\frac{d\phi}{dt}=\frac{\tau}{L}=\frac{Mgd}{I\omega}\quad(\text{fast spi
 <defs><marker id="ar8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
 <line x1="10" y1="100" x2="250" y2="100" stroke="currentColor" stroke-width="3"/>
 <circle cx="80" cy="70" r="30" fill="currentColor" fill-opacity=".15" stroke="currentColor"/><circle cx="80" cy="70" r="2.5" fill="currentColor"/>
-<line x1="80" y1="70" x2="262" y2="70" stroke="currentColor"/>
-<circle cx="268" cy="82" r="20" fill="currentColor" fill-opacity=".15" stroke="currentColor"/><circle cx="268" cy="82" r="2.5" fill="currentColor"/>
-<line x1="288" y1="82" x2="288" y2="140" stroke="currentColor"/>
+<line x1="80" y1="70" x2="268" y2="70" stroke="currentColor"/>
+<circle cx="268" cy="90" r="20" fill="currentColor" fill-opacity=".15" stroke="currentColor"/><circle cx="268" cy="90" r="2.5" fill="currentColor"/>
+<line x1="288" y1="90" x2="288" y2="140" stroke="currentColor"/>
 <rect x="272" y="140" width="32" height="26" fill="currentColor" fill-opacity=".3" stroke="currentColor"/>
 <line x1="110" y1="45" x2="150" y2="45" stroke="currentColor" stroke-width="2" marker-end="url(#ar8)"/>
 <text x="118" y="38" font-size="12">a</text><text x="46" y="35">M, R</text><text x="300" y="60" font-size="12">M_p, r</text><text x="308" y="158">m</text></svg>

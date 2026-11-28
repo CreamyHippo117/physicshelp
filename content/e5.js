@@ -360,20 +360,20 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Loop in an oscillating field",
-   prompt:String.raw`<p>A circular loop of radius $r=0.15$ m and resistance $R=0.50\ \Omega$ lies in the plane of the page. A spatially uniform magnetic field perpendicular to the page and directed <i>into</i> the page has magnitude $B(t)=B_0\sin\omega t$ with $B_0=0.20$ T and $\omega=100$ rad/s. Take the positive sense around the loop as clockwise.</p>
+   prompt:String.raw`<p>A circular loop of radius $r=0.15$ m and resistance $R=0.50\ \Omega$ lies in the plane of the page. A spatially uniform magnetic field perpendicular to the page and directed <i>into</i> the page has magnitude $B(t)=B_0\sin\omega t$ with $B_0=0.20$ T and $\omega=100$ rad/s. Take the positive sense around the loop as clockwise, and take the area normal into the page (consistent with clockwise-positive) when computing flux.</p>
 <p>(a) Write an expression for the magnetic flux through the loop as a function of time.<br>
 (b) Derive the induced emf $\varepsilon(t)$ (include sign) and its amplitude.<br>
 (c) Find the amplitude of the current. State the direction of the current at $t=0$ and at $t=\pi/\omega$, with justification using Lenz's law.<br>
-(d) On one set of axes, sketch $B(t)$ and $\varepsilon(t)$ for one period, labeling the first time at which each is zero.<br>
+(d) On one set of axes, sketch $B(t)$ and $\varepsilon(t)$ for one period, labeling the times within one period $[0,T]$ at which each is zero.<br>
 (e) Calculate the average power dissipated in the loop.<br>
 (f) At $t=\pi/\omega$ the field is zero. Explain why the current is not zero at this instant.</p>`,
    pts:[
-    {p:1,d:"$\\Phi=\\pi r^2B_0\\sin\\omega t=7.07\\times10^{-2}\\cdot0.20\\ldots=1.41\\times10^{-2}\\sin(100t)$ Wb (amplitude $\\approx0.0141$ Wb), sign consistent with normal into the page"},
+    {p:1,d:"$\\Phi=\\pi r^2B_0\\sin\\omega t=(7.07\\times10^{-2})(0.20)\\sin\\omega t=1.41\\times10^{-2}\\sin(100t)$ Wb (amplitude $\\approx0.0141$ Wb), sign consistent with normal into the page"},
     {p:1,d:"$\\varepsilon=-d\\Phi/dt=-\\pi r^2B_0\\omega\\cos\\omega t$"},
     {p:1,d:"Amplitude $\\varepsilon_0=1.41$ V and current amplitude $I_0=\\varepsilon_0/R=2.8$ A"},
     {p:1,d:"At $t=0$: B into page and increasing, induced B out of page, counterclockwise (negative emf in the clockwise-positive convention)"},
     {p:1,d:"At $t=\\pi/\\omega$: B into page and decreasing, induced field into page, clockwise"},
-    {p:1,d:"Graph: $B$ sine starting at zero, $\\varepsilon$ is a negative cosine, a quarter period out of phase; $B=0$ at $t=0,\\pi/\\omega$; $\\varepsilon=0$ at $\\pi/2\\omega=15.7$ ms"},
+    {p:1,d:"Graph: $B$ sine starting at zero, $\\varepsilon$ is a negative cosine, a quarter period out of phase; $B=0$ at $t=0,\\ 31.4,\\ 62.8$ ms; $\\varepsilon=0$ at $\\pi/(2\\omega)=15.7$ ms and $47.1$ ms"},
     {p:1,d:"$\\bar P=\\varepsilon_0^2/(2R)\\approx2.0$ W"},
     {p:1,d:"Explanation: emf depends on $d\\Phi/dt$ (slope of $B$), which is a maximum when $B=0$"}],
    solution:String.raw`<p>(a) $A=\pi r^2=7.07\times10^{-2}$ m². With the normal into the page (the clockwise-positive sense), $\Phi=AB_0\sin\omega t=(1.41\times10^{-2}\ \text{Wb})\sin(100t)$.</p>
@@ -383,7 +383,7 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
 <p>(e) $\bar P=\overline{\varepsilon^2}/R=\varepsilon_0^2/(2R)=(1.414)^2/(2\cdot0.50)\approx2.0$ W.</p>
 <p>(f) The emf is proportional to the <i>rate of change</i> of flux. At $t=\pi/\omega$ the field passes through zero at its steepest slope, so $|d\Phi/dt|$ is maximum there. The current is zero when $B$ is at its peak, because then the flux is momentarily not changing.</p>`},
   {id:"f2", type:"Mathematical routines", title:"Sliding rod with drag and with a pull",
-   prompt:String.raw`<p>A conducting rod of mass $m=0.10$ kg and length $L=0.50$ m slides without friction on two long horizontal rails connected at one end by a resistor $R=0.25\ \Omega$. A uniform field $B=0.40$ T points into the page, perpendicular to the plane of the rails. The rails and rod have negligible resistance. At $t=0$ the rod moves to the right with speed $v_0=8.0$ m/s and no other horizontal force acts on it.</p>
+   prompt:String.raw`<p>A conducting rod of mass $m=0.10$ kg and length $L=0.50$ m slides without friction on two long horizontal rails connected at their left end by a resistor $R=0.25\ \Omega$ (the rod slides to the right, away from the resistor). A uniform field $B=0.40$ T points into the page, perpendicular to the plane of the rails. The rails and rod have negligible resistance. At $t=0$ the rod moves to the right with speed $v_0=8.0$ m/s and no other horizontal force acts on it.</p>
 <p>(a) Derive the emf, the current and the magnetic force on the rod when its speed is $v$. Give the direction of the current in the rod and of the force.<br>
 (b) Write the differential equation for $v(t)$ and solve it. Give the time constant numerically.<br>
 (c) Find the distance the rod travels before (effectively) stopping.<br>
@@ -402,11 +402,11 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
     {p:1,d:"$v(t)=v_t(1-e^{-t/\\tau})$ with the same $\\tau=0.625$ s"},
     {p:1,d:"Physical explanation (magnetic force grows with $v$ until it balances $F$); doubling $R$ doubles $v_t$ (and $\\tau$)"}],
    solution:String.raw`<p>(a) $\varepsilon=BLv$; $I=BLv/R$. By Lenz's law the flux into the page through the loop (to the left of the rod) is increasing as the area grows, so the induced current is counterclockwise: upward in the rod. The force is $\vec F=I\vec L\times\vec B$: up $\times$ into the page points to the left, magnitude $ILB=B^2L^2v/R$, opposing the motion.</p>
-<p>(b) $m\dfrac{dv}{dt}=-\dfrac{B^2L^2}{R}v$. Numbers: $B^2L^2/R=(0.16)(0.25)/0.25=0.16$ kg/s, with $B^2L^2=0.04$ T²m². So $v=v_0e^{-t/\tau}$ with $\tau=\dfrac{mR}{B^2L^2}=\dfrac{(0.10)(0.25)}{0.040}=0.625$ s.</p>
+<p>(b) $m\dfrac{dv}{dt}=-\dfrac{B^2L^2}{R}v$. Numbers: $B^2L^2=(0.16)(0.25)=0.040$ T²m², so $B^2L^2/R=0.040/0.25=0.16$ kg/s. So $v=v_0e^{-t/\tau}$ with $\tau=\dfrac{mR}{B^2L^2}=\dfrac{(0.10)(0.25)}{0.040}=0.625$ s.</p>
 <p>(c) $x=\int_0^\infty v_0e^{-t/\tau}dt=v_0\tau=(8.0)(0.625)=5.0$ m.</p>
 <p>(d) $\int_0^\infty I^2R\,dt=\dfrac{B^2L^2}{R}\int_0^\infty v_0^2e^{-2t/\tau}dt=\dfrac{B^2L^2}{R}\dfrac{v_0^2\tau}{2}=\dfrac{B^2L^2}{R}\dfrac{v_0^2}{2}\dfrac{mR}{B^2L^2}=\tfrac12mv_0^2=3.2$ J ✓.</p>
 <p>(e) $m\dfrac{dv}{dt}=F-\dfrac{B^2L^2}{R}v$. Terminal: $v_t=\dfrac{FR}{B^2L^2}=\dfrac{(0.80)(0.25)}{0.040}=5.0$ m/s. Solution: $v=v_t(1-e^{-t/\tau})$, $\tau=0.625$ s.</p>
-<p>(f) The magnetic braking force grows linearly with speed. The rod speeds up until it equals the applied force; then net force is zero. With $R$ doubled, less current flows at a given speed, so the braking force is weaker and the balance is reached at twice the speed: $v_t$ doubles (and $\tau$ also doubles).</p>`},
+<p>(f) The magnetic braking force grows linearly with speed. The rod speeds up until the magnetic force equals the applied force; then net force is zero. With $R$ doubled, less current flows at a given speed, so the braking force is weaker and the balance is reached at twice the speed: $v_t$ doubles (and $\tau$ also doubles).</p>`},
   {id:"f3", type:"Translation between representations", title:"LR and LC circuits",
    prompt:String.raw`<p>A battery of emf $\varepsilon=10$ V, a resistor $R=25\ \Omega$ and an ideal inductor $L=0.10$ H are connected in series with a switch. The switch is closed at $t=0$, when the current is zero.</p>
 <p>(a) Write the loop-rule equation and solve it for $I(t)$. Give the time constant and the final current.<br>
@@ -435,7 +435,7 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
   {id:"f4", type:"Mathematical routines", title:"Loop near a long wire",
    prompt:String.raw`<p>A long straight wire lies in the plane of the page and carries a current $I(t)=kt$ upward, with $k=2.0\times10^3$ A/s. A rectangular loop of resistance $R=0.010\ \Omega$ lies in the same plane to the right of the wire. Its sides parallel to the wire have length $\ell=0.30$ m; the near side is at distance $d=0.050$ m and the far side at $d+a=0.20$ m ($a=0.15$ m).</p>
 <p>(a) Write $B(r)$ for the wire and explain why $\Phi=BA$ cannot be used for the loop.<br>
-(b) Derive the flux through the loop as a function of $I$, and hence the mutual inductance $M$ (symbolic, then numerical).<br>
+(b) Derive the flux through the loop as a function of $I$, and hence the mutual inductance $M=\Phi/I$ (symbolic, then numerical). (Mutual inductance is standard Physics C extension material rather than an official AP topic; here it is just flux per unit wire current.)<br>
 (c) Find the induced emf and current, and the direction of the current.<br>
 (d) State the direction of the net magnetic force on the loop and justify it.<br>
 (e) Later the wire current is constant at $40$ A and the loop moves directly away from the wire at $3.0$ m/s. Find the emf at the instant $d=0.050$ m.</p>`,
@@ -461,19 +461,19 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
 (b) Sketch the induced emf (or current) versus time, with values.<br>
 (c) Sketch the external force needed to pull the loop at constant speed. Give values.<br>
 (d) Find the total energy dissipated.<br>
-(e) Explain why the current is zero while the loop is fully inside the region, even though each of its sides is moving through the field.<br>
-(f) Suppose instead the loop is released with speed $v_0$ and coasts. Show that during entry it loses speed $\Delta v=B^2s^3/(mR)$, and evaluate it.</p>`,
+(e) Explain why the current is zero while the loop is fully inside the region, even though its leading and trailing sides are each moving through the field.<br>
+(f) Suppose instead the loop is not pulled but enters the region with speed $v_0>0.64$ m/s (so it gets completely inside) and then coasts. Show that during entry it loses speed $\Delta v=B^2s^3/(mR)$ (independent of $v_0$), and evaluate it.</p>`,
    pts:[
     {p:1,d:"Flux graph: linear rise to the maximum $Bs^2=8.0\\times10^{-3}$ Wb at $t=0.020$ s, flat to $0.080$ s, linear fall to zero at $0.100$ s"},
     {p:1,d:"Emf: $-\\,d\\Phi/dt$ gives a pulse of constant magnitude $Bsv=0.40$ V during $0$-$0.020$ s, zero for $0.020$-$0.080$ s, then opposite sign pulse for $0.080$-$0.100$ s"},
     {p:1,d:"Current $\\pm20$ A, counterclockwise positive on entry, clockwise on exit (Lenz)"},
     {p:1,d:"Force: $F=IsB=1.6$ N during entry and exit, same direction (forward applied force), zero between"},
     {p:1,d:"$Q=2(I^2R)(s/v)=2(8.0)(0.020)=0.32$ J, or $F\\cdot2s=(1.6)(0.20)$"},
-    {p:1,d:"Explanation: the two sides' motional emfs are equal and opposite around the loop (or flux is constant)"},
-    {p:1,d:"Force on each opposite side cancels too: no net force"},
+    {p:1,d:"Explanation (e): flux is constant, so no emf; equivalently the leading and trailing sides' motional emfs are equal and opposite around the loop (top and bottom sides move along their own length and have none)"},
+    {p:1,d:"Also notes that with zero current there is no magnetic force on the loop"},
     {p:1,d:"$m\\,v\\,dv/dx=-B^2s^2v/R$ gives $dv/dx=-B^2s^2/(mR)$, so $\\Delta v=B^2s^2\\cdot s/(mR)$"},
     {p:1,d:"Numerical value $\\Delta v=0.64$ m/s"},
-    {p:1,d:"Graph labels, axes and signs consistent across (a)-(c)"}],
+    {p:1,d:"Graphs (a)-(c) have labeled axes, key times and values, and consistent signs (counterclockwise positive)"}],
    solution:String.raw`<p>Entry takes $s/v=0.020$ s; the loop is fully inside from $0.020$ s to $w/v=0.080$ s; it leaves from $0.080$ s to $0.100$ s.</p>
 <p>(a) $\Phi$ rises linearly from 0 to $Bs^2=(0.80)(0.010)=8.0\times10^{-3}$ Wb at $0.020$ s, is constant until $0.080$ s, then falls linearly to 0 at $0.100$ s.</p>
 <p>(b) $|\varepsilon|=Bsv=(0.80)(0.10)(5.0)=0.40$ V, so $|I|=20$ A. Entry: $+20$ A (flux into the page rising, induced field out of the page, counterclockwise); middle: 0; exit: $-20$ A.</p>
@@ -488,7 +488,7 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
 (c) Find the time constant and the inductor current $I_L(t)$. At what time is $I_L=1.0$ A?<br>
 (d) After the circuit reaches steady state, the switch is opened. Find the current in $R_2$ and the voltage across it just afterwards, and the subsequent decay time constant.<br>
 (e) Find the total heat dissipated in $R_2$ afterwards.<br>
-(f) Explain why the voltage across $R_2$ can exceed the battery emf.</p>`,
+(f) Explain why the voltage across $R_2$ can be much larger than its steady-state value (8 V), and why it could exceed the battery emf if $R_2$ were larger (for example $30\ \Omega$ would give $60$ V).</p>`,
    pts:[
     {p:1,d:"At $0^+$: inductor branch carries 0 (open), so $I_1=I_2=24/18=1.33$ A and $I_3=0$"},
     {p:1,d:"Steady state: inductor as wire; $R_{eq}=6+12\\cdot4/16=9$, hence $I_1=24/9=2.67$ A"},
@@ -499,13 +499,13 @@ $$I_0=\frac{\varepsilon_0}{Z},\quad Z=\sqrt{R^2+(X_L-X_C)^2},\quad X_L=\omega L,
     {p:1,d:"After opening: $I_L=2.0$ A flows through $R_2$ (reversed direction), $V_{R_2}=24$ V"},
     {p:1,d:"Loop is $L$, $R_3$, $R_2$: $\\tau'=L/(R_2+R_3)=0.025$ s"},
     {p:1,d:"Heat in $R_2=\\tfrac{R_2}{R_2+R_3}\\cdot\\tfrac12LI^2=0.60$ J (total $0.80$ J)"},
-    {p:1,d:"Explanation: inductor current continuous, so the inductor forces $I_0$ through the loop; $V=I_0R_2$ ignores battery; the inductor emf drives it"}],
+    {p:1,d:"Explanation: inductor current is continuous, so it forces $I_0=2.0$ A through the loop; $V=I_0R_2$ does not depend on the battery, so a larger $R_2$ gives $V>24$ V (e.g. $60$ V for $30\\ \\Omega$)"}],
    solution:String.raw`<p>(a) $I_L(0^+)=0$ so the inductor branch is open: $I_3=0$, $I_1=I_2=24/(6+12)=1.33$ A.</p>
 <p>(b) Inductor as a wire: $R_2\parallel R_3$: $12\cdot4/16=3.0\ \Omega$. Total $9.0\ \Omega$, $I_1=2.67$ A. Voltage across the pair is $24-(6)(2.67)=8.0$ V, so $I_3=I_L=8.0/4.0=2.0$ A, $I_2=8.0/12=0.67$ A.</p>
 <p>(c) Remove $L$: $V_{th}=24\cdot12/18=16$ V, $R_{th}=R_1\parallel R_2+R_3=4+4=8\ \Omega$, $\tau=0.40/8.0=0.050$ s, $I_L=\dfrac{16}{8}(1-e^{-t/\tau})=2.0(1-e^{-t/0.050})$. $I_L=1.0$ A at $t=\tau\ln2=34.7$ ms.</p>
 <p>(d) $I_L=2.0$ A persists round the loop $L$-$R_3$-$R_2$: $V_{R_2}=(2.0)(12)=24$ V (opposite polarity to before). $\tau'=0.40/16=0.025$ s.</p>
 <p>(e) Stored energy $\tfrac12(0.40)(4.0)=0.80$ J is shared in proportion to resistance: $R_2$ gets $12/16$ of it, $0.60$ J.</p>
-<p>(f) The inductor opposes the loss of current and, as in a generator, supplies whatever emf is needed to keep $2.0$ A flowing. A larger resistor in the loop therefore sees a larger voltage; the battery is not involved.</p>`},
+<p>(f) The inductor opposes the loss of current and, as in a generator, supplies whatever emf is needed to keep $2.0$ A flowing. Here $V_{R_2}=24$ V, three times its steady-state 8 V. A larger resistor in the loop sees a proportionally larger voltage $I_0R_2$ and the battery is not involved, so it could exceed the battery emf: $R_2=30\ \Omega$ would give $60$ V.</p>`},
   {id:"f7", type:"Experimental design & analysis", title:"Measuring a magnetic field with a spinning coil",
    prompt:String.raw`<p>A student wants to measure the uniform field $B$ between the poles of a magnet. She has a flat coil of $N=200$ turns and area $A=2.5\times10^{-3}$ m$^2$, a motor whose speed can be set, a voltmeter or oscilloscope, and a stopwatch.</p>
 <p>(a) Describe the setup and procedure: how the coil is placed and spun, what is measured, and which variable is changed. State how the data would be checked for sinusoidal form.<br>

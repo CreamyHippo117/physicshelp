@@ -456,11 +456,11 @@ $$K(4)=24\ \text{J}\Rightarrow v=\sqrt{2(24)/2}=\sqrt{24}\approx4.9\ \text{m/s}$
     {p:1,d:"$r=0.33\\ \\Omega$"},
     {p:1,d:"$\\varepsilon=1.50$ V (1.49 to 1.50)"},
     {p:1,d:"Short-circuit current $\\varepsilon/r\\approx4.5$ A"},
-    {p:1,d:"Explains that a large current heats the battery ($P=I^2r\\approx6.7$ W inside it), may damage it, and changes $r$, so the extrapolation is better than a direct measurement"}],
+    {p:1,d:"Explains that a large current heats the battery ($P=I^2r\\approx6.8$ W inside it), may damage it, and changes $r$, so the extrapolation is better than a direct measurement"}],
    solution:String.raw`<p><b>(a)</b> Connect the battery, the ammeter and the variable resistor in series; connect the voltmeter in parallel directly across the battery terminals. Set the resistor to a large value, then reduce it step by step to get at least five pairs $(I,V)$, reading both meters each time. Keep the circuit closed only long enough to read the meters.</p>
 <p><b>(b)</b> Loop rule: $\varepsilon-Ir-V=0$, so $V=\varepsilon-rI$: slope $-r$, intercept $\varepsilon$ (the open-circuit voltage).</p>
 <p><b>(c)</b> Slope $=(1.33-1.495)/0.50=-0.33$ V/A, so $r=0.33\ \Omega$ and $\varepsilon=1.50$ V. (A least-squares fit of the five points gives $-0.33$ V/A and $1.495$ V.)</p>
-<p><b>(d)</b> $I_\text{short}=\varepsilon/r=1.495/0.33\approx4.5$ A. Shorting would dissipate $I^2r\approx6.7$ W inside the cell, which heats it, shortens its life and changes $r$. Extrapolating the line gives the same number safely.</p>`},
+<p><b>(d)</b> $I_\text{short}=\varepsilon/r=1.495/0.33\approx4.5$ A. Shorting (with the unrounded $I=4.53$ A) would dissipate $I^2r\approx6.8$ W inside the cell, which heats it, shortens its life and changes $r$. Extrapolating the line gives the same number safely.</p>`},
 
   {id:"f4", type:"Experimental design & analysis", title:"A spring that is not massless",
    prompt:String.raw`<p>Masses $m$ are hung from a vertical spring of constant $k$ and set into small oscillations. The spring's own mass $m_s$ cannot be neglected; the theory is $T=2\pi\sqrt{(m+m_s/3)/k}$.</p>

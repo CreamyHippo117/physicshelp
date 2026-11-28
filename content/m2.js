@@ -344,7 +344,7 @@ $$0.8165T_2(0.500)+0.7071T_2=400\Rightarrow 1.1154\,T_2=400\Rightarrow T_2=358.6
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Blocks on an incline joined over a pulley",
-   prompt:String.raw`<p>A block A of mass 5.0 kg is on a rough incline at $37^\circ$ ($\sin37^\circ=0.60$, $\cos37^\circ=0.80$). Coefficients of friction between A and the incline are $\mu_s=0.30$ and $\mu_k=0.25$. A light rope attached to A runs up the incline and over an ideal pulley to a hanging block B of mass 5.0 kg. The system is released from rest. Use $g=10$ m/s².</p>
+   prompt:String.raw`<p>A block A of mass 5.0 kg is on a rough incline at $37^\circ$ ($\sin37^\circ=0.60$, $\cos37^\circ=0.80$). Coefficients of friction between A and the incline are $\mu_s=0.30$ and $\mu_k=0.25$. A light rope attached to A runs up the incline and over an ideal pulley to a hanging block B of mass 5.0 kg. The system is released from rest. Use $g=10$ m/s². Assume the incline is long enough that A stays on it, and that B has more than 2 m of vertical drop available before it reaches the floor or pulley, so nothing stops the motion during the first 2.0 s.</p>
 <p>(a) Draw and label a free-body diagram for A and for B.<br>
 (b) Write Newton's second law for each block, with a clearly stated positive direction.<br>
 (c) Determine the acceleration of the blocks and the tension in the rope.<br>
@@ -424,7 +424,7 @@ $$0.8165T_2(0.500)+0.7071T_2=400\Rightarrow 1.1154\,T_2=400\Rightarrow T_2=358.6
 <p>(f) Relative acceleration 4.5 m/s²: $1.8=\tfrac12(4.5)t^2\Rightarrow t=0.894$ s. By the third law, A pulls B backward with the same 12 N it receives; $F$ alone is not the net force on B, so $a_B=(F-12)/6&lt;F/6=10.5$ m/s².</p>`},
 
   {id:"f4", type:"Experimental design & analysis", title:"Testing Newton's second law with a cart and hanging mass",
-   prompt:String.raw`<p>A student tests $F=ma$ with a low-friction cart on a horizontal track. A light string runs from the cart over a light pulley to a hanger. The student keeps the <b>total</b> mass of cart + weights + hanger fixed at $M=0.600$ kg (measured on a balance) by moving small masses between the cart and the hanger, and varies the hanging mass $m$. For each $m$ the acceleration $a$ is found from the cart's velocity measured by a motion sensor.</p>
+   prompt:String.raw`<p>A student tests $F=ma$ with a low-friction cart on a horizontal track. A light string runs from the cart over a light pulley to a hanger. Use $g=9.8$ m/s². The student keeps the <b>total</b> mass of cart + weights + hanger fixed at $M=0.600$ kg (measured on a balance) by moving small masses between the cart and the hanger, and varies the hanging mass $m$. For each $m$ the acceleration $a$ is found from the cart's velocity measured by a motion sensor.</p>
 <table><tr><th>$m$ (kg)</th><td>0.020</td><td>0.040</td><td>0.060</td><td>0.080</td><td>0.100</td></tr><tr><th>$a$ (m/s²)</th><td>0.28</td><td>0.60</td><td>0.93</td><td>1.26</td><td>1.58</td></tr></table>
 <p>(a) Describe how $a$ can be obtained from the sensor's data, and how to reduce random error.<br>
 (b) Explain why the total mass is held constant, and what would go wrong with a plot of $a$ versus $m$ if the cart's mass were held fixed instead.<br>
@@ -440,15 +440,15 @@ $$0.8165T_2(0.500)+0.7071T_2=400\Rightarrow 1.1154\,T_2=400\Rightarrow T_2=358.6
     {p:1,d:String.raw`$a=(g/M)\,m$, linear through the origin`},
     {p:1,d:String.raw`Slope $=g/M$`},
     {p:1,d:String.raw`$M=g/\text{slope}=9.8/16.3=0.60$ kg, in agreement with the balance (0.600 kg)`},
-    {p:1,d:String.raw`Intercept: $a=(mg-f)/M$, so the intercept is $-f/M$ (a minimum hanging mass is needed to overcome friction; x-intercept about 3 g)`},
+    {p:1,d:String.raw`Intercept: $a=(mg-f)/M$, so the intercept is $-f/M$ (a minimum hanging mass is needed to overcome friction; the line crosses $a=0$ at about 3 grams of hanging mass)`},
     {p:1,d:String.raw`$f\approx0.048(0.600)=0.029$ N`},
-    {p:1,d:String.raw`One valid systematic error and its effect, e.g. the pulley's rotational inertia $I$ makes the effective mass $M+I/R^2$, lowering the slope and making the inferred $M$ too large; or a string that is not level; or stretching`},
+    {p:1,d:String.raw`One valid systematic error and its effect, e.g. the pulley's rotational inertia $I$ makes the effective mass $M+I/R^2$, lowering the slope and making the inferred $M$ too large; or a string that is not level (not parallel to the track)`},
     {p:1,d:String.raw`$\mu_s=\tan\theta$ from $mg\sin\theta=\mu_smg\cos\theta$ at slip; uncertainty from repeated trials or from measuring height and base ($\tan\theta=h/b$) with the uncertainty in each`}],
    solution:String.raw`<p>(a) A motion sensor gives $v(t)$; the slope of a straight-line fit is $a$. Repeat each run several times and average (or use the fit's uncertainty).</p>
 <p>(b) With the total mass fixed, the same system is accelerated by a net force $mg$, so $a=mg/M$ is linear in $m$. If instead cart mass was fixed and mass added to the hanger, the moving mass would be $M_c+m$, giving $a=mg/(M_c+m)$, a curve that flattens toward $g$. One can still linearize with $1/a$ versus $1/m$, but the constant-total-mass design is simpler.</p>
 <p>(c) Hanger (down positive): $mg-T=ma$; cart: $T=(M-m)a$. Adding: $mg=Ma$, so $a=(g/M)m$.</p>
 <p>(d) Slope $=g/M$. $M=9.8/16.3=0.601$ kg, consistent with the balance reading of 0.600 kg.</p>
-<p>(e) With friction $f$ on the cart, $mg-f=Ma$, $a=(g/M)m-f/M$. The intercept $-f/M=-0.048$ m/s² gives $f=0.029$ N; the line crosses $a=0$ at $m=f/g\approx3$ g.</p>
+<p>(e) With friction $f$ on the cart, $mg-f=Ma$, $a=(g/M)m-f/M$. The intercept $-f/M=-0.048$ m/s² gives $f=0.029$ N; the line crosses $a=0$ at $m=f/g=0.029/9.8\approx3$ grams. (Friction on the cart really depends on its normal force, which changes slightly as mass moves between cart and hanger, so $f$ is only approximately constant; for a low-friction cart the effect on the slope is under 1%.) A stretching string would not change $a$ for an ideal string, so it is not a systematic error here.</p>
 <p>(f) Pulley with rotational inertia $I$: the effective mass is $M+I/R^2$, so slope $g/(M+I/R^2)$ is smaller and the $M$ inferred from the slope is too large. (Any answer that identifies an error and its direction is acceptable.)</p>
 <p>(g) At the verge of slipping, $mg\sin\theta=\mu_smg\cos\theta$, so $\mu_s=\tan\theta$ (mass cancels). Measure the height $h$ and base $b$ of the track and use $\tan\theta=h/b$, repeating the trial, and take the spread of the results as the uncertainty.</p>`}
 

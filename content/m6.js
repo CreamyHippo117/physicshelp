@@ -295,7 +295,7 @@ So $M_{\rm eff}=2.0+1.0+0.5=3.5$ kg and $\omega^2=120/3.5=34.3$ s⁻², $\omega=
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Rod with a spring: derive the equation of motion",
-   prompt:String.raw`<p>A uniform rod of mass $M$ and length $L$ hangs from a frictionless horizontal pivot at its upper end and can swing in a vertical plane. A horizontal spring of constant $k$ connects the lower end of the rod to a vertical wall. The spring is at its natural length when the rod hangs vertically ($\theta=0$). The rod is displaced by a small angle $\theta$ and released. For small $\theta$, assume the spring stays horizontal. The moment of inertia of the rod about the pivot is $I=\tfrac13ML^2$.</p>
+   prompt:String.raw`<p>A uniform rod of mass $M$ and length $L$ hangs from a frictionless horizontal pivot at its upper end and can swing in a vertical plane. A horizontal spring of constant $k$ connects the lower end of the rod to a vertical wall. The spring is at its natural length when the rod hangs vertically ($\theta=0$). The wall is to the right of the rod, and $\theta$ is positive when the lower end swings to the left, away from the wall (stretching the spring). The rod is displaced by a small angle $\theta$ and released. For small $\theta$, assume the spring stays horizontal. The moment of inertia of the rod about the pivot is $I=\tfrac13ML^2$.</p>
 <p>(a) Draw a free-body diagram of the rod at angle $\theta$, showing the gravitational force, the spring force, and the pivot's location.<br>
 (b) Write the net torque about the pivot as a function of $\theta$.<br>
 (c) Show that for small angles $\ddot\theta=-\omega^2\theta$ and give $\omega^2$ in terms of $M$, $L$, $k$, $g$.<br>
@@ -308,18 +308,18 @@ So $M_{\rm eff}=2.0+1.0+0.5=3.5$ kg and $\omega^2=120/3.5=34.3$ s⁻², $\omega=
     {p:1,d:String.raw`Spring torque $-kL\sin\theta\cdot L\cos\theta=-kL^2\sin\theta\cos\theta$ (force times vertical lever arm), with correct sign`},
     {p:1,d:String.raw`Uses $I\ddot\theta=\tau$ with $I=\frac13ML^2$ and sets $\sin\theta\approx\theta$, $\cos\theta\approx1$`},
     {p:1,d:String.raw`$\omega^2=\dfrac{3g}{2L}+\dfrac{3k}{M}$ and form $\ddot\theta=-\omega^2\theta$ identified as SHM`},
-    {p:1,d:String.raw`Justifies: $\sin\theta\approx\theta$ and $\cos\theta\approx1$ (and spring stays horizontal); error $\sim\theta^2/6\approx0.17\%$ for $\sin$ (and $\theta^2/2=0.5\%$ for $\cos$)`},
+    {p:1,d:String.raw`Justifies: $\sin\theta\approx\theta$ and $\cos\theta\approx1$ (and spring stays horizontal); error $\theta^2/6\approx0.17\%$ for the gravity term ($\sin$) and about $\theta^2/6+\theta^2/2=2\theta^2/3\approx0.67\%$ for the spring term ($\sin\cos$)`},
     {p:1,d:String.raw`$\omega^2=25+75=100$, $\omega=10$ rad/s, $T=2\pi/\omega\approx0.63$ s; $\theta=0.10\cos(10t)$ rad, maximum angular speed $\theta_0\omega=1.0$ rad/s`},
     {p:1,d:String.raw`Explanation: the spring adds a second restoring torque that always opposes the displacement, increasing the torque per unit angle without changing $I$, so the oscillation is faster`}],
-   solution:String.raw`<p>(a) Weight $Mg$ downward at the midpoint; spring force $F_s=kx=kL\sin\theta$ horizontal at the bottom, pointing toward the wall side that restores the rod; pivot force at the top (no torque about the pivot).</p>
+   solution:String.raw`<p>(a) Weight $Mg$ downward at the midpoint; spring force $F_s=kx=kL\sin\theta$ horizontal at the bottom, directed horizontally toward the wall, opposite to the displacement of the lower end (toward equilibrium); pivot force at the top (no torque about the pivot).</p>
 <p>(b) Take $\theta$ positive in the direction the rod is displaced. Gravity: moment arm $\tfrac L2\sin\theta$, torque $-Mg\tfrac L2\sin\theta$. Spring: force $kL\sin\theta$ acting at height $L\cos\theta$ below the pivot, torque $-kL^2\sin\theta\cos\theta$. So $\tau=-\left(\tfrac{MgL}2+kL^2\cos\theta\right)\sin\theta$.</p>
 <p>(c) $\tfrac13ML^2\ddot\theta=-\left(\tfrac{MgL}2+kL^2\right)\theta$ for small $\theta$, so
 $$\ddot\theta=-\left(\frac{3g}{2L}+\frac{3k}{M}\right)\theta\quad\Rightarrow\quad\omega^2=\frac{3g}{2L}+\frac{3k}{M}.$$</p>
-<p>(d) Taylor: $\sin\theta\approx\theta-\theta^3/6$ (fractional error $\theta^2/6=0.17\%$ at 0.10 rad) and $\cos\theta\approx1-\theta^2/2$ (0.5%). The spring is assumed to remain horizontal. All tiny, so the ODE is linear to good accuracy.</p>
+<p>(d) Taylor: $\sin\theta\approx\theta-\theta^3/6$ (fractional error $\theta^2/6=0.17\%$ at 0.10 rad) and $\cos\theta\approx1-\theta^2/2$ (0.5%). The spring torque is $kL^2\sin\theta\cos\theta=\tfrac12kL^2\sin2\theta$, so its fractional error is about $\theta^2/6+\theta^2/2=2\theta^2/3=0.67\%$ (gravity term 0.17%), giving roughly 0.6% in $\omega^2$. The spring is assumed to remain horizontal. All tiny, so the ODE is linear to good accuracy.</p>
 <p>(e) $\omega^2=\dfrac{3(10)}{2(0.6)}+\dfrac{3(50)}{2.0}=25+75=100$ s⁻², so $\omega=10$ rad/s, $T=0.628$ s. $\theta(t)=0.10\cos(10t)$ rad, $\dot\theta_{\max}=0.10(10)=1.0$ rad/s.</p>
 <p>(f) With the spring, a displacement produces two restoring torques instead of one. A larger torque per unit angle with the same rotational inertia gives larger angular acceleration, so the oscillation is faster. With $k=0$ the result reduces to the uniform-rod pendulum, $\omega^2=3g/2L$.</p>`},
   {id:"f2", type:"Experimental design & analysis", title:"Measuring g with a pendulum",
-   prompt:String.raw`<p>A student measures the period of a simple pendulum for different lengths. The length $L$ is measured from the pivot to the <i>top</i> of a spherical bob whose radius is a few centimeters. Each period is the time for 10 swings divided by 10, with amplitude under $10^\circ$.</p>
+   prompt:String.raw`<p>A student measures the period of a simple pendulum for different lengths. The length $L$ is measured from the pivot to the <i>top</i> of a spherical bob whose radius is about 2 cm. Each period is the time for 10 swings divided by 10, with amplitude under $10^\circ$.</p>
 <table><tr><th>$L$ (m)</th><td>0.200</td><td>0.400</td><td>0.600</td><td>0.800</td><td>1.000</td></tr>
 <tr><th>$T$ (s)</th><td>0.94</td><td>1.30</td><td>1.58</td><td>1.82</td><td>2.03</td></tr></table>
 <p>(a) The student wants a straight-line graph. State what to plot on each axis and write the slope in terms of $g$.<br>
@@ -338,7 +338,7 @@ $$\ddot\theta=-\left(\frac{3g}{2L}+\frac{3k}{M}\right)\theta\quad\Rightarrow\qua
     {p:1,d:String.raw`Timing 10 swings reduces the fractional error from reaction time; small amplitude keeps $\sin\theta\approx\theta$; large amplitude makes $T$ longer, so the slope is too large and $g=4\pi^2/\text{slope}$ comes out too low`}],
    solution:String.raw`<p>(a) $T=2\pi\sqrt{L/g}\Rightarrow T^2=\dfrac{4\pi^2}{g}L$. Plot $T^2$ vs $L$; slope $=4\pi^2/g$.</p>
 <p>(b) $T^2$: 0.884, 1.69, 2.50, 3.31, 4.12 s² (to three significant figures: $0.94^2=0.884$, $1.30^2=1.69$, $1.58^2=2.50$, $1.82^2=3.31$, $2.03^2=4.12$).</p>
-<p>(c) Using the endpoints of the fitted line, slope $\approx\dfrac{4.12-0.88}{1.000-0.200}\approx4.05$ s²/m (a least-squares fit gives $4.05$). Then $g=\dfrac{4\pi^2}{4.05}=\dfrac{39.48}{4.05}\approx9.75$ m/s².</p>
+<p>(c) Take points on the fitted line at $L=0.200$ and $1.000$ m, where $T^2=0.881$ and $4.120$ s²: slope $\approx\dfrac{4.120-0.881}{0.800}\approx4.05$ s²/m. Then $g=\dfrac{4\pi^2}{4.05}=\dfrac{39.48}{4.05}\approx9.75$ m/s².</p>
 <p>(d) The intercept is about $+0.07$ s². Since $T^2=\dfrac{4\pi^2}{g}(L+r)$, the intercept is $\dfrac{4\pi^2}{g}r$, so $r=\dfrac{0.07}{4.05}\approx0.017$ m: about the radius of the bob (the true pendulum length runs to the bob's center of mass; the student measured only to the top of the bob). A constant offset in $L$ shifts the line vertically but does not change its slope, so $g$ from the slope is unaffected. (A method that used a single $(L,T)$ pair without checking the intercept would be biased.)</p>
 <p>(e) The reaction time of starting and stopping a stopwatch (about $0.2$ s) is a fixed absolute error; spread over 10 periods the error per period is ten times smaller. Small amplitude is needed so $\sin\theta\approx\theta$; at large amplitude the true period is longer ($T\approx T_0(1+\theta_0^2/16)$), so $T^2$ and the slope are too large, giving $g=4\pi^2/\text{slope}$ too <i>low</i>.</p>`},
   {id:"f3", type:"Mathematical routines", title:"Spring, pulley and hanging mass: energy method",
@@ -373,7 +373,7 @@ $$\ddot\theta=-\left(\frac{3g}{2L}+\frac{3k}{M}\right)\theta\quad\Rightarrow\qua
 (c) Add the two columns you need to the table and compute them.<br>
 (d) Draw a best-fit line (describe it) and use two well-separated points on the line to find the slope, then find $g$.<br>
 (e) The intercept from the line is about $0.34$ s²m. Use it to check the value of $L$ the model predicts, and say what a significantly different value would suggest about the experiment.<br>
-(f) The measured $T$ is smallest near $d\approx0.29$ m rather than decreasing as $d$ increases. Explain qualitatively why a pivot far from the center gives a longer period even though gravity's torque is larger there, and state the $d$ that minimizes $T$.</p>`,
+(f) The measured $T$ is smallest at an intermediate $d$ rather than decreasing as $d$ increases. Explain qualitatively why a pivot far from the center gives a longer period even though gravity's torque is larger there, and state the $d$ that minimizes $T$.</p>`,
    pts:[
     {p:1,d:String.raw`Parallel axis: $I=\tfrac1{12}mL^2+md^2$; $T=2\pi\sqrt{I/mgd}$ squared and multiplied by $d$ gives $T^2d=\frac{4\pi^2}{g}(d^2+L^2/12)$`},
     {p:1,d:String.raw`Plots $T^2d$ (vertical) against $d^2$ (horizontal); slope $4\pi^2/g$; intercept $4\pi^2L^2/(12g)$`},
@@ -385,7 +385,7 @@ $$\ddot\theta=-\left(\frac{3g}{2L}+\frac{3k}{M}\right)\theta\quad\Rightarrow\qua
    solution:String.raw`<p>(a) $I=\tfrac1{12}mL^2+md^2$, so $T^2=4\pi^2\dfrac{I}{mgd}=\dfrac{4\pi^2}{g}\,\dfrac{L^2/12+d^2}{d}$. Multiply by $d$.</p>
 <p>(b) $y=T^2d$, $x=d^2$: $y=\dfrac{4\pi^2}{g}x+\dfrac{4\pi^2L^2}{12g}$. Slope $4\pi^2/g$; intercept $4\pi^2L^2/12g$. (This linearization puts the unknown $g$ in the slope and the geometry in the intercept.)</p>
 <p>(c) $d^2$: 0.0100, 0.0400, 0.0900, 0.1600, 0.2025. $T^2d$: $1.95^2(0.10)=0.380$; $1.57^2(0.20)=0.493$; $1.52^2(0.30)=0.693$; $1.57^2(0.40)=0.986$; $1.59^2(0.45)=1.138$ (s²m).</p>
-<p>(d) Using points on the fitted line near the ends, slope $\approx\dfrac{1.138-0.380}{0.2025-0.0100}\approx3.9$ to $4.0$ s²/m (a least-squares fit gives $3.98$). $g=4\pi^2/3.98=9.9$ m/s².</p>
+<p>(d) Using points on the least-squares line $T^2d=3.98d^2+0.338$ at $d^2=0.0100$ and $0.2025$ (values 0.378 and 1.144 s²m), slope $\approx\dfrac{1.144-0.378}{0.1925}\approx3.98$ s²/m. $g=4\pi^2/3.98=9.9$ m/s².</p>
 <p>(e) Intercept $=0.34$: $L^2=12(0.34)/3.98=1.03$ m², $L\approx1.01$ m, consistent with the meter stick. A strongly different value would indicate an error such as the pivot offset being mismeasured (a systematic error in $d$ distorts both slope and intercept) or large-amplitude swings.</p>
 <p>(f) Close to the center, gravity's torque $mgd\sin\theta$ is small while $I\approx mL^2/12$ stays large, so the period is long (as $d\to0$, $T\to\infty$). Far from the center $I\approx md^2$ grows as fast as the torque and the stick acts like a simple pendulum of length about $d$, so $T$ grows again with $d$. Minimizing $T^2=\frac{4\pi^2}{g}(d+L^2/12d)$: $1-L^2/12d^2=0\Rightarrow d=L/\sqrt{12}=0.289$ m, where $T_{\min}=1.52$ s. (At that point $T$ is the same as a simple pendulum of length $2d$.)</p>`}
   ]

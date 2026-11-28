@@ -220,7 +220,7 @@ $$\frac{dv}{v^2}=-k\,dt\ \Rightarrow\ \frac1v-\frac1{v_0}=kt\ \Rightarrow\ v=\fr
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Drag on a sliding puck",
-   prompt:String.raw`<p>A puck of mass $m$ slides on a horizontal surface. Because of a thin fluid layer its acceleration is $a=-kv$, where $k$ is a positive constant. At $t=0$ the puck is at $x=0$ moving with velocity $v_0$ in the $+x$ direction.</p>
+   prompt:String.raw`<p>A puck of mass $m$ slides on a horizontal surface. Because of a thin fluid layer its acceleration is $a=-kv$, where $k$ is a positive constant (the mass $m$ is not needed in any part; it is given only for completeness). At $t=0$ the puck is at $x=0$ moving with velocity $v_0$ in the $+x$ direction.</p>
 <p>(a) Derive $v(t)$.<br>(b) Derive $x(t)$.<br>(c) Determine the total distance the puck slides.<br>(d) Determine the time at which the speed has fallen to $v_0/2$.<br>(e) Sketch $v$ versus $t$ and $x$ versus $t$ on separate axes, labeling any intercepts and asymptotes.</p>`,
    pts:[
     {p:1,d:"Separates variables ($dv/v=-k\\,dt$) or states an equivalent correct differential equation"},
@@ -238,7 +238,7 @@ $$\frac{dv}{v^2}=-k\,dt\ \Rightarrow\ \frac1v-\frac1{v_0}=kt\ \Rightarrow\ v=\fr
 <p class="mut">Check units: $k$ has units 1/s, so $v_0/k$ is a length. Always do this.</p>`},
   {id:"f2", type:"Mathematical routines", title:"Projectile launched from a cliff",
    prompt:String.raw`<p>A ball is launched from the top of a cliff of height $h$ with speed $v_0$ at an angle $\theta$ above the horizontal. Neglect air resistance. Let the origin be at the base of the cliff directly below the launch point.</p>
-<p>(a) Derive the equation $y(x)$ for the path of the ball in terms of $h$, $v_0$, $\theta$ and $g$.<br>(b) For $v_0=10$ m/s, $\tan\theta=3/4$ ($\cos\theta=0.8$, $\sin\theta=0.6$), $h=8$ m and $g=10$ m/s², find the time of flight and the horizontal distance at which the ball lands.<br>(c) Find the speed of the ball just before it lands.<br>(d) Find the angle below the horizontal of its velocity at impact.<br>(e) The ball is instead launched horizontally from the same cliff at the same speed $v_0=10$ m/s. How does the impact speed compare with part (c)? Is the impact angle larger or smaller than in part (d)? Is the range larger or smaller? Justify without a full calculation.</p>`,
+<p>(a) Derive the equation $y(x)$ for the path of the ball in terms of $h$, $v_0$, $\theta$ and $g$.<br>(b) For $v_0=10$ m/s, $\tan\theta=3/4$ ($\cos\theta=0.8$, $\sin\theta=0.6$), $h=8$ m and $g=10$ m/s², find the time of flight and the horizontal distance at which the ball lands.<br>(c) Find the speed of the ball just before it lands.<br>(d) Find the angle below the horizontal of its velocity at impact.<br>(e) The ball is instead launched horizontally from the same cliff at the same speed $v_0=10$ m/s. How does the impact speed compare with part (c)? Is the impact angle larger or smaller than in part (d)? Is the range larger or smaller? Justify the speed and angle comparisons without a full calculation, then compute the range of the horizontal launch and compare it with part (b).</p>`,
    pts:[
     {p:1,d:"Uses $x=v_0\\cos\\theta\\,t$ to write $t=x/(v_0\\cos\\theta)$ (or equivalent elimination)"},
     {p:1,d:"$y=h+x\\tan\\theta-\\dfrac{gx^2}{2v_0^2\\cos^2\\theta}$"},
@@ -248,12 +248,13 @@ $$\frac{dv}{v^2}=-k\,dt\ \Rightarrow\ \frac1v-\frac1{v_0}=kt\ \Rightarrow\ v=\fr
     {p:1,d:"$v=\\sqrt{64+196}=\\sqrt{260}\\approx16.1$ m/s"},
     {p:1,d:"$\\tan\\beta=14/8\\Rightarrow\\beta\\approx60^\\circ$ below the horizontal"},
     {p:1,d:"Same impact speed, since $v=\\sqrt{v_0^2+2gh}$ is independent of launch direction"},
-    {p:1,d:"Impact angle smaller (shallower): $v_x$ is $10$ m/s instead of $8$ with the same speed (so $v_y$ is smaller); range is smaller since flight time is shorter (no upward initial velocity), $t=1.26$ s, range $12.6$ m"}],
+    {p:1,d:"Impact angle smaller (shallower): $v_x$ is $10$ m/s instead of $8$ with the same speed, so $|v_y|$ is smaller ($\\approx12.6$ m/s, $\\beta\\approx51.7^\\circ$)"},
+    {p:1,d:"Horizontal launch: $t=\\sqrt{2h/g}=1.26$ s (shorter than 2 s), range $10(1.26)\\approx12.6$ m, smaller than 16 m (needs the calculation)"}],
    solution:String.raw`<p>(a) $t=x/(v_0\cos\theta)$, so $y=h+v_0\sin\theta\,t-\tfrac12gt^2=h+x\tan\theta-\dfrac{gx^2}{2v_0^2\cos^2\theta}$.</p>
 <p>(b) $0=8+6t-5t^2\Rightarrow5t^2-6t-8=0\Rightarrow(5t+4)(t-2)=0\Rightarrow t=2$ s. $x=8(2)=16$ m.</p>
 <p>(c) $v_y=6-20=-14$ m/s, $v=\sqrt{8^2+14^2}=\sqrt{260}=16.1$ m/s (check: $\sqrt{100+2(10)(8)}=\sqrt{260}$).</p>
 <p>(d) $\tan\beta=14/8=1.75$, $\beta=60.3^\circ$ below horizontal.</p>
-<p>(e) The speed is the same, $16.1$ m/s, because it depends only on $v_0$ and $h$. With $v_x=10$ m/s (larger than 8) and the same speed, $|v_y|=\sqrt{260-100}=12.6$ m/s, so $\beta=\arctan(12.6/10)=51.7^\circ$, smaller. The horizontal launch flies for $\sqrt{2h/g}=1.26$ s versus 2 s, and covers $12.6$ m versus $16$ m.</p>`},
+<p>(e) The speed is the same, $16.1$ m/s, because it depends only on $v_0$ and $h$. With $v_x=10$ m/s (larger than 8) and the same speed, $|v_y|=\sqrt{260-100}=12.6$ m/s, so $\beta=\arctan(12.6/10)=51.7^\circ$, smaller. For the range, the comparison cannot be settled by inspection (larger $v_x$ but shorter time), so compute: the horizontal launch flies for $\sqrt{2h/g}=1.26$ s versus 2 s, and covers $12.6$ m versus $16$ m.</p>`},
   {id:"f3", type:"Mathematical routines", title:"Range up an incline and the best angle",
    prompt:String.raw`<p>A ball is launched from a point on a long incline that makes a constant angle $\varphi$ with the horizontal. The launch speed is $v_0$ and the launch direction makes an angle $\alpha$ above the surface of the incline (the launch is up the slope, in the vertical plane that contains the line of steepest slope). Neglect air resistance.</p>
 <p>(a) Using axes along and perpendicular to the incline, write the components of the acceleration of the ball.<br>(b) Derive the time of flight $T$ until the ball lands on the incline.<br>(c) Show that the distance $R$ along the incline at which it lands is $R=\dfrac{2v_0^2\sin\alpha\cos(\alpha+\varphi)}{g\cos^2\varphi}$.<br>(d) Find the angle $\alpha$ that maximizes $R$, and the maximum range, in terms of $v_0$, $g$ and $\varphi$.<br>(e) For $\varphi=30^\circ$ and $v_0=20$ m/s ($g=10$ m/s²), find the maximum range and the launch angle measured from the horizontal.<br>(f) If the launch were down the slope instead, would the maximum range be greater or less than $R_{max}$ in part (e)? Explain physically.</p>`,

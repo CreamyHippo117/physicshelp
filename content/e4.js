@@ -342,27 +342,27 @@ Two uses: (1) the sign of $V_H$ says whether the carriers are negative (the $+y$
 <p>(e) The magnetic force $evB_1>eE$, so the net force is up: the ion drifts toward the upper plate. (Slower ions drift down.)</p>`},
   {id:"f2", type:"Mathematical routines", title:"Field of a current loop",
    prompt:String.raw`<p>A circular loop of radius $R$ lies in the $xy$-plane, centered at the origin, and carries a steady current $I$ counterclockwise as seen from $+z$.</p>
-<p>(a) Starting from the Biot-Savart law, show that the magnitude of $dB$ from a length element $dl$ at a point on the $z$ axis at height $z$ is $\dfrac{\mu_0I\,dl}{4\pi(R^2+z^2)}$, and state its direction relative to the radial direction of the loop.<br>
+<p>(a) Starting from the Biot-Savart law, show that the magnitude of $dB$ from a length element $dl$ at a point on the $z$ axis at height $z$ is $\dfrac{\mu_0I\,dl}{4\pi(R^2+z^2)}$, and state its direction relative to the radial direction of the loop (take the element at $z>0$ above the loop).<br>
 (b) Explain by symmetry why the net field on the axis has no component perpendicular to the axis.<br>
 (c) Integrate to show $B_z=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$ and give the direction of $\vec B$ on the axis.<br>
 (d) Find $B$ at the center, and find the limit for $z\gg R$ in terms of the dipole moment $\mu=I\pi R^2$.<br>
 (e) At what two values of $z$ is the magnitude of $B_z$ equal to half its center value? Give the answer in units of $R$.<br>
 (f) A second identical loop is placed coaxially at $z=d$ carrying the same current in the same sense. The single-loop function $B_z(z)$ is concave down for $|z|&lt;R/2$ and concave up for $|z|>R/2$. Use this to decide whether the total field at the midpoint $z=d/2$ is a local maximum or minimum along the axis for $d&lt;R$, for $d=R$, and for $d>R$.</p>`,
    pts:[
-    {p:1,d:"$d\\vec l\\perp\\hat r$ so $|d\\vec l\\times\\hat r|=dl$, $r^2=R^2+z^2$, giving the stated $dB$; direction perpendicular to both $d\\vec l$ and $\\vec r$ (tilted by angle with the axis)"},
+    {p:1,d:"$d\\vec l\\perp\\hat r$ so $|d\\vec l\\times\\hat r|=dl$, $r^2=R^2+z^2$, giving the stated $dB$; direction perpendicular to both $d\\vec l$ and $\\vec r$, in the plane of the axis and the element: components $dB\\,R/\\sqrt{R^2+z^2}$ along $+z$ and $dB\\,z/\\sqrt{R^2+z^2}$ radially outward (inward for $z&lt;0$)"},
     {p:1,d:"Symmetry argument: perpendicular components of opposite elements cancel"},
     {p:1,d:"Axial component factor $R/\\sqrt{R^2+z^2}$"},
     {p:1,d:"Integrates $\\oint dl=2\\pi R$ to get the stated $B_z$"},
     {p:1,d:"Direction $+z$ (RHR-2: fingers along counterclockwise current, thumb up)"},
     {p:1,d:"Center $\\mu_0I/2R$; far field $\\mu_0\\mu/(2\\pi z^3)$"},
     {p:1,d:"Solves $(1+z^2/R^2)^{3/2}=2$: $z=\\pm R\\sqrt{2^{2/3}-1}=\\pm0.77R$"},
-    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d&lt;R$, zero curvature for $d=R$ (Helmholtz pair, very uniform), local minimum for $d>R$"}],
-   solution:String.raw`<p>(a) $d\vec B=\frac{\mu_0}{4\pi}\frac{I\,d\vec l\times\hat r}{r^2}$. The element lies on the circle, the field point is on the axis, so $\vec r$ has components $(-R\hat\rho,\ z\hat z)$ and $d\vec l$ is tangential, hence perpendicular to $\vec r$: $|d\vec l\times\hat r|=dl$, $r^2=R^2+z^2$ and $dB=\mu_0I\,dl/[4\pi(R^2+z^2)]$. $d\vec B$ is perpendicular to $\vec r$ and $d\vec l$, so it tilts out of the axial direction by the angle whose cosine is $R/\sqrt{R^2+z^2}$.</p>
+    {p:1,d:"Midpoint curvature is $2B_1''(d/2)$: local maximum for $d&lt;R$, zero curvature for $d=R$ (Helmholtz pair, very uniform; the fourth-order term is negative, so the midpoint is still a very flat maximum), local minimum for $d>R$"}],
+   solution:String.raw`<p>(a) $d\vec B=\frac{\mu_0}{4\pi}\frac{I\,d\vec l\times\hat r}{r^2}$. The element lies on the circle, the field point is on the axis, so $\vec r$ has components $(-R\hat\rho,\ z\hat z)$ and $d\vec l$ is tangential, hence perpendicular to $\vec r$: $|d\vec l\times\hat r|=dl$, $r^2=R^2+z^2$ and $dB=\mu_0I\,dl/[4\pi(R^2+z^2)]$. $d\vec B$ is perpendicular to $\vec r$ and $d\vec l$, so it lies in the plane containing the axis and the element, tilted out of the axial direction by the angle whose cosine is $R/\sqrt{R^2+z^2}$. Its components are $dB_z=dB\,R/\sqrt{R^2+z^2}$ along $+z$ and $dB_\rho=dB\,z/\sqrt{R^2+z^2}$ along the outward radial direction $\hat\rho$ for $z>0$ (inward for $z&lt;0$).</p>
 <p>(b) An element on the opposite side has the same $dB$ but its perpendicular component points the opposite way; summing over the ring cancels all perpendicular components.</p>
 <p>(c) $B_z=\oint dB\cos\alpha=\dfrac{\mu_0I}{4\pi(R^2+z^2)}\dfrac{R}{\sqrt{R^2+z^2}}(2\pi R)=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}$, along $+z$ (RHR: counterclockwise current, thumb out of the page toward $+z$).</p>
 <p>(d) $z=0$: $B_0=\mu_0I/2R$. $z\gg R$: $B\approx\mu_0IR^2/2z^3=\mu_0\mu/(2\pi z^3)$ with $\mu=I\pi R^2$.</p>
 <p>(e) $\dfrac{B_z}{B_0}=\dfrac{1}{(1+z^2/R^2)^{3/2}}=\dfrac12\Rightarrow 1+z^2/R^2=2^{2/3}=1.587\Rightarrow z=\pm0.77R$.</p>
-<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|&lt;R/2$, the midpoint is a local maximum when $d&lt;R$; at $d=R$ the curvature vanishes (a Helmholtz pair gives an unusually uniform field); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
+<p>(f) By symmetry the total field has zero slope at the midpoint, and its second derivative there is $2B_1''(d/2)$ (each loop contributes the same, evaluated a distance $d/2$ from its own center). Since $B_1''<0$ for $|z|&lt;R/2$, the midpoint is a local maximum when $d&lt;R$; at $d=R$ the curvature vanishes, so the second-derivative test is inconclusive (a Helmholtz pair gives an unusually uniform field; the next nonzero term, from $B_1''''(R/2)<0$, makes the midpoint a very flat local maximum); for $d>R$, $B_1''>0$ and the midpoint is a local minimum between two peaks.</p>`},
   {id:"f3", type:"Mathematical routines", title:"Ampère's law with a nonuniform current",
    prompt:String.raw`<p>A long straight cylindrical conductor of radius $R$ carries a current along its axis with current density $J(r)=J_0\left(1-\dfrac rR\right)$ for $r\le R$ and $0$ outside, where $J_0$ is a positive constant and $r$ is the distance from the axis.</p>
 <p>(a) Find the total current $I$ in terms of $J_0$ and $R$.<br>
@@ -393,23 +393,23 @@ Two uses: (1) the sign of $V_H$ says whether the carriers are negative (the $+y$
 (c) Show that the angle $\theta$ through which the velocity turns on leaving the far boundary satisfies $\sin\theta=L/r$, and calculate $\theta$.<br>
 (d) Calculate the time the proton spends in the field.<br>
 (e) Find the minimum field strength for which the proton does <i>not</i> reach the far boundary, and describe its motion in that case.<br>
-(f) The experiment is repeated with the proton's speed doubled (same $B$, same $L$). State, with reasoning, whether (i) the deflection angle, (ii) the time in the field, and (iii) the exit speed increase, decrease or stay the same, and give the exit speed.</p>`,
+(f) The experiment is repeated with the proton's speed doubled (same $B$, same $L$). State, with reasoning, whether (i) the deflection angle, (ii) the time in the field, and (iii) the exit speed (compared with the original experiment) increase, decrease or stay the same, and give the exit speed and say how it compares with the entry speed.</p>`,
    pts:[
     {p:1,d:"Path bends upward (counterclockwise): $\\vec F=q\\vec v\\times\\vec B$ with $\\hat x\\times(-\\hat z)=+\\hat y$; circular arc inside, straight lines outside"},
     {p:1,d:"$qvB=mv^2/r\\Rightarrow r=mv/(qB)=0.104$ m"},
     {p:1,d:"Geometry: center of the circle lies on the entry boundary line; right triangle with hypotenuse $r$ and side $L$ gives $\\sin\\theta=L/r$"},
     {p:1,d:"$\\theta=\\arcsin(0.479)=28.6^\\circ=0.499$ rad"},
     {p:1,d:"$t=\\theta/\\omega=\\theta m/(qB)=2.6\\times10^{-8}$ s"},
-    {p:1,d:"Condition $r\\le L$ (not reaching the far edge), so $B_{min}=mv/(qL)$"},
-    {p:1,d:"$B_{min}=0.42$ T; the proton makes a semicircle and leaves back through the entry boundary at $2r=10$ cm from where it entered, moving to the left"},
+    {p:1,d:"Not reaching the far edge requires $r&lt;L$ (at $r=L$ the path just grazes it), so $B>mv/(qL)$"},
+    {p:1,d:"threshold $mv/(qL)=0.42$ T, so $B$ must exceed 0.42 T; the proton makes a semicircle and leaves back through the entry boundary at $2r=10$ cm from where it entered, moving to the left"},
     {p:1,d:"(f)(i),(ii): $r$ doubles, $\\sin\\theta=L/r$ halves so $\\theta$ decreases (to $13.9^\\circ$) and $t=\\theta m/(qB)$ decreases (to $1.3\\times10^{-8}$ s)"},
-    {p:1,d:"(f)(iii): exit speed is unchanged from entry speed, $4.0\\times10^6$ m/s, since the magnetic force does no work"}],
+    {p:1,d:"(f)(iii): exit speed equals the entry speed, $4.0\\times10^6$ m/s, since the magnetic force does no work (so it is twice the original $2.0\\times10^6$ m/s: it increases only because the entry speed did)"}],
    solution:String.raw`<p>(a) $\hat x\times(-\hat z)=+\hat y$, so the force on the proton is initially up the page; the path is a circular arc curving upward (counterclockwise) in the field and straight lines outside.</p>
 <p>(b) $qvB=mv^2/r\Rightarrow r=\dfrac{mv}{qB}=\dfrac{(1.67\times10^{-27})(2.0\times10^6)}{(1.60\times10^{-19})(0.20)}=0.104$ m.</p>
 <p>(c) The force at entry is along the boundary, so the circle's center lies on the entry boundary a distance $r$ above the entry point. The line from the center to the exit point makes angle $\theta$ with the line from the center to the entry point (equal to the turning angle of $\vec v$), and its horizontal component is $L$: $r\sin\theta=L$. $\theta=\arcsin(0.050/0.104)=28.6^\circ$.</p>
 <p>(d) $t=\dfrac{\theta m}{qB}=\dfrac{(0.499)(1.67\times10^{-27})}{(1.60\times10^{-19})(0.20)}=2.6\times10^{-8}$ s.</p>
-<p>(e) The proton fails to cross if $r\le L$, i.e. $\dfrac{mv}{qB}\le L\Rightarrow B\ge\dfrac{mv}{qL}=\dfrac{(1.67\times10^{-27})(2.0\times10^6)}{(1.60\times10^{-19})(0.050)}=0.42$ T. It then traverses half a circle and exits through the entry boundary, $2r$ (up to 10 cm) above the entry point, moving left.</p>
-<p>(f) New $r=0.209$ m, $\sin\theta=0.239$, $\theta=13.9^\circ$: smaller. $t=\theta m/(qB)=1.3\times10^{-8}$ s: smaller (a faster proton spends less time in the same region; the period is unchanged but a smaller fraction of it is used). Exit speed $=4.0\times10^6$ m/s, unchanged from its entry speed, because the magnetic force does no work.</p>`},
+<p>(e) The proton fails to reach the far boundary if $r&lt;L$, i.e. $\dfrac{mv}{qB}&lt;L\Rightarrow B>\dfrac{mv}{qL}=\dfrac{(1.67\times10^{-27})(2.0\times10^6)}{(1.60\times10^{-19})(0.050)}=0.42$ T (at exactly this value the path just grazes the far boundary, so $0.42$ T is the threshold). It then traverses half a circle and exits through the entry boundary, $2r$ (up to 10 cm) above the entry point, moving left.</p>
+<p>(f) New $r=0.209$ m, $\sin\theta=0.239$, $\theta=13.9^\circ$: smaller. $t=\theta m/(qB)=1.3\times10^{-8}$ s: smaller (a faster proton spends less time in the same region; the period is unchanged but a smaller fraction of it is used). Exit speed $=4.0\times10^6$ m/s, equal to its entry speed because the magnetic force does no work.</p>`},
   {id:"f5", type:"Translation between representations", title:"Field of a coaxial cable and a current sheet",
    prompt:String.raw`<p>A long coaxial cable has a solid inner conductor of radius $a$ carrying current $I$ along $+z$, spread uniformly over its cross-section, and a concentric outer conducting shell of inner radius $b$ and outer radius $c$ carrying the same current $I$ along $-z$, spread uniformly over the shell's cross-section.</p>
 <p>(a) State Ampère's law and explain the symmetry argument that lets you use it here.<br>
@@ -419,7 +419,7 @@ Two uses: (1) the sign of $V_H$ says whether the carriers are negative (the $+y$
 (e) For $I=10$ A, $a=1.0$ mm, $b=4.0$ mm and $c=5.0$ mm, calculate $B$ at $r=2.0$ mm and at $r=4.5$ mm.<br>
 (f) Sketch $B$ versus $r$ from $0$ to $2c$, labeling $a$, $b$ and $c$ on the axis, and mark where $B$ is largest.<br>
 (g) Explain in words why a coax cable does not produce a magnetic field outside itself, and why that is useful.<br>
-(h) Two infinite parallel sheets carry equal and opposite surface current densities $K$ (A/m). Find $B$ between and outside them, and say how this relates to the field of a long solenoid.</p>`,
+(h) Two infinite parallel planar sheets, one at $y=0$ carrying surface current density $K$ (A/m) along $+z$ and one at $y=d$ carrying $K$ along $-z$, are separated by $d$. Find the magnitude and direction of $B$ between and outside them, and say how this relates to the field of a long solenoid.</p>`,
    pts:[
     {p:1,d:"$\\oint\\vec B\\cdot d\\vec l=\\mu_0I_{enc}$; symmetry: $\\vec B$ tangential and constant on circles about the axis; circular Amperian loops"},
     {p:1,d:"$r&lt;a$: $B=\\mu_0Ir/(2\\pi a^2)$; $a&lt;r&lt;b$: $B=\\mu_0I/(2\\pi r)$"},
@@ -430,7 +430,7 @@ Two uses: (1) the sign of $V_H$ says whether the carriers are negative (the $+y$
     {p:1,d:"Graph: linear rise to $a$, $1/r$ decrease from $a$ to $b$, smooth fall to zero at $c$, zero beyond; maximum at $r=a$"},
     {p:1,d:"Sketch labeled and continuous at $a$, $b$ and $c$"},
     {p:1,d:"Explanation: net current through any loop around the cable is zero, so $\\oint\\vec B\\cdot d\\vec l=0$ and by symmetry $B=0$; no interference with or from neighboring circuits"},
-    {p:1,d:"Sheets: $B=\\mu_0K/2$ from each, adding between to $\\mu_0K$ and canceling outside"},
+    {p:1,d:"Sheets: $B=\\mu_0K/2$ from each, adding between to $\\mu_0K$ (direction $\\vec K\\times\\hat n$, here along $\\pm\\hat x$, same sense throughout the gap) and canceling outside"},
     {p:1,d:"Link: unrolled solenoid with $K=nI$ gives $\\mu_0nI$ inside, $0$ outside"}],
    solution:String.raw`<p>(a) $\oint\vec B\cdot d\vec l=\mu_0I_{\text{enc}}$. The current distribution is invariant under rotation about the axis and translation along it, so $\vec B$ is tangential with magnitude $B(r)$; for a circle of radius $r$ about the axis, $\oint\vec B\cdot d\vec l=2\pi rB$.</p>
 <p>(b) $r&lt;a$: $I_{\text{enc}}=Ir^2/a^2$, $B=\dfrac{\mu_0Ir}{2\pi a^2}$. $a&lt;r&lt;b$: $I_{\text{enc}}=I$, $B=\dfrac{\mu_0I}{2\pi r}$.</p>
@@ -439,7 +439,7 @@ Two uses: (1) the sign of $V_H$ says whether the carriers are negative (the $+y$
 <p>(e) $r=2.0$ mm: $B=(2\times10^{-7})(10)/(2.0\times10^{-3})=1.0\times10^{-3}$ T. $r=4.5$ mm: $I_{\text{enc}}=10(25-20.25)/(25-16)=5.28$ A, $B=(2\times10^{-7})(5.28)/(4.5\times10^{-3})=2.3\times10^{-4}$ T.</p>
 <p>(f) The graph rises linearly from $0$ to $a$ (peak $\mu_0I/2\pi a$), falls as $1/r$ to $b$, falls to zero between $b$ and $c$, and is zero beyond $c$.</p>
 <p>(g) The two currents are equal and opposite, so any loop around the cable encloses zero net current; the circulation is zero and by symmetry $B=0$ outside. The cable neither disturbs nearby circuits nor is disturbed by external fields from them (shielding).</p>
-<p>(h) Each sheet makes $\mu_0K/2$ pointing opposite ways on opposite sides; with opposite currents the fields reinforce between the sheets ($\mu_0K$) and cancel outside. A solenoid's windings, unrolled, are such a pair with $K=nI$: $B=\mu_0nI$ inside and $\approx0$ outside.</p>`},
+<p>(h) Each sheet makes $\mu_0K/2$ pointing opposite ways on opposite sides; with opposite currents the fields reinforce between the sheets ($\mu_0K$) and cancel outside. The direction is $\vec K\times\hat n$ (RHR) for each sheet: with $\vec K=+K\hat z$ on the sheet at $y=0$ and $-K\hat z$ on the sheet at $y=d$, both sheets give $\vec B=-\mu_0K/2\,\hat x$ in the gap, so $\vec B=-\mu_0K\hat x$ between the sheets, parallel to them and perpendicular to $\vec K$. A solenoid's windings, unrolled, are such a pair with $K=nI$: $B=\mu_0nI$ inside and $\approx0$ outside.</p>`},
   {id:"f6", type:"Experimental design & analysis", title:"Measuring e/m of the electron",
    prompt:String.raw`<p>Students design an experiment to measure the charge-to-mass ratio $e/m$ of the electron. Electrons are accelerated from rest through a fixed potential difference $V=200$ V by an electron gun, then enter a region of uniform magnetic field $B$ (made by a pair of coils) perpendicular to their velocity. Traces of low-pressure gas make the circular path visible, and the radius $r$ is read from a scale.</p>
 <p>(a) Derive an expression for $r$ in terms of $e/m$, $V$ and $B$.<br>

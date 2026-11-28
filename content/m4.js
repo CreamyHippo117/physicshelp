@@ -353,7 +353,7 @@ $$y_{cm}=\frac{\sigma}{M}\int_0^R2y\sqrt{R^2-y^2}\,dy$$
 (b) Four trials give the following measurements of speed of A before the collision, $v_i$, and speed of the combined gliders after, $v_f$:</p>
 <table><tr><th>Trial</th><th>$v_i$ (m/s)</th><th>$v_f$ (m/s)</th></tr><tr><td>1</td><td>0.40</td><td>0.135</td></tr><tr><td>2</td><td>0.60</td><td>0.200</td></tr><tr><td>3</td><td>0.80</td><td>0.265</td></tr><tr><td>4</td><td>1.00</td><td>0.335</td></tr></table>
 <p>For trial 3, calculate the total momentum before and after and the percentage difference. Is this within what you would expect?<br>
-(c) If momentum is conserved, what quantity plotted against what gives a straight line, and what is the predicted slope? The best-fit line through the origin has slope $0.334\pm0.002$. Does this support conservation of momentum? Explain.<br>
+(c) If momentum is conserved, what quantity plotted against what gives a straight line, and what is the predicted slope? The best-fit line through the origin has slope $0.334\pm0.002$ (about 2 standard errors). Does this support conservation of momentum? Explain.<br>
 (d) For trial 3 calculate the fraction of the initial kinetic energy that is lost, and compare it to the theoretical fraction. Does this fraction depend on $v_i$?<br>
 (e) Identify one systematic error that would make the measured $v_f$ smaller than predicted, and describe a measurement the student could make to test whether it matters.</p>`,
    pts:[
@@ -365,13 +365,13 @@ $$y_{cm}=\frac{\sigma}{M}\int_0^R2y\sqrt{R^2-y^2}\,dy$$
     {p:1,d:"(c) Concludes that $0.334\\pm0.002$ agrees with $0.333$ within one standard error, which supports conservation"},
     {p:1,d:"(d) Correct energies: $K_i=0.0800$ J, $K_f=0.0263$ J, fraction lost $\\approx0.67$"},
     {p:1,d:"(d) Theoretical fraction $m_B/(m_A+m_B)=2/3$ agrees, and it does not depend on $v_i$"},
-    {p:1,d:"(e) A plausible systematic error (such as residual air-track drag, a slight tilt, or Velcro contact before the second gate)"},
+    {p:1,d:"(e) A plausible systematic error (such as air-track drag or a slight tilt between the collision and gate 2, or the added mass of Velcro/flags not included in $m_A$, $m_B$)"},
     {p:1,d:"(e) A test that isolates it (such as timing a freely gliding glider at both gates to measure its speed loss)"}],
    solution:String.raw`<p>(a) Measure $m_A,m_B$ with a balance. Place photogate 1 just before the collision point and gate 2 after it; with a flag of width $w$ the speed is $w/\Delta t$ for each gate. Level the track by releasing a glider at rest in several places and adjusting feet until it does not drift, and test friction/drag by measuring the speed of one glider at two gates with no collision.</p>
 <p>(b) $p_i=0.250(0.80)=0.200$ kg m/s; $p_f=(0.750)(0.265)=0.19875\approx0.199$ kg m/s. Difference 0.6%, small compared to the likely few-percent timing and reading uncertainty.</p>
 <p>(c) $v_f=\dfrac{m_A}{m_A+m_B}v_i$, so plot $v_f$ against $v_i$ for a line through the origin of slope $0.250/0.750=0.333$. The fitted $0.334\pm0.002$ agrees, so the data support conservation of momentum (a different slope would mean a momentum loss or a mistake in the masses).</p>
 <p>(d) $K_i=\tfrac12(0.250)(0.80)^2=0.0800$ J; $K_f=\tfrac12(0.750)(0.265)^2=0.0263$ J; lost fraction $=1-0.329=0.671$. Theory: $1-\dfrac{m_A}{m_A+m_B}=\dfrac{m_B}{m_A+m_B}=\dfrac23=0.667$. It does not depend on $v_i$ because $K_f/K_i=m_A/(m_A+m_B)$ is a pure mass ratio.</p>
-<p>(e) Air-track drag reduces the speed between the second gate and the collision, or between the collision and the second gate. To test it, launch a single glider through both gates with no collision and compare the two speeds; a drop of a few percent would explain a $v_f$ that is slightly too small.</p>`},
+<p>(e) Air-track drag (or a slight tilt) slows the combined gliders between the collision and gate 2, so $v_f$ is measured low. To test it, launch a single glider through both gates with no collision and compare the two speeds; a drop of a few percent would explain a $v_f$ that is slightly too small.</p>`},
   {id:"f4", type:"Mathematical routines", title:"Collision with a spring bumper",
    prompt:String.raw`<p>A 1.0 kg block A moves at 6.0 m/s on a frictionless horizontal surface toward a 2.0 kg block B at rest. A light spring of constant $k=300$ N/m is attached to the front of B and is initially relaxed.</p>
 <p>(a) Calculate the speed of the blocks at the moment the spring is maximally compressed.<br>

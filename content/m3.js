@@ -271,7 +271,7 @@ $$mg(0.40+x)=\tfrac12kx^2\ \Rightarrow\ 5(0.40+x)=100x^2\ \Rightarrow\ 100x^2-5x
 (c) At $x=3.0$ m the particle has a speed of 2.0 m/s. Calculate its total energy, and find the two turning points of the region of motion that contains $x=3$ m. (Hint: one of them is at an integer position.)<br>
 (d) Find the particle's speed at $x=3.5$ m.<br>
 (e) Describe the subsequent motion in words, and explain why the particle can never reach $x=0.5$ m.<br>
-(f) What is the minimum speed at $x=3.0$ m that would allow the particle to reach $x=0.5$ m?</p>`,
+(f) What is the threshold speed at $x=3.0$ m, that is, the speed the particle must exceed in order to reach $x=0.5$ m?</p>`,
    pts:[
     {p:1,d:"Sets $dU/dx=3(x-1)(x-3)=0$: equilibria at $x=1$ m and $x=3$ m"},
     {p:1,d:"Classifies: $x=1$ is a local maximum (unstable, $U''<0$); $x=3$ is a local minimum (stable, $U''>0$)"},
@@ -283,14 +283,14 @@ $$mg(0.40+x)=\tfrac12kx^2\ \Rightarrow\ 5(0.40+x)=100x^2\ \Rightarrow\ 100x^2-5x
     {p:1,d:"$K=E-U(3.5)=2-0.875=1.125$ J, so $v=1.5$ m/s"},
     {p:1,d:"Qualitative: oscillates back and forth between 2 and 3.73 m, fastest at $x=3$ m, slowest at the turning points"},
     {p:1,d:"Explains: reaching $x=0.5$ requires crossing the hump at $x=1$ where $U=4$ J exceeds $E=2$ J, which would need negative kinetic energy"},
-    {p:1,d:"Requires $E\\ge U_{max}=4$ J at the barrier (so $K(3)\\ge4$ J)"},
-    {p:1,d:"$v_{min}=\\sqrt{2(4)/1}=2\\sqrt2\\approx2.83$ m/s"}],
+    {p:1,d:"Requires $E$ to exceed $U_{max}=4$ J at the barrier (so $K(3)&gt;4$ J; $E=4$ J would only approach the top asymptotically)"},
+    {p:1,d:"Threshold $v=\\sqrt{2(4)/1}=2\\sqrt2\\approx2.83$ m/s; the speed must be just over this"}],
    solution:String.raw`<p>(a) $dU/dx=3x^2-12x+9=3(x-1)(x-3)$, so equilibria at $x=1$ and $x=3$ m. $U''=6x-12$: $U''(1)=-6<0$ so $x=1$ is a local maximum, <b>unstable</b>; $U''(3)=+6>0$ so $x=3$ is a local minimum, <b>stable</b>. (Same from the graph: top of a hill, bottom of a valley.)</p>
 <p>(b) $F=-dU/dx=-(3(2)^2-12(2)+9)=-(12-24+9)=+3$ N, toward $+x$. The graph slopes downward to the right at $x=2$, so the force points right.</p>
 <p>(c) $E=\tfrac12mv^2+U(3)=\tfrac12(1)(4)+0=2$ J. Turning points satisfy $x(x-3)^2=2\Rightarrow x^3-6x^2+9x-2=0$. Try $x=2$: $8-24+18-2=0$. Factor: $(x-2)(x^2-4x+1)=0$, giving $x=2$ and $x=2\pm\sqrt3$. The other roots are $2\pm\sqrt3$, that is $\approx3.73$ m and $\approx0.27$ m; the 0.27 m root lies on the far side of the barrier at $x=1$ and does not bound this region. The turning points of the region containing $x=3$ are $x=2$ m and $x\approx3.73$ m.</p>
 <p>(d) $U(3.5)=3.5(0.5)^2=0.875$ J. $K=2-0.875=1.125$ J, so $v=\sqrt{2(1.125)/1}=1.5$ m/s.</p>
 <p>(e) The particle oscillates between $x=2$ and $x\approx3.73$ m, fastest at the bottom of the well ($x=3$ m) where $K$ is largest, and momentarily at rest at each turning point where the force (restoring, toward $x=3$) turns it around. Reaching $x=0.5$ requires passing $x=1$, where $U=4$ J. Since $E=2$ J, there $K=E-U=-2$ J, impossible, so that region is forbidden.</p>
-<p>(f) To cross the barrier the particle needs $E\ge U(1)=4$ J (just reaching the top at $x=1$, after which it rolls down to the other side). At $x=3$, $U=0$, so $K\ge4$ J: $\tfrac12(1)v^2=4\Rightarrow v=\sqrt8=2\sqrt2\approx2.83$ m/s.</p>`},
+<p>(f) To cross the barrier the particle needs $E$ greater than $U(1)=4$ J (with exactly 4 J it only creeps toward the top at $x=1$ and never gets over, so the speed must be just over the threshold). At $x=3$, $U=0$, so $K&gt;4$ J: $\tfrac12(1)v^2=4\Rightarrow v=\sqrt8=2\sqrt2\approx2.83$ m/s is the threshold.</p>`},
   {id:"f2", type:"Mathematical routines", title:"A block pushed by a position-dependent force",
    prompt:String.raw`<p>A 2.0 kg block rests at $x=0$ on a horizontal surface. The coefficient of kinetic friction is $\mu_k=0.10$. A horizontal force $F(x)=12-3x$ (newtons, $x$ in meters) acts in the $+x$ direction for $0\le x\le4.0$ m. For $x>4.0$ m the force is zero. Use $g=10$ m/s².</p>
 <p>(a) Calculate the work done by $F$ as the block moves from $x=0$ to $x=4.0$ m.<br>
