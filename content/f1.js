@@ -1,5 +1,5 @@
 PH.unit({
-  id:"f1", course:"skills", order:150, hours:6,
+  id:"f1", course:"skills", order:150, hours:8,
   title:"Exam skills: FRQ strategy for both exams",
   blurb:"How free-response answers are scored, how to write them, how to design and analyze an experiment, how to attack multiple choice, and how to organize five months of study. For official exam facts (counts, timing, points) see the app's Official page.",
   needs:["m1"],
@@ -145,7 +145,112 @@ PH.unit({
 <tr><td>Months 1-2</td><td>Learn each unit once: read, work every example, do the MCQs. Sleep on it, then redo the examples next day without looking.</td></tr>
 <tr><td>Months 3-4</td><td>Finish the second exam's units. Begin <b>spaced review</b>: revisit each unit at about 1 day, 1 week, 1 month. Start the error log and weekly timed FRQs on paper.</td></tr>
 <tr><td>Month 5</td><td>Mixed timed practice only. Full-length sections, strict self-scoring, rework your error log. Taper: sleep and a calm routine in the last week matter more than one more cram session.</td></tr></table>
-<p>Two principles carry everything: <b>retrieval beats rereading</b> (close the page and reproduce the derivation), and <b>spacing beats massing</b> (four 30-minute sessions across a month beat one two-hour block). Since the two exams share Mechanics and E&amp;M skills that return again and again, reviewing common tools (energy, Newton, Gauss) pays double.</p>`}
+<p>Two principles carry everything: <b>retrieval beats rereading</b> (close the page and reproduce the derivation), and <b>spacing beats massing</b> (four 30-minute sessions across a month beat one two-hour block). Since the two exams share Mechanics and E&amp;M skills that return again and again, reviewing common tools (energy, Newton, Gauss) pays double.</p>`},
+
+  {id:"l5", title:"The equation sheet: what you are given and what you must own", html:String.raw`
+<p class="mut">Hedge: I could not reach the College Board while writing this, so everything below about the sheet's contents is from memory of past sheets and may be out of date. <b>Download the current official equation sheet for each exam from the College Board's AP Physics C pages, print it, and compare it line by line with this lesson.</b> Where this lesson and the official sheet disagree, the sheet wins.</p>
+<h3>Why this matters</h3>
+<p>Both exams hand you a formula sheet. That changes what is worth memorizing, but it does not remove the need to <i>know</i> physics: a sheet lists relations, not when each applies, what the symbols mean in your problem, or how to build a result the sheet does not list. A sheet also costs time to scan. Students who have never seen it before exam day lose both.</p>
+<h3>Three tiers</h3>
+<table><tr><th>Tier</th><th>What goes in it</th><th>How to treat it</th></tr>
+<tr><td><b>A. Own it cold</b></td><td>Newton's second law in vector form, $F=dp/dt$; the definitions of work, power, torque, angular momentum, flux, emf; conservation laws and the conditions under which each holds; sign conventions; which direction forces, fields and induced currents point (Lenz, right-hand rules)</td><td>Never need a lookup. These are the <i>meaning</i> of the course.</td></tr>
+<tr><td><b>B. Derive in under a minute</b></td><td>Constant-acceleration kinematics (integrate $a$), range and time of flight, the moment of inertia of a rod or disk from $\int r^2\,dm$, parallel-axis shifts, $v_\text{esc}$, the field of a symmetric charge distribution from Gauss's or Ampere's law, $\tau=RC$ results from the ODE</td><td>If a result is on the sheet, great; if not, you can rebuild it. Practice each derivation until it is automatic (see the next lesson for the list).</td></tr>
+<tr><td><b>C. Look up</b></td><td>Constants, the literal forms of standard laws and rarely used formulas (for example, lists of capacitance or inductance expressions, or moments of inertia, if the sheet carries them)</td><td>Know <i>where</i> on the sheet each lives so you find it in seconds.</td></tr></table>
+<h3>Things to verify on the official sheet (do this today)</h3>
+<ul>
+<li>Does it list $I=\int r^2\,dm$ and the parallel-axis theorem? My recollection is that the Mechanics sheet gives these general forms and that problems supply the specific $I$ of a given object in the statement. If the sheet has no table of shapes, you must be able to derive the rod and disk (done in the rotation unit).</li>
+<li>Which of the following are given: the kinematics equations for constant $a$, the work and power integrals, $F=dp/dt$, the SHM relations, the gravitational potential energy $-GMm/r$ and Kepler-type relations?</li>
+<li>For E&amp;M: which of Coulomb's law, Gauss's law, $V=-\int\vec E\cdot d\vec\ell$, the capacitor and inductor energy and series/parallel formulas, Biot-Savart, Ampere's law, Faraday's law, the RC and RL exponentials appear? Are the units of the constants given?</li>
+<li>Where is the table of constants, and does it use $g=9.8$ or 10 m/s²? Use whichever the exam statement says.</li>
+<li>Does the sheet carry a "geometry and trigonometry" panel (areas, volumes, trig identities, calculus formulas)? Know exactly what is in it.</li>
+</ul>
+<h3>How to use the sheet well</h3>
+<ol>
+<li><b>Annotate your own copy during practice.</b> Mark each formula with the unit it comes from and a note about when it applies ("only for constant $a$", "only for a point charge", "$I$ about the center").</li>
+<li><b>Write the principle before you look.</b> Decide the physics first (decision chart in lesson 2), then find the form on the sheet. Hunting through the sheet for "a formula with $m$, $v$ and $r$" leads to plugging numbers into the wrong relation.</li>
+<li><b>Check the conditions.</b> Many sheet entries are special cases: $v=v_0+at$ needs constant $a$; $E=kq/r^2$ is a point charge; $U=\tfrac12kx^2$ is a spring about its relaxed length. The sheet does not print those warnings.</li>
+<li><b>Check symbols.</b> The same letter can mean different things across entries ($\mu$ for friction versus magnetic permeability, $R$ for a radius versus a resistance, $\tau$ for torque versus a time constant). Say what each symbol is in your answer.</li>
+<li><b>Use it to test results.</b> After deriving something, compare with the sheet entry. If the two differ by a factor, find the mistake now.</li>
+</ol>
+<h3>E&amp;M units to be fluent in</h3>
+<p>The sheet may not list units, and a units check is the fastest error filter. All of these follow from the definitions.</p>
+<table><tr><th>Quantity</th><th>Unit</th><th>In base or familiar units</th></tr>
+<tr><td>Magnetic field $B$</td><td>tesla (T)</td><td>$\mathrm{N/(A\,m)}=\mathrm{kg/(A\,s^2)}=\mathrm{V\,s/m^2}$</td></tr>
+<tr><td>Magnetic flux $\Phi_B$</td><td>weber (Wb)</td><td>$\mathrm{T\,m^2}=\mathrm{V\,s}$</td></tr>
+<tr><td>Capacitance</td><td>farad (F)</td><td>$\mathrm{C/V}=\mathrm{s/\Omega}$</td></tr>
+<tr><td>Inductance</td><td>henry (H)</td><td>$\mathrm{V\,s/A}=\Omega\,\mathrm{s}$</td></tr>
+<tr><td>$\varepsilon_0$</td><td>F/m</td><td>$\mathrm{C^2/(N\,m^2)}$</td></tr>
+<tr><td>$\mu_0$</td><td>T$\cdot$m/A</td><td>$\mathrm{N/A^2}$ (also H/m)</td></tr>
+<tr><td>Time constants</td><td>seconds</td><td>$RC$: $\Omega\cdot\mathrm{F}=\mathrm{s}$; $L/R$: $\mathrm{H/\Omega}=\mathrm{s}$</td></tr></table>
+<div class="box trap"><b>Trap:</b> A formula that is on the sheet is not automatically the right one for your problem. Using $a=\Delta v/\Delta t$ for a varying force, or $E=kq/r^2$ for a charged disk, is a classic lost point.</div>`},
+
+  {id:"l6", videos:[{title:"Lec 01: Units, Dimensions, and Scaling Arguments (Walter Lewin, 8.01, MIT 1999)",url:"https://archive.org/details/MIT8.01F99/",src:"Walter Lewin lectures (MIT 8.01, Internet Archive)",note:"Dimensional analysis and uncertainties; the first lecture in the series. I found this series page in search, not the specific video file."}], title:"Common FRQ derivation moves", html:String.raw`
+<p>Free-response "derive" parts reuse the same dozen moves. If you can name the move, you can usually start. Each is short here; the full treatment is in the relevant unit.</p>
+<h3>1. Pick a positive direction, then write one equation per object</h3>
+<p>For each object draw a free-body diagram, choose positive along its acceleration, and write $\sum F=ma$. For several connected objects write one equation each and then add the <b>constraint</b> (move 2).</p>
+<h3>2. Constraint equations from a string of fixed length</h3>
+<p>If a string has fixed length, the lengths of its segments add to a constant, and differentiating twice links the accelerations. A string over a fixed pulley gives $a_1=a_2$ in magnitude. A string supporting a <i>movable</i> pulley by two segments gives: the pulley moves half as far as the free end. Rolling without slipping gives $v_\text{cm}=\omega R$, $a_\text{cm}=\alpha R$. A massless string has the same tension throughout only if it passes over a frictionless, massless pulley; a pulley with moment of inertia has different tensions on its two sides.</p>
+<h3>3. Energy for speeds, Newton for forces, in that order</h3>
+<p>Energy gives speed at a place with no time or path details. Then insert that speed into $\sum F=ma$ (with $a=v^2/r$ along a circle) to get tension, normal force or the condition for leaving the surface.</p>
+<h3>4. Slice and integrate</h3>
+<p>Choose an element ($dm=\lambda\,dx$, $dq=\sigma\,dA$, $dV$ of a shell, a ring, a thin rod), write the contribution of that element in terms of one variable, check its direction (cancelling components by symmetry), and integrate with limits. State the limits and the symmetry argument.</p>
+<h3>5. Change of variable</h3>
+<p>$a=\dfrac{dv}{dt}=v\dfrac{dv}{dx}$ when the force depends on position; separation of variables when it depends on $v$; rewrite $\int F\,dx$ with a substitution when $x$ is given implicitly.</p>
+<h3>6. Optimization by calculus</h3>
+<p>For maximum range, minimum force or optimum angle: write the quantity as a function of one variable, set the derivative to zero, then confirm it is a maximum or minimum (second derivative or a physical check at the end points). Example: pulling a crate with a rope at angle $\theta$ above the horizontal at constant speed, $F\cos\theta=\mu(mg-F\sin\theta)$, so $F=\dfrac{\mu mg}{\cos\theta+\mu\sin\theta}$. The force is smallest when the denominator is largest: $\dfrac{d}{d\theta}(\cos\theta+\mu\sin\theta)=0\Rightarrow\tan\theta=\mu$.</p>
+<h3>7. Small-angle and Taylor expansion</h3>
+<p>$\sin\theta\approx\theta$ turns a pendulum or a restoring torque into SHM. Expand $(1+x)^{-1/2}\approx1-\tfrac{x}{2}$ to show that a general result reduces to a familiar one far away ($z\gg R$ for a ring: it becomes a point charge).</p>
+<h3>8. Symmetry first (Gauss, Ampere)</h3>
+<p>State the symmetry, choose the surface or loop, write what is constant on it, and write $Q_\text{enc}$ or $I_\text{enc}$ as an integral of the density when the distribution is not uniform.</p>
+<h3>9. Kirchhoff plus an ODE</h3>
+<p>Write the loop equation, rewrite $I=dq/dt$ (or $dq/dt$ with the capacitor's $q$), solve by separating variables with $q(0)$ given, then check $t=0$ and $t\to\infty$ with the "capacitor is a wire, then an open circuit" rules.</p>
+<h3>10. Reading graphs</h3>
+<table><tr><th>Graph</th><th>Slope means</th><th>Area means</th></tr>
+<tr><td>$x$ versus $t$</td><td>velocity</td><td></td></tr>
+<tr><td>$v$ versus $t$</td><td>acceleration</td><td>displacement</td></tr>
+<tr><td>$F$ versus $x$</td><td></td><td>work</td></tr>
+<tr><td>$F$ versus $t$</td><td></td><td>impulse</td></tr>
+<tr><td>$U$ versus $x$</td><td>$-F$</td><td></td></tr>
+<tr><td>$V$ versus $x$</td><td>$-E_x$</td><td></td></tr>
+<tr><td>$\Phi_B$ versus $t$</td><td>$-\varepsilon$ (for one turn)</td><td></td></tr>
+<tr><td>$I$ versus $t$</td><td></td><td>charge</td></tr>
+<tr><td>$V$ versus $I$ (battery)</td><td>$-r$ (internal resistance)</td><td></td></tr></table>
+<p>Always attach units: slope units are (vertical)/(horizontal), area units are (vertical)$\times$(horizontal).</p>
+<h3>Derivations to own</h3>
+<p>Be able to produce these from scratch, in a few lines, without the sheet: projectile range and $y(x)$; terminal speed from $mg=kv$ or $mg=kv^2$; $v(t)$ under linear drag; $I$ of a rod and a disk and the parallel-axis shift; $a=g\sin\theta/(1+\beta)$ for rolling down an incline; the period of a physical pendulum; orbital energy $-GMm/2r$ and the escape speed; $E$ of a ring, a long line, a plane, a sphere; capacitance of parallel plates, a spherical and a cylindrical capacitor; $B$ of a long wire, a solenoid and the axis of a loop; and the $RC$ charging curve.</p>
+<div class="box trap"><b>Trap:</b> Do not announce a derived formula and then use a different one. If you wrote $F=\mu mg/(\cos\theta+\mu\sin\theta)$ in (a), use it in (b), even if you later suspect an error. See "consistent with earlier error" in lesson 1.</div>`},
+
+  {id:"l7", extra:true, videos:[{title:"Lecture 2: Euler's Numerical Method for y'=f(x,y) (MIT 18.03, Prof. Mattuck)",url:"https://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/video-lectures/lecture-2-eulers-numerical-method-for-y-f-x-y/",src:"MIT OCW 18.03",note:"Euler's method from the slope field idea; the page turned up in search results."}], title:"Extension: numerical solution of an ODE (Euler's method)", html:String.raw`
+<p>Many force laws give an ODE you cannot integrate in closed form. Then you march forward in small time steps. This is how physics software works, and a spreadsheet is enough to do it.</p>
+<h3>The method</h3>
+<p>If $\dfrac{dy}{dt}=f(y,t)$ and you know $y$ now, the slope tells you where $y$ goes next:</p>
+$$y_{n+1}=y_n+f(y_n,t_n)\,\Delta t,\qquad t_{n+1}=t_n+\Delta t.$$
+<p>For motion, track two quantities: $v_{n+1}=v_n+a(x_n,v_n,t_n)\Delta t$ and $x_{n+1}=x_n+v_n\Delta t$. Each row of a spreadsheet is one step.</p>
+<h3>What to expect</h3>
+<ul>
+<li>The error per step is of order $\Delta t^2$ and the total error over a fixed time is of order $\Delta t$: halve the step and the error roughly halves.</li>
+<li>When the exact curve is concave down (the slope is decreasing), Euler uses the slope at the start of each step, which is too steep, and so overshoots. When the curve is concave up it undershoots (a decaying exponential is concave up, so Euler lands below it).</li>
+<li>Always test your spreadsheet on a case with a known answer (for example $dv/dt=-v/\tau$) before trusting it on a new problem.</li>
+</ul>
+<p>The AP will not ask you to run a spreadsheet by hand for many steps, but one or two steps, or the idea of stepping with the slope, can appear in a qualitative way, and the habit of "slope times step" strengthens your understanding of $dy/dt$. Example 5 below carries out five steps.</p>`},
+
+  {id:"l8", extra:true, title:"Extension: an experiment menu", html:String.raw`
+<p>Experimental questions repeat a pattern: find a theory $y=mx+b$ that links a quantity you can set and one you can measure. Here is a menu of systems, each with the plot and what the slope and intercept give. Practice writing the full procedure from lesson 3 for several of them.</p>
+<table><tr><th>Goal</th><th>Theory</th><th>Plot</th><th>Slope</th><th>Intercept</th></tr>
+<tr><td>$g$ from a pendulum</td><td>$T^2=\dfrac{4\pi^2}{g}L$</td><td>$T^2$ vs $L$</td><td>$4\pi^2/g$</td><td>0 (offset signals $L$ error)</td></tr>
+<tr><td>$k$ of a spring (dynamic)</td><td>$T^2=\dfrac{4\pi^2}{k}\left(m+\dfrac{m_s}{3}\right)$</td><td>$T^2$ vs $m$</td><td>$4\pi^2/k$</td><td>$\dfrac{4\pi^2}{k}\dfrac{m_s}{3}$</td></tr>
+<tr><td>$k$ of a spring (static)</td><td>$mg=kx$</td><td>$mg$ vs $x$</td><td>$k$</td><td>0 (offset: unstretched length)</td></tr>
+<tr><td>Friction coefficient</td><td>$d=v^2/(2\mu g)$</td><td>$d$ vs $v^2$</td><td>$1/(2\mu g)$</td><td>0</td></tr>
+<tr><td>Rolling or incline acceleration</td><td>$x=\tfrac12at^2$</td><td>$x$ vs $t^2$</td><td>$a/2$</td><td>0</td></tr>
+<tr><td>Physical pendulum</td><td>$T=2\pi\sqrt{I_\text{pivot}/(mgd)}$</td><td>$T^2d$ vs $d^2$ (rod about a pivot at distance $d$)</td><td>$4\pi^2/g$</td><td>$4\pi^2 I_\text{cm}/(mg)$</td></tr>
+<tr><td>Battery internal resistance</td><td>$V=\varepsilon-Ir$</td><td>$V$ vs $I$</td><td>$-r$</td><td>$\varepsilon$</td></tr>
+<tr><td>Resistivity of a wire</td><td>$R=\rho L/A$</td><td>$R$ vs $L$</td><td>$\rho/A$</td><td>0 (offset: contact resistance)</td></tr>
+<tr><td>RC time constant</td><td>$\ln V=\ln V_0-t/RC$</td><td>$\ln V$ vs $t$</td><td>$-1/RC$</td><td>$\ln V_0$</td></tr>
+<tr><td>Power-law exponent</td><td>$y=Ax^n$</td><td>$\ln y$ vs $\ln x$</td><td>$n$</td><td>$\ln A$</td></tr></table>
+<div class="box key"><b>Physical pendulum check:</b> $I_\text{pivot}=I_\text{cm}+md^2$ gives $T^2=\dfrac{4\pi^2}{mgd}(I_\text{cm}+md^2)$, so $T^2d=\dfrac{4\pi^2I_\text{cm}}{mg}+\dfrac{4\pi^2}{g}d^2$, a straight line in $d^2$ with slope $4\pi^2/g$.</div>
+<p>For a uniform rod, $I_\text{cm}=\tfrac1{12}ML^2$, so the intercept is about $\dfrac{\pi^2L^2}{3g}$; a measured intercept far from this suggests the rod is not uniform or not thin.</p>
+<p>Magnetic-field measurements follow the same pattern: for a long solenoid, $B=\mu_0nI$, so a Hall-probe reading versus current $I$ is a line through the origin with slope $\mu_0n$, and an offset reveals the Earth's field.</p>`}
+
   ],
 
   examples:[
@@ -185,7 +290,33 @@ $$0-\tfrac12mv^2=-\mu mg\,d\ \Rightarrow\ d=\frac{v^2}{2\mu g}=\frac{h}{\mu}\qqu
 <table><tr><th>$t$ (s)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>$\ln V$</th><td>2.303</td><td>1.803</td><td>1.297</td><td>0.811</td><td>0.293</td><td>-0.198</td></tr></table>
 <p>Slope using points on the line, $t=0$ and $t=5$ s: $(-0.198-2.303)/5=-0.500\ \mathrm{s^{-1}}$ (a least-squares fit gives $-0.501$). The straight line and intercept 2.30 confirm the exponential model.</p>
 <p>$RC=1/0.500=2.00$ s, so $C=2.00/(20\times10^3)=1.0\times10^{-4}$ F $=100\ \mu$F.</p>
-<p class="mut">Report the slope in 1/s; the logarithm itself is dimensionless once $V$ is measured in a stated unit.</p>`}
+<p class="mut">Report the slope in 1/s; the logarithm itself is dimensionless once $V$ is measured in a stated unit.</p>`},
+
+  {id:"x4", title:"Optimization: the easiest way to drag a crate", problem:String.raw`<p>A 20 kg crate is pulled at constant speed across a floor with $\mu_k=0.50$ by a rope at angle $\theta$ above the horizontal. Use $g=10$ m/s². (a) Find the rope tension $F(\theta)$. (b) Find the angle that minimizes $F$ and the minimum $F$. (c) Compare with a horizontal pull.</p>`,
+   solution:String.raw`<p><b>(a)</b> Vertical: $N+F\sin\theta=mg$. Horizontal, constant speed: $F\cos\theta=\mu N=\mu(mg-F\sin\theta)$. So $$F=\frac{\mu mg}{\cos\theta+\mu\sin\theta}.$$</p>
+<p><b>(b)</b> Minimizing $F$ means maximizing $D(\theta)=\cos\theta+\mu\sin\theta$. $D'=-\sin\theta+\mu\cos\theta=0\Rightarrow\tan\theta=\mu=0.50$, so $\theta=26.6^\circ$. This is a maximum (at $\theta=0$, $D=1$; at $26.6^\circ$, $D=\sqrt{1+\mu^2}=1.118$; at $90^\circ$, $D=0.5$). Then $$F_\text{min}=\frac{\mu mg}{\sqrt{1+\mu^2}}=\frac{100}{1.118}=89.4\ \text{N}.$$</p>
+<p><b>(c)</b> Horizontal pull: $F=\mu mg=100$ N. The best angle saves about 11 N. Note that the answer depends only on $\mu$, not on the mass; and a pull at the best angle partly lifts the crate, reducing $N$ from 200 N to $mg-F\sin\theta=200-89.4\sin26.6^\circ=160$ N.</p>
+<p class="mut">Check: $\mu N=0.5(160)=80$ N and $F\cos\theta=89.4(0.894)=80$ N. Consistent.</p>`},
+
+  {id:"x5", title:"Euler's method on a drag problem", problem:String.raw`<p>A 2.0 kg object falls from rest with quadratic air drag, so $m\,dv/dt=mg-kv^2$ with $k=0.50$ kg/m and $g=10$ m/s². (a) Find the terminal speed. (b) Use Euler's method with $\Delta t=0.2$ s to estimate $v$ at $t=1.0$ s. (c) The exact solution is $v=v_t\tanh(gt/v_t)$. Compare and say whether Euler over- or underestimates, and why.</p>`,
+   solution:String.raw`<p><b>(a)</b> At terminal speed $a=0$: $v_t=\sqrt{mg/k}=\sqrt{20/0.5}=\sqrt{40}=6.32$ m/s.</p>
+<p><b>(b)</b> $a=g-(k/m)v^2=10-0.25v^2$. Steps $v_{n+1}=v_n+a_n(0.2)$:</p>
+<table><tr><th>$t$ (s)</th><td>0</td><td>0.2</td><td>0.4</td><td>0.6</td><td>0.8</td><td>1.0</td></tr><tr><th>$v$ (m/s)</th><td>0</td><td>2.000</td><td>3.800</td><td>5.078</td><td>5.789</td><td>6.113</td></tr></table>
+<p>For instance $v(0.4)=2.0+(10-0.25\cdot4)(0.2)=2.0+1.8=3.8$. So $v(1.0)\approx6.11$ m/s.</p>
+<p><b>(c)</b> Exact: $6.32\tanh(10/6.32)=6.32\tanh(1.581)=5.81$ m/s. Euler is high by about 5%. The $v(t)$ curve is concave down (the acceleration decreases as $v$ grows), and each Euler step uses the slope at the start of the step, which is steeper than the average slope over the step, so the estimate overshoots. A smaller $\Delta t$ reduces the error.</p>`},
+
+  {id:"x6", title:"A battery's internal resistance from a graph", problem:String.raw`<p>A battery is connected to a variable resistor with an ammeter in series and a voltmeter across the battery terminals. The best-fit line through the plot of terminal voltage $V$ versus current $I$ passes through $(0,\,1.495\ \text{V})$ and $(0.50\ \text{A},\,1.330\ \text{V})$. Find the emf, the internal resistance, and the largest current the battery could ever supply.</p>`,
+   solution:String.raw`<p>Theory: $V=\varepsilon-Ir$, a line with intercept $\varepsilon$ and slope $-r$.</p>
+<p>Intercept: $\varepsilon=1.495\approx1.50$ V. Slope: $\dfrac{1.330-1.495}{0.50-0}=-0.33$ V/A, so $r=0.33\ \Omega$ (units: V/A $=\Omega$).</p>
+<p>The largest current occurs when the terminals are shorted ($V=0$): $I_\text{max}=\varepsilon/r=1.495/0.33=4.5$ A. This is the horizontal-axis intercept of the line extended.</p>
+<p class="mut">Why the line is drawn through the intercept point and not at a data point: the intercept is the open-circuit voltage ($I=0$), where no current flows through $r$.</p>`},
+
+  {id:"x7", title:"A movable pulley and a constraint", problem:String.raw`<p>A block of mass $M=2.0$ kg slides on a frictionless table. A string attached to it runs over a fixed pulley at the table edge and down to a light movable pulley that supports a hanging mass $m=3.0$ kg. The string passes under the movable pulley and its other end is fixed to the ceiling. All pulleys are light and frictionless; $g=10$ m/s². Find the accelerations and the tension.</p>`,
+   solution:String.raw`<p><b>Constraint.</b> Let the hanging mass move down a distance $y$. Two vertical segments (one on each side of the movable pulley) both lengthen by $y$, since the ceiling end is fixed, so the string on the table side must supply $2y$ of string. The block moves $2y$ toward the pulley, so $a_M=2a_m$.</p>
+<p><b>Newton's second law.</b> Block: $T=Ma_M=2Ma_m$. Hanging mass plus movable pulley (massless): two string segments pull up with $T$ each, so $mg-2T=ma_m$.</p>
+<p>Substitute: $mg-4Ma_m=ma_m$, so $$a_m=\frac{mg}{m+4M}=\frac{30}{3+8}=2.73\ \text{m/s}^2,\quad a_M=5.45\ \text{m/s}^2,\quad T=Ma_M=10.9\ \text{N}.$$</p>
+<p>Check: $mg-2T=30-21.8=8.18=m a_m$. Limiting case $M\to0$: $a_m\to g$, free fall.</p>`}
+
   ],
 
   mcq:[
@@ -212,7 +343,44 @@ $$0-\tfrac12mv^2=-\mu mg\,d\ \Rightarrow\ d=\frac{v^2}{2\mu g}=\frac{h}{\mu}\qqu
    why:String.raw`<p>$\delta L/L=0.4\%$ and $\delta T/T=0.5\%$, counted twice because $T$ is squared: $0.4+2(0.5)=1.4\%$. Then $\delta g=0.014\times9.87\approx0.14$ m/s². Forgetting the factor 2 on $T$ gives 0.9%, or about 0.09 m/s², the tempting wrong answer.</p>`},
   {id:"q8", q:String.raw`<p>The stopping distance $d$ of a sliding crate on a rough floor is measured for several initial speeds $v$, and theory says $d=v^2/(2\mu g)$. A student plots $d$ (m) versus $v^2$ (m²/s²) and the best-fit line has slope $0.0625$ s²/m. Using $g=10$ m/s², the coefficient of friction is</p>`,
    choices:["0.10","0.20","0.40","0.80","1.6"], a:3,
-   why:String.raw`<p>The slope equals $1/(2\mu g)$, so $\mu=1/(2g\cdot\text{slope})=1/(20\times0.0625)=0.80$. The wrong value 1.6 comes from using $1/(g\cdot\text{slope})$ and forgetting the 2. Check: $v=10$ m/s would give $d=6.25$ m, a reasonable skid.</p>`}
+   why:String.raw`<p>The slope equals $1/(2\mu g)$, so $\mu=1/(2g\cdot\text{slope})=1/(20\times0.0625)=0.80$. The wrong value 1.6 comes from using $1/(g\cdot\text{slope})$ and forgetting the 2. Check: $v=10$ m/s would give $d=6.25$ m, a reasonable skid.</p>`},
+  {id:"q9", q:String.raw`<p>You need the moment of inertia of a uniform thin rod of mass $M$ and length $L$ about one end, but you do not remember it and it is not given. Which is the most reliable way to get it?</p>`,
+   choices:["Use $\\tfrac1{12}ML^2$ because it is the standard rod formula","Integrate $I=\\int r^2\\,dm$ with $dm=(M/L)\\,dr$ from $0$ to $L$, giving $\\tfrac13ML^2$","Use $\\tfrac12ML^2$ by analogy with a disk","Guess $ML^2$ and check units","Use $\\tfrac16ML^2$, the average of the center and end values"], a:1,
+   why:String.raw`<p>$I=\int_0^L r^2(M/L)\,dr=ML^2/3$. The same answer comes from the parallel-axis theorem, $\tfrac1{12}ML^2+M(L/2)^2=\tfrac13ML^2$. The tempting $\tfrac1{12}ML^2$ is the value about the center, not about the end. Units alone cannot separate the numerical factors.</p>`},
+  {id:"q10", q:String.raw`<p>A projectile is launched with a fixed speed from the top of a cliff over level water below (no air resistance). To maximize the horizontal distance to where it lands, the launch angle above the horizontal should be</p>`,
+   choices:["exactly $45^\circ$","greater than $45^\circ$","$0^\circ$","$90^\circ$","less than $45^\circ$"], a:4,
+   why:String.raw`<p>For launch and landing at the same height, $45^\circ$ is optimal. The projectile in this problem lands <i>lower</i> than it starts, so it benefits from extra time in the air and the best angle is a little below $45^\circ$ (it tends to $45^\circ$ as the cliff height tends to 0 and to $0^\circ$ as the height tends to infinity). The tempting $45^\circ$ is the answer to the level-ground case only.</p>`},
+  {id:"q11", q:String.raw`<p>In the arrangement of Example 7 (a block on a frictionless table pulled by a string that runs over a fixed pulley and under a light movable pulley carrying a hanging mass, with the other end of the string fixed to the ceiling), the hanging mass has a downward acceleration of $1.5$ m/s². The acceleration of the block on the table is</p>`,
+   choices:["0.75 m/s²","1.5 m/s²","3.0 m/s²","4.5 m/s²","6.0 m/s²"], a:2,
+   why:String.raw`<p>The movable pulley is held by two string segments, so the hanging mass moves half as far as the end of the string on the table side: $a_\text{block}=2(1.5)=3.0$ m/s². The tempting 1.5 m/s² assumes the usual fixed-pulley constraint, where both ends move equally.</p>`},
+  {id:"q12", q:String.raw`<p>A speed obeys $dv/dt=-v/\tau$ with $\tau=2.0$ s and $v(0)=8.0$ m/s. Using Euler's method with two steps of $\Delta t=1.0$ s, the estimate of $v(2.0\ \text{s})$ is</p>`,
+   choices:["2.9 m/s","4.0 m/s","2.0 m/s","1.0 m/s","0.0 m/s"], a:2,
+   why:String.raw`<p>Step 1: $v=8-(8/2)(1)=4$. Step 2: $v=4-(4/2)(1)=2$ m/s. The exact value is $8e^{-1}=2.9$ m/s, the tempting choice, which is not what Euler's method produces: with a coarse step it undershoots a decaying exponential because it uses the slope at the start of each step only.</p>`},
+  {id:"q13", q:String.raw`<p>The electric potential along the $x$ axis falls linearly from $+6$ V at $x=0$ to $0$ V at $x=3$ m. The $x$-component of the field between 0 and 3 m is</p>`,
+   choices:["$-2$ V/m","$0$","$+6$ V/m","$+2$ V/m","$+18$ V/m"], a:3,
+   why:String.raw`<p>$E_x=-dV/dx=-(0-6)/(3-0)=+2$ V/m: the field points toward decreasing potential, in the $+x$ direction. The sign slip to $-2$ V/m comes from dropping the minus sign in $E=-dV/dx$ and taking the slope of $V$ itself.</p>`},
+  {id:"q14", q:String.raw`<p>The terminal voltage of a battery is plotted against the current drawn. The line passes through $9.0$ V at $I=0$ and falls by $0.75$ V for each ampere. The battery's internal resistance and the current when the terminals are shorted are</p>`,
+   choices:["0.75 $\\Omega$; 9.0 A","0.75 $\\Omega$; 12 A","1.33 $\\Omega$; 12 A","1.33 $\\Omega$; 6.8 A","9.0 $\\Omega$; 1.0 A"], a:1,
+   why:String.raw`<p>$V=\varepsilon-Ir$ gives $r=0.75\ \Omega$ (magnitude of the slope) and $I_\text{short}=\varepsilon/r=9.0/0.75=12$ A. The value 1.33 comes from inverting the slope, which would be the "conductance" (A/V).</p>`},
+  {id:"q15", q:String.raw`<p>Which combination of units is equivalent to the tesla? ($F=qvB$ may help.)</p>`,
+   choices:["$\\mathrm{N\\,m/(C\\,s)}$","$\\mathrm{N/(C\\,m)}$","$\\mathrm{N\\,C/(m\\,s)}$","$\\mathrm{C\\,s/(N\\,m)}$","$\\mathrm{N\\,s/(C\\,m)}$"], a:4,
+   why:String.raw`<p>$B=F/(qv)$ has units $\mathrm{N/(C\cdot m/s)}=\mathrm{N\,s/(C\,m)}$. The others are inverted or have the wrong power of length or time. Equivalently $\mathrm{N/(A\,m)}$, since $1\ \mathrm{A}=1\ \mathrm{C/s}$.</p>`},
+  {id:"q16", q:String.raw`<p>An inductor $L$ is in series with a resistor $R$. Which of the following has the units of time?</p>`,
+   choices:["$LR$","$R/L$","$1/(LR)$","$L/R$","$\\sqrt{LR}$"], a:3,
+   why:String.raw`<p>Since $\mathrm{H}=\mathrm{V\,s/A}$ and $\Omega=\mathrm{V/A}$, $L/R$ has units of seconds. The tempting $R/L$ is its inverse (1/s), a rate.</p>`},
+  {id:"q17", q:String.raw`<p>A student plots $\ln y$ against $\ln x$ and gets a straight line of slope $2.0$ and vertical intercept $1.1$. The relation is closest to</p>`,
+   choices:["$y=1.1\\,x^{2.0}$","$y=3.0\\,x^{1.1}$","$y=3.0\\,x^{2.0}$","$y=2.0\\,x^{3.0}$","$y=1.1+2.0\\,x$"], a:2,
+   why:String.raw`<p>$\ln y=n\ln x+\ln A$, so $n=2.0$ and $A=e^{1.1}=3.0$. The common slip is to read the intercept as $A$ itself instead of $\ln A$.</p>`},
+  {id:"q18", q:String.raw`<p>A mass $m$ oscillates on a vertical spring of constant $k$ whose own mass is $m_s$; the period obeys $T^2=\dfrac{4\pi^2}{k}\left(m+\dfrac{m_s}{3}\right)$. A plot of $T^2$ against $m$ has slope $8.0\ \mathrm{s^2/kg}$ and intercept $0.16\ \mathrm{s^2}$. Then</p>`,
+   choices:["$k=0.20$ N/m, $m_s=0.02$ kg","$k=4.9$ N/m, $m_s=0.02$ kg","$k=8.0$ N/m, $m_s=0.16$ kg","$k=4.9$ N/m, $m_s=0.06$ kg","$k=4.9$ N/m, $m_s=0.48$ kg"], a:3,
+   why:String.raw`<p>$k=4\pi^2/8.0=4.9$ N/m. The intercept divided by the slope is $m_s/3=0.16/8.0=0.020$ kg, so $m_s=0.060$ kg. The tempting $0.02$ kg forgets the factor of 3.</p>`},
+  {id:"q19", q:String.raw`<p>On an FRQ, part (a) asks for a speed and you realize your answer, 8 m/s, is probably wrong, but you cannot find the error. Part (b) asks for the kinetic energy at that point. The best move is to</p>`,
+   choices:["Leave (b) blank because it depends on (a)","Use your 8 m/s in (b), state \"using my result from (a)\", and show the equation $K=\\tfrac12mv^2$","Use a guessed correct value without saying so","Erase (a) and rewrite it later with no answer","Write both possible answers for (b)"], a:1,
+   why:String.raw`<p>Graders typically credit correct work that follows consistently from an earlier error, as long as the work is visible. Blank answers earn nothing, and two competing answers usually earn neither.</p>`},
+  {id:"q20", q:String.raw`<p>During practice you notice a formula you want is not on the official equation sheet. The best approach is to</p>`,
+   choices:["Give up on the part","Assume the exam will print it","Memorize a table of every possible formula","Use a nearby formula from the sheet and hope the factors match","Derive it from a principle you own (a law, a definition, an integral) and check it with units and a limiting case"], a:4,
+   why:String.raw`<p>Results the sheet does not list are exactly the ones you are expected to build from first principles. Plugging into a "close" formula risks a wrong factor or an unmet condition, and memorizing everything is both impossible and unnecessary.</p>`}
+
   ],
 
   frq:[
@@ -271,6 +439,51 @@ $$K(2)=16\ \text{J}\Rightarrow v=\sqrt{2K/m}=\sqrt{2(16)/2}=4.0\ \text{m/s}$$
 $$K(4)=24\ \text{J}\Rightarrow v=\sqrt{2(24)/2}=\sqrt{24}\approx4.9\ \text{m/s}$$
 <p>(For $2\le x\le4$ one can also write $K(x)=16+\int_2^x(16-4x')\,dx'=-2x^2+16x-8$ J, which equals 16 at $x=2$ and 24 at $x=4$.)</p>
 <p><b>(c)</b> Since $dK/dx=F_x$, the slope of $K(x)$ is the force. From 0 to 2 m: a straight line, $K=8x$, reaching 16 J (slope 8 J/m). From 2 to 4 m: still rising but with decreasing slope (concave down), reaching 24 J at $x=4$ m with slope 0 there. For $x>4$ m: $F=0$ so $K$ is constant at 24 J (horizontal line).</p>
-<p><b>(d)</b> The classmate confuses a decreasing force with a negative force. In words: the force still points along the object's motion, so it still does positive work and the object keeps gaining kinetic energy, and the speed keeps increasing; only the <i>rate</i> of speeding up (the acceleration, $a=F/m$, which falls from 4 m/s² to 0) decreases. Mathematically $dK/dx=F_x>0$ for $x<4$ m, so $K$ and $v$ increase all the way to $x=4$ m. The speed stops changing only where $F_x=0$.</p>`}
+<p><b>(d)</b> The classmate confuses a decreasing force with a negative force. In words: the force still points along the object's motion, so it still does positive work and the object keeps gaining kinetic energy, and the speed keeps increasing; only the <i>rate</i> of speeding up (the acceleration, $a=F/m$, which falls from 4 m/s² to 0) decreases. Mathematically $dK/dx=F_x>0$ for $x<4$ m, so $K$ and $v$ increase all the way to $x=4$ m. The speed stops changing only where $F_x=0$.</p>`},
+
+  {id:"f3", type:"Experimental design & analysis", title:"Internal resistance of a battery",
+   prompt:String.raw`<p>A student wants to measure the emf $\varepsilon$ and internal resistance $r$ of a battery using only a variable resistor, an ammeter and a voltmeter.</p>
+<p>(a) Describe how to connect the meters (the voltmeter must read the battery's terminal voltage) and the measurements you would take. Say how you would avoid draining the battery.</p>
+<p>(b) Show that plotting terminal voltage $V$ against current $I$ should be a straight line, and say what the slope and intercept represent.</p>
+<p>(c) Data: $I$ (A) $=0.10,\ 0.20,\ 0.30,\ 0.40,\ 0.50$ and $V$ (V) $=1.46,\ 1.43,\ 1.40,\ 1.36,\ 1.33$. The best-fit line passes through $(0,\,1.495\ \text{V})$ and $(0.50\ \text{A},\,1.33\ \text{V})$. Determine the slope with units, $r$ and $\varepsilon$.</p>
+<p>(d) Calculate the current if the terminals were shorted, and explain why it is a bad idea to measure that directly.</p>`,
+   pts:[
+    {p:1,d:"Voltmeter in parallel across the battery terminals; ammeter in series with the variable resistor and battery"},
+    {p:1,d:"Varies the resistor to obtain at least five $(I,V)$ pairs; closes the circuit only briefly (or uses small currents) to avoid draining or heating the battery"},
+    {p:1,d:"Writes $V=\\varepsilon-Ir$ (Kirchhoff loop: terminal voltage = emf minus the drop in the internal resistance)"},
+    {p:1,d:"States slope $=-r$ and vertical intercept $=\\varepsilon$ for $V$ versus $I$"},
+    {p:1,d:"Slope $=(1.33-1.495)/0.50=-0.33$ V/A (accept $-0.31$ to $-0.35$), with units"},
+    {p:1,d:"$r=0.33\\ \\Omega$"},
+    {p:1,d:"$\\varepsilon=1.50$ V (1.49 to 1.50)"},
+    {p:1,d:"Short-circuit current $\\varepsilon/r\\approx4.5$ A"},
+    {p:1,d:"Explains that a large current heats the battery ($P=I^2r\\approx6.7$ W inside it), may damage it, and changes $r$, so the extrapolation is better than a direct measurement"}],
+   solution:String.raw`<p><b>(a)</b> Connect the battery, the ammeter and the variable resistor in series; connect the voltmeter in parallel directly across the battery terminals. Set the resistor to a large value, then reduce it step by step to get at least five pairs $(I,V)$, reading both meters each time. Keep the circuit closed only long enough to read the meters.</p>
+<p><b>(b)</b> Loop rule: $\varepsilon-Ir-V=0$, so $V=\varepsilon-rI$: slope $-r$, intercept $\varepsilon$ (the open-circuit voltage).</p>
+<p><b>(c)</b> Slope $=(1.33-1.495)/0.50=-0.33$ V/A, so $r=0.33\ \Omega$ and $\varepsilon=1.50$ V. (A least-squares fit of the five points gives $-0.33$ V/A and $1.495$ V.)</p>
+<p><b>(d)</b> $I_\text{short}=\varepsilon/r=1.495/0.33\approx4.5$ A. Shorting would dissipate $I^2r\approx6.7$ W inside the cell, which heats it, shortens its life and changes $r$. Extrapolating the line gives the same number safely.</p>`},
+
+  {id:"f4", type:"Experimental design & analysis", title:"A spring that is not massless",
+   prompt:String.raw`<p>Masses $m$ are hung from a vertical spring of constant $k$ and set into small oscillations. The spring's own mass $m_s$ cannot be neglected; the theory is $T=2\pi\sqrt{(m+m_s/3)/k}$.</p>
+<p>(a) Describe a procedure to obtain data for $T$ versus $m$, naming the independent, dependent and controlled variables and how you would reduce the timing uncertainty.</p>
+<p>(b) Show how to plot the data so that it is a straight line, and say what the slope and the intercept represent.</p>
+<p>(c) The data are: $m$ (kg) $=0.10,\ 0.20,\ 0.30,\ 0.40,\ 0.50$ and $T$ (s) $=0.49,\ 0.66,\ 0.79,\ 0.91,\ 1.01$. Fill in $T^2$ and, using a best-fit line of slope $1.95\ \mathrm{s^2/kg}$ and intercept $0.044\ \mathrm{s^2}$, determine $k$ and $m_s$.</p>
+<p>(d) A classmate computes $k$ from a single point as $4\pi^2m/T^2$ and gets $16$ N/m for $m=0.10$ kg. Explain why this is lower than the true value, and say how the discrepancy changes as $m$ increases. Describe an independent static measurement of $k$.</p>`,
+   pts:[
+    {p:1,d:"Independent variable $m$, dependent variable $T$, controlled: same spring, small amplitude, same release procedure"},
+    {p:1,d:"Times many oscillations (e.g. 10) and divides, repeats and averages; at least five masses"},
+    {p:1,d:"Squares the theory: $T^2=\\dfrac{4\\pi^2}{k}m+\\dfrac{4\\pi^2}{k}\\dfrac{m_s}{3}$, so $T^2$ versus $m$ is linear"},
+    {p:1,d:"Slope $=4\\pi^2/k$ and intercept $=\\dfrac{4\\pi^2}{k}\\dfrac{m_s}{3}$ (positive intercept from the spring's mass)"},
+    {p:1,d:"Table: $T^2$ = 0.24, 0.44, 0.62, 0.83, 1.02 s²"},
+    {p:1,d:"$k=4\\pi^2/1.95\\approx20$ N/m"},
+    {p:1,d:"$m_s/3=\\text{intercept/slope}=0.044/1.95=0.0225$ kg, so $m_s\\approx0.07$ kg (0.06 to 0.07)"},
+    {p:1,d:"Explains that the single-point formula ignores the spring's contribution $m_s/3$ to the effective mass, so $T$ is too large and $k$ too small"},
+    {p:1,d:"The discrepancy shrinks as $m$ grows (the fractional effect of $m_s/3$ is smaller): about 16 N/m at 0.10 kg versus 19 N/m at 0.50 kg"},
+    {p:1,d:"Static method: hang several masses, measure the extension $x$, plot $mg$ versus $x$ (slope $k$); this should agree with the dynamic $k$ within uncertainty"}],
+   solution:String.raw`<p><b>(a)</b> Independent variable: hanging mass $m$. Dependent: period $T$. Controlled: the same spring, the same small amplitude, a release from rest. Time 10 full oscillations with a stopwatch (or photogate) and divide by 10; repeat three times and average; use at least five masses spread over a wide range.</p>
+<p><b>(b)</b> $T^2=\dfrac{4\pi^2}{k}\,m+\dfrac{4\pi^2}{k}\dfrac{m_s}{3}$. Plot $T^2$ versus $m$: slope $4\pi^2/k$, intercept $\dfrac{4\pi^2}{k}\dfrac{m_s}{3}$.</p>
+<table><tr><th>$m$ (kg)</th><td>0.10</td><td>0.20</td><td>0.30</td><td>0.40</td><td>0.50</td></tr><tr><th>$T^2$ (s²)</th><td>0.24</td><td>0.44</td><td>0.62</td><td>0.83</td><td>1.02</td></tr></table>
+<p><b>(c)</b> $k=4\pi^2/1.95=20$ N/m. $m_s/3=0.044/1.95=0.0225$ kg, so $m_s=0.067\approx0.07$ kg.</p>
+<p><b>(d)</b> The effective oscillating mass is $m+m_s/3$, larger than $m$, so the measured $T$ is longer than the massless-spring theory predicts and $k=4\pi^2m/T^2$ comes out too small. At $m=0.10$ kg the spring adds $0.022$ kg, a 22% increase; at $0.50$ kg it adds 4.5%. The single-point values rise from $16.4$ N/m ($m=0.10$ kg) to $19.4$ N/m ($m=0.50$ kg), approaching the true 20 N/m. Static check: hang masses, measure the stretch $x$ (meter stick), and plot $mg$ versus $x$; the slope is $k$ (this method does not depend on $m_s$ in the same way, because the spring's weight only shifts the unstretched reference).</p>`}
+
   ]
 });

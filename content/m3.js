@@ -1,5 +1,5 @@
 PH.unit({
-  id:"m3", course:"mech", order:50, hours:7,
+  id:"m3", course:"mech", order:50, hours:10,
   title:"Mechanics 3: Work, Energy and Power",
   blurb:"Newton's second law integrated over distance. Work, kinetic and potential energy, how to read a potential-energy graph, and power. Energy methods turn many hard force problems into one line of algebra.",
   needs:["m1","m2"],
@@ -9,7 +9,9 @@ PH.unit({
     "Decide whether a force is conservative and get $U(x)$ from $F(x)$ and back with $F=-dU/dx$",
     "Read a $U(x)$ graph: force from slope, equilibria and their stability, turning points, allowed regions",
     "Use $\\Delta(K+U)=W_{nc}$ to handle friction and other non-conservative work",
-    "Use $P=dW/dt=\\vec F\\cdot\\vec v$ for instantaneous and average power"
+    "Use $P=dW/dt=\\vec F\\cdot\\vec v$ for instantaneous and average power",
+    "Combine energy conservation with radial Newton's second law for pendulums, loops and hemispheres (tension, normal force, minimum height, point of leaving)",
+    "Test whether a 2D force is conservative by path comparison or the cross-derivative test (extension)"
   ],
   lessons:[
   {id:"l1", title:"Work as a line integral",
@@ -98,7 +100,59 @@ $$\Delta(K+U)=W_{nc}$$
 <text x="86" y="70">one turning point</text></svg>
 <p>In the figure, a particle with energy $E_1$ is <b>bound</b>: it oscillates between its two turning points, fastest at the bottom of the well (where $K=E-U$ is largest). A particle with energy $E_2$ is above the hill, so it can travel out to large $x$ ("unbound"), bounces at the left wall at its single turning point, and never returns. The hill is a <b>barrier</b>: the particle at $E_1$ would need at least the hilltop value of $U$ to cross it.</p>
 <p><b>4. Small oscillations.</b> Near a stable minimum $x_0$, Taylor-expand: $U(x)\approx U(x_0)+\tfrac12U''(x_0)(x-x_0)^2$ (the linear term vanishes). That is exactly a spring potential with effective stiffness $k_{eff}=U''(x_0)$, so small oscillations are simple harmonic with angular frequency $\omega=\sqrt{U''(x_0)/m}$.</p>
-<div class="box trap"><b>Trap:</b> the horizontal axis is <i>position</i>, not height, and the curve is not the path of the particle. A particle in a deep well on the graph is not "lower down" anywhere; it is simply in a region where $U$ is small and so its kinetic energy is large. And at a turning point the speed is zero but the acceleration is not (unless it is also an equilibrium point).</div>`}
+<div class="box trap"><b>Trap:</b> the horizontal axis is <i>position</i>, not height, and the curve is not the path of the particle. A particle in a deep well on the graph is not "lower down" anywhere; it is simply in a region where $U$ is small and so its kinetic energy is large. And at a turning point the speed is zero but the acceleration is not (unless it is also an equilibrium point).</div>`},
+  {id:"l5", title:"Energy methods in circular motion: pendulum, loop-the-loop, hemisphere",
+   videos:[
+    {title:"Search: loop the loop minimum height energy and circular motion",url:"https://www.youtube.com/results?search_query=loop+the+loop+minimum+height+2.5R+energy+circular+motion+physics",src:"YouTube search",note:"Look for the derivation of h = 2.5R."}], html:String.raw`
+<p>Energy conservation tells you the <i>speed</i> at any point on a curved path; Newton's second law in the radial direction then tells you the <i>force</i> there. Almost every curved-track problem is this two-step combination. The reason it works: the normal force (or string tension) is perpendicular to the velocity, so it does no work and drops out of the energy equation, but it is exactly the unknown in the radial equation.</p>
+<div class="box key"><b>Two-step recipe.</b> (1) Energy: $K+U$ at the start equals $K+U$ at the point of interest, giving $v^2$ there. (2) Radial Newton: (net force toward the center) $=mv^2/r$. Take care with signs: forces pointing <i>toward</i> the center are positive in this equation.</div>
+<p><b>Pendulum tension.</b> A bob of mass $m$ on a string of length $L$ is released from rest at angle $\theta_0$ from the vertical. At angle $\theta$ it has fallen $L(\cos\theta-\cos\theta_0)$, so $v^2=2gL(\cos\theta-\cos\theta_0)$. Radially, the tension points toward the pivot and the weight component $mg\cos\theta$ points away from it:</p>
+$$T-mg\cos\theta=\frac{mv^2}{L}\ \Rightarrow\ T=mg\,(3\cos\theta-2\cos\theta_0)$$
+<p>At the bottom ($\theta=0$) released from the horizontal ($\theta_0=90^\circ$): $T=3mg$, independent of $L$. The string tension is larger than the weight whenever the bob moves along a curve, because it must supply the centripetal force on top of holding up the bob. Note the acceleration is <i>not</i> purely centripetal at intermediate angles: there is also a tangential part $g\sin\theta$ from the weight, which is why the speed changes.</p>
+<p><b>Loop-the-loop.</b> A block slides without friction down a track from height $h$ above the bottom of a vertical circular loop of radius $R$. At a point where the radius to the block makes angle $\varphi$ from the downward vertical, the block is at height $R(1-\cos\varphi)$ and energy gives $v^2=2g\,[h-R(1-\cos\varphi)]$. The normal force $N$ from the track points toward the center, the weight component along the radius points away from the center when the block is in the lower half:</p>
+$$N-mg\cos\varphi=\frac{mv^2}{R}\ \Rightarrow\ N=mg\cos\varphi+\frac{mv^2}{R}$$
+<p>At the bottom ($\varphi=0$): $N=mg+mv^2/R$ (you feel heavy). At the top ($\varphi=180^\circ$, $\cos\varphi=-1$) both $N$ and $mg$ point toward the center, so $N+mg=mv^2/R$. The block stays on the track only if $N\ge0$ (a track can push but not pull), which requires</p>
+$$v_{top}^2\ge gR$$
+<p>Insert this into energy conservation, $mgh=mg(2R)+\tfrac12mv_{top}^2$, to get the minimum release height</p>
+<div class="box key">$h_{min}=2R+\tfrac12R=\tfrac52R=2.5R$ (measured from the bottom of the loop). Releasing from exactly $2R$ would only lift the block to the top with zero speed, and it would fall off before getting there.</div>
+<p><b>Sliding off a hemisphere.</b> A small block starts at rest at the top of a frictionless hemisphere (radius $R$) and slides outward. At angle $\theta$ from the vertical it has dropped $R(1-\cos\theta)$, so $v^2=2gR(1-\cos\theta)$. Now the center is <i>below</i> the block: the weight component $mg\cos\theta$ points toward the center and the normal force points away, so $mg\cos\theta-N=mv^2/R$, giving</p>
+$$N=mg\,(3\cos\theta-2)$$
+<p>$N$ decreases as the block slides and reaches zero at $\cos\theta=2/3$ ($\theta\approx48^\circ$), where the block leaves the surface, at height $2R/3$ above the base. This is independent of $m$ and $R$. Beyond that the block is a projectile.</p>
+<div class="box trap"><b>Trap:</b> the minimum <i>speed</i> condition is at the top only. It is not a condition at the bottom, and "centripetal force" is not an extra force: at the top it is the sum $N+mg$. Also do not apply $h_{min}=2.5R$ to a ball that <i>rolls</i> (it needs more, because some energy goes into rotation; see Mechanics 5), or to a track with friction.</div>`}
+,
+  {id:"l6", extra:true, title:"Work along a 2D path and the test for a conservative force",
+   videos:[
+    {title:"MIT 8.01 Lecture 11 (Lewin, 1999): work-energy theorem and conservation of energy",url:"https://videolectures.net/mit801f99_lewin_lec11",src:"Walter Lewin lectures",note:"Path independence of gravity versus friction, conceptually."}], html:String.raw`
+<p>Lesson 3 said a force is conservative if its work is path independent. In two dimensions you can test that directly. To compute $W=\int\vec F\cdot d\vec r$ along a path, <b>parametrize</b> the path, say $x(t),y(t)$ for $t$ from $0$ to $1$, and then $d\vec r=(\dot x,\dot y)\,dt$, so $W=\int_0^1(F_x\dot x+F_y\dot y)\,dt$. On a straight axis-parallel leg one of $dx,dy$ is zero, which makes things quick.</p>
+<p><b>Example of path dependence.</b> Take two forces and go from $(0,0)$ to $(1,1)$ by Path A (the straight line $x=y=t$) and Path B (right along the $x$-axis to $(1,0)$, then up to $(1,1)$).</p>
+<ul><li>$\vec F=(y,\,x)$. Path A: $F=(t,t)$, $d\vec r=(dt,dt)$, $W=\int_0^12t\,dt=1$. Path B: on the $x$-axis $y=0$ and $dy=0$, so $F_xdx=y\,dx=0$; on the vertical leg $x=1$, $dx=0$, $W=\int_0^1x\,dy=1$. Total $1$. Same on both paths.</li>
+<li>$\vec F=(-y,\,x)$. Path A: $F=(-t,t)\cdot(dt,dt)=0$, so $W=0$. Path B: horizontal leg contributes $-y\,dx=0$; vertical leg $W=\int_0^1x\,dy=1$. Total $1$. Different from Path A, so this force is <b>not conservative</b>.</li></ul>
+<div class="box key"><b>Test.</b> In two dimensions, $\vec F=(F_x,F_y)$ is conservative (on a region without holes) exactly when $\dfrac{\partial F_x}{\partial y}=\dfrac{\partial F_y}{\partial x}$. For $(y,x)$: $1=1$, conservative. For $(-y,x)$: $-1\ne1$, not conservative. The reason: if $F_x=-\partial U/\partial x$ and $F_y=-\partial U/\partial y$, equality of mixed partial derivatives forces the condition. In 3D the same test is $\nabla\times\vec F=0$.</div>
+<p>When the test passes you can find $U$ by integrating: for $\vec F=(y,x)$, $-\partial U/\partial x=y\Rightarrow U=-xy+g(y)$, and $-\partial U/\partial y=x$ gives $g'=0$. So $U=-xy$ (plus a constant). A quick check: moving from $(0,0)$ to $(1,1)$, $-\Delta U=+1$, which matches both paths above.</p>
+<p>Around a closed loop a non-conservative force can do net work. For $\vec F=(-y,x)$ (a force that always points counterclockwise around the origin) and a counterclockwise circle of radius $r$, $\vec F$ is along $d\vec r$ with magnitude $r$, so $W=r\cdot2\pi r=2\pi r^2$. Friction is the real-world example in the other direction: a closed path always gives negative work.</p>
+<div class="box trap"><b>Trap:</b> a force that depends on position is not automatically conservative. A force like $\vec F=-b\vec v$ depends on velocity and is never a potential-energy force. A force that depends on position <i>and</i> fails the cross-derivative test (like the swirl $(-y,x)$) also is not.</div>`}
+,
+  {id:"l7", extra:true, title:"Power in depth: constant power, drag and efficiency",
+   videos:[
+    {title:"Work, Energy, and Power Review for AP Physics C: Mechanics (16:47)",url:"https://flippingphysics.com/apc-work-energy-power-review.html",src:"Flipping Physics",note:"Review video covering AP Physics C power; listing found by search, topic coverage of constant power not verified."}], html:String.raw`
+<p>Engines are better described by their power than their force. If a machine delivers constant power $P$, then $F=P/v$: the force falls as the speed rises. Start from rest and use $dK/dt=P$ (all of the power goes into kinetic energy, no resistance):</p>
+$$\frac{d}{dt}\left(\tfrac12mv^2\right)=P\ \Rightarrow\ v=\sqrt{\frac{2Pt}{m}},\qquad x=\int v\,dt=\tfrac23\sqrt{\frac{2P}{m}}\;t^{3/2}$$
+<p>Speed grows like $\sqrt t$ and acceleration $a=dv/dt=\sqrt{P/(2mt)}$ falls off; at $t\to0$ the model fails because it asks for an unbounded force ($F=P/v\to\infty$). Real vehicles are limited by traction at low speed.</p>
+<p><b>Top speed with drag.</b> Include a resistive force $f(v)$. The speed stops increasing when the driving force equals the resistance, $P/v=f(v)$. For quadratic drag $f=bv^2$: $P=bv^3$, so $v_{max}=(P/b)^{1/3}$. Doubling the engine power raises the top speed by only $2^{1/3}\approx1.26$. For linear drag $f=cv$ it would be $v_{max}=\sqrt{P/c}$. This is a big reason why fast cars are so power-hungry.</p>
+<p><b>Machines and efficiency.</b> Efficiency is $\text{useful power out}/\text{power in}$. A hoist lifting a load $mg$ at constant speed $v$ delivers useful power $mgv$; the rest of the input power becomes heat in the motor, cable and bearings. Because $W_{net}=0$ at constant speed, the lifting force just equals $mg$.</p>
+<div class="box trap"><b>Trap:</b> $P=Fv$ uses the <i>instantaneous</i> speed. Average power is $\Delta W/\Delta t$. For constant power from rest, the average speed is $\tfrac23$ of the final speed in the model above, not $\tfrac12$ (that would be for constant force).</div>`}
+,
+  {id:"l8", extra:true, title:"U(x) from a force graph, and energy methods for connected systems",
+   videos:[], html:String.raw`
+<p><b>From an $F$-$x$ graph to a $U$-$x$ graph.</b> Since $U(x)-U(x_0)=-\int_{x_0}^xF\,dx'$, the potential energy at $x$ is the negative of the signed area under the force graph from your chosen reference $x_0$ (where you set $U=0$ or any value you like). So:</p>
+<ul><li>Where $F>0$ (force toward $+x$), $U$ <i>decreases</i> as $x$ increases; where $F<0$, $U$ increases.</li>
+<li>Where $F=0$ the $U$ graph is flat. $F$ crossing from positive to negative as $x$ increases means $U$ goes from falling to rising: a minimum, a stable equilibrium.</li>
+<li>If $F$ is constant on a stretch, $U$ is a straight line of slope $-F$; if $F$ is linear, $U$ is a parabola.</li></ul>
+<p>The choice of reference only shifts $U$ vertically. Changing the reference never changes force, speed or any physical result.</p>
+<p><b>Energy for connected objects.</b> If a string or rod forces objects to move together, count the kinetic energy of every object and the potential energy of every object, and use the constraint to relate the speeds. For an Atwood machine (masses $m_1&gt;m_2$) that moves a distance $h$: $(m_1-m_2)gh=\tfrac12(m_1+m_2)v^2$, a single equation that gives $v$ without finding the tension. The string tension does equal and opposite work on the two masses, so it does no net work on the system.</p>
+<p><b>Chains and ropes: variable mass.</b> For a uniform chain (mass $M$, length $L$) the weight of the hanging part grows as it slides, so the force is not constant. If a length $y$ hangs below a frictionless table edge, the hanging part has mass $My/L$ and its center is $y/2$ below the table: $U(y)=-\dfrac{Mg\,y^2}{2L}$. Equivalently $F=-dU/dy=Mgy/L$, which is the weight of the hanging part, as it should be. (The table surface is level, so the portion on the table has $U=0$.)</p>
+<p><b>Work and energy of a system.</b> Internal forces <i>can</i> do work on a system, even though they cancel in the momentum equation: two blocks pushed apart by a spring gain kinetic energy. The total kinetic energy of a system can be written $K=\tfrac12Mv_{cm}^2+K_{rel}$, where $K_{rel}$ is the kinetic energy measured relative to the center of mass (Mechanics 4). $\sum\vec F_{ext}\cdot d\vec r_{cm}$ changes only the first term.</p>`}
+
   ],
   examples:[
   {id:"x1", title:"Work: dot product and variable force", problem:String.raw`<p>(a) A constant force $\vec F=(3\hat\imath+4\hat\jmath)$ N acts on a particle that moves in a straight line from the origin to the point $(2,-1)$ m. Find the work done. What displacement $(4,y)$ would make the work zero?</p>
@@ -119,7 +173,31 @@ $$mg(0.40+x)=\tfrac12kx^2\ \Rightarrow\ 5(0.40+x)=100x^2\ \Rightarrow\ 100x^2-5x
 <p>(b) $F=-dU/dx=-(1-4)=+3$ N, toward $+x$ (down the slope toward the well at $x=2$).</p>
 <p>(c) $E=U(1)=\tfrac14-2=-1.75$ J. Solve $U=E$: $\tfrac14x^4-2x^2+1.75=0\Rightarrow x^4-8x^2+7=0\Rightarrow(x^2-1)(x^2-7)=0$. Turning points at $x=\pm1,\pm\sqrt7$. Starting at $x=1$ the particle moves between $x=1$ and $x=\sqrt7\approx2.65$ m. It can never reach $x=0$ because $U(0)=0>E$.</p>
 <p>(d) $K=E-U(2)=-1.75-(-4)=2.25$ J, so $v=\sqrt{2K/m}=\sqrt{4.5}\approx2.12$ m/s.</p>
-<p>(e) $k_{eff}=U''(2)=8$ N/m, $\omega=\sqrt{8/1}\approx2.83$ rad/s, $T=2\pi/\omega\approx2.22$ s (valid for small amplitude only; this particle's swing, from 1 to 2.65 m, is not small, so the true period differs).</p>`}
+<p>(e) $k_{eff}=U''(2)=8$ N/m, $\omega=\sqrt{8/1}\approx2.83$ rad/s, $T=2\pi/\omega\approx2.22$ s (valid for small amplitude only; this particle's swing, from 1 to 2.65 m, is not small, so the true period differs).</p>`},
+  {id:"x5", title:"Loop-the-loop: forces and minimum height", problem:String.raw`<p>A frictionless track has a vertical circular loop of radius $R=0.50$ m. A 0.20 kg block is released from rest at height $h=2.0$ m above the bottom of the loop. Use $g=10$ m/s². (a) Find the normal force on the block at the bottom. (b) Find the normal force at the top. (c) What is the smallest release height from which the block stays on the track?</p>`,
+   solution:String.raw`<p>(a) Energy: $v_b^2=2gh=40\ \text{m}^2/\text{s}^2$. At the bottom the net force toward the center (up) is $N-mg=mv_b^2/R$, so $N=mg+mv_b^2/R=2+0.2(40)/0.5=18$ N (nine times the weight).</p>
+<p>(b) At the top the block is $2R=1.0$ m above the bottom: $v_t^2=2g(h-2R)=2(10)(1.0)=20$. Both $N$ and $mg$ point down (toward the center): $N+mg=mv_t^2/R\Rightarrow N=0.2(20)/0.5-2=6$ N. Positive, so the block stays on the track.</p>
+<p>(c) The limiting case is $N=0$ at the top: $mg=mv_t^2/R$, $v_t^2=gR=5$. Energy: $mgh_{min}=mg(2R)+\tfrac12mv_t^2\Rightarrow h_{min}=2R+R/2=2.5R=1.25$ m. A release at 2.0 m is comfortably above this.</p>`},
+  {id:"x6", title:"Where does the block leave the hemisphere?", problem:String.raw`<p>A small block slides from rest (from a negligible nudge) off the top of a frictionless hemispherical dome of radius $R=1.5$ m. (a) Show that it leaves the surface when $\cos\theta=2/3$, where $\theta$ is measured from the vertical. (b) Find its speed at that point and its height above the ground. Use $g=10$ m/s².</p>`,
+   solution:String.raw`<p>(a) After sliding through angle $\theta$ the block has dropped $R(1-\cos\theta)$, so $v^2=2gR(1-\cos\theta)$. The center of the dome is below the block, so radially (toward the center positive) $mg\cos\theta-N=mv^2/R$. Substituting, $N=mg\cos\theta-2mg(1-\cos\theta)=mg(3\cos\theta-2)$. The block leaves when $N=0$: $\cos\theta=2/3$.</p>
+<p>(b) $v^2=2gR(1-2/3)=2(10)(1.5)/3=10$, so $v=\sqrt{10}\approx3.16$ m/s. (Equivalently $v^2=gR\cos\theta=10$.) Height above the base of the dome: $R\cos\theta=1.0$ m.</p>`},
+  {id:"x7", title:"Spring launch up a rough incline", problem:String.raw`<p>A 0.50 kg block is pressed against a spring ($k=300$ N/m) at the bottom of a $15^\circ$ incline, compressing it 0.15 m. The incline is rough with $\mu_k=\mu_s=0.40$. The block is released from rest. Use $g=10$ m/s². (a) How far along the incline from its starting point does the block travel before stopping? (b) Does it slide back down? (c) How much thermal energy is produced?</p>`,
+   solution:String.raw`<p>(a) Spring energy stored: $\tfrac12kx^2=\tfrac12(300)(0.15)^2=3.375$ J. Let $s$ be the total distance moved along the incline from the compressed position (the spring does its work over the first 0.15 m, then the block coasts free of it). Friction: $f=\mu mg\cos15^\circ=0.4(0.5)(10)\cos15^\circ=1.932$ N. The gain in gravitational potential energy is $mg\sin15^\circ\,s=1.294\,s$ J. Energy: $3.375=(1.294+1.932)\,s$, so $s\approx1.05$ m (about 0.90 m beyond the point where the spring is relaxed).</p>
+<p>(b) At the stopping point it stays if static friction can hold it: $\tan15^\circ=0.268&lt;\mu_s=0.40$, so $mg\sin\theta&lt;\mu_smg\cos\theta$ and the block stays put. If $\mu_s$ were below $0.268$ it would slide back.</p>
+<p>(c) $Q=f\,s=1.932(1.046)\approx2.02$ J. Check: $3.375-mg\sin15^\circ s=3.375-1.354=2.02$ J. ✓</p>
+<p class="mut">Both gravity along the incline and the compression distance are included: the whole $s=1.05$ m counts for friction and height.</p>`},
+  {id:"x8", title:"Is it conservative? Work along two paths", problem:String.raw`<p>(a) Compute the work done by $\vec F=(-y,\,x)$ N (with $x,y$ in m) along the straight line from $(0,0)$ to $(1,1)$ and along the path $(0,0)\to(1,0)\to(1,1)$. (b) Do the same for $\vec F=(y,\,x)$. (c) Decide which force is conservative using the cross-derivative test, and find $U$ for it.</p>`,
+   solution:String.raw`<p>(a) Straight line $x=y=t$: $\vec F\cdot d\vec r=(-t)dt+(t)dt=0$, so $W=0$. Via $(1,0)$: on the first leg $y=0,dy=0$, so $W=\int(-y)dx=0$. On the second leg $x=1,dx=0$: $W=\int_0^1x\,dy=1$ J. The two paths differ (0 vs 1 J), so this force is not conservative.</p>
+<p>(b) Straight line: $\int_0^1(t+t)dt=1$ J. Via $(1,0)$: first leg $0$, second leg $\int_0^1x\,dy=1$ J. Both 1 J.</p>
+<p>(c) $\partial F_x/\partial y$ vs $\partial F_y/\partial x$: for $(-y,x)$: $-1$ vs $+1$, unequal, not conservative. For $(y,x)$: $1=1$, conservative. Integrate $F_x=-\partial U/\partial x=y\Rightarrow U=-xy+g(y)$; $F_y=-\partial U/\partial y=x$ gives $g'=0$. $U=-xy$ (J). Check $-\Delta U=+1$ J from $(0,0)$ to $(1,1)$ ✓.</p>`},
+  {id:"x9", title:"Constant power: acceleration, top speed, hoist efficiency", problem:String.raw`<p>(a) A 1000 kg car with a constant engine power of 50 kW (ignore resistance) starts from rest. How long does it take to reach 20 m/s, and how far does it travel? (b) Now include air drag $f=bv^2$ with $b=0.40$ N s²/m². Find the top speed. (c) A hoist's motor draws 5.0 kW of electrical power to raise a 200 kg load at a steady 1.5 m/s. Find the efficiency. Use $g=10$ m/s².</p>`,
+   solution:String.raw`<p>(a) $\tfrac12mv^2=Pt$ gives $t=\dfrac{mv^2}{2P}=\dfrac{1000(400)}{100000}=4.0$ s. Distance: $x=\tfrac23\sqrt{2P/m}\,t^{3/2}=\tfrac23(10)(8)=53.3$ m ($\sqrt{2P/m}=\sqrt{100}=10$, $4^{3/2}=8$). A constant-acceleration car reaching 20 m/s in 4 s would go only 40 m: the constant-power car lags early because it has less force at high speed.</p>
+<p>(b) At top speed the driving force equals drag: $P/v=bv^2$, $v^3=P/b=125000$, $v=50$ m/s.</p>
+<p>(c) Useful power $=mgv=200(10)(1.5)=3000$ W. Efficiency $=3000/5000=60\%$.</p>`},
+  {id:"x10", title:"Energy for a pulley and for a sliding chain", problem:String.raw`<p>(a) In an Atwood machine ($m_1=3.0$ kg and $m_2=2.0$ kg, light frictionless pulley) the masses start at rest. Find their speed after $m_1$ has fallen 1.2 m. (b) A uniform chain of length $L=2.0$ m lies on a frictionless table with one quarter of its length hanging over the edge. It is released. Find its speed at the instant its last link leaves the table. Use $g=10$ m/s².</p>`,
+   solution:String.raw`<p>(a) $(m_1-m_2)gh=\tfrac12(m_1+m_2)v^2$: $(1)(10)(1.2)=12=\tfrac12(5)v^2$, $v^2=4.8$, $v\approx2.19$ m/s. The tension never has to be found.</p>
+<p>(b) With $y$ hanging, $U(y)=-Mgy^2/(2L)$ (center of the hanging part is $y/2$ down). Initially $y=L/4$; at the end $y=L$. $\tfrac12Mv^2=U_i-U_f=\dfrac{MgL}{2}\left(1-\tfrac1{16}\right)$, so $v^2=gL\cdot\tfrac{15}{16}=10(2)(0.9375)=18.75$, $v\approx4.33$ m/s. Check by force: $W=\int_{L/4}^{L}\dfrac{Mg\,y}{L}dy=\dfrac{Mg}{2L}\left(L^2-\dfrac{L^2}{16}\right)$, the same result. (This assumes the chain slides smoothly over a rounded edge without losing energy.)</p>`}
+
   ],
   mcq:[
   {id:"q1", q:String.raw`<p>A rope pulls a crate 10 m along a level floor with a constant tension of 20 N, directed $60^\circ$ above the horizontal. The work done by the rope is</p>`, choices:["50 J","87 J","100 J","173 J","200 J"], a:2,
@@ -151,7 +229,32 @@ $$mg(0.40+x)=\tfrac12kx^2\ \Rightarrow\ 5(0.40+x)=100x^2\ \Rightarrow\ 100x^2-5x
   {id:"q11", q:String.raw`<p>A 1500 kg car's engine delivers a constant 60 kW to the wheels. When the car is moving at 20 m/s along a level road, the total resistive force is 1000 N. Its acceleration at that instant is</p>`, choices:["0.67 m/s²","1.0 m/s²","1.3 m/s²","2.0 m/s²","2.7 m/s²"], a:2,
    why:String.raw`<p>Driving force $F=P/v=60000/20=3000$ N. Net force $=3000-1000=2000$ N, $a=2000/1500\approx1.3$ m/s². The answer 2.0 m/s² ignores the resistance.</p>`},
   {id:"q12", q:String.raw`<p>A 2 kg block slides from rest down a rough curved track, dropping 3.0 m in height, and reaches the bottom with a speed of 6 m/s. Taking $g=10$ m/s², the energy converted to thermal energy by friction is</p>`, choices:["12 J","24 J","36 J","60 J","96 J"], a:1,
-   why:String.raw`<p>$\Delta(K+U)=W_{nc}$: $\tfrac12(2)(6^2)-(2)(10)(3)=36-60=-24$ J, so friction removed 24 J of mechanical energy. The 36 J is the final kinetic energy and 60 J is the total energy available, neither of which is the loss.</p>`}
+   why:String.raw`<p>$\Delta(K+U)=W_{nc}$: $\tfrac12(2)(6^2)-(2)(10)(3)=36-60=-24$ J, so friction removed 24 J of mechanical energy. The 36 J is the final kinetic energy and 60 J is the total energy available, neither of which is the loss.</p>`},
+  {id:"q13", q:String.raw`<p>A frictionless track has a vertical loop of radius $R$. A block released from rest at height $h$ above the bottom of the loop barely stays in contact with the track at the top. Then $h$ equals</p>`, choices:["$2R$","$2.25R$","$3R$","$2.5R$","$3.5R$"], a:3,
+   why:String.raw`<p>Barely in contact means $N=0$ at the top, so $mg=mv^2/R$ and $v^2=gR$. Energy: $mgh=2mgR+\tfrac12mgR$, so $h=2.5R$. The tempting answer $2R$ reaches the top height but with zero speed, and then the block would fall off the track.</p>`},
+  {id:"q14", q:String.raw`<p>A 0.50 kg block is released from rest 1.6 m above the bottom of a frictionless vertical loop of radius 0.40 m. Taking $g=10$ m/s², the normal force on the block at the bottom of the loop is</p>`, choices:["5 N","20 N","45 N","40 N","85 N"], a:2,
+   why:String.raw`<p>$v^2=2gh=32$. $N-mg=mv^2/R\Rightarrow N=5+0.5(32)/0.4=45$ N. The 40 N answer is only the centripetal part $mv^2/R$; the normal force must also hold up the weight.</p>`},
+  {id:"q15", q:String.raw`<p>A block slides from rest down off the top of a smooth hemisphere of radius 3.0 m. It leaves the surface at a height above the base of</p>`, choices:["3.0 m","1.0 m","1.5 m","2.0 m","2.5 m"], a:3,
+   why:String.raw`<p>It leaves where $N=0$, $\cos\theta=2/3$, and the height is $R\cos\theta=2.0$ m. The halfway height 1.5 m is a common guess; the block leaves well before it has dropped that far because it needs a centripetal force that gravity's radial component can no longer supply.</p>`},
+  {id:"q16", q:String.raw`<p>A 2.0 kg bob on a string is released from rest with the string horizontal. At the lowest point of the swing, with $g=10$ m/s², the tension in the string is</p>`, choices:["20 N","40 N","30 N","60 N","80 N"], a:3,
+   why:String.raw`<p>$v^2=2gL$, $T-mg=mv^2/L=2mg$, so $T=3mg=60$ N for any string length. 20 N would be the tension in a bob hanging at rest.</p>`},
+  {id:"q17", q:String.raw`<p>Which of the following two-dimensional forces (with $x,y$ position coordinates and constants positive) is NOT conservative?</p>`, choices:["$\\vec F=(y,\\,x)$","$\\vec F=(2xy,\\,x^2)$","$\\vec F=(-y,\\,x)$","$\\vec F=(3x^2,\\,0)$","$\\vec F=(x,\\,y)$"], a:2,
+   why:String.raw`<p>A force is conservative if $\partial F_x/\partial y=\partial F_y/\partial x$. For $(-y,x)$ these are $-1$ and $+1$. In the other choices the two derivatives are equal ($1,1$; $2x,2x$; $0,0$; $0,0$). A force depending on position is not automatically conservative.</p>`},
+  {id:"q18", q:String.raw`<p>The force $\vec F=(-y,\,x)$ N (with $x,y$ in m) acts on a particle that moves once counterclockwise around a circle of radius 2 m centered at the origin. The work done by the force is closest to</p>`, choices:["0","8 J","12.6 J","25 J","50 J"], a:3,
+   why:String.raw`<p>On the circle $\vec F$ is tangent to the path and has magnitude $r=2$ N, so $W=F(2\pi r)=2(4\pi)=8\pi\approx25$ J. Zero would hold only for a conservative force.</p>`},
+  {id:"q19", q:String.raw`<p>A motor delivers a constant power to a cart starting from rest, with no resistive forces. When the cart has been running for time $t$ its speed is $v$. At time $4t$ its speed is</p>`, choices:["$2v$","$4v$","$\\sqrt2\\,v$","$8v$","$16v$"], a:0,
+   why:String.raw`<p>Constant $P$ gives $\tfrac12mv^2=Pt$, so $v\propto\sqrt t$ and quadrupling the time doubles the speed. $4v$ is what constant force (constant acceleration) would give.</p>`},
+  {id:"q20", q:String.raw`<p>A car's top speed is set by quadratic air drag $f=bv^2$. If the engine power is doubled, the new top speed is larger by a factor of about</p>`, choices:["1.41","2.0","1.59","0.5","1.26"], a:4,
+   why:String.raw`<p>At top speed $P=Fv=bv^3$, so $v\propto P^{1/3}$ and doubling $P$ multiplies $v$ by $2^{1/3}=1.26$. The factor 1.41 is $\sqrt2$, which would hold for linear drag.</p>`},
+  {id:"q21", q:String.raw`<p>A motor draws 8.0 kW and lifts a 400 kg load at a steady 1.5 m/s ($g=10$ m/s²). The efficiency of the hoist is</p>`, choices:["60%","75%","85%","50%","95%"], a:1,
+   why:String.raw`<p>Useful power $=mgv=400(10)(1.5)=6000$ W, and $6000/8000=75\%$. The extra 2 kW goes to heat; it is not needed for acceleration because the speed is constant.</p>`},
+  {id:"q22", q:String.raw`<p>A particle's potential energy $U(x)$ is defined with $U(0)=0$. A single force of 5 N pointing in the $-x$ direction acts for $0\le x\le2$ m and the force is zero for $x&gt;2$ m. The value of $U$ for $x&gt;2$ m is</p>`, choices:["$-10$ J","$+5$ J","$-5$ J","$+10$ J","0"], a:3,
+   why:String.raw`<p>$U(x)-U(0)=-\int F\,dx=-(-5)(2)=+10$ J: the particle is pushed back toward smaller $x$, so it is climbing a potential hill, and $U$ rises 10 J. $-10$ J is the work done by the force, not the change in $U$.</p>`},
+  {id:"q23", q:String.raw`<p>In an Atwood machine with a light pulley, masses of 3.0 kg and 1.0 kg are released from rest. After the heavier mass has dropped 0.50 m, the speed of the masses is closest to ($g=10$ m/s²)</p>`, choices:["2.2 m/s","3.2 m/s","1.6 m/s","2.7 m/s","1.0 m/s"], a:0,
+   why:String.raw`<p>$(3-1)(10)(0.5)=10=\tfrac12(4)v^2$, $v=\sqrt5\approx2.2$ m/s. The speed 3.2 m/s is free fall of one mass, which would require no mass on the other side.</p>`},
+  {id:"q24", q:String.raw`<p>A 2.0 kg block slides from rest 4.0 m down a $30^\circ$ incline with $\mu_k=0.20$ ($g=10$ m/s²). Its speed at the bottom is closest to</p>`, choices:["6.3 m/s","7.1 m/s","3.2 m/s","4.5 m/s","5.1 m/s"], a:4,
+   why:String.raw`<p>$mg(d\sin30^\circ)-\mu mg\cos30^\circ d=\tfrac12mv^2$: $v^2=2(10)(4)(0.5-0.173)=26.1$, $v=5.1$ m/s. Neglecting friction gives $v=\sqrt{2gd\sin30^\circ}=6.3$ m/s.</p>`}
+
   ],
   frq:[
   {id:"f1", type:"Qualitative/quantitative translation", title:"A particle in a cubic potential",
@@ -211,6 +314,54 @@ $$mg(0.40+x)=\tfrac12kx^2\ \Rightarrow\ 5(0.40+x)=100x^2\ \Rightarrow\ 100x^2-5x
 <p>(b) Friction: $f=\mu_kmg=0.10(2)(10)=2$ N, constant, so $W_f=-(2)(4)=-8$ J. Then $W_{net}=24-8=16$ J $=\tfrac12(2)v^2\Rightarrow v=4$ m/s.</p>
 <p>(c) Net force $F_{net}=12-3x-2=10-3x$. From the work-energy theorem $dK/dx=F_{net}$, so $K$ keeps growing while $F_{net}>0$ and is maximum where $F_{net}=0$: $x=10/3\approx3.3$ m. At $x=0$ the force is biggest, but speed is determined by the <i>accumulated</i> work (area), and the block still gets positive net work all the way to $x=10/3$ m. After that friction beats the decreasing push and the block slows even though $F$ is still applied. (Peak speed there: $K=\int_0^{10/3}(10-3x)dx=50/3$ J, $v\approx4.08$ m/s, slightly above the 4 m/s at $x=4$.)</p>
 <p>(d) Beyond $x=4$ only friction does work: $-f\,d'=0-16\Rightarrow d'=8$ m (the block stops at $x=12$ m).</p>
-<p>(e) $W_{net}(0\to2)=\int_0^2(10-3x)dx=20-6=14$ J, so $\tfrac12(2)v^2=14$, $v=\sqrt{14}\approx3.74$ m/s. $F(2)=12-6=6$ N. $P=Fv=6(3.74)\approx22$ W (only the applied force's power; friction removes energy at $2\times3.74\approx7.5$ W).</p>`}
+<p>(e) $W_{net}(0\to2)=\int_0^2(10-3x)dx=20-6=14$ J, so $\tfrac12(2)v^2=14$, $v=\sqrt{14}\approx3.74$ m/s. $F(2)=12-6=6$ N. $P=Fv=6(3.74)\approx22$ W (only the applied force's power; friction removes energy at $2\times3.74\approx7.5$ W).</p>`},
+  {id:"f3", type:"Qualitative/quantitative translation", title:"A block on a loop-the-loop track",
+   prompt:String.raw`<p>A block of mass $m=0.20$ kg is released from rest at height $h$ above the bottom of a frictionless track that contains a vertical circular loop of radius $R=0.50$ m. Use $g=10$ m/s².</p>
+<p>(a) Draw a free-body diagram for the block at the top of the loop. Write Newton's second law for the radial direction there and show that the speed at the top must satisfy $v_{top}^2\ge gR$ for the block to stay on the track.<br>
+(b) Derive the minimum release height $h_{min}$ in terms of $R$ and calculate it.<br>
+(c) For $h=2.0$ m, calculate the speed of the block at the bottom of the loop and the normal force from the track there.<br>
+(d) For $h=2.0$ m, calculate the normal force at the point on the loop that is level with the center of the circle (the side).<br>
+(e) Explain in words why the normal force at the bottom is much larger than the weight, even though the track does no work on the block.</p>`,
+   pts:[
+    {p:1,d:"FBD at top: weight $mg$ down and normal force $N$ down (both toward the center)"},
+    {p:1,d:"$N+mg=mv^2/R$ with $N\\ge0$ giving $v_{top}^2\\ge gR$"},
+    {p:1,d:"Energy: $mgh=mg(2R)+\\tfrac12mv_{top}^2$"},
+    {p:1,d:"$h_{min}=2.5R=1.25$ m"},
+    {p:1,d:"Bottom speed: $v=\\sqrt{2gh}=\\sqrt{40}\\approx6.3$ m/s"},
+    {p:1,d:"$N-mg=mv^2/R$ giving $N=18$ N"},
+    {p:1,d:"At the side the height is $R$, so $v^2=2g(h-R)=30$"},
+    {p:1,d:"At the side the weight is tangential, so $N=mv^2/R=0.2(30)/0.5=12$ N"},
+    {p:1,d:"Explains: $N$ is perpendicular to the motion so does no work, but it must supply the net inward (centripetal) force beyond the weight, $mv^2/R$"},
+    {p:1,d:"States that the speed (hence $N$) is determined by energy conservation, which allows $N$ to be large without any work"}],
+   solution:String.raw`<p>(a) At the top both $mg$ and $N$ point toward the center (down): $N+mg=mv_{top}^2/R$. The track can only push, so $N\ge0$ and $v_{top}^2\ge gR$.</p>
+<p>(b) $mgh=mg(2R)+\tfrac12mv_{top}^2\ge2mgR+\tfrac12mgR\Rightarrow h_{min}=2.5R=1.25$ m.</p>
+<p>(c) $v=\sqrt{2gh}=\sqrt{40}\approx6.32$ m/s. $N=mg+mv^2/R=2+0.2(40)/0.5=18$ N.</p>
+<p>(d) At the side, height $=R=0.50$ m, $v^2=2g(h-R)=2(10)(1.5)=30$. There the weight is tangent to the track, so only $N$ points to the center: $N=mv^2/R=0.2(30)/0.5=12$ N.</p>
+<p>(e) The normal force is perpendicular to the velocity so it does no work, and the speed comes from energy conservation alone. But the block moves on a circle, so the net force toward the center must be $mv^2/R$. At the bottom the weight points away from the center, so the track must push with $mg+mv^2/R$, nine times the weight here.</p>`},
+  {id:"f4", type:"Experimental design & analysis", title:"Measuring a spring constant and friction with energy",
+   prompt:String.raw`<p>A student wants to determine the spring constant $k$ of a spring and the friction force on a cart using energy methods. A cart of mass $m=0.50$ kg on a level track is pushed against the spring (fixed at one end), compressing it a distance $x$. The cart is released, leaves the spring at its natural length and passes through a photogate that measures its speed $v$. Friction is a constant force $f$ opposing the motion.</p>
+<p>(a) Describe the measurements the student should make, the equipment needed, and one way to reduce random error.<br>
+(b) Derive an equation for $v^2$ in terms of $x$, $k$, $m$ and $f$, and show that plotting $v^2/x$ versus $x$ gives a straight line. State what the slope and intercept represent.<br>
+(c) The table gives the data. Compute the missing values of $v^2/x$ for $x=0.12$ m and $0.20$ m, and use the first and last points to find the slope and intercept.
+<table><tr><th>$x$ (m)</th><th>0.04</th><th>0.08</th><th>0.12</th><th>0.16</th><th>0.20</th></tr><tr><td>$v$ (m/s)</td><td>0.38</td><td>0.78</td><td>1.18</td><td>1.58</td><td>1.98</td></tr><tr><td>$v^2/x$ (m/s$^2$)</td><td>3.61</td><td>7.61</td><td>?</td><td>15.6</td><td>?</td></tr></table>
+(d) From the slope and intercept determine $k$ and $f$.<br>
+(e) If the student ignored friction and plotted $v^2$ versus $x^2$ and used the slope through the origin, would the spring constant be overestimated or underestimated? Explain, and give one other systematic error.</p>`,
+   pts:[
+    {p:1,d:"Measures $x$ (ruler, compression), $v$ (photogate with known flag width), and mass $m$ (balance); repeats trials at each $x$ and averages"},
+    {p:1,d:"Energy: $\\tfrac12kx^2-fx=\\tfrac12mv^2$"},
+    {p:1,d:"Linearization: $v^2/x=(k/m)\\,x-2f/m$, so slope $=k/m$, intercept $=-2f/m$"},
+    {p:1,d:"$v^2/x$ at 0.12 m is 11.6 and at 0.20 m is 19.6 (m/s$^2$)"},
+    {p:1,d:"Slope $\\approx(19.6-3.61)/0.16\\approx100\\ \\text{s}^{-2}$"},
+    {p:1,d:"Intercept $\\approx-0.39$ m/s$^2$ (about $-0.4$)"},
+    {p:1,d:"$k=m\\cdot\\text{slope}\\approx50$ N/m"},
+    {p:1,d:"$f=-\\tfrac12m\\cdot\\text{intercept}\\approx0.10$ N"},
+    {p:1,d:"Underestimated: friction removes energy so $v^2$ is smaller than $kx^2/m$, and the effect is relatively larger at small $x$"},
+    {p:1,d:"Another valid systematic error with its effect (e.g. flag width gives an average speed, the spring's own mass or compression-zero error shifts $x$)"}],
+   solution:String.raw`<p>(a) Measure the mass with a balance, compression $x$ with a ruler against the cart's position, and speed with a photogate and flag of known width. Use several values of $x$ (at least 5), repeat each 3 or more times and average, and keep the track level.</p>
+<p>(b) Work-energy: $\tfrac12kx^2-fx=\tfrac12mv^2$, so $v^2=\dfrac kmx^2-\dfrac{2f}{m}x$. Dividing by $x$: $\dfrac{v^2}{x}=\dfrac kmx-\dfrac{2f}{m}$, a line with slope $k/m$ and intercept $-2f/m$.</p>
+<p>(c) $0.12$ m: $1.18^2/0.12=11.6$; $0.20$ m: $1.98^2/0.20=19.6$. Slope between the first and last points: $(19.6-3.61)/(0.20-0.04)\approx100\ \text{s}^{-2}$. Intercept: $3.61-100(0.04)\approx-0.39$ m/s$^2$.</p>
+<p>(d) $k=m(\text{slope})=0.50(100)=50$ N/m. $f=-\tfrac12m(\text{intercept})=\tfrac12(0.50)(0.39)\approx0.10$ N.</p>
+<p>(e) Underestimated: the plot of $v^2$ vs $x^2$ would curve below the ideal line $v^2=(k/m)x^2$ because of the friction loss, so a line from the origin gives a slope below $k/m$. Another systematic error: the photogate measures an average speed over the flag width, which for an accelerating or decelerating cart differs slightly from the speed at the gate.</p>`}
+
   ]
 });

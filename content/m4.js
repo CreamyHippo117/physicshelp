@@ -1,5 +1,5 @@
 PH.unit({
-  id:"m4", course:"mech", order:60, hours:6,
+  id:"m4", course:"mech", order:60, hours:9,
   title:"Mechanics 4: Linear Momentum and Systems of Particles",
   blurb:"Newton's second law in its original form, $\\vec F=d\\vec p/dt$, leads to impulse, conservation of momentum, collisions, and the center of mass, the single point that obeys $\\vec F_{ext}=M\\vec a_{cm}$ for any system.",
   needs:["m1","m2","m3"],
@@ -9,7 +9,8 @@ PH.unit({
     "Classify collisions (elastic, inelastic, perfectly inelastic), use the coefficient of restitution, and compute kinetic energy lost",
     "Locate the center of mass of discrete and continuous bodies using $\\int x\\,dm$",
     "Use $\\vec F_{ext}=M\\vec a_{cm}$ to describe the motion of a system, including after an internal explosion",
-    "Use the center-of-mass frame to see why only part of the kinetic energy can be lost in a collision"
+    "Use the center-of-mass frame to see why only part of the kinetic energy can be lost in a collision",
+    "Solve two-stage problems (collision then sliding, swinging, or spring compression) and bouncing-ball series"
   ],
   lessons:[
   {id:"l1", title:"Momentum and impulse", videos:[{title:"Impulse Derivation and Demonstration",url:"https://www.flippingphysics.com/impulse-derivation-demo.html",src:"Flipping Physics",note:"AP Physics C: derives impulse with calculus and shows a slow-motion F-t graph (about 6.5 min)."}], html:String.raw`
@@ -114,7 +115,77 @@ $$\Delta K_{lost,\,max}=\tfrac12\mu v_{rel}^2$$
 <h4>Enrichment: variable mass (rockets)</h4>
 <p>Do not just write $F=dp/dt=m\,dv/dt+v\,dm/dt$ for a system whose mass changes; this fails unless you track what the escaping mass carries away. Safe procedure: choose a system of fixed mass (rocket plus the fuel about to be expelled), compare momentum at $t$ and $t+dt$. A rocket of mass $m$ ejecting gas at speed $u$ <i>relative to the rocket</i>, with no external force, gains $m\,dv=-u\,dm$ (here $dm<0$), so</p>
 $$v=v_0+u\ln\frac{m_0}{m}$$
-<p>This is the rocket equation: speed gain grows only logarithmically with the mass ratio. With $m_0/m=2$ you gain $0.69\,u$.</p>`}
+<p>This is the rocket equation: speed gain grows only logarithmically with the mass ratio. With $m_0/m=2$ you gain $0.69\,u$.</p>`},
+  {id:"l5", title:"Collisions with springs, two-stage problems and bouncing balls", videos:[{title:"Search: collision with a spring maximum compression common velocity",url:"https://www.youtube.com/results?search_query=collision+with+spring+maximum+compression+common+velocity+AP+Physics+C",src:"YouTube search",note:"Search link, not a verified video."}], html:String.raw`
+<p>Most real collision problems have <b>two stages</b> that need two different principles. Learn to cut the problem in time.</p>
+<div class="box key"><b>Stage rule.</b> During the brief collision, internal forces dominate, so use <b>momentum</b> conservation (energy is usually <i>not</i> conserved). After the collision, forces such as friction, gravity on a swinging block, or a spring act over a finite distance, so use <b>energy</b> (or Newton's second law with the work done by friction). Never use energy across the sticking collision itself, and never use momentum across the slide or the swing.</div>
+<h4>Collision then friction stop</h4>
+<p>A bullet embeds in a block resting on a rough table. Stage 1: $mv=(m+M)V$. Stage 2: the block-plus-bullet decelerates with $a=\mu_k g$, so $V^2=2\mu_kgd$ (work-energy: $\tfrac12(m+M)V^2=\mu_k(m+M)g\,d$). The sliding mass cancels, so you only need $\mu_k$ and $d$ to get $V$, and then $v$.</p>
+<h4>Collision with a spring: the maximum compression</h4>
+<p>Let block 1 (mass $m_1$, speed $v$) strike block 2 (mass $m_2$, at rest) that carries a light spring on its front face. As the spring compresses, block 1 slows down and block 2 speeds up. The compression keeps growing as long as block 1 is still moving faster than block 2, that is, as long as the blocks are still approaching. It stops growing at the instant their velocities are <b>equal</b>. So:</p>
+<svg class="fig" viewBox="0 0 360 150" width="360" role="img" aria-label="Three snapshots of a block hitting a spring-fronted block: before contact, at maximum compression with both blocks moving at the same speed V, and after separation">
+<text x="6" y="20">before</text><rect x="60" y="28" width="46" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="72" y="46">m₁</text><polygon points="112,41 122,36 122,46" fill="currentColor"/><line x1="108" y1="41" x2="120" y2="41" stroke="currentColor"/><text x="128" y="34">v</text>
+<polyline points="170,41 176,33 184,49 192,33 200,49 208,41 214,41" fill="none" stroke="currentColor"/><rect x="214" y="28" width="60" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="236" y="46">m₂</text>
+<text x="6" y="82">max</text><rect x="100" y="70" width="46" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="112" y="88">m₁</text>
+<polyline points="146,83 150,77 156,89 162,77 168,89 172,83 176,83" fill="none" stroke="currentColor"/><rect x="176" y="70" width="60" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="198" y="88">m₂</text><text x="250" y="88">both at V</text>
+<text x="6" y="124">after</text><rect x="60" y="112" width="46" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="72" y="130">m₁</text><text x="112" y="130">v₁f</text><rect x="214" y="112" width="60" height="26" fill="none" stroke="currentColor" stroke-width="2"/><text x="236" y="130">m₂</text><text x="280" y="130">v₂f</text></svg>
+<p>At maximum compression $V=\dfrac{m_1v}{m_1+m_2}$ (momentum, valid at every instant since no external horizontal force), and the energy that is not in kinetic form is in the spring:</p>
+$$\tfrac12kx_{max}^2=\tfrac12m_1v^2-\tfrac12(m_1+m_2)V^2=\tfrac12\mu v^2,\qquad\mu=\frac{m_1m_2}{m_1+m_2}$$
+<p>This is exactly the $\tfrac12\mu v_{rel}^2$ from the cm-frame discussion: the spring stores the cm-frame kinetic energy at the instant everything is momentarily at rest in that frame. If the spring is ideal (no dissipation), it gives all of that energy back, and the blocks separate with the elastic-collision velocities. So a spring bumper makes an <i>elastic</i> collision that you can watch in slow motion.</p>
+<div class="box trap"><b>Trap:</b> Do not set the spring energy equal to the whole initial kinetic energy. At maximum compression the blocks are still moving (at $V$), so they still hold kinetic energy $\tfrac12(m_1+m_2)V^2$. All of the energy goes into the spring only if $m_2\to\infty$ (a wall).</div>
+<h4>Impulse during a collision when gravity matters</h4>
+<p>The impulse-momentum theorem uses the <i>net</i> force. A ball hits the floor and leaves in a time $\Delta t$. The average net force is $\Delta p/\Delta t$, and the net force is $N_{avg}-mg$ (taking up as positive). So $N_{avg}=\dfrac{\Delta p}{\Delta t}+mg$. For a short, hard contact the $mg$ term is negligible; for a long, soft one (landing on a mattress) it may not be. Always draw the free-body diagram first.</p>
+<h4>The bouncing ball and a geometric series</h4>
+<p>A ball dropped from height $h_0$ hits the floor at speed $v_0=\sqrt{2gh_0}$ and leaves at $ev_0$. After the $n$th bounce its speed is $e^nv_0$ and the height reached is</p>
+$$h_n=\frac{(e^nv_0)^2}{2g}=e^{2n}h_0$$
+<p>Time between the $n$th and $(n+1)$th impacts is $2e^nv_0/g$ (up and down). The total time before it stops is a geometric series:</p>
+$$t_{tot}=\frac{v_0}{g}+\frac{2v_0}{g}\left(e+e^2+\cdots\right)=\frac{v_0}{g}\,\frac{1+e}{1-e}$$
+<p>and the total distance traveled is $h_0+2h_0(e^2+e^4+\cdots)=h_0\dfrac{1+e^2}{1-e^2}$. The ball makes infinitely many bounces in a finite time (a Zeno-type series that converges), after which it rests on the floor. Because the energy kept per bounce is $e^2$, a ball with $e=0.8$ keeps $64\%$ of its energy each time.</p>`},
+  {id:"l6", extra:true, title:"Elastic collisions: energy transfer and two dimensions", videos:[{title:"Lecture 16: Collisions - Elastic and Inelastic - Center of Mass Frame of Reference (Walter Lewin, 8.01 Fall 1999)",url:"https://videolectures.net/mit801f99_lewin_lec16/",src:"Walter Lewin lectures (MIT 8.01)",note:"Elastic and inelastic collisions and the cm frame; third-party host of the MIT lecture."}], html:String.raw`
+<h4>How much kinetic energy is handed over?</h4>
+<p>Mass $m_1$ moving at $v$ hits a stationary mass $m_2$ head-on and elastically. From $v_{2f}=\dfrac{2m_1}{m_1+m_2}v$, the energy given to $m_2$ as a fraction of the original is</p>
+$$\frac{\tfrac12m_2v_{2f}^2}{\tfrac12m_1v^2}=\frac{4m_1m_2}{(m_1+m_2)^2}$$
+<p>This is symmetric in the masses and equals 1 only when $m_1=m_2$ (check: $4m^2/4m^2$). It is small when the masses are very unequal, either way: a ping-pong ball bouncing off a bowling ball gives the bowling ball almost nothing, and so does a bowling ball hitting a ping-pong ball (it passes through nearly unchanged at about twice its own speed, but the tiny ball carries little energy). With $m_2=3m_1$ the fraction is $12/16=75\%$.</p>
+<p><b>Neutron moderation.</b> A nuclear reactor slows fast neutrons by letting them collide with light nuclei. Hydrogen (nearly equal mass) can take essentially all the energy in a head-on collision; carbon-12 takes at most $4(12)/13^2=28\%$ per head-on collision, so the energy left after a head-on hit is $(11/13)^2=72\%$ of what it was. Light nuclei are the efficient moderators.</p>
+<div class="box key"><b>Momentum versus energy shortcut.</b> Since $K=p^2/2m$, two bodies with <i>equal</i> momentum have kinetic energies in the inverse ratio of their masses: the lighter one has more energy. A 4 kg block and a 1 kg block with the same momentum have energies in the ratio $1:4$. Conversely, equal kinetic energy means the heavier body has more momentum ($p=\sqrt{2mK}$).</div>
+<h4>Elastic collisions in two dimensions</h4>
+<p>Two momentum components plus one energy equation give three equations; the unknowns are $v_{1f},v_{2f}$ and two angles, so you must be told one more thing (usually one angle or one speed). The routine: write $p_x$, $p_y$ and $K$, use the given information to eliminate, and solve. For equal masses with one at rest, $\vec v_0=\vec v_1+\vec v_2$ with equal $v^2$ sums, so the paths are perpendicular and $v_1=v_0\cos\theta$, $v_2=v_0\sin\theta$ where $\theta$ is the deflection of the incoming body. For unequal masses the angle between the final velocities is not $90^\circ$ (a light body can bounce straight back off a heavy one, but a heavy incoming body can never be deflected by $90^\circ$ or more). See the worked example.</p>`},
+  {id:"l7", extra:true, title:"Variable mass: falling sand, conveyor belts and chains", videos:[{title:"Search: variable mass conveyor belt sand F = v dm/dt",url:"https://www.youtube.com/results?search_query=variable+mass+problem+sand+falling+on+conveyor+belt+force+v+dm%2Fdt+physics",src:"YouTube search",note:"Search link, not a verified video."}], html:String.raw`
+<p>When mass enters or leaves the system, the careless application of $\vec F=d(m\vec v)/dt$ goes wrong. The safe method (already used for the rocket in the previous lesson): <b>pick a system of fixed mass</b> that contains everything that is about to join, write its momentum at $t$ and at $t+dt$, and equate the change to $F_{ext}\,dt$.</p>
+<h4>Sand falling on a moving belt</h4>
+<p>Sand drops vertically onto a belt that moves at constant speed $v$, at a rate $dm/dt$. In time $dt$ a mass $dm$ goes from zero horizontal velocity to $v$, so the horizontal momentum of the system changes by $dm\,v$. The horizontal external force on the sand-plus-belt system (supplied by the belt's drive) must be</p>
+$$F=v\frac{dm}{dt}$$
+<p>The motor's power is $Fv=v^2\,dm/dt$, but the kinetic energy of the sand grows only at $\tfrac12v^2\,dm/dt$. <b>Exactly half</b> of the power is dissipated as heat where the sand slips on the belt until it matches the belt speed: this is a perfectly inelastic collision in disguise, and it does not depend on the friction coefficient.</p>
+<h4>A chain falling onto a table</h4>
+<p>A uniform chain of mass $M$ and length $L$ ($\lambda=M/L$) hangs vertically with its lower end just touching a table, and is released. When a length $x$ has landed, the free part is still in free fall, so all of it moves at $v^2=2gx$. The table must (i) support the pile, weight $\lambda xg$, and (ii) stop the links as they arrive, which takes a force equal to the momentum arriving per second, $v\,dm/dt=\lambda v\cdot v=\lambda v^2=2\lambda gx$. So</p>
+$$N=\lambda gx+2\lambda gx=3\lambda gx=\frac{3Mgx}{L}$$
+<p>When the last link lands the table feels $3Mg$, three times the weight of the entire chain, and the reading of a scale under it rises linearly with $x$.</p>
+<div class="box trap"><b>Trap:</b> "$F=m\,dv/dt+v\,dm/dt$" counts the momentum of added mass correctly only if the added mass starts at rest <i>in the frame where you write $p$</i>. For the rocket, the ejected gas carries momentum of its own, so there the result is $m\,dv/dt=-u\,dm/dt$ (with $u$ measured relative to the rocket).</div>`},
+  {id:"l8", extra:true, title:"Composite bodies, 2D centers of mass and solids by integration", videos:[{title:"17.4 Center of Mass of a System of Extended Objects",url:"https://www.ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/week-5-momentum-and-impulse/17-4-center-of-mass-of-a-system-of-extended-objects",src:"MIT OCW 8.01SC",note:"Using the cm of each part to find the cm of a composite."}], html:String.raw`
+<h4>Two dimensions and the hole trick</h4>
+<p>In the plane, $\vec r_{cm}=\dfrac1M\sum m_i\vec r_i$ applies component by component: $x_{cm}=\sum m_ix_i/M$, $y_{cm}=\sum m_iy_i/M$. For a <b>composite plate</b>, replace each piece by a point mass (its mass at its own cm). For a plate with a <b>hole</b>, use "whole minus hole": the hole is a piece with <i>negative</i> mass, equal to $-\sigma A_{hole}$, located at the hole's center:</p>
+$$x_{cm}=\frac{m_{whole}x_{whole}-m_{hole}x_{hole}}{m_{whole}-m_{hole}}$$
+<p>(Here $m_{whole}$ is the mass the full plate <i>would</i> have, and the denominator is the mass that is actually left.) Check that the cm moves <i>away</i> from the hole.</p>
+<h4>Solids by integration</h4>
+<p>The method is always: slice the body into thin pieces whose own cm you know (usually thin disks or strips), write $dm=\rho\,dV$ for each slice, and integrate $\int z\,dm$.</p>
+<p><b>Cone</b> (uniform, height $H$, base radius $R$, measure $y$ from the apex). A disk at $y$ has radius $Ry/H$, so $dm=\rho\pi R^2y^2/H^2\,dy$:</p>
+$$y_{cm}=\frac{\int_0^Hy\cdot y^2\,dy}{\int_0^Hy^2\,dy}=\frac{H^4/4}{H^3/3}=\frac{3H}{4}$$
+<p>i.e. $H/4$ above the base. <b>Solid hemisphere</b> (flat face down, height $z$): a disk at $z$ has radius$^2$ $R^2-z^2$, so $dm=\rho\pi(R^2-z^2)\,dz$, $M=\tfrac23\rho\pi R^3$, and</p>
+$$z_{cm}=\frac{\rho\pi\int_0^Rz(R^2-z^2)\,dz}{\tfrac23\rho\pi R^3}=\frac{R^4/4}{2R^3/3}=\frac{3R}{8}$$
+<p><b>Triangle</b> (base $b$, height $h$, $y$ from the base): the strip at height $y$ has width $b(1-y/h)$, so $A=\tfrac12bh$ and $\int y\,b(1-y/h)\,dy=bh^2/6$, giving $y_{cm}=h/3$. This fills in the result quoted in the center-of-mass lesson.</p>
+<div class="box key">Pattern to remember: for a pyramid or cone the cm is $1/4$ of the height from the base; for a triangle $1/3$; for a semicircular disk $4R/3\pi$; for a solid hemisphere $3R/8$; for a hemispherical shell $R/2$.</div>`},
+  {id:"l9", extra:true, title:"Two-body motion: relative coordinate and reduced mass", videos:[{title:"Search: two body problem reduced mass center of mass frame",url:"https://www.youtube.com/results?search_query=two+body+problem+reduced+mass+relative+coordinate+classical+mechanics+lecture",src:"YouTube search",note:"Search link, not a verified video."}], html:String.raw`
+<p>Two bodies interact only with each other (no external force). Then $\vec R_{cm}$ moves uniformly, and everything interesting is in the <b>relative coordinate</b> $\vec r=\vec r_1-\vec r_2$. Newton's law for each body is $m_1\ddot{\vec r}_1=\vec F$ and $m_2\ddot{\vec r}_2=-\vec F$ (where $\vec F$ is the force on body 1). Divide each by its mass and subtract:</p>
+$$\ddot{\vec r}=\vec F\left(\frac1{m_1}+\frac1{m_2}\right)\quad\Longrightarrow\quad \mu\,\ddot{\vec r}=\vec F(\vec r),\qquad \mu=\frac{m_1m_2}{m_1+m_2}$$
+<p>The two-body problem therefore reduces to a <i>one</i>-body problem for a particle of mass $\mu$ (smaller than either mass) at position $\vec r$, subject to the force law. The positions of the individual bodies follow from $\vec r_1=\vec R_{cm}+\dfrac{m_2}{M}\vec r$ and $\vec r_2=\vec R_{cm}-\dfrac{m_1}{M}\vec r$ ($M=m_1+m_2$): the <b>heavier body stays closer to the cm</b>.</p>
+<h4>Two blocks joined by a spring</h4>
+<p>For a spring with force $F=-k(r-r_0)$ the relative coordinate obeys $\mu\ddot s=-ks$ ($s=r-r_0$), simple harmonic motion with $\omega=\sqrt{k/\mu}$. If an external force $F$ pulls on the pair, the cm accelerates at $F/M$ <i>regardless</i> of the oscillation, and the blocks oscillate about the uniformly accelerating cm.</p>
+<h4>Binary orbits</h4>
+<p>For gravity, $\mu\ddot{\vec r}=-\dfrac{Gm_1m_2}{r^2}\hat r$. Dividing by $\mu$ gives $\ddot{\vec r}=-\dfrac{G(m_1+m_2)}{r^2}\hat r$, the equation of a test mass orbiting a central mass $m_1+m_2$. For a circular orbit at separation $r$,</p>
+$$T^2=\frac{4\pi^2r^3}{G(m_1+m_2)}$$
+<p>Both stars circle the common cm with the <i>same</i> period; the radii are $r_1=\dfrac{m_2}{M}r$ and $r_2=\dfrac{m_1}{M}r$, so the lighter star moves on the bigger circle and faster. In a one-sun-and-planet system $m_2\ll m_1$ recovers the familiar $T^2=4\pi^2r^3/(GM_{sun})$ and the sun's wobble is tiny.</p>
+<h4>Person on a boat</h4>
+<p>With no horizontal external force (still water, negligible drag), the cm of person-plus-boat does not move horizontally. If the person walks a distance $d$ relative to the boat, the boat moves backward by $\dfrac{m_{person}}{m_{person}+M_{boat}}d$, and the person moves forward relative to the water by $\dfrac{M_{boat}}{m_{person}+M_{boat}}d$.</p>`}
   ],
   examples:[
   {id:"x1", title:"Impulse from a time-varying force", problem:String.raw`<p>A force $F(t)=6t(4-t)$ N (for $0\le t\le4$ s, zero otherwise) acts along $+x$ on an 8 kg cart that is initially at rest on a frictionless track. Find the impulse, the final speed, the peak force, and the average force over the 4 s.</p>`,
@@ -137,7 +208,41 @@ $$v=v_0+u\ln\frac{m_0}{m}$$
    solution:String.raw`<p>A strip at height $y$ with thickness $dy$ has length $2\sqrt{R^2-y^2}$, so $dm=\sigma\,2\sqrt{R^2-y^2}\,dy$ with $\sigma=M/(\tfrac12\pi R^2)$.</p>
 $$y_{cm}=\frac{\sigma}{M}\int_0^R2y\sqrt{R^2-y^2}\,dy$$
 <p>Let $u=R^2-y^2$, $du=-2y\,dy$: $\int_0^R2y\sqrt{R^2-y^2}\,dy=\int_0^{R^2}u^{1/2}du=\tfrac23R^3$.</p>
-<p>$y_{cm}=\dfrac{2R^3/3}{\pi R^2/2}=\dfrac{4R}{3\pi}\approx0.424R$, and $x_{cm}=0$ by symmetry. This matches the polar result in the lesson.</p>`}
+<p>$y_{cm}=\dfrac{2R^3/3}{\pi R^2/2}=\dfrac{4R}{3\pi}\approx0.424R$, and $x_{cm}=0$ by symmetry. This matches the polar result in the lesson.</p>`},
+  {id:"x5", title:"Block collision with a spring bumper", problem:String.raw`<p>A 2.0 kg block slides at 6.0 m/s on a frictionless table toward a 4.0 kg block at rest. The 4.0 kg block carries a light spring ($k=1200$ N/m) on its front face. Find (a) the common speed at maximum compression, (b) the maximum compression, (c) the velocities after the blocks separate.</p>`,
+   solution:String.raw`<p>(a) Momentum: $2.0(6.0)=6.0\,V\Rightarrow V=2.0$ m/s. At maximum compression the relative velocity is zero.</p>
+<p>(b) Energy: $\tfrac12(2)(36)=\tfrac12(6)(2.0)^2+\tfrac12kx^2$, so $36=12+600x^2$, $x^2=0.040$, $x=0.20$ m. (Check: $\tfrac12\mu v^2$ with $\mu=4/3$ kg gives 24 J, and $\tfrac12(1200)(0.2)^2=24$ J.)</p>
+<p>(c) The spring is ideal so the collision is elastic: $v_1=\dfrac{2-4}{6}(6)=-2.0$ m/s, $v_2=\dfrac{2(2)}{6}(6)=+4.0$ m/s. Momentum check: $12=2(-2)+4(4)=12$.</p>
+<p class="mut">The 24 J was stored for an instant, then returned. If the spring were replaced by putty, 24 J would be lost.</p>`},
+  {id:"x6", title:"Bouncing ball: geometric series", problem:String.raw`<p>A ball is dropped from $h_0=2.0$ m onto a hard floor with coefficient of restitution $e=0.80$ ($g=10$ m/s²). Find (a) the speed just before the first impact and just after, (b) the height after the second bounce, (c) the total time until it stops bouncing, (d) the total distance traveled.</p>`,
+   solution:String.raw`<p>(a) $v_0=\sqrt{2gh_0}=\sqrt{40}=6.32$ m/s; rebound speed $ev_0=5.06$ m/s.</p>
+<p>(b) The height after the $n$th bounce is $e^{2n}h_0$, so $h_2=e^4h_0=0.4096(2.0)=0.82$ m. (For comparison $h_1=e^2h_0=1.28$ m.)</p>
+<p>(c) Fall time $t_0=\sqrt{2h_0/g}=0.632$ s. Each later up-and-down takes $2e^nt_0$. $t_{tot}=t_0+2t_0\dfrac{e}{1-e}=t_0\dfrac{1+e}{1-e}=0.632(9)=5.69$ s.</p>
+<p>(d) $d=h_0+2h_0\dfrac{e^2}{1-e^2}=h_0\dfrac{1+e^2}{1-e^2}=2.0\dfrac{1.64}{0.36}=9.11$ m.</p>
+<p class="mut">Sanity: infinitely many bounces occur in a finite 5.7 s because the bounce durations form a convergent series.</p>`},
+  {id:"x7", title:"Bullet in a block, then a friction stop", problem:String.raw`<p>A 10 g bullet embeds in a 990 g block at rest on a horizontal table. The block slides 0.90 m before stopping; the coefficient of kinetic friction is 0.50. Find the bullet's speed and the time the block slides. ($g=10$ m/s².)</p>`,
+   solution:String.raw`<p><b>Stage 2 (sliding):</b> $a=\mu g=5.0$ m/s², so $V^2=2ad=2(5.0)(0.90)=9.0$, $V=3.0$ m/s. Time $t=V/a=0.60$ s.</p>
+<p><b>Stage 1 (collision):</b> $0.010\,v=1.000(3.0)\Rightarrow v=300$ m/s.</p>
+<p class="mut">The friction force during the very short embedding time is far smaller than the internal forces, so momentum is conserved across it; friction then does all the work in stage 2. The block mass cancels in stage 2.</p>`},
+  {id:"x8", title:"Elastic collision in two dimensions", problem:String.raw`<p>(a) A 2.0 kg puck at 5.0 m/s strikes an identical stationary puck elastically. The incoming puck leaves at $30^\circ$ to its original direction. Find both final velocities. (b) A 1.0 kg puck at 6.0 m/s strikes a stationary 3.0 kg puck elastically and rebounds at exactly $90^\circ$ to its original direction. Find the final speeds and the direction of the 3.0 kg puck.</p>`,
+   solution:String.raw`<p>(a) Equal masses: the final velocities are perpendicular, so the other puck leaves at $60^\circ$ on the other side, and $v_1=5.0\cos30^\circ=4.33$ m/s, $v_2=5.0\sin30^\circ=2.50$ m/s. Check energy: $4.33^2+2.50^2=18.75+6.25=25=5^2$.</p>
+<p>(b) Let $x$ be the original direction. Puck 1 has $v_{1x}=0$ after, $v_{1y}=\pm u$. Momentum $x$: $1(6)=3v_{2x}\Rightarrow v_{2x}=2.0$ m/s. Momentum $y$: $0=u+3v_{2y}\Rightarrow v_{2y}=-u/3$. Energy: $\tfrac12(1)(36)=\tfrac12u^2+\tfrac12(3)(2.0^2+u^2/9)$, so $36=u^2+12+u^2/3$, $u^2=18$, $u=4.24$ m/s. Then $v_{2y}=-1.41$ m/s, speed $\sqrt{4+2}=2.45$ m/s at $\arctan(1.41/2.0)=35^\circ$ on the opposite side. Energy check: $\tfrac12(18)+\tfrac32(6)=9+9=18$ J.</p>
+<p class="mut">The angle between the final velocities is $90^\circ$ in (b) only because we were told so; in general it is not $90^\circ$ for unequal masses.</p>`},
+  {id:"x9", title:"Sand on a conveyor and a falling chain", problem:String.raw`<p>(a) Sand drops vertically onto a horizontal belt moving at 2.0 m/s at a rate of 5.0 kg/s. Find the extra horizontal force needed to keep the belt at constant speed, the power delivered by the motor, and the rate at which the sand's kinetic energy increases. (b) A uniform chain of mass 1.2 kg and length 0.60 m hangs with its lower end just above a table and is released. Find the force the table exerts at the instant when 0.30 m has landed, and at the instant the last link lands. ($g=10$ m/s².)</p>`,
+   solution:String.raw`<p>(a) $F=v\,dm/dt=2.0(5.0)=10$ N. Power $=Fv=20$ W. Kinetic-energy rate $=\tfrac12v^2\,dm/dt=\tfrac12(4)(5)=10$ W. The remaining 10 W becomes heat as the sand slips on the belt.</p>
+<p>(b) $N=3Mgx/L$. At $x=0.30$ m: $3(1.2)(10)(0.30)/0.60=18$ N. When the last link lands, $x=L$ and $N=3Mg=36$ N. Breakdown at $x=0.30$: weight of pile 6 N plus 12 N to stop the arriving links ($\lambda v^2$ with $\lambda=2$ kg/m, $v^2=2(10)(0.30)=6$, so $12$ N).</p>`},
+  {id:"x10", title:"Center of mass of a plate with a hole", problem:String.raw`<p>A uniform square plate of side 0.60 m has its lower-left corner at the origin. A circular hole of radius 0.10 m is cut with its center at $(0.40\text{ m},\,0.20\text{ m})$. Find the center of mass of the remaining plate. Then find the cm of three point masses: 2.0 kg at $(0,0)$, 1.0 kg at $(3.0,0)$ and 3.0 kg at $(0,4.0)$ m.</p>`,
+   solution:String.raw`<p>Let $\sigma$ be the mass per area. Whole square: mass $\sigma(0.36)$ at $(0.30,0.30)$. Hole: mass $\sigma\pi(0.10)^2=\sigma(0.0314)$, which is $0.0873$ of the square's mass. Treat the hole as negative mass:</p>
+<p>$x_{cm}=\dfrac{0.30-0.0873(0.40)}{1-0.0873}=0.290$ m, $y_{cm}=\dfrac{0.30-0.0873(0.20)}{1-0.0873}=0.310$ m.</p>
+<p>The cm moves from $(0.30,0.30)$ away from the hole (left and up), as it should.</p>
+<p>Point masses: $M=6.0$ kg; $x_{cm}=(2(0)+1(3.0)+3(0))/6=0.50$ m; $y_{cm}=(0+0+3(4.0))/6=2.0$ m. So $(0.50,\,2.0)$ m.</p>`},
+  {id:"x11", title:"Person walking on a boat; spring-linked blocks", problem:String.raw`<p>(a) A 60 kg person stands at the stern of a 120 kg boat at rest on still water and walks 4.0 m toward the bow (relative to the boat). Ignoring water drag, how far does the boat move, and how far does the person move relative to the water? (b) Two blocks of 1.0 kg and 3.0 kg, joined by a spring ($k=48$ N/m), lie on a frictionless table. A constant 8.0 N force pulls on the 1.0 kg block along the spring axis. Find the acceleration of the cm and the angular frequency of the oscillation of the separation.</p>`,
+   solution:String.raw`<p>(a) No external horizontal force, so the cm stays put. Let the boat move $-s$ and the person $+(4.0-s)$ in the water frame: $60(4.0-s)=120s\Rightarrow s=240/180=1.33$ m. The boat moves 1.33 m backward and the person moves $4.0-1.33=2.67$ m forward relative to the water.</p>
+<p>(b) $a_{cm}=F/M=8.0/4.0=2.0$ m/s². The separation oscillates with $\mu=\dfrac{1(3)}{4}=0.75$ kg, so $\omega=\sqrt{k/\mu}=\sqrt{48/0.75}=8.0$ rad/s ($T=0.785$ s). In the (accelerating) cm frame the spring carries a steady tension of $F m_2/M=6.0$ N, so the oscillation is about a stretched length ($6.0/48=0.125$ m longer than natural), not about the natural length.</p>`},
+  {id:"x12", title:"Binary star system", problem:String.raw`<p>Two stars of masses $2.0\times10^{30}$ kg and $4.0\times10^{30}$ kg orbit their common center of mass in circles with a separation of $3.0\times10^{11}$ m. Find the radius of each star's orbit, the period, and the speed of each star. Use $G=6.67\times10^{-11}$ N m²/kg².</p>`,
+   solution:String.raw`<p>$M=6.0\times10^{30}$ kg. The heavier star is closer: $r_{heavy}=\dfrac{2.0}{6.0}(3.0\times10^{11})=1.0\times10^{11}$ m, $r_{light}=2.0\times10^{11}$ m.</p>
+<p>$T^2=\dfrac{4\pi^2r^3}{GM}=\dfrac{4\pi^2(2.7\times10^{34})}{(6.67\times10^{-11})(6.0\times10^{30})}$, so $T=5.16\times10^7$ s $=1.64$ years.</p>
+<p>Speeds $v=2\pi r/T$: light star $2\pi(2.0\times10^{11})/5.16\times10^7=2.4\times10^4$ m/s; heavy star half of that, $1.2\times10^4$ m/s. Momenta are equal and opposite ($2\times10^{30}(2.4\times10^4)=4\times10^{30}(1.2\times10^4)$ in magnitude), as they must be in the cm frame.</p>`}
   ],
   mcq:[
   {id:"q1", q:String.raw`<p>A 0.50 kg ball initially at rest receives a force pulse that rises linearly from 0 to a peak of 20 N in 0.25 s and then falls linearly back to 0 in another 0.25 s. The speed of the ball after the pulse is</p>`, choices:["2.5 m/s","5.0 m/s","10 m/s","20 m/s","40 m/s"], a:2,
@@ -161,7 +266,33 @@ $$y_{cm}=\frac{\sigma}{M}\int_0^R2y\sqrt{R^2-y^2}\,dy$$
   {id:"q10", q:String.raw`<p>A 2.0 kg puck moving in the $+x$ direction at 3.0 m/s collides with a 1.0 kg puck moving in the $+y$ direction at 6.0 m/s. They stick together. The velocity of the combined pucks is</p>`, choices:["2.0 m/s at $45^\\circ$ above the $+x$ axis","2.8 m/s at $45^\\circ$ above the $+x$ axis","3.0 m/s at $45^\\circ$ above the $+x$ axis","4.0 m/s at $45^\\circ$ above the $+x$ axis","2.8 m/s at $27^\\circ$ above the $+x$ axis"], a:1,
    why:String.raw`<p>$p_x=2(3)=6$, $p_y=1(6)=6$ kg m/s; $M=3$ kg so $\vec v=(2,2)$ m/s, speed $2\sqrt2\approx2.8$ m/s at $45^\circ$. Adding the momentum magnitudes (12) and dividing by $M$ gives 4.0 m/s, which wrongly treats perpendicular vectors as parallel.</p>`},
   {id:"q11", q:String.raw`<p>A ball is dropped from 1.0 m onto a hard floor and rebounds to a height of 0.64 m. The coefficient of restitution for the ball-floor collision is</p>`, choices:["0.64","0.80","0.90","0.36","0.50"], a:1,
-   why:String.raw`<p>Speed before impact is $\sqrt{2gh_0}$ and after is $\sqrt{2gh}$, so $e=\sqrt{h/h_0}=\sqrt{0.64}=0.80$. The height ratio itself (0.64) is $e^2$, which is the fraction of kinetic energy retained.</p>`}
+   why:String.raw`<p>Speed before impact is $\sqrt{2gh_0}$ and after is $\sqrt{2gh}$, so $e=\sqrt{h/h_0}=\sqrt{0.64}=0.80$. The height ratio itself (0.64) is $e^2$, which is the fraction of kinetic energy retained.</p>`},
+  {id:"q12", q:String.raw`<p>A 3.0 kg block moving at 4.0 m/s on a frictionless surface hits a stationary 1.0 kg block that has a light spring attached to its front. The maximum energy stored in the spring is</p>`, choices:["3.0 J","4.5 J","6.0 J","18 J","24 J"], a:2,
+   why:String.raw`<p>At maximum compression both blocks move at $V=12/4=3.0$ m/s. Kinetic energy left is $\tfrac12(4)(9)=18$ J out of 24 J, so 6.0 J is in the spring ($=\tfrac12\mu v^2$ with $\mu=0.75$ kg). The tempting 24 J would require the blocks to be at rest, which momentum conservation forbids.</p>`},
+  {id:"q13", q:String.raw`<p>A ball is dropped from a height $h_0$ onto a hard floor. The coefficient of restitution is $e=0.50$. How high does it rise after the third bounce?</p>`, choices:["$h_0/8$","$h_0/16$","$h_0/32$","$h_0/64$","$h_0/6$"], a:3,
+   why:String.raw`<p>Speed is multiplied by $e$ at each bounce, and height goes as speed squared, so $h_n=e^{2n}h_0=(1/2)^6h_0=h_0/64$. The tempting $h_0/8$ multiplies the <i>height</i> by $e$ (rather than $e^2$) each time.</p>`},
+  {id:"q14", q:String.raw`<p>A mass $m$ moving at speed $v$ makes a head-on elastic collision with a stationary mass $3m$. What fraction of the initial kinetic energy is transferred to the $3m$ mass?</p>`, choices:["1/4","1/2","3/4","9/16","1"], a:2,
+   why:String.raw`<p>$v_{2f}=\dfrac{2m}{4m}v=v/2$, so $K_2=\tfrac12(3m)(v/2)^2=\tfrac38mv^2$, which is $3/4$ of $\tfrac12mv^2$ (formula $4m_1m_2/(m_1+m_2)^2=12/16$). Only equal masses transfer everything. The tempting 1/2 comes from the speed ratio, not the energy ratio.</p>`},
+  {id:"q15", q:String.raw`<p>A 0.50 kg ball hits the floor moving down at 6.0 m/s and leaves moving up at 4.0 m/s. The contact lasts 0.020 s. Taking $g=10$ m/s², the average force the floor exerts on the ball is</p>`, choices:["5.0 N","100 N","245 N","250 N","255 N"], a:4,
+   why:String.raw`<p>Net impulse up $=0.50(4.0+6.0)=5.0$ N s, so the average <i>net</i> force is $250$ N. The floor force also has to cancel gravity: $N_{avg}-mg=250$, so $N_{avg}=255$ N. Answering 250 N forgets that the net force is not the floor force alone.</p>`},
+  {id:"q16", q:String.raw`<p>An 80 kg person stands at one end of a 160 kg boat at rest on calm water and walks 3.0 m to the other end (relative to the boat). Neglect water drag. The boat moves</p>`, choices:["0.5 m opposite to the person's walk","1.0 m opposite to the person's walk","1.0 m in the direction of the walk","1.5 m opposite to the person's walk","3.0 m opposite to the person's walk"], a:1,
+   why:String.raw`<p>The cm cannot move: $80(3.0-s)=160s\Rightarrow s=1.0$ m, backward. The person moves 2.0 m relative to the water. The tempting 1.5 m comes from splitting the 3 m equally, which would be right only for equal masses.</p>`},
+  {id:"q17", q:String.raw`<p>Two objects have the same magnitude of momentum. Object A has four times the mass of object B. The ratio $K_A/K_B$ of their kinetic energies is</p>`, choices:["4","2","1","1/2","1/4"], a:4,
+   why:String.raw`<p>$K=p^2/2m$, so at fixed $p$ the energy is inversely proportional to mass: $K_A/K_B=m_B/m_A=1/4$. The tempting 4 (or 1) mixes up this with the case of equal speeds ($K\propto m$) or equal energies.</p>`},
+  {id:"q18", q:String.raw`<p>Sand falls vertically onto a horizontal conveyor belt moving at a constant 3.0 m/s, at a rate of 2.0 kg/s. The extra horizontal force needed to keep the belt speed constant is</p>`, choices:["1.5 N","3.0 N","6.0 N","9.0 N","18 N"], a:2,
+   why:String.raw`<p>$F=v\,dm/dt=3.0(2.0)=6.0$ N. The 18 N option is $v^2\,dm/dt$, which has the units of power (18 W), not of force. Note also that only half of that 18 W goes into the sand's kinetic energy.</p>`},
+  {id:"q19", q:String.raw`<p>A 0.50 kg lump of putty moving at 8.0 m/s sticks to a 1.5 kg block at rest on a table. The coefficient of kinetic friction is 0.20 ($g=10$ m/s²). How far does the combined object slide?</p>`, choices:["16 m","0.5 m","1.0 m","2.0 m","4.0 m"], a:2,
+   why:String.raw`<p>Collision: $0.50(8.0)=2.0V\Rightarrow V=2.0$ m/s. Slide: $V^2=2\mu gd\Rightarrow d=4/(2\cdot0.20\cdot10)=1.0$ m. The tempting 16 m uses the putty's 8.0 m/s for the slide, forgetting that the collision consumed most of the speed.</p>`},
+  {id:"q20", q:String.raw`<p>Two stars, of mass $M$ and $3M$, move in circular orbits about their common center of mass. The ratio of the orbital speed of the lighter star to that of the heavier star is</p>`, choices:["1/3","1","3","9","$\\sqrt3$"], a:2,
+   why:String.raw`<p>Both stars complete one orbit in the same period, and the lighter star is three times farther from the cm ($m_1r_1=m_2r_2$). Since $v=2\pi r/T$, its speed is three times larger. Equal momentum magnitudes, not equal speeds, is the right statement for the cm frame. 9 would come from squaring the ratio.</p>`},
+  {id:"q21", q:String.raw`<p>A uniform disk of radius $R$ is centered at the origin. A circular hole of radius $R/2$ is cut out, centered at $x=R/2$. The $x$-coordinate of the center of mass of the remaining disk is</p>`, choices:["$-R/8$","$-R/6$","$-R/4$","$-R/3$","$-R/2$"], a:1,
+   why:String.raw`<p>The hole has $1/4$ of the disk's area. $x_{cm}=\dfrac{M(0)-(M/4)(R/2)}{M-M/4}=\dfrac{-R/8}{3/4}=-\dfrac R6$. The tempting $-R/8$ forgets to divide by the smaller remaining mass.</p>`},
+  {id:"q22", q:String.raw`<p>A puck makes an elastic, glancing collision with an identical stationary puck. After the collision the incoming puck moves at $37^\circ$ to its original direction. The other puck moves at what angle to the original direction, on the other side?</p>`, choices:["$37^\\circ$","$45^\\circ$","$53^\\circ$","$63^\\circ$","$90^\\circ$"], a:2,
+   why:String.raw`<p>For equal masses, elastic, one at rest, the final velocities are perpendicular, so the angles add to $90^\circ$: $90-37=53^\circ$. The tempting $37^\circ$ assumes a symmetric scattering, which would hold only for equal speeds, and $45^\circ$ for a deflection that is not given.</p>`},
+  {id:"q23", q:String.raw`<p>A 2.0 kg block and a 3.0 kg block lie on a frictionless table, joined by a spring. A constant 10 N horizontal force along the spring pulls the 2.0 kg block (the spring stretches and oscillates). The acceleration of the center of mass of the two blocks is</p>`, choices:["5.0 m/s²","3.3 m/s²","2.5 m/s²","2.0 m/s²","1.0 m/s²"], a:3,
+   why:String.raw`<p>$a_{cm}=F_{ext}/M=10/5.0=2.0$ m/s². The spring force is internal and cannot affect $a_{cm}$. 5.0 m/s² would be the acceleration of the 2.0 kg block on its own, which ignores the other block.</p>`},
+  {id:"q24", q:String.raw`<p>A uniform solid cone has height $H$. Its center of mass lies on the axis at a distance from the apex of</p>`, choices:["$H/4$","$H/3$","$H/2$","$2H/3$","$3H/4$"], a:4,
+   why:String.raw`<p>Slicing into disks, $dm\propto y^2dy$, so $y_{cm}=\int y^3dy/\int y^2dy=(H^4/4)/(H^3/3)=3H/4$ from the apex, which is $H/4$ above the base. The tempting $H/3$ belongs to a triangle (an area, with $dm\propto y$ weighting differently), and $H/4$ is the distance from the base, not the apex.</p>`}
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Colliding carts and energy loss",
@@ -215,6 +346,54 @@ $$y_{cm}=\frac{\sigma}{M}\int_0^R2y\sqrt{R^2-y^2}\,dy$$
 <p>(b) $x_{cm}=\dfrac1M\int_0^Lx(\alpha x^2)\,dx=\dfrac{\alpha L^4/4}{\alpha L^3/3}=\dfrac{3L}{4}$.</p>
 <p>(c) $x_{cm}=\dfrac{M(3L/4)+M(L)}{2M}=\dfrac{7L}{8}$.</p>
 <p>(d) The density grows with $x$, so a greater share of the mass sits in the right half; the center of mass is the mass-weighted average position and is pulled toward the heavier end. For uniform density it would be at $L/2$.</p>
-<p>(e) $a_{cm}=F/M=\dfrac{3F}{\alpha L^3}$ in the direction of $\vec F$. Applying the force at $x=0$ gives the same $\vec a_{cm}$, because $\vec F_{ext,net}=M\vec a_{cm}$ involves only the net external force, not where it acts. (The rotation of the rod about its cm would differ.)</p>`}
+<p>(e) $a_{cm}=F/M=\dfrac{3F}{\alpha L^3}$ in the direction of $\vec F$. Applying the force at $x=0$ gives the same $\vec a_{cm}$, because $\vec F_{ext,net}=M\vec a_{cm}$ involves only the net external force, not where it acts. (The rotation of the rod about its cm would differ.)</p>`},
+  {id:"f3", type:"Experimental design & analysis", title:"Testing momentum conservation on an air track",
+   prompt:String.raw`<p>A student uses a level air track to test conservation of momentum. Glider A (mass $m_A=0.250$ kg) is pushed toward glider B (mass $m_B=0.500$ kg), initially at rest. Velcro strips make them stick together. Two photogates measure speeds using a flag of known width on each glider.</p>
+<p>(a) Describe the procedure: what is measured, with what equipment, how the track is made level and how the student checks that friction and tilt are negligible.<br>
+(b) Four trials give the following measurements of speed of A before the collision, $v_i$, and speed of the combined gliders after, $v_f$:</p>
+<table><tr><th>Trial</th><th>$v_i$ (m/s)</th><th>$v_f$ (m/s)</th></tr><tr><td>1</td><td>0.40</td><td>0.135</td></tr><tr><td>2</td><td>0.60</td><td>0.200</td></tr><tr><td>3</td><td>0.80</td><td>0.265</td></tr><tr><td>4</td><td>1.00</td><td>0.335</td></tr></table>
+<p>For trial 3, calculate the total momentum before and after and the percentage difference. Is this within what you would expect?<br>
+(c) If momentum is conserved, what quantity plotted against what gives a straight line, and what is the predicted slope? The best-fit line through the origin has slope $0.334\pm0.002$. Does this support conservation of momentum? Explain.<br>
+(d) For trial 3 calculate the fraction of the initial kinetic energy that is lost, and compare it to the theoretical fraction. Does this fraction depend on $v_i$?<br>
+(e) Identify one systematic error that would make the measured $v_f$ smaller than predicted, and describe a measurement the student could make to test whether it matters.</p>`,
+   pts:[
+    {p:1,d:"(a) Measures masses with a balance and speeds with gate times and the flag width ($v=w/\\Delta t$); states that speed is taken just before and just after the collision"},
+    {p:1,d:"(a) Levels the track by checking that a glider at rest does not drift, or that gate speeds along a free glide are equal"},
+    {p:1,d:"(b) $p_i=0.250(0.80)=0.200$ kg m/s and $p_f=0.750(0.265)=0.199$ kg m/s"},
+    {p:1,d:"(b) Difference about 0.6%, consistent with measurement uncertainty"},
+    {p:1,d:"(c) Plot $v_f$ against $v_i$ (linear, through the origin); slope $m_A/(m_A+m_B)=1/3$"},
+    {p:1,d:"(c) Concludes that $0.334\\pm0.002$ agrees with $0.333$ within one standard error, which supports conservation"},
+    {p:1,d:"(d) Correct energies: $K_i=0.0800$ J, $K_f=0.0263$ J, fraction lost $\\approx0.67$"},
+    {p:1,d:"(d) Theoretical fraction $m_B/(m_A+m_B)=2/3$ agrees, and it does not depend on $v_i$"},
+    {p:1,d:"(e) A plausible systematic error (such as residual air-track drag, a slight tilt, or Velcro contact before the second gate)"},
+    {p:1,d:"(e) A test that isolates it (such as timing a freely gliding glider at both gates to measure its speed loss)"}],
+   solution:String.raw`<p>(a) Measure $m_A,m_B$ with a balance. Place photogate 1 just before the collision point and gate 2 after it; with a flag of width $w$ the speed is $w/\Delta t$ for each gate. Level the track by releasing a glider at rest in several places and adjusting feet until it does not drift, and test friction/drag by measuring the speed of one glider at two gates with no collision.</p>
+<p>(b) $p_i=0.250(0.80)=0.200$ kg m/s; $p_f=(0.750)(0.265)=0.19875\approx0.199$ kg m/s. Difference 0.6%, small compared to the likely few-percent timing and reading uncertainty.</p>
+<p>(c) $v_f=\dfrac{m_A}{m_A+m_B}v_i$, so plot $v_f$ against $v_i$ for a line through the origin of slope $0.250/0.750=0.333$. The fitted $0.334\pm0.002$ agrees, so the data support conservation of momentum (a different slope would mean a momentum loss or a mistake in the masses).</p>
+<p>(d) $K_i=\tfrac12(0.250)(0.80)^2=0.0800$ J; $K_f=\tfrac12(0.750)(0.265)^2=0.0263$ J; lost fraction $=1-0.329=0.671$. Theory: $1-\dfrac{m_A}{m_A+m_B}=\dfrac{m_B}{m_A+m_B}=\dfrac23=0.667$. It does not depend on $v_i$ because $K_f/K_i=m_A/(m_A+m_B)$ is a pure mass ratio.</p>
+<p>(e) Air-track drag reduces the speed between the second gate and the collision, or between the collision and the second gate. To test it, launch a single glider through both gates with no collision and compare the two speeds; a drop of a few percent would explain a $v_f$ that is slightly too small.</p>`},
+  {id:"f4", type:"Mathematical routines", title:"Collision with a spring bumper",
+   prompt:String.raw`<p>A 1.0 kg block A moves at 6.0 m/s on a frictionless horizontal surface toward a 2.0 kg block B at rest. A light spring of constant $k=300$ N/m is attached to the front of B and is initially relaxed.</p>
+<p>(a) Calculate the speed of the blocks at the moment the spring is maximally compressed.<br>
+(b) Calculate the maximum compression of the spring.<br>
+(c) Calculate the velocity of each block after the spring has returned to its natural length and the blocks have separated.<br>
+(d) On one set of axes, sketch the velocities of A and B versus time from before contact until after separation. Label the value at maximum compression and indicate where the slopes are steepest.<br>
+(e) Explain why the total kinetic energy is not constant during the collision, although total energy and total momentum are. State the kinetic energy at maximum compression.</p>`,
+   pts:[
+    {p:1,d:"(a) $V=m_Av_0/(m_A+m_B)=2.0$ m/s at the moment of equal velocities"},
+    {p:1,d:"(b) Energy conservation: $\\tfrac12(1)(36)=\\tfrac12(3)(4)+\\tfrac12kx^2$"},
+    {p:1,d:"(b) $x=0.28$ m"},
+    {p:1,d:"(c) Uses momentum with elastic relative-velocity reversal (or energy conservation)"},
+    {p:1,d:"(c) $v_A=-2.0$ m/s and $v_B=+4.0$ m/s"},
+    {p:1,d:"(d) A decreases from 6.0 through 0 to $-2.0$; B increases from 0 to $+4.0$; the curves cross at 2.0 m/s at maximum compression"},
+    {p:1,d:"(d) Slopes steepest at maximum compression (spring force largest); flat before contact and after separation; the slope of A has magnitude twice that of B at each instant"},
+    {p:1,d:"(d) Slopes opposite in sign with $|a_B|=|a_A|/2$ because the spring forces are equal in magnitude (third law)"},
+    {p:1,d:"(e) Part of the kinetic energy is stored as spring potential energy during compression, so $K$ changes while $K+U$ and $\\vec P$ are conserved"},
+    {p:1,d:"(e) $K$ at maximum compression is 6.0 J (and 12 J is in the spring)"}],
+   solution:String.raw`<p>(a) Momentum is conserved at every instant: $1.0(6.0)=3.0V\Rightarrow V=2.0$ m/s. Maximum compression occurs when the relative velocity is zero.</p>
+<p>(b) $18=\tfrac12(3.0)(2.0)^2+\tfrac12(300)x^2=6+150x^2\Rightarrow x^2=0.080$, $x=0.28$ m.</p>
+<p>(c) The spring is ideal, so the interaction is elastic: $v_A=\dfrac{1-2}{3}(6.0)=-2.0$ m/s, $v_B=\dfrac{2(1)}{3}(6.0)=+4.0$ m/s. Check: $6=-2+2(4)$ and $K=\tfrac12(1)(4)+\tfrac12(2)(16)=18$ J.</p>
+<p>(d) Velocity of A: a horizontal line at 6.0, then a curve that falls through 0 to a flat line at $-2.0$. Velocity of B: flat at 0, then rising smoothly to flat at $+4.0$. The two curves cross at 2.0 m/s at the time of maximum compression; the slopes are steepest there because the spring force $kx$ is largest. The spring force on A and on B is equal in magnitude, so $|dv_A/dt|=2|dv_B/dt|$ throughout.</p>
+<p>(e) The spring force does work on each block: it takes kinetic energy from A and gives only some of it to B, the rest going into spring potential energy, and gives it back later. Total energy $K+U$ and total momentum are conserved, but $K$ alone dips. At maximum compression $K=\tfrac12(3.0)(2.0)^2=6.0$ J, and 12 J is stored in the spring ($\tfrac12\mu v_{rel}^2$ with $\mu=2/3$ kg: $\tfrac12\cdot\tfrac23\cdot36=12$ J).</p>`}
   ]
 });

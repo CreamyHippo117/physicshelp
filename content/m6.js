@@ -1,5 +1,5 @@
 PH.unit({
-  id:"m6", course:"mech", order:80, hours:6,
+  id:"m6", course:"mech", order:80, hours:7.5,
   title:"Mechanics 6: Oscillations",
   blurb:"Simple harmonic motion is one ODE, $\\ddot x=-\\omega^2x$, and it shows up everywhere: springs, pendulums, and anything near a stable equilibrium. Solve it once, then recognize it.",
   needs:["m1","m2","m3","m5"],
@@ -10,7 +10,8 @@ PH.unit({
     "Apply $T=2\\pi\\sqrt{I/mgd}$ to a physical pendulum",
     "Use energy conservation in SHM and read $x$, $v$, $a$ graphs, including phase relationships",
     "Describe qualitatively how damping changes amplitude, energy and period",
-    "Linearize period data (e.g. $T^2$ vs $L$ or $m$) to extract $g$ or $k$"
+    "Linearize period data (e.g. $T^2$ vs $L$ or $m$) to extract $g$ or $k$",
+    "Find $\\omega$ for composite systems (massive pulleys, rolling bodies) with the energy method, and find when a second body slips or leaves an oscillating platform"
   ],
   lessons:[
   {id:"l1", title:"SHM as an ODE, and the spring", videos:[{title:"Lecture 17 - Simple Harmonic Motion",url:"https://oyc.yale.edu/physics/phys-200/lecture-17",src:"Yale PHYS 200 (Shankar)",note:"Mass on a spring, ODE and its solution, amplitude and phase."},{title:"Search: simple harmonic motion x'' = -omega^2 x AP Physics C",url:"https://www.youtube.com/results?search_query=simple+harmonic+motion+x''+=+-omega^2+x+AP+Physics+C",src:"YouTube search",note:"Look for the ODE and cos(wt+phi) solution, vertical spring."}], html:String.raw`
@@ -131,8 +132,82 @@ $$m\ddot x=-kx-b\dot x.$$
 <li><b>Critically damped</b>: returns to equilibrium as fast as possible without oscillating (used in door closers and car shock absorbers).</li>
 <li><b>Overdamped</b>: returns slowly without oscillating, like moving through honey.</li>
 </ul>
-<p>Since $E\propto A^2$, the mechanical energy of a lightly damped oscillator decays like $e^{-bt/m}$: each cycle loses the same <i>fraction</i> of its energy, not the same amount. The lost energy becomes thermal energy. To keep a damped oscillator going, a <b>driving force</b> can feed energy in; driving near $\omega$ produces <b>resonance</b>, a large amplitude response. Both topics are mentioned on the AP only qualitatively.</p>
-<div class="box key"><b>Summary of what changes with damping:</b> amplitude falls with time, energy falls with time, period grows slightly. The equilibrium position does not move.</div>`}
+<p>Since $E\propto A^2$, the mechanical energy of a lightly damped oscillator decays like $e^{-bt/m}$: each cycle loses the same <i>fraction</i> of its energy, not the same amount. The lost energy becomes thermal energy. To keep a damped oscillator going, a <b>driving force</b> can feed energy in; driving near $\omega$ produces <b>resonance</b>, a large amplitude response. The AP typically treats both qualitatively; quantitative versions appear in the extension lesson below.</p>
+<div class="box key"><b>Summary of what changes with damping:</b> amplitude falls with time, energy falls with time, period grows slightly. The equilibrium position does not move.</div>`},
+  {id:"l5", title:"The energy method, composite systems, and when a block slips", videos:[{title:"Search: energy method find angular frequency spring massive pulley effective mass AP Physics C",url:"https://www.youtube.com/results?search_query=energy+method+angular+frequency+spring+massive+pulley+effective+mass+physics",src:"YouTube search",note:"Look for dE/dt = 0 applied to a spring with a pulley or rolling cylinder."},{title:"Search: block on oscillating platform maximum amplitude before slipping or losing contact",url:"https://www.youtube.com/results?search_query=block+on+oscillating+platform+maximum+amplitude+before+slipping+SHM",src:"YouTube search",note:"Condition A omega^2 = mu g (slipping) and A omega^2 = g (losing contact)."}], html:String.raw`
+<p>Newton's second law is not always the quickest way to find $\omega$. When pulleys, rolling bodies or several masses are involved, <b>energy</b> is a scalar and needs no free-body diagrams for every piece.</p>
+<h4>Method: differentiate the energy</h4>
+<p>If the only forces doing work are conservative (spring, gravity) and the system has one coordinate $x$, then $E=K+U$ is constant. Write it in the form</p>
+$$E=\tfrac12M_{\rm eff}\,\dot x^2+\tfrac12k_{\rm eff}\,x^2\ (+\text{const}),$$
+<p>where $x$ is measured from <i>equilibrium</i>. Setting $dE/dt=0$ gives $M_{\rm eff}\dot x\ddot x+k_{\rm eff}x\dot x=0$, so after cancelling $\dot x$:</p>
+$$\ddot x=-\frac{k_{\rm eff}}{M_{\rm eff}}\,x\ \Rightarrow\ \omega=\sqrt{\frac{k_{\rm eff}}{M_{\rm eff}}}.$$
+<p>All the work is in finding $M_{\rm eff}$: add up the kinetic energies of every moving piece, expressed through the one velocity $\dot x$.</p>
+<ul>
+<li><b>Massive pulley.</b> A string with speed $v$ rolls a pulley (moment of inertia $I$, radius $R$) without slipping, so $\omega_{\rm pulley}=v/R$ and its kinetic energy is $\tfrac12I(v/R)^2=\tfrac12(I/R^2)v^2$. The pulley acts like an extra mass $I/R^2$ moving at the string speed. For a uniform disk, $I/R^2=M_p/2$. This is the reason an ideal (massless) pulley is an approximation that overestimates $\omega$.</li>
+<li><b>Rolling cylinder on a spring.</b> A solid cylinder (mass $m$, $I=\tfrac12mR^2$) rolling without slipping has $K=\tfrac12mv^2+\tfrac12(\tfrac12mR^2)(v/R)^2=\tfrac34mv^2$, so $M_{\rm eff}=\tfrac32m$. Rolling is slower than sliding because some of the energy goes into rotation.</li>
+<li><b>Vertical spring.</b> The stored energy is $U=\tfrac12k(\Delta+y)^2-mgy$ with $k\Delta=mg$. Expanding: $U=\tfrac12k\Delta^2+k\Delta y+\tfrac12ky^2-mgy=\text{const}+\tfrac12ky^2$. The linear terms cancel exactly, so about the shifted equilibrium the total potential energy is just $\tfrac12ky^2$: gravity is absorbed into the choice of origin. This is why energy bookkeeping about the equilibrium point looks identical to the horizontal case.</li>
+</ul>
+<div class="box key"><b>Check:</b> the energy method must agree with the force method. For a mass $m$ on a spring plus a hanging mass $m_2$ joined by a string over a disk pulley of mass $M_p$, the effective mass is $m+m_2+M_p/2$, and the hanging weight $m_2g$ only moves the equilibrium.</div>
+<h4>Two blocks: when does the top one slip or leave?</h4>
+<p>A second body riding on an oscillator is carried along only by a force it can actually get. Its acceleration is whatever the oscillator's is, $a=-\omega^2x$, with largest size $A\omega^2$.</p>
+<ul>
+<li><b>Horizontal (friction supplies the force).</b> Block $m$ rests on a platform that oscillates horizontally. The only horizontal force on $m$ is static friction, and it must provide $ma$. Friction is limited to $\mu_smg$, so the block rides along if $m A\omega^2\le\mu_smg$:
+$$A_{\max}=\frac{\mu_sg}{\omega^2}.$$ Beyond this amplitude it slips at the extremes of the motion, where $|a|$ is largest.</li>
+<li><b>Vertical (the normal force supplies it).</b> Block $m$ on a platform that oscillates up and down. Taking up as positive, $N-mg=ma$, so $N=m(g+a)$. The smallest $N$ occurs when the acceleration is most negative (downward), at the top of the motion where $a=-A\omega^2$: $N=m(g-A\omega^2)$. Contact is lost when $N\to0$:
+$$A_{\max}=\frac{g}{\omega^2}.$$ Beyond this, the platform accelerates down faster than free fall and the block lifts off near the top.</li>
+</ul>
+<p>For a block resting on another block that is itself on a spring (both on a frictionless table), the whole stack oscillates with $\omega=\sqrt{k/(M+m)}$, so the top block needs friction $m\,|a|$, and slipping starts when $A\omega^2=\mu_sg$ for the combined $\omega$, i.e. $A_{\max}=\mu_sg(M+m)/k$.</p>
+<div class="box trap"><b>Trap:</b> in the stacked case use the <i>total</i> mass in $\omega$ (the spring accelerates both), but only the <i>top</i> block's own mass cancels in the friction condition. Using $M$ alone for the stack gives an amplitude that is too small.</div>`},
+  {id:"l6", title:"Extension: reference circle, phase, time-to-position, torsion, and potentials", extra:true, videos:[{title:"Search: simple harmonic motion reference circle projection of uniform circular motion",url:"https://www.youtube.com/results?search_query=simple+harmonic+motion+reference+circle+projection+uniform+circular+motion",src:"YouTube search",note:"Why SHM is the shadow of circular motion."}], html:String.raw`
+<h4>SHM is the shadow of circular motion</h4>
+<p>A point moving on a circle of radius $A$ with constant angular speed $\omega$, at angle $\omega t+\varphi$ from the $+x$ axis, has $x$-coordinate $A\cos(\omega t+\varphi)$ and $y$-coordinate $A\sin(\omega t+\varphi)$. Each coordinate on its own is exactly SHM. The circle is the <b>reference circle</b> (or phasor diagram) and the angle $\omega t+\varphi$ is the <b>phase</b>.</p>
+<svg class="fig" viewBox="0 0 340 200" width="340" role="img" aria-label="Reference circle of radius A: a point P moves counterclockwise at angular speed omega; its projection on the horizontal axis is x equals A cos of omega t plus phi">
+<circle cx="110" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+<line x1="30" y1="100" x2="270" y2="100" stroke="currentColor" stroke-opacity=".6"/><line x1="110" y1="20" x2="110" y2="180" stroke="currentColor" stroke-opacity=".3"/>
+<line x1="110" y1="100" x2="156" y2="61.4" stroke="currentColor" stroke-width="2.2"/><circle cx="156" cy="61.4" r="5" fill="currentColor"/>
+<line x1="156" y1="61.4" x2="156" y2="100" stroke="currentColor" stroke-dasharray="3 3"/><circle cx="156" cy="100" r="4" fill="currentColor" fill-opacity=".5" stroke="currentColor"/>
+<path d="M 138,100 A 28 28 0 0 0 131.5,82" fill="none" stroke="currentColor"/><text x="142" y="92">ωt+φ</text>
+<text x="160" y="56">P</text><text x="128" y="118">x</text><text x="260" y="116">x</text><text x="170" y="170">A</text><text x="190" y="30">P moves at ω</text><text x="190" y="46">shadow on axis: SHM</text></svg>
+<p>The velocity of $P$ is $A\omega$ tangent to the circle, and its $x$-component is $-A\omega\sin(\omega t+\varphi)$, which is $v_x$ of the oscillator. The centripetal acceleration $A\omega^2$ points at the center and has $x$-component $-A\omega^2\cos(\omega t+\varphi)=-\omega^2x$. The period of SHM is the period of the circle, $T=2\pi/\omega$. Two uses:</p>
+<ul>
+<li><b>Phase differences.</b> If oscillator 2 has phase $\varphi_2=\varphi_1-\pi/2$, its point trails by a quarter turn: it reaches each position a quarter period (T/4) <i>after</i> oscillator 1. A positive phase constant means the oscillator is <i>ahead</i> (it starts partway through the cycle).</li>
+<li><b>Time-to-position.</b> The time between two positions is the angle swept divided by $\omega$. From $x=A$ (angle $0$) to $x=A/2$: $\cos\theta=\tfrac12$, $\theta=\pi/3$, so $t=\dfrac{\pi/3}{\omega}=\dfrac T6$. From $x=A/2$ on to $x=0$ takes $\pi/6$ of angle, $T/12$. The oscillator spends more time near the turning points (where it is slow) than near the center.</li>
+</ul>
+<h4>Reading phase from a graph</h4>
+<p>If $x(0)=0$ and $x$ is increasing, the oscillator is at the bottom of the reference circle moving right, which is $\varphi=-\pi/2$ ($x=A\cos(\omega t-\pi/2)=A\sin\omega t$). If $x(0)=0$ and decreasing, $\varphi=+\pi/2$. If $x(0)=-A$, $\varphi=\pi$. Always check with the sign of $v(0)=-A\omega\sin\varphi$.</p>
+<h4>Rotational SHM: the torsion pendulum</h4>
+<p>A disk hung on a wire twists through angle $\theta$, and the wire exerts a restoring torque $\tau=-\kappa\theta$ ($\kappa$ is the <b>torsion constant</b>, N m/rad). Then $I\ddot\theta=-\kappa\theta$:</p>
+$$\omega=\sqrt{\frac{\kappa}{I}},\qquad T=2\pi\sqrt{\frac I\kappa}.$$
+<p>No small-angle approximation is needed here, only that the wire stays within its elastic range. Same pattern: spring constant becomes $\kappa$, mass becomes $I$.</p>
+<h4>SHM from a potential energy curve</h4>
+<p>Near a stable minimum $x_0$ of $U(x)$, $U\approx U_0+\tfrac12U''(x_0)(x-x_0)^2$, so $k_{\rm eff}=U''(x_0)$ and $\omega=\sqrt{U''(x_0)/m}$. Example (a diatomic-molecule model): $U=U_0\left[(r_0/x)^{12}-2(r_0/x)^6\right]$ has its minimum at $x=r_0$ with
+$$U''(r_0)=U_0\left[\frac{156}{r_0^2}-\frac{84}{r_0^2}\right]=\frac{72U_0}{r_0^2},$$
+so a small oscillation has $\omega=\sqrt{72U_0/(mr_0^2)}$. (First derivative: $U'=U_0[-12r_0^{12}x^{-13}+12r_0^6x^{-7}]$, zero at $x=r_0$, confirming the minimum.)</p>
+<div class="box key"><b>Time-averages.</b> Over a full cycle, the average of $\sin^2$ or $\cos^2$ is $\tfrac12$, so the <i>time-averaged</i> kinetic and potential energies are each $\tfrac12E=\tfrac14kA^2$. (They are not equal at every instant, only on average.)</div>`},
+  {id:"l7", title:"Extension: damped and driven oscillators with numbers", extra:true, videos:[{title:"Forced Oscillations with Damping, Destructive Resonance (8.03, Lecture 3)",url:"https://opencw.aprende.org/courses/physics/8-03-physics-iii-vibrations-and-waves-fall-2004/video-lectures/lecture-3",src:"MIT OCW 8.03 (Walter Lewin)",note:"Driven damped oscillator and resonance; the ODE treatment matches this lesson."},{title:"Search: damped driven harmonic oscillator resonance amplitude phase Q factor",url:"https://www.youtube.com/results?search_query=damped+driven+harmonic+oscillator+resonance+amplitude+phase+Q+factor",src:"YouTube search",note:"Steady-state amplitude and the phase swing through 90 degrees."}], html:String.raw`
+<h4>Damped: the numbers</h4>
+<p>Write the damped equation as $\ddot x+\gamma\dot x+\omega_0^2x=0$ with $\gamma=b/m$ and $\omega_0=\sqrt{k/m}$. Try $x=e^{st}$: $s^2+\gamma s+\omega_0^2=0$, so $s=-\tfrac\gamma2\pm\sqrt{\tfrac{\gamma^2}4-\omega_0^2}$.</p>
+<ul>
+<li>$\gamma&lt;2\omega_0$: <b>underdamped</b>. $x=Ae^{-\gamma t/2}\cos(\omega't+\varphi)$ with $\omega'=\sqrt{\omega_0^2-\gamma^2/4}$.</li>
+<li>$\gamma=2\omega_0$: <b>critical damping</b> (a repeated root, $x=(C+Dt)e^{-\gamma t/2}$).</li>
+<li>$\gamma&gt;2\omega_0$: <b>overdamped</b>, two decaying exponentials, no oscillation.</li>
+</ul>
+<p>The amplitude falls by $1/e$ in time $2/\gamma=2m/b$. Since $E\propto A^2$, the energy falls by $1/e$ in $\tau_E=1/\gamma=m/b$. The <b>quality factor</b> is $Q=\omega_0/\gamma=\omega_0m/b$. For large $Q$ the fraction of energy lost per cycle is about $2\pi/Q$, and the oscillator rings for about $Q/\pi$ cycles before its amplitude falls by $1/e$.</p>
+<h4>Driven: resonance</h4>
+<p>Now add a sinusoidal driving force $F_0\cos\omega t$ at a frequency $\omega$ you choose. With $f_0=F_0/m$:</p>
+$$\ddot x+\gamma\dot x+\omega_0^2x=f_0\cos\omega t.$$
+<p>The homogeneous (damped) part dies out like $e^{-\gamma t/2}$; what remains is the <b>steady state</b>, which oscillates at the <i>driving</i> frequency. Use a complex trick: $\cos\omega t=\mathrm{Re}\,e^{i\omega t}$, try $x=\mathrm{Re}\,[Ce^{i\omega t}]$, and substitute:</p>
+$$(\omega_0^2-\omega^2+i\gamma\omega)\,C=f_0\ \Rightarrow\ |C|=\frac{f_0}{\sqrt{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}}.$$
+<p>So $x_{ss}=A(\omega)\cos(\omega t-\delta)$ with</p>
+$$A(\omega)=\frac{F_0/m}{\sqrt{(\omega_0^2-\omega^2)^2+\gamma^2\omega^2}},\qquad\tan\delta=\frac{\gamma\omega}{\omega_0^2-\omega^2}.$$
+<ul>
+<li>Very slow driving ($\omega\to0$): $A\to F_0/k$ (the static displacement), $\delta\to0$: the mass follows the force.</li>
+<li>Very fast driving ($\omega\gg\omega_0$): $A\approx f_0/\omega^2\to0$, $\delta\to\pi$: the mass barely moves, and what motion there is is opposite to the force.</li>
+<li>At $\omega=\omega_0$: $A=\dfrac{f_0}{\gamma\omega_0}=Q\,\dfrac{F_0}{k}$ and $\delta=\pi/2$ (the displacement lags the force by a quarter cycle, so the velocity is in phase with the force, which is why the driver does the most work). The peak amplitude is $Q$ times the static response.</li>
+<li>The exact peak of $A(\omega)$ is at $\omega_r=\sqrt{\omega_0^2-\gamma^2/2}$, slightly below $\omega_0$; for light damping this is essentially $\omega_0$. The peak has a width of about $\gamma$, so higher $Q$ means a taller, narrower resonance.</li>
+</ul>
+<div class="box key"><b>Steady-state amplitude is independent of initial conditions.</b> The damped transient carries the initial data and then vanishes, leaving a motion set only by $F_0,\omega,k,m,b$. This is why a child on a swing pushed periodically settles into the push's rhythm.</div>
+<p>The same equation governs the series RLC circuit in E&amp;M ($L\leftrightarrow m$, $R\leftrightarrow b$, $1/C\leftrightarrow k$), so this analysis is reused there.</p>`}
   ],
   examples:[
   {id:"x1", title:"Spring-block numbers", problem:String.raw`<p>A $0.50$ kg block on a frictionless table is attached to a spring with $k=200$ N/m. It is pulled to $x=+0.10$ m and released from rest at $t=0$. Find (a) $\omega$ and $T$, (b) the maximum speed and maximum acceleration, (c) the speed when $x=0.06$ m, and (d) $x(t)$.</p>`,
@@ -151,7 +226,26 @@ $$m\ddot x=-kx-b\dot x.$$
 <p>On the Moon the static stretch would shrink (weaker $g$), but $\omega=\sqrt{k/m}$ has no $g$ in it. The period is unchanged.</p>`},
   {id:"x4", title:"A rod as a physical pendulum", problem:String.raw`<p>A uniform rod of length $1.2$ m and mass $m$ hangs from a frictionless pivot at one end and swings through small angles. Find its period, and the length of a simple pendulum with the same period. ($I_{\rm end}=\tfrac13mL^2$, $g=10$ m/s².)</p>`,
    solution:String.raw`<p>$d=L/2=0.6$ m. $T=2\pi\sqrt{\dfrac{I}{mgd}}=2\pi\sqrt{\dfrac{\tfrac13L^2}{g(L/2)}}=2\pi\sqrt{\dfrac{2L}{3g}}=2\pi\sqrt{\dfrac{2(1.2)}{30}}=2\pi\sqrt{0.08}\approx1.78$ s.</p>
-<p>A simple pendulum with $T=2\pi\sqrt{L_{\rm eq}/g}$ matches when $L_{\rm eq}=\tfrac23L=0.80$ m. (A simple pendulum of the full $1.2$ m would take $2.18$ s.)</p>`}
+<p>A simple pendulum with $T=2\pi\sqrt{L_{\rm eq}/g}$ matches when $L_{\rm eq}=\tfrac23L=0.80$ m. (A simple pendulum of the full $1.2$ m would take $2.18$ s.)</p>`},
+  {id:"x5", title:"Spring, string and a massive pulley (energy method)", problem:String.raw`<p>A $2.0$ kg block rests on a frictionless table. A spring ($k=120$ N/m) joins it to a fixed wall on one side. On the other side a light string runs over a pulley at the table's edge to a $1.0$ kg mass hanging freely. The pulley is a uniform disk of mass $1.0$ kg and radius $0.10$ m, and the string does not slip on it. Use $g=10$ m/s². (a) How far is the spring stretched at equilibrium? (b) Find $\omega$ and $T$ for small oscillations. (c) The system is displaced $0.050$ m from equilibrium and released from rest. Find the maximum speed of the block, and show the string stays taut.</p>`,
+   solution:String.raw`<p>(a) At equilibrium the hanging weight is balanced through the string by the spring: $kx_0=m_2g\Rightarrow x_0=10/120=0.083$ m.</p>
+<p>(b) Let $x$ be the block's displacement from equilibrium; every moving piece has speed $v=\dot x$. Energy about equilibrium (gravity on $m_2$ just shifts the origin, as for a vertical spring):
+$$E=\tfrac12(m_1+m_2)v^2+\tfrac12I\left(\tfrac vR\right)^2+\tfrac12kx^2=\tfrac12\left(m_1+m_2+\tfrac{M_p}{2}\right)v^2+\tfrac12kx^2.$$
+So $M_{\rm eff}=2.0+1.0+0.5=3.5$ kg and $\omega^2=120/3.5=34.3$ s⁻², $\omega=5.86$ rad/s, $T=2\pi/\omega=1.07$ s. (Ignoring the pulley's inertia would give $T=0.99$ s.)</p>
+<p>(c) $v_{\max}=A\omega=0.050(5.855)=0.293$ m/s. Maximum acceleration $A\omega^2=0.050(34.3)=1.71$ m/s². The hanging mass has $m_2g-T_2=m_2a$, so $T_2=m_2(g-a)\ge1.0(10-1.71)=8.3$ N, always positive: the string stays taut. (It would go slack only if $A\omega^2$ exceeded $g$.)</p>`},
+  {id:"x6", title:"When does the block slip or leave the platform?", problem:String.raw`<p>A small block rests on a platform. $g=10$ m/s². (a) The platform oscillates <i>horizontally</i> with frequency $1.5$ Hz; the coefficient of static friction is $0.40$. Find the largest amplitude for which the block does not slip. (b) The platform instead oscillates <i>vertically</i> with frequency $2.0$ Hz. Find the largest amplitude for which the block stays in contact, and say where in the cycle contact is lost.</p>`,
+   solution:String.raw`<p>(a) $\omega=2\pi(1.5)=9.42$ rad/s, $\omega^2=88.8$ s⁻². The block's acceleration is supplied by static friction, $m A\omega^2\le\mu_smg$, so $A_{\max}=\mu_sg/\omega^2=0.40(10)/88.8=0.045$ m $=4.5$ cm.</p>
+<p>(b) $\omega=2\pi(2.0)=12.57$ rad/s, $\omega^2=157.9$ s⁻². Contact requires $N=m(g-A\omega^2)\ge0$ at the top of the motion (acceleration $A\omega^2$ downward). $A_{\max}=g/\omega^2=10/157.9=0.0633$ m $\approx6.3$ cm. If $A$ is bigger the block leaves the platform near the top of the motion, where the platform's downward acceleration first exceeds $g$, and it lands again later. Note that the mass of the block does not enter either answer.</p>`},
+  {id:"x7", title:"How long does it take to get there?", problem:String.raw`<p>A block oscillates with amplitude $0.20$ m and period $1.2$ s, starting from rest at $x=+0.20$ m at $t=0$. (a) At what time is it first at $x=+0.10$ m? (b) What fraction of the period does it spend with $|x|&lt;0.10$ m? (c) What is its speed at that first time?</p>`,
+   solution:String.raw`<p>(a) $x=A\cos\omega t$ with $\omega=2\pi/1.2=5.236$ rad/s. $0.10=0.20\cos\omega t\Rightarrow\omega t=\pi/3$, so $t=\dfrac{\pi/3}{5.236}=0.20$ s $=T/6$.</p>
+<p>(b) $|x|&lt;A/2$ corresponds to phases within $\pi/3$ of $\pm\pi/2$ on the reference circle, i.e. an angle of $\pi/3$ ($\pi/6$ either side of $\pi/2$) per crossing, and there are two crossings per cycle. Total angle $2\pi/3$, so the fraction is $1/3$. The block spends a third of the time in the middle half of its range, two thirds in the outer half.</p>
+<p>(c) $v=\omega\sqrt{A^2-x^2}=5.236\sqrt{0.04-0.01}=5.236(0.1732)=0.907$ m/s.</p>`},
+  {id:"x8", title:"Damped and driven numbers", problem:String.raw`<p>A $0.50$ kg block on a spring ($k=200$ N/m) moves through a fluid with drag $-b\dot x$, $b=0.40$ kg/s. (a) Find $\omega_0$, $\omega'$ and the period of the damped motion. (b) How long until the amplitude falls to $1/e$ of its initial value, and how many oscillations is that? (c) How long until the energy falls to $1/e$? (d) Find $Q$. (e) The block is now driven by $F_0\cos\omega t$ with $F_0=2.0$ N at $\omega=\omega_0$. Find the steady-state amplitude and compare it with the static displacement $F_0/k$.</p>`,
+   solution:String.raw`<p>(a) $\omega_0=\sqrt{200/0.5}=20.0$ rad/s. $\gamma=b/m=0.80$ s⁻¹, $\omega'=\sqrt{400-(0.40)^2}=19.996$ rad/s: the shift is only $0.02\%$. $T'=2\pi/\omega'=0.3142$ s.</p>
+<p>(b) Amplitude $\propto e^{-\gamma t/2}$, so $t=2/\gamma=2.5$ s. Number of oscillations $=2.5/0.3142=7.96\approx8$.</p>
+<p>(c) $E\propto A^2\propto e^{-\gamma t}$, so $\tau_E=1/\gamma=m/b=1.25$ s (half the amplitude time).</p>
+<p>(d) $Q=\omega_0/\gamma=20/0.80=25$. Check: fractional energy lost per cycle $=1-e^{-\gamma T'}=0.222$, close to $2\pi/Q=0.251$ (the approximation is for large $Q$).</p>
+<p>(e) At $\omega=\omega_0$: $A=\dfrac{F_0/m}{\gamma\omega_0}=\dfrac{4.0}{(0.80)(20)}=0.25$ m. The static displacement is $F_0/k=0.010$ m, so the resonant amplitude is $25$ times larger, which is exactly $Q$.</p>`}
   ],
   mcq:[
   {id:"q1", q:String.raw`<p>A block on a spring oscillates with period $T$. The mass of the block is quadrupled and the same spring is used. The new period is</p>`, choices:["$T/4$","$T/2$","$T$","$2T$","$4T$"], a:3,
@@ -173,7 +267,31 @@ $$m\ddot x=-kx-b\dot x.$$
   {id:"q9", q:String.raw`<p>The amplitude of a block on a spring is doubled (same block, same spring). Which row correctly describes the new period and total mechanical energy compared with the originals?</p>`, choices:["period same, energy $\\times 4$","period same, energy $\\times 2$","period $\\times2$, energy $\\times4$","period $\\times2$, energy $\\times 2$","period same, energy same"], a:0,
    why:String.raw`<p>$T=2\pi\sqrt{m/k}$ is independent of amplitude. $E=\tfrac12kA^2\propto A^2$ so doubling $A$ quadruples $E$. The energy is not $\times2$ because it goes as the square of the amplitude.</p>`},
   {id:"q10", q:String.raw`<p>A block on a spring moves through a viscous fluid with a drag force $-b\dot x$ small enough that it still oscillates. Compared with the same system with no drag, which statement is correct?</p>`, choices:["The amplitude decays exponentially and the period is slightly longer","The amplitude decreases linearly and the period is unchanged","The amplitude is unchanged but the period is longer","The amplitude decays exponentially and the period is much shorter","The equilibrium position shifts toward the side where the block started"], a:0,
-   why:String.raw`<p>For light damping $x=Ae^{-bt/2m}\cos(\omega't+\varphi)$ with $\omega'=\sqrt{\omega^2-(b/2m)^2}<\omega$, so the envelope is exponential and $T'$ is slightly larger. Drag $\propto v$ vanishes at rest, so it cannot move the equilibrium.</p>`}
+   why:String.raw`<p>For light damping $x=Ae^{-bt/2m}\cos(\omega't+\varphi)$ with $\omega'=\sqrt{\omega^2-(b/2m)^2}<\omega$, so the envelope is exponential and $T'$ is slightly larger. Drag $\propto v$ vanishes at rest, so it cannot move the equilibrium.</p>`},
+  {id:"q11", q:String.raw`<p>An oscillator's position is $x(t)=A\cos(\omega t+\varphi)$. A graph shows that at $t=0$ the oscillator is at $x=0$ and is moving toward positive $x$. The phase constant is</p>`, choices:["$\\varphi=0$","$\\varphi=+\\pi/2$","$\\varphi=\\pi/4$","$\\varphi=-\\pi/2$","$\\varphi=\\pi$"], a:3,
+   why:String.raw`<p>$x(0)=A\cos\varphi=0$ gives $\varphi=\pm\pi/2$. Then $v(0)=-A\omega\sin\varphi>0$ requires $\sin\varphi<0$, so $\varphi=-\pi/2$ (the curve is $A\sin\omega t$). The tempting $+\pi/2$ also has $x(0)=0$ but moves toward negative $x$.</p>`},
+  {id:"q12", q:String.raw`<p>Oscillator 1 has $x_1=A\cos\omega t$ and oscillator 2 has $x_2=A\cos(\omega t-\pi/2)$, the same $A$ and $\omega$. Compared with oscillator 1, oscillator 2 reaches each of its maxima</p>`, choices:["a quarter period later", "a quarter period earlier", "at the same time", "half a period later", "an eighth of a period later"], a:0,
+   why:String.raw`<p>$x_2$ is maximal when $\omega t-\pi/2=0$, i.e. $\omega t=\pi/2$, a quarter turn after $x_1$'s maximum at $\omega t=0$. A <i>minus</i> sign in the phase means the oscillator lags (is delayed); the tempting "earlier" reads the sign backward.</p>`},
+  {id:"q13", q:String.raw`<p>A block in SHM has amplitude $A$ and period $T$ and is released from rest at $x=+A$. The time it takes to first reach $x=A/2$ is</p>`, choices:["$T/12$", "$T/6$", "$T/8$", "$T/4$", "$T/3$"], a:1,
+   why:String.raw`<p>$\cos\omega t=\tfrac12\Rightarrow\omega t=\pi/3$, so $t=\dfrac{\pi/3}{2\pi/T}=T/6$. The reaction "half the distance should take half of the quarter period, $T/8$" fails because the block starts from rest and moves slowly near the turning point; it needs more than $T/8$. ($T/12$ is the time from $A/2$ to the center.)</p>`},
+  {id:"q14", q:String.raw`<p>A small block rests on a horizontal platform that oscillates vertically in SHM with frequency $2.0$ Hz. Use $g=10$ m/s². The largest amplitude for which the block stays in contact with the platform is closest to</p>`, choices:["$0.0063$ m", "$0.016$ m", "$0.25$ m", "$0.063$ m", "$2.5$ m"], a:3,
+   why:String.raw`<p>Contact is lost when the platform's downward acceleration $A\omega^2$ reaches $g$. $\omega=2\pi(2.0)=12.57$ rad/s, so $A=g/\omega^2=10/158=0.063$ m. Using $f=2.0$ directly in place of $\omega$ gives the tempting $2.5$ m; the block's mass does not matter.</p>`},
+  {id:"q15", q:String.raw`<p>A solid cylinder of mass $m=2.0$ kg rolls without slipping on a horizontal table. Its axle is attached to a horizontal spring of constant $k=60$ N/m fixed to a wall. It is displaced slightly and released. The period of its oscillation is closest to</p>`, choices:["1.15 s", "1.28 s", "1.62 s", "2.03 s", "1.40 s"], a:4,
+   why:String.raw`<p>Kinetic energy is $\tfrac12mv^2+\tfrac12(\tfrac12mR^2)(v/R)^2=\tfrac34mv^2$, so $M_{\rm eff}=\tfrac32m=3.0$ kg and $T=2\pi\sqrt{3.0/60}=1.40$ s. Treating it as a sliding block gives the tempting $1.15$ s (too short: it ignores the rotational energy). $1.62$ s would be $M_{\rm eff}=2m$.</p>`},
+  {id:"q16", q:String.raw`<p>A uniform disk hangs from a wire and oscillates in torsion with period $T$. The disk is replaced by another uniform disk of the same mass but twice the radius ($I=\tfrac12mR^2$), on the same wire. The new period is</p>`, choices:["$2T$", "$T/2$", "$T/4$", "$T$", "$4T$"], a:0,
+   why:String.raw`<p>$T=2\pi\sqrt{I/\kappa}$ and $I=\tfrac12mR^2$ increases by a factor of $4$, so $T$ doubles. The tempting $4T$ forgets the square root.</p>`},
+  {id:"q17", q:String.raw`<p>A $0.50$ kg mass is attached to a vertical spring with $k=50$ N/m and released from rest while the spring is at its natural (unstretched) length. Use $g=10$ m/s². The maximum speed of the mass is</p>`, choices:["$1.0$ m/s", "$0.50$ m/s", "$0.71$ m/s", "$1.4$ m/s", "$2.0$ m/s"], a:0,
+   why:String.raw`<p>The equilibrium is at stretch $mg/k=0.10$ m, so the motion has amplitude $A=0.10$ m about it and $\omega=\sqrt{50/0.5}=10$ rad/s, $v_{\max}=A\omega=1.0$ m/s. (Energy check: $mg(0.1)-\tfrac12k(0.1)^2=0.5-0.25=\tfrac12(0.5)v^2$ gives $v=1.0$.) The tempting $1.4$ m/s is the free-fall speed $\sqrt{2g(0.1)}$, which ignores the spring.</p>`},
+  {id:"q18", q:String.raw`<p>A lightly damped oscillator has $m=0.50$ kg and $b=0.40$ kg/s. The time for its <i>mechanical energy</i> to fall to $1/e$ of its initial value is</p>`, choices:["$0.63$ s", "$2.5$ s", "$5.0$ s", "$1.25$ s", "$0.31$ s"], a:3,
+   why:String.raw`<p>$E\propto A^2\propto e^{-bt/m}$, so $\tau_E=m/b=1.25$ s. The $2.5$ s answer is the time for the <i>amplitude</i> to fall by $1/e$ ($2m/b$); energy decays twice as fast.</p>`},
+  {id:"q19", q:String.raw`<p>A lightly damped oscillator with quality factor $Q=25$ is driven by a force $F_0\cos\omega t$. The steady-state amplitude when $\omega$ equals the natural frequency, compared with the displacement $F_0/k$ produced by the same force applied statically, is about</p>`, choices:["the same", "25 times larger", "5 times larger", "50 times larger", "625 times larger"], a:1,
+   why:String.raw`<p>At resonance $A=F_0/(m\gamma\omega_0)=Q\,F_0/k$, so the ratio is $Q=25$. The $625$ answer squares $Q$ (mixing up amplitude with energy).</p>`},
+  {id:"q20", q:String.raw`<p>Two atoms interact with $U(x)=U_0\left[(r_0/x)^{12}-2(r_0/x)^6\right]$, minimum at $x=r_0$ where $U''(r_0)=72U_0/r_0^2$. One atom is fixed and the other (mass $m$) oscillates with small amplitude about $r_0$. With $U_0=1.0\times10^{-21}$ J, $r_0=3.0\times10^{-10}$ m and $m=1.0\times10^{-26}$ kg, its angular frequency is closest to</p>`, choices:["$3\\times10^{12}$ rad/s", "$1\\times10^{12}$ rad/s", "$9\\times10^{12}$ rad/s", "$9\\times10^{11}$ rad/s", "$3\\times10^{13}$ rad/s"], a:2,
+   why:String.raw`<p>$k_{\rm eff}=72U_0/r_0^2=72(10^{-21})/(9\times10^{-20})=0.80$ N/m, so $\omega=\sqrt{0.80/10^{-26}}=8.9\times10^{12}$ rad/s. The frequency in hertz would be $1.4\times10^{12}$ Hz; do not report that as $\omega$.</p>`},
+  {id:"q21", q:String.raw`<p>A block-spring oscillator has amplitude $A$. Averaged over one full period, its kinetic energy is</p>`, choices:["$\\tfrac12kA^2$","$\\tfrac14kA^2$","$\\tfrac{1}{2\\sqrt2}kA^2$","$\\tfrac18kA^2$","$0$"], a:1,
+   why:String.raw`<p>$K=\tfrac12kA^2\sin^2(\omega t+\varphi)$ and the average of $\sin^2$ is $\tfrac12$, giving $\tfrac14kA^2=E/2$. The average of $K$ equals the average of $U$. $\tfrac12kA^2$ is the maximum kinetic energy, not its average.</p>`},
+  {id:"q22", q:String.raw`<p>A $3.0$ kg block is attached to a spring of constant $200$ N/m on a frictionless table. A $1.0$ kg block rests on top of it; the coefficient of static friction between the blocks is $0.50$. Use $g=10$ m/s². The largest amplitude of oscillation for which the top block does not slip is</p>`, choices:["$0.075$ m", "$0.050$ m", "$0.025$ m", "$0.200$ m", "$0.100$ m"], a:4,
+   why:String.raw`<p>Both blocks oscillate together with $\omega^2=k/(M+m)=50$ s⁻². The top block needs $m|a|_{\max}=mA\omega^2\le\mu_smg$, so $A_{\max}=\mu_sg/\omega^2=0.5(10)/50=0.100$ m (equivalently $\mu_sg(M+m)/k$). Using only the bottom block's mass in $\omega^2$ gives the tempting $0.075$ m.</p>`}
   ],
   frq:[
   {id:"f1", type:"Mathematical routines", title:"Rod with a spring: derive the equation of motion",
@@ -222,6 +340,53 @@ $$\ddot\theta=-\left(\frac{3g}{2L}+\frac{3k}{M}\right)\theta\quad\Rightarrow\qua
 <p>(b) $T^2$: 0.884, 1.69, 2.50, 3.31, 4.12 s² (to three significant figures: $0.94^2=0.884$, $1.30^2=1.69$, $1.58^2=2.50$, $1.82^2=3.31$, $2.03^2=4.12$).</p>
 <p>(c) Using the endpoints of the fitted line, slope $\approx\dfrac{4.12-0.88}{1.000-0.200}\approx4.05$ s²/m (a least-squares fit gives $4.05$). Then $g=\dfrac{4\pi^2}{4.05}=\dfrac{39.48}{4.05}\approx9.75$ m/s².</p>
 <p>(d) The intercept is about $+0.07$ s². Since $T^2=\dfrac{4\pi^2}{g}(L+r)$, the intercept is $\dfrac{4\pi^2}{g}r$, so $r=\dfrac{0.07}{4.05}\approx0.017$ m: about the radius of the bob (the true pendulum length runs to the bob's center of mass; the student measured only to the top of the bob). A constant offset in $L$ shifts the line vertically but does not change its slope, so $g$ from the slope is unaffected. (A method that used a single $(L,T)$ pair without checking the intercept would be biased.)</p>
-<p>(e) The reaction time of starting and stopping a stopwatch (about $0.2$ s) is a fixed absolute error; spread over 10 periods the error per period is ten times smaller. Small amplitude is needed so $\sin\theta\approx\theta$; at large amplitude the true period is longer ($T\approx T_0(1+\theta_0^2/16)$), so $T^2$ and the slope are too large, giving $g=4\pi^2/\text{slope}$ too <i>low</i>.</p>`}
+<p>(e) The reaction time of starting and stopping a stopwatch (about $0.2$ s) is a fixed absolute error; spread over 10 periods the error per period is ten times smaller. Small amplitude is needed so $\sin\theta\approx\theta$; at large amplitude the true period is longer ($T\approx T_0(1+\theta_0^2/16)$), so $T^2$ and the slope are too large, giving $g=4\pi^2/\text{slope}$ too <i>low</i>.</p>`},
+  {id:"f3", type:"Mathematical routines", title:"Spring, pulley and hanging mass: energy method",
+   prompt:String.raw`<p>A block of mass $m_1=2.0$ kg rests on a frictionless horizontal table. It is connected to a wall by a spring of constant $k=120$ N/m. A light string attached to the other side of the block passes over a pulley at the table edge and holds a hanging mass $m_2=1.0$ kg. The pulley is a uniform disk of mass $M_p=1.0$ kg and radius $R=0.10$ m ($I=\tfrac12M_pR^2$); the string does not slip. Take $g=10$ m/s². Let $x$ be the displacement of the block from its equilibrium position.</p>
+<p>(a) Find the spring's stretch at equilibrium.<br>
+(b) Write the total mechanical energy of the system for a displacement $x$ and speed $v=\dot x$. Treat gravity by measuring everything from equilibrium and show the linear terms cancel.<br>
+(c) Use $dE/dt=0$ to show that the motion is SHM and derive $\omega$ in terms of $k$, $m_1$, $m_2$, $M_p$. Evaluate $\omega$ and $T$.<br>
+(d) The system is released from rest with the block displaced $0.050$ m from equilibrium. Find the maximum speed of the hanging mass and the maximum angular speed of the pulley.<br>
+(e) Show that the string stays taut on the hanging-mass side during the motion.<br>
+(f) Explain physically why the period is longer than for the same system with a massless pulley.</p>`,
+   pts:[
+    {p:1,d:String.raw`Equilibrium: $kx_0=m_2g$, $x_0=0.083$ m (10/120)`},
+    {p:1,d:String.raw`Kinetic energy terms: $\tfrac12(m_1+m_2)v^2$ and pulley $\tfrac12I(v/R)^2=\tfrac14M_pv^2$`},
+    {p:1,d:String.raw`Potential energy: $\tfrac12k(x_0+x)^2-m_2gx$; expands to constant $+\tfrac12kx^2$ because $kx_0=m_2g$ (linear terms cancel)`},
+    {p:1,d:String.raw`$dE/dt=0$ gives $M_{\rm eff}\ddot x=-kx$ with $M_{\rm eff}=m_1+m_2+M_p/2$ and states SHM`},
+    {p:1,d:String.raw`$\omega=\sqrt{k/(m_1+m_2+M_p/2)}=\sqrt{120/3.5}=5.86$ rad/s, $T=1.07$ s`},
+    {p:1,d:String.raw`$v_{\max}=A\omega=0.29$ m/s for the hanging mass and $\omega_{p,\max}=v_{\max}/R=2.9$ rad/s`},
+    {p:1,d:String.raw`Taut: $m_2g-T_2=m_2a$, $|a|_{\max}=A\omega^2=1.7$ m/s² $&lt;g$, so $T_2\ge8.3$ N $>0$`},
+    {p:1,d:String.raw`Explanation: the pulley's rotational kinetic energy adds inertia ($M_p/2$) to the oscillating system without adding restoring force, so $\omega$ drops and $T$ increases`}],
+   solution:String.raw`<p>(a) $x_0=m_2g/k=10/120=0.083$ m.</p>
+<p>(b) $K=\tfrac12(m_1+m_2)v^2+\tfrac12\left(\tfrac12M_pR^2\right)(v/R)^2=\tfrac12\left(m_1+m_2+\tfrac{M_p}2\right)v^2$. $U=\tfrac12k(x_0+x)^2-m_2gx=\tfrac12kx_0^2+kx_0x+\tfrac12kx^2-m_2gx$. Since $kx_0=m_2g$ the linear terms cancel: $U=\text{const}+\tfrac12kx^2$.</p>
+<p>(c) $E=\tfrac12M_{\rm eff}\dot x^2+\tfrac12kx^2+\text{const}$, $M_{\rm eff}=m_1+m_2+M_p/2=3.5$ kg. $dE/dt=\dot x(M_{\rm eff}\ddot x+kx)=0\Rightarrow\ddot x=-(k/M_{\rm eff})x$. $\omega=\sqrt{120/3.5}=5.86$ rad/s, $T=1.07$ s.</p>
+<p>(d) $A=0.050$ m, $v_{\max}=A\omega=0.293$ m/s (the same for the block, the string and the hanging mass). Pulley: $0.293/0.10=2.93$ rad/s.</p>
+<p>(e) Maximum acceleration $A\omega^2=0.050(34.3)=1.71$ m/s². For the hanging mass $T_2=m_2(g-a)$, smallest when $a=+1.71$ m/s² downward: $T_2=1.0(10-1.71)=8.3$ N $>0$.</p>
+<p>(f) The pulley must be spun up and slowed down as the string moves, so part of the energy is stored as rotation. This acts as extra mass ($M_p/2=0.5$ kg) with no extra restoring force: same $k$, larger inertia, smaller $\omega$, longer $T$ ($1.07$ s versus $0.99$ s for a massless pulley).</p>`},
+  {id:"f4", type:"Experimental design & analysis", title:"Physical pendulum: a meter stick on different pivots",
+   prompt:String.raw`<p>A uniform meter stick ($L=1.000$ m, mass $m$) is hung from a horizontal pin through a small hole at distance $d$ from its center and swung through small angles. The period is measured for five values of $d$ (each is the average of timing 10 swings).</p>
+<table><tr><th>$d$ (m)</th><td>0.10</td><td>0.20</td><td>0.30</td><td>0.40</td><td>0.45</td></tr>
+<tr><th>$T$ (s)</th><td>1.95</td><td>1.57</td><td>1.52</td><td>1.57</td><td>1.59</td></tr></table>
+<p>(a) Show that $T^2d=\dfrac{4\pi^2}{g}\left(d^2+\dfrac{L^2}{12}\right)$, using $I_{\rm cm}=\tfrac1{12}mL^2$.<br>
+(b) State what to plot on each axis to obtain a straight line, and what the slope and the intercept represent.<br>
+(c) Add the two columns you need to the table and compute them.<br>
+(d) Draw a best-fit line (describe it) and use two well-separated points on the line to find the slope, then find $g$.<br>
+(e) The intercept from the line is about $0.34$ s²m. Use it to check the value of $L$ the model predicts, and say what a significantly different value would suggest about the experiment.<br>
+(f) The measured $T$ is smallest near $d\approx0.29$ m rather than decreasing as $d$ increases. Explain qualitatively why a pivot far from the center gives a longer period even though gravity's torque is larger there, and state the $d$ that minimizes $T$.</p>`,
+   pts:[
+    {p:1,d:String.raw`Parallel axis: $I=\tfrac1{12}mL^2+md^2$; $T=2\pi\sqrt{I/mgd}$ squared and multiplied by $d$ gives $T^2d=\frac{4\pi^2}{g}(d^2+L^2/12)$`},
+    {p:1,d:String.raw`Plots $T^2d$ (vertical) against $d^2$ (horizontal); slope $4\pi^2/g$; intercept $4\pi^2L^2/(12g)$`},
+    {p:1,d:String.raw`$d^2$: 0.0100, 0.0400, 0.0900, 0.1600, 0.2025 m²; $T^2d$: 0.380, 0.493, 0.693, 0.986, 1.138 s²m`},
+    {p:1,d:String.raw`Line drawn through the trend; slope from two well-separated points on the line (not data points), value about $3.9$ to $4.0$ s²/m`},
+    {p:1,d:String.raw`$g=4\pi^2/\text{slope}\approx9.9$ to $10.0$ m/s² (accept 9.7 to 10.1)`},
+    {p:1,d:String.raw`Intercept $\Rightarrow L^2=12(\text{intercept})/\text{slope}$, $L\approx1.0$ m, consistent with the meter stick; a very different value would mean the model (uniform rod, pivot at a point, small angle) or the measurement of $d$ is flawed`},
+    {p:1,d:String.raw`Explains the minimum: the period balances torque growing with $d$ against $I$ growing as $md^2$ (at large $d$ the stick behaves like a long simple pendulum of length about $d$); minimum at $d=L/\sqrt{12}\approx0.29$ m`}],
+   solution:String.raw`<p>(a) $I=\tfrac1{12}mL^2+md^2$, so $T^2=4\pi^2\dfrac{I}{mgd}=\dfrac{4\pi^2}{g}\,\dfrac{L^2/12+d^2}{d}$. Multiply by $d$.</p>
+<p>(b) $y=T^2d$, $x=d^2$: $y=\dfrac{4\pi^2}{g}x+\dfrac{4\pi^2L^2}{12g}$. Slope $4\pi^2/g$; intercept $4\pi^2L^2/12g$. (This linearization puts the unknown $g$ in the slope and the geometry in the intercept.)</p>
+<p>(c) $d^2$: 0.0100, 0.0400, 0.0900, 0.1600, 0.2025. $T^2d$: $1.95^2(0.10)=0.380$; $1.57^2(0.20)=0.493$; $1.52^2(0.30)=0.693$; $1.57^2(0.40)=0.986$; $1.59^2(0.45)=1.138$ (s²m).</p>
+<p>(d) Using points on the fitted line near the ends, slope $\approx\dfrac{1.138-0.380}{0.2025-0.0100}\approx3.9$ to $4.0$ s²/m (a least-squares fit gives $3.98$). $g=4\pi^2/3.98=9.9$ m/s².</p>
+<p>(e) Intercept $=0.34$: $L^2=12(0.34)/3.98=1.03$ m², $L\approx1.01$ m, consistent with the meter stick. A strongly different value would indicate an error such as the pivot offset being mismeasured (a systematic error in $d$ distorts both slope and intercept) or large-amplitude swings.</p>
+<p>(f) Close to the center, gravity's torque $mgd\sin\theta$ is small while $I\approx mL^2/12$ stays large, so the period is long (as $d\to0$, $T\to\infty$). Far from the center $I\approx md^2$ grows as fast as the torque and the stick acts like a simple pendulum of length about $d$, so $T$ grows again with $d$. Minimizing $T^2=\frac{4\pi^2}{g}(d+L^2/12d)$: $1-L^2/12d^2=0\Rightarrow d=L/\sqrt{12}=0.289$ m, where $T_{\min}=1.52$ s. (At that point $T$ is the same as a simple pendulum of length $2d$.)</p>`}
   ]
 });
